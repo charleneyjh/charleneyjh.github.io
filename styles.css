@@ -143,29 +143,6 @@ a:focus-visible {
   color: var(--ink-soft);
 }
 
-/* Sticker-style tags, each set down at a slightly different angle */
-.stickers {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 36px;
-}
-
-.stickers li {
-  padding: 8px 14px;
-  background: var(--paper-raised);
-  border: 1.5px solid var(--ink);
-  border-radius: 8px;
-  box-shadow: 3px 3px 0 var(--ink);
-  font: 500 14px/1.4 var(--font-mono);
-  transition: transform 0.2s ease;
-}
-
-.stickers li:nth-child(1) { transform: rotate(-2deg); }
-.stickers li:nth-child(2) { transform: rotate(1.5deg); }
-.stickers li:nth-child(3) { transform: rotate(-1deg); }
-.stickers li:hover { transform: rotate(0deg) translateY(-2px); }
-
 /* ---------- Sections ---------- */
 .section {
   padding-block: clamp(48px, 8vw, 88px);
