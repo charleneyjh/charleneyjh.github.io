@@ -240,8 +240,11 @@ a:focus-visible {
 }
 
 .badge__photo {
+  display: block;
+  width: calc(100% - 32px);
+  height: auto;
   aspect-ratio: 1;
-  min-height: 0;
+  object-fit: cover;
   margin: 16px 16px 14px;
   border-radius: 10px;
 }
