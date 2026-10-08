@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 230">
+  <!-- Paint-chip colour card -->
+  <rect x="3" y="3" width="174" height="224" rx="8" fill="#fffdf8" stroke="#e4dccd" stroke-width="2"/>
+  <rect x="15" y="15" width="150" height="54" rx="3" fill="#c8421a"/>
+  <rect x="15" y="75" width="150" height="54" rx="3" fill="#fbe3d6"/>
+  <rect x="15" y="135" width="150" height="54" rx="3" fill="#26221d"/>
+  <path d="M17 207h58M17 217h34" stroke="#6a6258" stroke-width="3" stroke-linecap="round"/>
+</svg>

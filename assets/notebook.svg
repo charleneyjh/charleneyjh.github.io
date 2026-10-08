@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 300">
+  <!-- Closed notebook with an elastic band and a paper label -->
+  <rect x="10" y="8" width="224" height="286" rx="10" fill="#fffdf8" stroke="#e4dccd" stroke-width="2"/>
+  <rect x="4" y="4" width="224" height="286" rx="10" fill="#c8421a"/>
+  <rect x="4" y="4" width="26" height="286" rx="10" fill="#a93613"/>
+  <rect x="20" y="4" width="10" height="286" fill="#a93613"/>
+  <rect x="186" y="4" width="10" height="286" fill="#26221d" opacity=".85"/>
+  <rect x="58" y="56" width="104" height="62" rx="4" fill="#fffdf8"/>
+  <path d="M72 78h76M72 96h48" stroke="#26221d" stroke-width="4" stroke-linecap="round"/>
+</svg>

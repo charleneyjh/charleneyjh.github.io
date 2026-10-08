@@ -21,6 +21,50 @@ window.addEventListener('scroll', () => {
   if (window.scrollY < 80) links.forEach(a => a.classList.remove('is-active'));
 }, { passive: true });
 
+// Hero: desk objects can be dragged around with a mouse on desktop layouts.
+// The offset is stored in --dx/--dy, which styles.css adds to each object's transform.
+const hero = document.querySelector('.hero');
+const canDrag = window.matchMedia('(min-width: 760px) and (pointer: fine)');
+let topLayer = 1;
+
+document.querySelectorAll('.obj').forEach(obj => {
+  let drag = null;
+
+  obj.addEventListener('pointerdown', e => {
+    if (!canDrag.matches || e.button !== 0) return;
+    e.preventDefault();
+    obj.setPointerCapture(e.pointerId);
+    const dx = parseFloat(obj.style.getPropertyValue('--dx')) || 0;
+    const dy = parseFloat(obj.style.getPropertyValue('--dy')) || 0;
+    const box = obj.getBoundingClientRect();
+    const bounds = hero.getBoundingClientRect();
+    drag = {
+      startX: e.clientX - dx,
+      startY: e.clientY - dy,
+      // How far the object may travel before it leaves the hero.
+      minX: bounds.left - (box.left - dx), maxX: bounds.right - (box.right - dx),
+      minY: bounds.top - (box.top - dy), maxY: bounds.bottom - (box.bottom - dy),
+    };
+    obj.style.zIndex = ++topLayer;
+    obj.classList.add('is-dragging');
+  });
+
+  obj.addEventListener('pointermove', e => {
+    if (!drag) return;
+    const dx = Math.min(drag.maxX, Math.max(drag.minX, e.clientX - drag.startX));
+    const dy = Math.min(drag.maxY, Math.max(drag.minY, e.clientY - drag.startY));
+    obj.style.setProperty('--dx', dx + 'px');
+    obj.style.setProperty('--dy', dy + 'px');
+  });
+
+  const drop = () => {
+    drag = null;
+    obj.classList.remove('is-dragging');
+  };
+  obj.addEventListener('pointerup', drop);
+  obj.addEventListener('pointercancel', drop);
+});
+
 document.getElementById('year').textContent = new Date().getFullYear();
 
 // Dev-only: the comment overlay never loads on the published site.
