@@ -8,7 +8,8 @@
   --accent: #c8421a;
   --accent-wash: #fbe3d6;
 
-  --font-sans: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "DM Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
   --wrap: 1040px;
@@ -37,6 +38,12 @@ body {
 }
 
 h1, h2, h3, p, ul, dl, dd { margin: 0; }
+
+/* Headlines are set in the serif; everything else in the sans */
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+}
 ul { padding: 0; list-style: none; }
 
 a { color: inherit; }
@@ -86,7 +93,7 @@ a:focus-visible {
 }
 
 .nav__name {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 19px;
   letter-spacing: -0.01em;
   text-decoration: none;
@@ -124,7 +131,6 @@ a:focus-visible {
   max-width: 18ch;
   margin-top: 16px;
   font-size: clamp(38px, 7.2vw, 76px);
-  font-weight: 700;
   line-height: 1.04;
   letter-spacing: -0.03em;
 }
@@ -154,7 +160,6 @@ a:focus-visible {
 .section__head h2 {
   margin-top: 6px;
   font-size: clamp(30px, 5vw, 46px);
-  font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
