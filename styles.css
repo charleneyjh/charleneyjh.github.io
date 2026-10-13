@@ -440,34 +440,54 @@ a:focus-visible {
   color: rgba(250, 246, 238, 0.6);
 }
 
-/* Round photo with an offset accent ring and a star sticker on its edge */
+/* Blob-shaped photo with a thin offset outline and small doodle marks */
 .badge__portrait {
   position: relative;
-  width: 74%;
-  margin: 26px auto 24px;
+  width: 78%;
+  margin: 28px auto 28px;
 }
 
 .badge__photo {
+  position: relative;
   display: block;
   width: 100%;
   height: auto;
   aspect-ratio: 1;
   object-fit: cover;
-  border-radius: 50%;
-  box-shadow: 0 0 0 5px var(--ink), 0 0 0 7px var(--accent);
+  border-radius: 58% 42% 47% 53% / 46% 55% 45% 54%;
 }
 
-.badge__star {
+/* The outline: a plain circle sitting slightly down and left of the blob */
+.badge__portrait::after {
+  content: "";
   position: absolute;
-  right: -10px;
-  bottom: -4px;
+  inset: -2%;
+  border: 1px solid rgba(250, 246, 238, 0.7);
+  border-radius: 50%;
+  transform: translate(-5%, 4%);
+  pointer-events: none;
+}
+
+.badge__marks {
+  position: absolute;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.badge__marks--plus {
+  top: -12px;
+  right: -12px;
+  width: 34px;
+  height: 34px;
+}
+
+.badge__marks--slash {
+  left: -16px;
+  bottom: 14px;
   width: 46px;
-  height: 46px;
-  fill: var(--accent);
-  stroke: var(--paper);
-  stroke-width: 1.4;
-  stroke-linejoin: round;
-  transform: rotate(12deg);
+  height: 16px;
 }
 
 .badge__name {
