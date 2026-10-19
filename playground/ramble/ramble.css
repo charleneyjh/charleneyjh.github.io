@@ -233,7 +233,7 @@
 .rb-pill[data-mode="text"] .rb-pill__cancel { display: none; }
 .rb-pill[data-mode="rec"] .rb-pill__text { display: none; }
 
-/* fn key and status under the screen */
+/* Option key and status under the screen */
 .rb-controls {
   display: flex;
   align-items: center;
@@ -241,30 +241,38 @@
   margin-top: 18px;
 }
 
-.rb-fn {
+.rb-key {
   flex: none;
-  width: 64px;
-  height: 56px;
-  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 84px;
+  height: 58px;
+  padding: 7px 9px 6px;
   border: 1px solid #d8d0c0;
   border-bottom-width: 4px;
   border-radius: 12px;
   background: #fffdf8;
   color: #26221d;
-  font: 500 18px/1 "DM Mono", ui-monospace, monospace;
+  font: 400 12px/1 var(--rb-mac);
   cursor: pointer;
   transition: transform 0.08s ease, border-bottom-width 0.08s ease, background-color 0.2s ease;
 }
 
-.rb-fn:active,
-.rb-fn.is-pressed {
+/* A Mac-style keycap: the symbol top right, the name bottom left */
+.rb-key__glyph { font-size: 16px; }
+.rb-key__name { align-self: flex-start; }
+
+.rb-key:active,
+.rb-key.is-pressed {
   transform: translateY(2px);
   border-bottom-width: 2px;
 }
 
-.rb-fn:disabled { cursor: default; opacity: 0.55; }
+.rb-key:disabled { cursor: default; opacity: 0.55; }
 
-.rb-fn.is-live {
+.rb-key.is-live {
   background: var(--rb-wash);
   border-color: #b9a6f0;
   animation: rb-nudge 1.6s ease-in-out infinite;
@@ -272,7 +280,7 @@
 
 @keyframes rb-nudge { 50% { box-shadow: 0 0 0 6px rgba(106, 69, 217, 0.15); } }
 
-.rb-fn:focus-visible {
+.rb-key:focus-visible {
   outline: 2px solid var(--rb-purple);
   outline-offset: 3px;
 }

@@ -1,4 +1,4 @@
-// Ramble "Try it": tap fn, talk, tap fn again. The browser's speech recognition transcribes what you
+// Ramble "Try it": tap Option, talk, tap Option again. The browser's speech recognition transcribes what you
 // say into the mock Notes window, then Ramble's rule-based cleanup (ported from Cleanup.swift) tidies it.
 // The cat follows the app's ListeningBar.swift, driven by the real microphone level.
 (() => {
@@ -10,7 +10,7 @@
   const screen = $('.rb-screen');
   const note = $('.rb-note');
   const bar = $('.rb-bar'), pill = $('.rb-pill'), pillText = $('.rb-pill__text');
-  const fnKey = $('.rb-fn'), status = $('.rb-status');
+  const fnKey = $('.rb-key'), status = $('.rb-status');
   const waveBars = [...root.querySelectorAll('.rb-pill__wave i')];
   const catCtx = $('.rb-cat').getContext('2d');
   const bubbleCtx = $('.rb-bubble').getContext('2d');
@@ -92,7 +92,7 @@
       const said = esc(finalText) + (interimText ? `<span class="rb-interim">${esc(interimText)}</span>` : '');
       parts.push(`<p>${said}<span class="rb-caret" aria-hidden="true"></span></p>`);
     } else if (!notes.length) {
-      parts.push('<p><span class="rb-hint">Tap fn and start talking…</span><span class="rb-caret" aria-hidden="true"></span></p>');
+      parts.push('<p><span class="rb-hint">Tap ⌥ Option and start talking…</span><span class="rb-caret" aria-hidden="true"></span></p>');
     } else {
       parts.push('<p><span class="rb-caret" aria-hidden="true"></span></p>');
     }
@@ -153,7 +153,7 @@
     if (micResult !== true) {
       fnKey.disabled = false;
       setStatus(micResult && micResult.name === 'NotAllowedError'
-        ? 'Microphone access was blocked. Allow it in your browser\'s site settings, then tap fn again.'
+        ? 'Microphone access was blocked. Allow it in your browser\'s site settings, then tap Option again.'
         : 'Couldn\'t open a microphone on this device.');
       return;
     }
@@ -177,10 +177,10 @@
       if (e.error === 'no-speech' || e.error === 'aborted') return;
       stopEverything();
       setStatus(e.error === 'not-allowed' || e.error === 'service-not-allowed'
-        ? 'Speech recognition was blocked. Allow the microphone for this site, then tap fn again.'
+        ? 'Speech recognition was blocked. Allow the microphone for this site, then tap Option again.'
         : 'Speech recognition isn\'t working in this browser window. Try Chrome or Safari.');
     };
-    // Chrome ends a session after a long silence; keep listening until fn is tapped.
+    // Chrome ends a session after a long silence; keep listening until Option is tapped.
     recognition.onend = () => {
       if (phase === 'recording') {
         try { recognition.start(); } catch { /* already restarting */ }
@@ -203,7 +203,7 @@
     renderNote({ live: true });
     fnKey.disabled = false;
     fnKey.classList.add('is-live');
-    setStatus('Listening… tap fn again when you\'re done.');
+    setStatus('Listening… tap Option again when you\'re done.');
   }
 
   function stopRecognition() {
@@ -236,7 +236,7 @@
     if (!said) {
       // Like the app: stay quiet when nothing was said.
       stopEverything();
-      setStatus('Didn\'t catch anything. Tap fn and try again.');
+      setStatus('Didn\'t catch anything. Tap Option and try again.');
       return;
     }
 
@@ -251,7 +251,7 @@
       renderNote({ typedLast: true });
       showBar('none');
       fnKey.disabled = false;
-      setStatus('Done: filler words and repeats removed. Tap fn to add another note.');
+      setStatus('Done: filler words and repeats removed. Tap Option to add another note.');
       // A quick flick of the happy tail.
       later(700, () => { hideBar(); phase = 'idle'; });
     });
@@ -278,15 +278,23 @@
     fnKey.addEventListener('click', pressFn);
     $('.rb-pill__cancel').addEventListener('click', cancel);
 
-    // Space taps fn while the demo is on screen (unless a control has focus).
+    // Tapping Option on its own (pressed and released with no other key) works like the on-screen
+    // key while the demo is on screen. Option used with another key, or held down, is left alone.
     let inView = false;
+    let optionDown = 0;
     new IntersectionObserver(([e]) => { inView = e.isIntersecting; }).observe(screen);
     document.addEventListener('keydown', e => {
-      if (e.code !== 'Space' || !inView || e.repeat) return;
-      if (e.target.closest('button, a, input, textarea, select, [contenteditable]')) return;
+      optionDown = e.key === 'Alt' && !e.repeat ? performance.now() : 0;
+    });
+    document.addEventListener('keyup', e => {
+      if (e.key !== 'Alt' || !optionDown) return;
+      const tapped = performance.now() - optionDown < 500;
+      optionDown = 0;
+      if (!tapped || !inView || e.target.closest('input, textarea, select, [contenteditable]')) return;
       e.preventDefault();
       pressFn();
     });
+    window.addEventListener('blur', () => { optionDown = 0; });
   }
   renderNote();
 
