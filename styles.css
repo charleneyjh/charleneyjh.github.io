@@ -585,14 +585,15 @@ a:focus-visible {
   filter: drop-shadow(0 1px 2px rgba(38, 34, 29, 0.12)); /* a light, Dock-like shadow */
 }
 
+/* Handwritten, like a label in a sketchbook */
 .project__title {
-  margin-top: 4px;
-  font-size: clamp(30px, 4vw, 40px);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  font: 600 clamp(44px, 5.5vw, 56px)/1 "Caveat", var(--font-serif);
 }
 
-.project__text { margin-top: 12px; }
+.project__text {
+  margin-top: 10px;
+  font-size: 16px;
+}
 
 kbd {
   display: inline-block;
