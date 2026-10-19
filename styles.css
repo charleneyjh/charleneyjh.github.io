@@ -577,6 +577,58 @@ a:focus-visible {
 
 .tiles .placeholder { aspect-ratio: 1; min-height: 0; }
 
+/* A featured project spans two tiles */
+.tile--feature { grid-column: span 2; }
+
+.project {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  height: 100%;
+  padding: 20px;
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(38, 34, 29, 0.1);
+}
+
+.project__icon {
+  flex: none;
+  width: 64px;
+  height: 64px;
+  filter: drop-shadow(0 6px 10px rgba(74, 47, 168, 0.25));
+}
+
+.project__body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.project__title {
+  font: 500 26px/1.1 var(--font-serif);
+  letter-spacing: -0.01em;
+}
+
+.project__text {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.project__cta {
+  margin-top: auto;
+  padding-top: 6px;
+  font: 500 14px/1.4 var(--font-mono);
+  color: var(--accent);
+}
+
 /* ---------- Footer ---------- */
 .footer {
   display: flex;

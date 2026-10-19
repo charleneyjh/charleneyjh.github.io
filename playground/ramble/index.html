@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ramble — talk it through, get tidy notes</title>
+  <meta name="description" content="Ramble is a Mac menu-bar app by Charlene Yang: tap fn, talk through a thought, and get it back as tidy notes, typed where your cursor is.">
+  <link rel="icon" href="icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Instrument+Sans:wght@400..700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="ramble.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="topbar__back" href="../../#playground">← Charlene Yang</a>
+      <span class="label">Playground</span>
+    </div>
+  </header>
+
+  <main>
+    <!-- Intro -->
+    <section class="intro wrap">
+      <img class="intro__icon" src="icon.png" alt="" width="256" height="256">
+      <h1>Ramble</h1>
+      <p class="intro__tagline">Talk through a thought, get it back as tidy notes.</p>
+      <p class="intro__lede">A Mac menu-bar app I designed and built. Tap <kbd>fn</kbd>, talk, tap <kbd>fn</kbd> again, and Ramble types a clean note wherever your cursor is.</p>
+      <ul class="chips">
+        <li>On-device speech</li>
+        <li>No API key needed</li>
+        <li>macOS 26</li>
+      </ul>
+    </section>
+
+    <!-- Interactive demo -->
+    <section class="section wrap" id="demo">
+      <header class="section__head">
+        <h2>Try it</h2>
+        <p class="section__intro">Pick something to say, then tap <kbd>fn</kbd> (or press Space). This runs as a simulation in your browser; the real app listens to your voice on your Mac.</p>
+      </header>
+
+      <div class="demo">
+        <div class="demo__stage">
+          <!-- A small Mac desktop -->
+          <div class="screen">
+            <div class="menubar">
+              <span class="menubar__app">Notes</span>
+              <span class="menubar__right">
+                <svg class="menubar__ramble" viewBox="0 0 18 14" aria-label="Ramble"><path d="M2 5v4M5.5 3v8M9 1v12M12.5 3v8M16 5v4"/></svg>
+                <span class="menubar__clock">9:41</span>
+              </span>
+            </div>
+
+            <div class="window">
+              <div class="window__bar">
+                <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="window__title">Untitled</span>
+              </div>
+              <div class="window__body" id="note" aria-live="polite">
+                <span class="caret" aria-hidden="true"></span>
+              </div>
+            </div>
+
+            <!-- The floating cat and bar, as in the app -->
+            <div class="bar" id="bar" aria-hidden="true">
+              <div class="bar__cat">
+                <canvas id="cat" width="144" height="66"></canvas>
+                <canvas class="bar__bubble" id="bubble" width="40" height="40"></canvas>
+              </div>
+              <div class="pill" id="pill">
+                <span class="pill__rec"></span>
+                <span class="pill__wave" id="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+                <button class="pill__cancel" id="cancel" type="button" tabindex="-1" title="Cancel this recording">✕</button>
+                <span class="pill__text" id="pill-text"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="controls">
+            <button class="fn" id="fn" type="button" aria-describedby="status">fn</button>
+            <p class="status" id="status">Tap fn to start talking.</p>
+          </div>
+        </div>
+
+        <aside class="demo__side">
+          <div class="field">
+            <p class="label">What to say</p>
+            <div class="segmented" id="scenarios" role="radiogroup" aria-label="What to say"></div>
+          </div>
+          <div class="field">
+            <p class="label">Style</p>
+            <div class="segmented" id="styles" role="radiogroup" aria-label="Style"></div>
+          </div>
+          <div class="field field--grow">
+            <p class="label">What you said</p>
+            <p class="transcript" id="transcript"><span class="transcript__empty">Your words show up here as you talk.</span></p>
+            <ul class="legend" aria-label="Key">
+              <li><i class="t-filler"></i>Filler</li>
+              <li><i class="t-repeat"></i>Repeat</li>
+              <li><i class="t-back"></i>Taken back</li>
+              <li><i class="t-grammar"></i>Grammar</li>
+              <li><i class="t-smooth"></i>Smoothed</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Pipeline -->
+    <section class="section wrap">
+      <header class="section__head">
+        <h2>Between one fn and the next</h2>
+      </header>
+      <ol class="steps">
+        <li>
+          <p class="label">01 · Listen</p>
+          <h3>On-device speech</h3>
+          <p>Apple's newer speech engine, the one behind Notes and Voice Memos. It works offline after a one-time model download.</p>
+        </li>
+        <li>
+          <p class="label">02 · Clean up</p>
+          <h3>Fixed rules first</h3>
+          <p>Fillers, stutters and stray "you know"s go before any AI step. It's instant, and it can't invent anything.</p>
+        </li>
+        <li>
+          <p class="label">03 · Tidy</p>
+          <h3>Formatted by content</h3>
+          <p>Apple Intelligence on device, or Claude Haiku with your own key. Steps become numbered lists; emails keep their sign-off.</p>
+        </li>
+        <li>
+          <p class="label">04 · Type</p>
+          <h3>Right where you are</h3>
+          <p>Pasted at your cursor with real headings and bullets, and left on your clipboard too.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Features -->
+    <section class="section wrap">
+      <header class="section__head">
+        <h2>Built for how people actually talk</h2>
+      </header>
+      <div class="features">
+        <article class="feature">
+          <h3>Self-corrections</h3>
+          <p>Say "let's meet Tuesday, no wait, Wednesday" and only Wednesday is kept. Rewrites are only accepted if they add no new words.</p>
+          <p class="example"><s>Tuesday, no wait,</s> Wednesday</p>
+        </article>
+        <article class="feature">
+          <h3>Spoken structure</h3>
+          <p>"First… second… third…" becomes a numbered list. Say "new paragraph" or "bullet point" to format directly.</p>
+          <p class="example">first → 1.&nbsp;&nbsp;second → 2.</p>
+        </article>
+        <article class="feature">
+          <h3>Accent training</h3>
+          <p>Read a short passage aloud and Ramble learns how your accent tends to be transcribed, with passages focused on the sounds most often misheard from Cantonese and Mandarin speakers.</p>
+          <p class="example"><s>wery</s> very · <s>tree</s> three</p>
+        </article>
+        <article class="feature">
+          <h3>Private by default</h3>
+          <p>Speech and tidying both run on your Mac. Nothing leaves it unless you choose Claude as the tidying engine.</p>
+          <p class="example">no account · no key · offline</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Cat states -->
+    <section class="section wrap">
+      <header class="section__head">
+        <h2>Meet the cat</h2>
+        <p class="section__intro">A pixel-art cat sits on the bar while you talk and reacts like a listener: ears up while you speak, a head tilt when you pause, yarn when you go quiet too long.</p>
+      </header>
+      <ul class="cats" id="cats"></ul>
+    </section>
+
+    <!-- Under the hood -->
+    <section class="section wrap">
+      <header class="section__head">
+        <h2>Under the hood</h2>
+      </header>
+      <dl class="specs">
+        <div><dt>Built with</dt><dd>Swift and SwiftUI, compiled with a small build script</dd></div>
+        <div><dt>Speech</dt><dd>Apple SpeechAnalyzer, with the classic recognizer as a fallback</dd></div>
+        <div><dt>Tidying</dt><dd>Apple Intelligence (Foundation Models), or Claude Haiku</dd></div>
+        <div><dt>Requires</dt><dd>macOS 26 on Apple Silicon, Apple Intelligence on</dd></div>
+      </dl>
+    </section>
+  </main>
+
+  <footer class="footer wrap">
+    <a class="label" href="../../#playground">← Back to the portfolio</a>
+    <p class="label">© <span id="year"></span> Charlene Yang</p>
+  </footer>
+
+  <script src="cat.js"></script>
+  <script src="ramble.js"></script>
+</body>
+</html>
