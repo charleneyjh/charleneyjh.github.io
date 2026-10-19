@@ -14,7 +14,7 @@
   aspect-ratio: 5 / 4;
   border-radius: 14px;
   /* Flat, muted sage: a sketchbook feel rather than a glossy wallpaper */
-  background: #b4c2a5;
+  background: #cfe0c4; /* the same sage as the Ramble icon */
   box-shadow: 0 1px 3px rgba(38, 34, 29, 0.08);
   font-family: var(--rb-mac);
 }
