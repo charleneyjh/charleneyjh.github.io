@@ -585,10 +585,11 @@ a:focus-visible {
   filter: drop-shadow(0 6px 10px rgba(74, 47, 168, 0.25));
 }
 
-/* Pixel lettering to match Ramble's pixel-art cat */
 .project__title {
-  margin-top: 6px;
-  font: 700 clamp(30px, 4vw, 40px)/1.1 "Silkscreen", var(--font-mono);
+  margin-top: 4px;
+  font-size: clamp(30px, 4vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 .project__text { margin-top: 12px; }
