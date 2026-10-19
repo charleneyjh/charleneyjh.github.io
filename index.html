@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Instrument+Sans:wght@400..700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="playground/ramble/ramble.css">
 </head>
 <body>
   <header class="nav" id="nav">
@@ -130,22 +131,50 @@
       <header class="section__head">
         <h2>Playground</h2>
       </header>
-      <p class="section__intro">Side projects, experiments, and things made for fun.</p>
-      <ul class="tiles">
-        <li class="tile tile--feature">
-          <a class="project" href="playground/ramble/">
-            <img class="project__icon" src="playground/ramble/icon.png" alt="" width="256" height="256">
-            <span class="project__body">
-              <span class="label">Mac app · Swift</span>
-              <span class="project__title">Ramble</span>
-              <span class="project__text">Talk through a thought, get it back as tidy notes. A menu-bar app with an on-device speech engine and a pixel cat that listens.</span>
-              <span class="project__cta">Try the demo →</span>
-            </span>
-          </a>
-        </li>
-        <li class="placeholder">experiment</li>
-        <li class="placeholder">experiment</li>
-      </ul>
+      <article class="project rb">
+        <div class="project__info">
+          <img class="project__icon" src="playground/ramble/icon.png" alt="" width="256" height="256">
+          <p class="label">Vibe-coded · Mac app</p>
+          <h3 class="project__title">Ramble</h3>
+          <p class="project__text">Talk through a thought, get it back as tidy notes. Tap <kbd>fn</kbd>, talk, tap <kbd>fn</kbd> again, and Ramble types a clean note wherever your cursor is, with a pixel cat that listens along.</p>
+          <p class="project__note">Try it here: this demo uses your browser's speech recognition and works in Chrome and Safari. In Chrome, your audio is sent to Google to be transcribed. The Mac app does everything on device.</p>
+        </div>
+
+        <div class="project__demo">
+          <div class="rb-screen">
+            <div class="rb-menubar">
+              <span>Notes</span>
+              <span class="rb-menubar__right">
+                <svg class="rb-menubar__icon" viewBox="0 0 18 14" aria-label="Ramble"><path d="M2 5v4M5.5 3v8M9 1v12M12.5 3v8M16 5v4"/></svg>
+                <span>9:41</span>
+              </span>
+            </div>
+            <div class="rb-window">
+              <div class="rb-window__bar">
+                <span class="rb-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="rb-window__title">Untitled</span>
+              </div>
+              <div class="rb-note" aria-live="polite"></div>
+            </div>
+            <div class="rb-bar" aria-hidden="true">
+              <div class="rb-bar__cat">
+                <canvas class="rb-cat" width="144" height="66"></canvas>
+                <canvas class="rb-bubble" width="40" height="40"></canvas>
+              </div>
+              <div class="rb-pill">
+                <span class="rb-pill__rec"></span>
+                <span class="rb-pill__wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+                <button class="rb-pill__cancel" type="button" tabindex="-1" title="Cancel this recording">✕</button>
+                <span class="rb-pill__text"></span>
+              </div>
+            </div>
+          </div>
+          <div class="rb-controls">
+            <button class="rb-fn" type="button" aria-describedby="rb-status">fn</button>
+            <p class="rb-status" id="rb-status">Tap fn (or press Space) and start talking.</p>
+          </div>
+        </div>
+      </article>
     </section>
   </main>
 
@@ -155,5 +184,7 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="playground/ramble/cat.js"></script>
+  <script src="playground/ramble/ramble.js"></script>
 </body>
 </html>
