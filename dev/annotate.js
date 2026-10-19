@@ -21,6 +21,13 @@
         box-shadow: 0 4px 16px rgba(0,0,0,.25);
       }
       .toggle.on { background: #2563eb; }
+      /* Copies the notes as text, for pasting into chat from a browser Claude can't read */
+      .copy {
+        position: fixed; right: 16px; bottom: 64px; z-index: 2147483647;
+        padding: 6px 12px; border: 1px solid #d4d4d4; border-radius: 999px; cursor: pointer;
+        background: #fff; color: #1f1d1a; font: inherit; font-size: 12px; font-weight: 600;
+        box-shadow: 0 2px 8px rgba(0,0,0,.15);
+      }
       .outline {
         position: absolute; z-index: 2147483645; pointer-events: none;
         border: 2px solid #2563eb; background: rgba(37,99,235,.08); border-radius: 4px;
@@ -50,12 +57,14 @@
       .row .del { margin-right: auto; color: #b91c1c; }
     </style>
     <button class="toggle" type="button"></button>
+    <button class="copy" type="button" hidden>Copy notes</button>
     <div class="outline" hidden></div>
     <div class="pins"></div>
   `;
   document.body.appendChild(root);
 
   const toggle = shadow.querySelector('.toggle');
+  const copy = shadow.querySelector('.copy');
   const outline = shadow.querySelector('.outline');
   const pins = shadow.querySelector('.pins');
   let box = null;
@@ -86,6 +95,7 @@
   function render() {
     toggle.textContent = (active ? 'Click an element…' : 'Comment') + (notes.length ? ` (${notes.length})` : '');
     toggle.classList.toggle('on', active);
+    copy.hidden = !notes.length;
     pins.replaceChildren(...notes.map((n, i) => {
       const el = document.querySelector(n.selector);
       const pin = document.createElement('button');
@@ -159,6 +169,25 @@
   }
 
   toggle.onclick = () => setActive(!active);
+
+  copy.onclick = async () => {
+    const text = `Comments on ${location.href}\n\n` + notes.map((n, i) =>
+      `${i + 1}. ${n.comment}\n   on: ${n.selector}\n   text: "${n.text}"\n   viewport: ${n.viewport}`).join('\n\n');
+    let ok = false;
+    try {
+      await navigator.clipboard.writeText(text);
+      ok = true;
+    } catch {
+      // Older fallback for when the clipboard API is unavailable.
+      const area = Object.assign(document.createElement('textarea'), { value: text });
+      document.body.appendChild(area);
+      area.select();
+      ok = document.execCommand('copy');
+      area.remove();
+    }
+    copy.textContent = ok ? 'Copied: paste it in chat' : 'Copy failed';
+    setTimeout(() => { copy.textContent = 'Copy notes'; }, 2500);
+  };
 
   document.addEventListener('mousemove', e => {
     if (!active || e.target === root) { outline.hidden = true; return; }
