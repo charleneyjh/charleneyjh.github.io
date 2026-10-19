@@ -67,7 +67,7 @@
   // Follows the rhythm of speech so the cat can react like a listener.
   const attention = {
     lastVoice: -100, wokeAt: -100, tiltLeft: false,
-    boredAfter: 10, playFor: 3 * 2.8, // three full rounds of yarn, so it never stops mid-swat
+    boredAfter: 5, playFor: 3 * 2.8, // three full rounds of yarn, so it never stops mid-swat
     get dozeAfter() { return this.boredAfter + this.playFor + 5; },
     reset(t) { this.lastVoice = t; this.wokeAt = -100; },
     // Back to ordinary waiting (not playing, not dozing), gently: no startled "!".
