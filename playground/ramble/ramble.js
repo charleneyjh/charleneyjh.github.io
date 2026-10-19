@@ -67,9 +67,11 @@
   // Follows the rhythm of speech so the cat can react like a listener.
   const attention = {
     lastVoice: -100, wokeAt: -100, tiltLeft: false,
-    boredAfter: 10, playFor: 2 * 2.8,
+    boredAfter: 10, playFor: 3 * 2.8, // three full rounds of yarn, so it never stops mid-swat
     get dozeAfter() { return this.boredAfter + this.playFor + 5; },
     reset(t) { this.lastVoice = t; this.wokeAt = -100; },
+    // Back to ordinary waiting (not playing, not dozing), gently: no startled "!".
+    keepAwake(t) { this.lastVoice = Math.max(this.lastVoice, t - 4); this.wokeAt = -100; },
     hear(t) {
       if (t - this.lastVoice > this.dozeAfter) this.wokeAt = t;
       if (t - this.lastVoice > 0.5) this.tiltLeft = !this.tiltLeft;
@@ -250,7 +252,8 @@
       showBar('none');
       fnKey.disabled = false;
       setStatus('Done: filler words and repeats removed. Tap fn to add another note.');
-      later(1800, () => { hideBar(); phase = 'idle'; });
+      // A quick flick of the happy tail.
+      later(700, () => { hideBar(); phase = 'idle'; });
     });
   }
 
@@ -289,6 +292,10 @@
 
   // ---------- Drawing the cat ----------
   const SCALE = 3;
+  let hovering = false;
+  const catBox = $('.rb-bar__cat');
+  catBox.addEventListener('pointerenter', () => { hovering = true; });
+  catBox.addEventListener('pointerleave', () => { hovering = false; });
 
   // Picks the cat's pose from the phase, the time and the rhythm of speech.
   function barPose(t) {
@@ -297,6 +304,8 @@
     const blinking = t % 3.4 < 0.14;
 
     if (phase === 'recording') {
+      // The pointer over the cat brings it back from playing or dozing to ordinary waiting.
+      if (hovering) attention.keepAwake(t);
       const quiet = t - attention.lastVoice;
       const { boredAfter, playFor } = attention;
       if (attention.speaking(t)) {

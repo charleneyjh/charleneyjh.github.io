@@ -153,6 +153,7 @@
 .rb-bar__cat {
   position: relative;
   margin-bottom: -1px;
+  pointer-events: auto; /* hovering wakes the cat */
 }
 
 .rb-bar__cat canvas {
