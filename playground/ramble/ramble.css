@@ -13,10 +13,9 @@
   overflow: hidden;
   aspect-ratio: 5 / 4;
   border-radius: 14px;
-  background:
-    radial-gradient(120% 90% at 85% 0%, #e3eedc 0%, transparent 60%),
-    linear-gradient(160deg, #b6d0a9 0%, #8fb07f 55%, #6a8c5c 100%);
-  box-shadow: 0 20px 40px rgba(64, 92, 54, 0.22);
+  /* Flat, muted sage: a sketchbook feel rather than a glossy wallpaper */
+  background: #b4c2a5;
+  box-shadow: 0 1px 3px rgba(38, 34, 29, 0.08);
   font-family: var(--rb-mac);
 }
 
@@ -63,7 +62,7 @@
   overflow: hidden;
   background: #fff;
   border-radius: 10px;
-  box-shadow: 0 16px 36px rgba(30, 50, 25, 0.28);
+  box-shadow: 0 2px 8px rgba(38, 34, 29, 0.12);
 }
 
 .rb-window__bar {
