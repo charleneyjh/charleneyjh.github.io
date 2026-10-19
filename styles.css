@@ -585,22 +585,13 @@ a:focus-visible {
   filter: drop-shadow(0 6px 10px rgba(74, 47, 168, 0.25));
 }
 
+/* Pixel lettering to match Ramble's pixel-art cat */
 .project__title {
-  margin-top: 4px;
-  font-size: clamp(30px, 4vw, 40px);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  margin-top: 6px;
+  font: 700 clamp(30px, 4vw, 40px)/1.1 "Silkscreen", var(--font-mono);
 }
 
 .project__text { margin-top: 12px; }
-
-.project__note {
-  margin-top: 18px;
-  padding-top: 16px;
-  border-top: 1px dashed var(--line);
-  font-size: 15px;
-  color: var(--ink-soft);
-}
 
 kbd {
   display: inline-block;
