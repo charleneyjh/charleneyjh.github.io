@@ -582,7 +582,7 @@ a:focus-visible {
   width: 64px;
   height: 64px;
   margin-bottom: 18px;
-  filter: drop-shadow(0 6px 10px rgba(74, 47, 168, 0.25));
+  filter: drop-shadow(0 6px 10px rgba(38, 34, 29, 0.18));
 }
 
 .project__title {
