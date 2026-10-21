@@ -14,7 +14,11 @@ const observer = new IntersectionObserver(entries => {
     links.forEach((a, id) => a.classList.toggle('is-active', id === entry.target.id));
   }
 }, { rootMargin: '-45% 0px -50% 0px' });
-links.forEach((_, id) => observer.observe(document.getElementById(id)));
+// Case study pages share this script but don't have these sections.
+links.forEach((_, id) => {
+  const section = document.getElementById(id);
+  if (section) observer.observe(section);
+});
 
 // Clear the highlight when back at the top, above the first section.
 window.addEventListener('scroll', () => {
@@ -69,5 +73,5 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 // Dev-only: the comment overlay never loads on the published site.
 if (['localhost', '127.0.0.1'].includes(location.hostname)) {
-  document.body.appendChild(Object.assign(document.createElement('script'), { src: 'dev/annotate.js' }));
+  document.body.appendChild(Object.assign(document.createElement('script'), { src: '/dev/annotate.js' }));
 }

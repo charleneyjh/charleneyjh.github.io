@@ -556,6 +556,29 @@ a:focus-visible {
 
 .card__body { padding-right: 14px; }
 
+/* A card that links to a case study */
+.card--link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.card__cover {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top left;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.card__body .card__cta {
+  margin-top: 14px;
+  font: 500 14px/1.4 var(--font-mono);
+  color: var(--accent);
+}
+
 .card h3 {
   margin-top: 8px;
   font-size: clamp(24px, 3vw, 32px);
@@ -563,7 +586,7 @@ a:focus-visible {
   letter-spacing: -0.01em;
 }
 
-.card__body p:last-child {
+.card__body h3 + p {
   margin-top: 8px;
   color: var(--ink-soft);
 }
