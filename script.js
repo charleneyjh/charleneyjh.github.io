@@ -69,6 +69,23 @@ document.querySelectorAll('.obj').forEach(obj => {
   obj.addEventListener('pointercancel', drop);
 });
 
+// Name tag: on hover, the photo drifts slightly with the pointer.
+const badge = document.querySelector('.badge__card');
+const badgePhoto = document.querySelector('.badge__photo');
+if (badge && badgePhoto && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  badge.addEventListener('pointermove', e => {
+    const r = badge.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    badgePhoto.style.setProperty('--px', `${(-x * 14).toFixed(1)}px`);
+    badgePhoto.style.setProperty('--py', `${(-y * 14).toFixed(1)}px`);
+  });
+  badge.addEventListener('pointerleave', () => {
+    badgePhoto.style.removeProperty('--px');
+    badgePhoto.style.removeProperty('--py');
+  });
+}
+
 document.getElementById('year').textContent = new Date().getFullYear();
 
 // Dev-only: the comment overlay never loads on the published site.

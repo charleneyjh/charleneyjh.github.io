@@ -242,10 +242,10 @@ a:focus-visible {
     position: relative;
     display: flex;
     align-items: center;
-    min-height: clamp(560px, 66vw, 700px);
+    min-height: clamp(380px, 42vw, 500px);
   }
 
-  .hero__text { max-width: 54%; }
+  .hero__text { max-width: 760px; }
 
   .desk {
     position: absolute;
@@ -331,16 +331,13 @@ a:focus-visible {
 .about {
   display: grid;
   grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
-  grid-template-areas:
-    "badge body"
-    "note  body";
+  grid-template-areas: "badge body";
   gap: clamp(24px, 5vw, 56px);
   align-items: start;
 }
 
 .badge { grid-area: badge; }
 .about__body { grid-area: body; }
-.note { grid-area: note; }
 
 /* Hand-drawn accents on key phrases (inline SVGs in index.html) */
 .hl,
@@ -391,152 +388,106 @@ a:focus-visible {
   transform: rotate(-10deg);
 }
 
-/* Sticky note with a strip of tape */
-.note {
-  position: relative;
-  max-width: 230px;
-  padding: 26px 18px 22px;
-  background: var(--accent-wash);
-  border-radius: 2px 2px 14px 2px;
-  box-shadow: 0 8px 16px rgba(31, 42, 36, 0.1);
-  transform: rotate(2.500deg);
-}
-
-.note::before {
-  content: "";
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  width: 72px;
-  height: 22px;
-  margin-left: -36px;
-  background: rgba(251, 252, 249, 0.75);
-  border: 1px solid rgba(31, 42, 36, 0.06);
-  transform: rotate(-3deg);
-}
-
-.note__text {
-  margin-top: 6px;
-  font: italic 400 20px/1.3 var(--font-serif);
-}
-
-/* Staff badge hanging from a lanyard */
+/* Name tag on a long lanyard: a minimal charcoal card, name panel on top, round photo below */
 .badge {
   position: relative;
   max-width: 260px;
-  padding-top: 44px;
+  padding-top: 140px;
 }
 
+/* The lanyard: a long strap with the site address printed down it */
 .badge__strap {
   position: absolute;
   top: 0;
   left: 50%;
   z-index: 1;
-  width: 26px;
-  height: 58px;
-  margin-left: -13px;
-  background: var(--accent);
-  border-radius: 0 0 4px 4px;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 146px;
+  margin-left: -15px;
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 3px),
+    #2b2f2d;
+  border-radius: 0 0 3px 3px;
 }
 
-/* Metal clip where the strap meets the card */
+.badge__strap-text {
+  font: 500 8px/1 var(--font-mono);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(243, 245, 240, 0.7);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+/* The clip where the strap meets the card */
 .badge__strap::after {
   content: "";
   position: absolute;
-  bottom: -6px;
+  bottom: -5px;
   left: 50%;
-  width: 38px;
-  height: 14px;
-  margin-left: -19px;
-  background: #c9d3c4;
-  border-radius: 4px;
+  width: 40px;
+  height: 9px;
+  margin-left: -20px;
+  background: #1d201e;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 .badge__card {
-  padding: 30px 20px 24px;
-  color: var(--paper);
-  /* Dark card with a faint dot grid, echoing the page's paper */
-  background:
-    radial-gradient(circle, rgba(243, 245, 240, 0.09) 1px, transparent 1.5px) 0 0 / 14px 14px,
-    var(--ink);
-  border-radius: 20px;
-  box-shadow: 0 14px 28px rgba(31, 42, 36, 0.22);
+  overflow: hidden;
+  padding: 10px;
+  background: #2a2d2b;
+  border-radius: 16px;
+  box-shadow: 0 12px 26px rgba(31, 42, 36, 0.2);
   transform: rotate(-3deg);
-  transform-origin: 50% 0;
-  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: 50% -140px; /* swings from the top of the strap */
+  transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.badge:hover .badge__card { transform: rotate(2.5deg); }
+.badge:hover .badge__card { transform: rotate(1.5deg); }
 
-.badge__org {
-  display: flex;
-  justify-content: space-between;
-  font: 500 11px/1.4 var(--font-mono);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(243, 245, 240, 0.6);
-}
-
-/* Blob-shaped photo with a thin offset outline and small doodle marks */
-.badge__portrait {
-  position: relative;
-  width: 78%;
-  margin: 28px auto 28px;
-}
-
-.badge__photo {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1;
-  object-fit: cover;
-  border-radius: 58% 42% 47% 53% / 46% 55% 45% 54%;
-}
-
-/* The outline: a plain circle sitting slightly down and left of the blob */
-.badge__portrait::after {
-  content: "";
-  position: absolute;
-  inset: -2%;
-  border: 1px solid rgba(243, 245, 240, 0.7);
-  border-radius: 50%;
-  transform: translate(-5%, 4%);
-  pointer-events: none;
-}
-
-.badge__marks {
-  position: absolute;
-  fill: none;
-  stroke: var(--accent);
-  stroke-width: 3;
-  stroke-linecap: round;
-}
-
-.badge__marks--plus {
-  top: -12px;
-  right: -12px;
-  width: 34px;
-  height: 34px;
-}
-
-.badge__marks--slash {
-  left: -16px;
-  bottom: 14px;
-  width: 46px;
-  height: 16px;
+.badge__head {
+  padding: 18px 16px 16px;
+  color: #f3f5f0;
+  background:
+    radial-gradient(circle, rgba(243, 245, 240, 0.1) 1px, transparent 1.4px) 0 0 / 12px 12px,
+    #3a3e3b;
+  border-radius: 10px;
 }
 
 .badge__name {
-  font: 500 30px/1.05 var(--font-serif);
+  font: 700 26px/1.1 var(--font-sans);
+  letter-spacing: -0.01em;
 }
 
 .badge__role {
-  margin-top: 8px;
-  font: 400 12px/1.4 var(--font-mono);
-  color: #cfe0c4;
+  margin-top: 6px;
+  font: 400 13px/1.4 var(--font-sans);
+  color: rgba(243, 245, 240, 0.62);
 }
 
+/* Round photo; on hover it zooms in a little and drifts with the pointer (script.js) */
+.badge__portrait {
+  width: 72%;
+  margin: 22px auto 14px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px #3a3e3b;
+}
+
+.badge__photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(var(--zoom, 1)) translate(var(--px, 0px), var(--py, 0px));
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.badge:hover .badge__photo { --zoom: 1.14; }
 
 .about__body p + p { margin-top: 16px; }
 .about__body p { max-width: 56ch; }
@@ -692,7 +643,7 @@ kbd {
 
   .about {
     grid-template-columns: 1fr;
-    grid-template-areas: "badge" "body" "note";
+    grid-template-areas: "badge" "body";
   }
   .badge { max-width: 240px; }
   .card { grid-template-columns: 1fr; gap: 16px; }
