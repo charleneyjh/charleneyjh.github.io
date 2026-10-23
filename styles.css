@@ -9,7 +9,7 @@
   --accent-wash: #e1ebdc;
   --accent-marker: #cfe0c4;
 
-  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
   --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "DM Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
@@ -30,6 +30,8 @@ html {
 
 body {
   margin: 0;
+  /* Instrument Serif has one weight; never fake a bold version of it */
+  font-synthesis-weight: none;
   color: var(--ink);
   font: 400 18px/1.6 var(--font-sans);
   /* Dot-grid paper */
@@ -43,7 +45,7 @@ h1, h2, h3, p, ul, dl, dd { margin: 0; }
 /* Headlines are set in the serif; everything else in the sans */
 h1, h2, h3 {
   font-family: var(--font-serif);
-  font-weight: 500;
+  font-weight: 400;
 }
 ul { padding: 0; list-style: none; }
 
