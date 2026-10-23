@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 200">
   <!-- Coffee cup on a saucer, seen from above -->
-  <circle cx="98" cy="100" r="92" fill="#fffdf8" stroke="#e4dccd" stroke-width="2"/>
-  <circle cx="98" cy="100" r="72" fill="none" stroke="#efe8da" stroke-width="2"/>
-  <rect x="150" y="84" width="62" height="32" rx="16" fill="#fffdf8" stroke="#26221d" stroke-width="3" transform="rotate(-18 150 100)"/>
-  <circle cx="98" cy="100" r="60" fill="#fffdf8" stroke="#26221d" stroke-width="3"/>
+  <circle cx="98" cy="100" r="92" fill="#fbfcf9" stroke="#dde3d8" stroke-width="2"/>
+  <circle cx="98" cy="100" r="72" fill="none" stroke="#e6ebe2" stroke-width="2"/>
+  <rect x="150" y="84" width="62" height="32" rx="16" fill="#fbfcf9" stroke="#1f2a24" stroke-width="3" transform="rotate(-18 150 100)"/>
+  <circle cx="98" cy="100" r="60" fill="#fbfcf9" stroke="#1f2a24" stroke-width="3"/>
   <circle cx="98" cy="100" r="49" fill="#5a3a28"/>
   <path d="M70 92c8-14 30-20 46-10 12 8 12 24 0 30-10 5-22 0-22-9 0-7 8-10 13-6" fill="none" stroke="#c9a27e" stroke-width="5" stroke-linecap="round" opacity=".75"/>
 </svg>

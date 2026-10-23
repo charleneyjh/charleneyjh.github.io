@@ -126,7 +126,7 @@
   aspect-ratio: 16 / 10;
   object-fit: cover;
   object-position: top left;
-  box-shadow: 0 2px 10px rgba(38, 34, 29, 0.06);
+  box-shadow: 0 2px 10px rgba(31, 42, 36, 0.06);
 }
 
 .shot--small { max-width: 340px; }
@@ -248,7 +248,7 @@
 }
 
 .bar--before {
-  background-image: linear-gradient(#cfc4b0, #cfc4b0);
+  background-image: linear-gradient(#c5cfc0, #c5cfc0);
   color: var(--ink-soft);
 }
 
