@@ -34,23 +34,47 @@
         <p class="hero__tagline">I turn complex systems and ambiguity into simple, elegant design.</p>
       </div>
 
-      <!-- Desk objects: scattered and draggable on desktop, a tidy grid on mobile -->
+      <!-- Photo scraps: scattered and draggable on desktop, a tidy grid on mobile -->
       <div class="desk">
-        <img class="obj obj--notebook" style="--i: 0" src="assets/notebook.svg" alt="" width="240" height="300" draggable="false">
-        <figure class="obj obj--photo" style="--i: 1">
+        <figure class="obj obj--photo" style="--i: 0">
           <img src="assets/photo.jpg" alt="Charlene smiling beside train tracks on the coast" width="720" height="720" draggable="false">
           <figcaption>that's me</figcaption>
         </figure>
-        <img class="obj obj--coffee" style="--i: 2" src="assets/coffee.svg" alt="" width="220" height="200" draggable="false">
-        <img class="obj obj--swatches" style="--i: 3" src="assets/swatches.svg" alt="" width="180" height="230" draggable="false">
-        <img class="obj obj--pencil" style="--i: 4" src="assets/pencil.svg" alt="" width="360" height="36" draggable="false">
+        <figure class="obj obj--scrap obj--cat-desk" style="--i: 1">
+          <span class="scrap__tape" aria-hidden="true"></span>
+          <div class="scrap__paper">
+            <img src="assets/cat-desk.jpg" alt="Charlene's orange and white cat sitting on a notebook with its eyes closed" width="522" height="800" draggable="false">
+            <figcaption>desk supervisor</figcaption>
+          </div>
+        </figure>
+        <figure class="obj obj--scrap obj--kitchen" style="--i: 2">
+          <span class="scrap__tape" aria-hidden="true"></span>
+          <div class="scrap__paper">
+            <img src="assets/kitchen.jpg" alt="Charlene's remodeled kitchen: marble backsplash, walnut cabinets and brass wall lights" width="900" height="675" draggable="false">
+            <figcaption>my kitchen, remodeled</figcaption>
+          </div>
+        </figure>
+        <figure class="obj obj--scrap obj--city" style="--i: 3">
+          <span class="scrap__tape" aria-hidden="true"></span>
+          <div class="scrap__paper">
+            <img src="assets/city-walk.jpg" alt="A busy street in Shinjuku, Tokyo, lined with neon signs" width="800" height="800" draggable="false">
+            <figcaption>city walks</figcaption>
+          </div>
+        </figure>
+        <figure class="obj obj--scrap obj--cat-nap" style="--i: 4">
+          <span class="scrap__tape" aria-hidden="true"></span>
+          <div class="scrap__paper">
+            <img src="assets/cat-nap.jpg" alt="The same cat asleep in a patch of sunlight" width="900" height="672" draggable="false">
+            <figcaption>nap time</figcaption>
+          </div>
+        </figure>
       </div>
     </section>
 
     <!-- Work -->
     <section class="section wrap" id="work">
       <header class="section__head">
-        <h2>Work</h2>
+        <h2>Selected work</h2>
       </header>
       <ul class="cards">
         <li class="card">
