@@ -26,7 +26,6 @@
   margin-top: 10px;
   font-size: clamp(44px, 7vw, 80px);
   line-height: 1;
-  letter-spacing: -0.03em;
 }
 
 .case__lede {
@@ -69,7 +68,6 @@
   margin-bottom: 24px;
   font-size: clamp(30px, 4.5vw, 42px);
   line-height: 1.1;
-  letter-spacing: -0.02em;
 }
 
 .case__subhead,
@@ -166,7 +164,6 @@
 
 .stat__number {
   font: 500 clamp(80px, 13vw, 144px)/0.9 var(--font-serif);
-  letter-spacing: -0.04em;
   color: var(--accent);
 }
 
@@ -365,7 +362,6 @@
   max-width: 24ch;
   margin-top: 48px;
   font: 500 clamp(28px, 4.4vw, 44px)/1.15 var(--font-serif);
-  letter-spacing: -0.02em;
 }
 
 .hmw .label { display: block; margin-bottom: 12px; }
