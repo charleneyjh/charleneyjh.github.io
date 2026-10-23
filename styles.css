@@ -348,7 +348,6 @@ a:focus-visible {
 /* ---------- Sections ---------- */
 .section {
   padding-block: clamp(48px, 8vw, 88px);
-  border-top: 1px dashed var(--line);
 }
 
 .section__head { margin-bottom: 32px; }
