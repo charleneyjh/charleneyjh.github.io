@@ -135,7 +135,7 @@ a:focus-visible {
 }
 
 .hero__tagline {
-  max-width: 24ch;
+  max-width: none;
   margin-top: 24px;
   font-size: clamp(20px, 2.600vw, 26px);
   line-height: 1.35;
@@ -245,7 +245,7 @@ a:focus-visible {
     min-height: clamp(380px, 42vw, 500px);
   }
 
-  .hero__text { max-width: 760px; }
+  .hero__text { max-width: none; }
 
   .desk {
     position: absolute;
@@ -470,6 +470,7 @@ a:focus-visible {
 
 /* Round photo; on hover it zooms in a little and drifts with the pointer (script.js) */
 .badge__portrait {
+  position: relative;
   width: 72%;
   margin: 22px auto 14px;
   overflow: hidden;
@@ -488,6 +489,19 @@ a:focus-visible {
 }
 
 .badge:hover .badge__photo { --zoom: 1.14; }
+
+/* The cartoon version sits on top and fades in on hover */
+.badge__photo--cartoon {
+  position: absolute;
+  inset: 0;
+  filter: url(#cartoon);
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.35s ease;
+}
+
+.badge:hover .badge__photo--cartoon { opacity: 1; }
+
+.badge__filters { position: absolute; }
 
 .about__body p + p { margin-top: 16px; }
 .about__body p { max-width: 56ch; }

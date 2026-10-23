@@ -87,7 +87,31 @@
             </div>
             <div class="badge__portrait">
               <img class="badge__photo" src="assets/photo.jpg" alt="Portrait of Charlene Yang" width="720" height="720">
+              <img class="badge__photo badge__photo--cartoon" src="assets/photo.jpg" alt="" width="720" height="720" aria-hidden="true">
             </div>
+            <!-- Cartoon look for the hover state: flattened colours plus drawn outlines from edge detection -->
+            <svg class="badge__filters" width="0" height="0" aria-hidden="true" focusable="false">
+              <filter id="cartoon" color-interpolation-filters="sRGB">
+                <!-- Smooth the photo, flatten it into a few tones, then multiply drawn outlines on top -->
+                <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="soft"/>
+                <feComponentTransfer in="soft" result="flat">
+                  <feFuncR type="discrete" tableValues="0.06 0.24 0.42 0.6 0.76 0.88 0.96"/>
+                  <feFuncG type="discrete" tableValues="0.06 0.24 0.42 0.6 0.76 0.88 0.96"/>
+                  <feFuncB type="discrete" tableValues="0.06 0.24 0.42 0.6 0.76 0.88 0.96"/>
+                </feComponentTransfer>
+                <feGaussianBlur in="flat" stdDeviation="0.5" result="flat2"/>
+                <feColorMatrix in="flat2" type="saturate" values="1.25" result="bright"/>
+                <feColorMatrix in="SourceGraphic" type="saturate" values="0" result="gray"/>
+                <feGaussianBlur in="gray" stdDeviation="1.1" result="gray2"/>
+                <feConvolveMatrix in="gray2" order="3" kernelMatrix="-1 -1 -1 -1 8 -1 -1 -1 -1" preserveAlpha="true" result="edges"/>
+                <feComponentTransfer in="edges" result="lines">
+                  <feFuncR type="linear" slope="-14" intercept="1.15"/>
+                  <feFuncG type="linear" slope="-14" intercept="1.15"/>
+                  <feFuncB type="linear" slope="-14" intercept="1.15"/>
+                </feComponentTransfer>
+                <feBlend in="bright" in2="lines" mode="multiply"/>
+              </filter>
+            </svg>
           </div>
         </div>
 
