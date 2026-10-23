@@ -79,39 +79,16 @@
       <div class="about">
         <!-- Staff-badge style photo card -->
         <div class="badge">
-          <span class="badge__strap" aria-hidden="true"><span class="badge__strap-text">charleneyjh.github.io</span></span>
+          <span class="badge__strap" aria-hidden="true"></span>
           <div class="badge__card">
             <div class="badge__head">
               <p class="badge__name">Charlene Yang</p>
-              <p class="badge__role">Senior Product Designer, turning complex systems into simple design</p>
             </div>
-            <div class="badge__portrait">
-              <img class="badge__photo" src="assets/photo.jpg" alt="Portrait of Charlene Yang" width="720" height="720">
-              <img class="badge__photo badge__photo--cartoon" src="assets/photo.jpg" alt="" width="720" height="720" aria-hidden="true">
+            <div class="badge__body">
+              <div class="badge__portrait">
+                <img class="badge__photo" src="assets/photo.jpg" alt="Portrait of Charlene Yang" width="720" height="720">
+              </div>
             </div>
-            <!-- Cartoon look for the hover state: flattened colours plus drawn outlines from edge detection -->
-            <svg class="badge__filters" width="0" height="0" aria-hidden="true" focusable="false">
-              <filter id="cartoon" color-interpolation-filters="sRGB">
-                <!-- Smooth the photo, flatten it into a few tones, then multiply drawn outlines on top -->
-                <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="soft"/>
-                <feComponentTransfer in="soft" result="flat">
-                  <feFuncR type="discrete" tableValues="0.06 0.24 0.42 0.6 0.76 0.88 0.96"/>
-                  <feFuncG type="discrete" tableValues="0.06 0.24 0.42 0.6 0.76 0.88 0.96"/>
-                  <feFuncB type="discrete" tableValues="0.06 0.24 0.42 0.6 0.76 0.88 0.96"/>
-                </feComponentTransfer>
-                <feGaussianBlur in="flat" stdDeviation="0.5" result="flat2"/>
-                <feColorMatrix in="flat2" type="saturate" values="1.25" result="bright"/>
-                <feColorMatrix in="SourceGraphic" type="saturate" values="0" result="gray"/>
-                <feGaussianBlur in="gray" stdDeviation="1.1" result="gray2"/>
-                <feConvolveMatrix in="gray2" order="3" kernelMatrix="-1 -1 -1 -1 8 -1 -1 -1 -1" preserveAlpha="true" result="edges"/>
-                <feComponentTransfer in="edges" result="lines">
-                  <feFuncR type="linear" slope="-14" intercept="1.15"/>
-                  <feFuncG type="linear" slope="-14" intercept="1.15"/>
-                  <feFuncB type="linear" slope="-14" intercept="1.15"/>
-                </feComponentTransfer>
-                <feBlend in="bright" in2="lines" mode="multiply"/>
-              </filter>
-            </svg>
           </div>
         </div>
 
@@ -134,12 +111,16 @@
       </div>
     </section>
 
-    <!-- Playground -->
+    <!-- Playground: kept like a junk journal -->
     <section class="section wrap" id="playground">
       <header class="section__head">
         <h2>Playground</h2>
+        <p class="section__intro">Things I make and tinker with outside of work, kept the way I like best: as a junk journal.</p>
       </header>
-      <article class="project rb">
+      <div class="jj">
+        <article class="jj-page jj-page--ramble project rb">
+          <span class="jj-tape jj-tape--left" aria-hidden="true"></span>
+          <span class="jj-tape jj-tape--right" aria-hidden="true"></span>
         <div class="project__info">
           <img class="project__icon" src="playground/ramble/icon.svg" alt="" width="64" height="64">
           <h3 class="project__title">Ramble</h3>
@@ -181,6 +162,62 @@
           </div>
         </div>
       </article>
+
+        <div class="jj-row">
+        <article class="jj-page jj-page--home">
+          <span class="jj-tape" aria-hidden="true"></span>
+          <p class="jj-ticket">Home remodeling</p>
+          <div class="jj-collage jj-collage--home">
+            <figure class="jj-scrap jj-scrap--main" style="--r: -1.5deg">
+              <div class="scrap__paper">
+                <img src="assets/kitchen.jpg" alt="Charlene's remodeled kitchen: marble backsplash, walnut cabinets and brass wall lights" width="900" height="675" loading="lazy">
+                <figcaption>my kitchen, remodeled</figcaption>
+              </div>
+            </figure>
+            <figure class="jj-scrap jj-scrap--inset" style="--r: 4deg">
+              <span class="jj-tape jj-tape--small" aria-hidden="true"></span>
+              <div class="scrap__paper">
+                <img src="assets/kitchen-detail.jpg" alt="Close-up of the range, marble backsplash and brass sconces" width="699" height="700" loading="lazy">
+                <figcaption>brass + marble</figcaption>
+              </div>
+            </figure>
+          </div>
+          <ul class="jj-swatches" aria-label="Materials">
+            <li><span style="--c: #5a3b2a"></span>walnut</li>
+            <li><span class="jj-swatch--marble"></span>marble</li>
+            <li><span style="--c: #b8925a"></span>brass</li>
+          </ul>
+        </article>
+
+        <article class="jj-page jj-page--cat">
+          <span class="jj-tape" aria-hidden="true"></span>
+          <p class="jj-ticket">My cat</p>
+          <div class="jj-collage jj-collage--cat">
+            <figure class="jj-scrap" style="--r: -4deg">
+              <div class="scrap__paper">
+                <img src="assets/cat-desk.jpg" alt="Charlene's orange and white cat sitting on a notebook with its eyes closed" width="522" height="800" loading="lazy">
+                <figcaption>desk supervisor</figcaption>
+              </div>
+            </figure>
+            <figure class="jj-scrap" style="--r: 3deg">
+              <span class="jj-tape jj-tape--small" aria-hidden="true"></span>
+              <div class="scrap__paper">
+                <img src="assets/cat-nap.jpg" alt="The same cat asleep in a patch of sunlight" width="900" height="672" loading="lazy">
+                <figcaption>nap time</figcaption>
+              </div>
+            </figure>
+          </div>
+          <svg class="jj-stamp" viewBox="0 0 80 80" aria-hidden="true">
+            <circle cx="40" cy="40" r="35" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3"/>
+            <ellipse cx="40" cy="48" rx="11" ry="9"/>
+            <ellipse cx="26" cy="35" rx="4.5" ry="6" transform="rotate(-20 26 35)"/>
+            <ellipse cx="35" cy="28" rx="4.5" ry="6"/>
+            <ellipse cx="45" cy="28" rx="4.5" ry="6"/>
+            <ellipse cx="54" cy="35" rx="4.5" ry="6" transform="rotate(20 54 35)"/>
+          </svg>
+        </article>
+        </div>
+      </div>
     </section>
   </main>
 
