@@ -27,270 +27,373 @@
   </header>
 
   <main class="case">
-    <!-- Title -->
+    <!-- Intro -->
     <header class="case__intro wrap">
       <a class="case__back label" href="../../#work">← All work</a>
-      <p class="label">Case study · Twilio Segment · 2023</p>
+      <p class="label">Case study · Twilio Segment</p>
       <h1>Profiles Insights</h1>
       <p class="case__lede">Giving data engineers a window into Segment's identity resolution system, so they can spot and fix profile issues themselves instead of filing support tickets.</p>
+      <dl class="case__meta">
+        <div><dt>Timeline</dt><dd>Mar – May 2023</dd></div>
+        <div><dt>Scope</dt><dd>0 → 1 design</dd></div>
+        <div><dt>Role</dt><dd>Sole product designer</dd></div>
+        <div><dt>Team</dt><dd>1 PM, 1 designer, 4 engineers</dd></div>
+        <div><dt>Outcome</dt><dd>20% fewer observability tickets</dd></div>
+      </dl>
     </header>
 
-    <figure class="case__hero wrap-wide">
+    <figure class="shot shot--hero wrap-wide">
       <img src="img/final-overview.png" alt="The Profiles Insights overview page: active profiles, total violations and total errors with trend charts, followed by top causes for violations and errors." width="1440" height="1634">
     </figure>
 
-    <!-- At a glance -->
-    <section class="glance wrap" aria-label="At a glance">
-      <div class="glance__summary">
-        <div>
-          <p class="label">The problem</p>
-          <p>75% of Profiles support tickets were about observability. Customers couldn't see why their profiles broke, so every issue became a ticket.</p>
-        </div>
-        <div>
-          <p class="label">What I did</p>
-          <p>As the sole designer, I took Profiles Insights from 0 to 1: an overview of profile health, plus logs of errors, violations and changes.</p>
-        </div>
-        <div>
-          <p class="label">The outcome</p>
-          <p><strong>20% fewer</strong> observability tickets, and noticeably fewer escalations to engineering.</p>
-        </div>
+    <!-- Background -->
+    <section class="case__section wrap">
+      <h2>Background</h2>
+      <div class="prose">
+        <h3>What is Segment?</h3>
+        <p>Segment is a customer data platform (CDP) that helps businesses collect, unify and activate their data to power personalized experiences.</p>
       </div>
-      <dl class="glance__meta">
-        <div><dt>Timeline</dt><dd>Mar – May 2023</dd></div>
-        <div><dt>Role</dt><dd>Sole product designer</dd></div>
-        <div><dt>Team</dt><dd>1 PM, 4 engineers</dd></div>
-        <div><dt>Shipped</dt><dd>Private beta, July 2023</dd></div>
-      </dl>
+      <figure class="shot">
+        <img src="img/segment-cdp.png" alt="Diagram of Segment collecting data from many sources and sending it to many destinations." width="1136" height="675" loading="lazy">
+      </figure>
+      <div class="prose">
+        <h3>What is a Segment profile?</h3>
+        <p>Profiles are Segment's flagship product. Segment's identity resolution system tracks every interaction across the whole user journey to build unified, real-time customer identities.</p>
+      </div>
+      <figure class="shot">
+        <img src="img/segment-profile.png" alt="Diagram of events from different sources merging into a single customer profile." width="1116" height="577" loading="lazy">
+      </figure>
+      <div class="prose">
+        <h3>The team's mission</h3>
+        <p>The Profiles team's mission is to build and activate rich, trusted profiles everywhere, to power the future of personalized customer engagement. Building "Golden Profiles" was the company's top priority for 2023.</p>
+      </div>
     </section>
 
-    <div class="case__layout wrap-wide">
-      <!-- Chapter navigation (desktop) -->
-      <nav class="toc" aria-label="Case study chapters">
-        <p class="label">On this page</p>
-        <ol>
-          <li><a href="#context">Context</a></li>
-          <li><a href="#research">Research</a></li>
-          <li><a href="#framing">Framing the problem</a></li>
-          <li><a href="#design">Designing and testing</a></li>
-          <li><a href="#details">Getting the details right</a></li>
-          <li><a href="#final">The final design</a></li>
-          <li><a href="#impact">Impact</a></li>
-        </ol>
-      </nav>
+    <!-- Problem -->
+    <section class="case__section wrap">
+      <h2>The problem</h2>
+      <div class="stat">
+        <div class="stat__body">
+          <p class="stat__number">75%</p>
+          <p class="stat__label">of Profiles support tickets relate to <strong>profile observability and repair</strong>.</p>
+          <ul class="stat__facts">
+            <li>About 12.5% of Profiles tickets were escalated to the engineering team.</li>
+            <li>46% of issues were about missing data on profiles.</li>
+            <li>Profile observability was reported as the biggest product gap, affecting customers worth $17.9M in annual recurring revenue.</li>
+          </ul>
+        </div>
+        <figure class="shot shot--small">
+          <img src="img/problem-profile-card.png" alt="A sample customer profile card listing recent events and computed traits." width="632" height="751" loading="lazy">
+        </figure>
+      </div>
+    </section>
 
-      <article class="story">
-        <!-- Context -->
-        <section class="chapter" id="context">
-          <h2>Context</h2>
-          <div class="prose">
-            <p>Segment is a customer data platform: it helps businesses collect, unify and activate their customer data. Profiles is its flagship product. An identity resolution system follows every interaction across a customer's journey and merges them into one unified, real-time profile.</p>
-            <p>In 2023 the Profiles team's mission was to build rich, trusted profiles everywhere, and "Golden Profiles" was the company's top priority. But trust was exactly what was missing.</p>
+    <!-- Timeline and role -->
+    <section class="case__section wrap">
+      <h2>Timeline and my role</h2>
+      <div class="timeline" role="img" aria-label="Project timeline from November 2022 to July 2023. Discovery research ran November to January, then feature prioritization and the PRD. I joined in March 2023 for design ideation, usability studies in April, and design iteration and handoff in May. Implementation ran from May to July, followed by a private beta launch in July 2023.">
+        <div class="timeline__inner">
+          <div class="timeline__months" aria-hidden="true">
+            <span>Nov 2022</span><span>Jan 2023</span><span>Mar 2023</span><span>May 2023</span><span>Jul 2023</span>
           </div>
-          <div class="pair">
-            <figure class="shot">
-              <img src="img/segment-cdp.png" alt="Diagram of Segment collecting data from many sources and sending it to many destinations." width="1136" height="675" loading="lazy">
-              <figcaption>Segment sits between where data comes from and where it's used.</figcaption>
-            </figure>
-            <figure class="shot">
-              <img src="img/segment-profile.png" alt="Diagram of events from different sources merging into a single customer profile." width="1116" height="577" loading="lazy">
-              <figcaption>Identity resolution merges events into one profile.</figcaption>
-            </figure>
+          <div class="timeline__row"><span class="timeline__lane">Research</span>
+            <span class="bar bar--before" style="--from: 0.1; --to: 1.9">Discovery research</span>
+            <span class="bar" style="--from: 5.4; --to: 5.9">Usability studies</span>
           </div>
-          <div class="prose">
-            <p class="callout"><span class="callout__number">75%</span> of Profiles support tickets were about profile observability and repair.</p>
-            <p>About one in eight of those tickets was escalated to engineering, and 46% of issues were about data missing from profiles. Observability was reported as the product's biggest gap, affecting customers worth $17.9M in annual recurring revenue.</p>
-            <p>I joined in March 2023, after discovery research and the PRD were done, as the only designer alongside a product manager and four engineers. I owned the flows, wireframes and research prototypes through to high-fidelity designs, ran the usability testing, and worked through edge cases and design QA with engineering.</p>
+          <div class="timeline__row"><span class="timeline__lane">Design</span>
+            <span class="bar" style="--from: 4.5; --to: 5.4">Ideation</span>
+            <span class="bar" style="--from: 6; --to: 6.8">Iteration, handoff</span>
           </div>
-          <figure class="timeline" role="img" aria-label="Project timeline from November 2022 to July 2023. Discovery research ran November to January, then feature prioritization and the PRD. I joined in March 2023 for design ideation, usability studies in April, and design iteration and handoff in May. Implementation ran from May to July, followed by a private beta launch in July 2023.">
-            <div class="timeline__inner">
-              <div class="timeline__months" aria-hidden="true">
-                <span>Nov 2022</span><span>Jan 2023</span><span>Mar 2023</span><span>May 2023</span><span>Jul 2023</span>
-              </div>
-              <div class="timeline__row"><span class="timeline__lane">Research</span>
-                <span class="bar bar--before" style="--from: 0.1; --to: 1.9">Discovery research</span>
-                <span class="bar" style="--from: 5.4; --to: 5.9">Usability studies</span>
-              </div>
-              <div class="timeline__row"><span class="timeline__lane">Design</span>
-                <span class="bar" style="--from: 4.5; --to: 5.4">Ideation</span>
-                <span class="bar" style="--from: 6; --to: 6.8">Iteration, handoff</span>
-              </div>
-              <div class="timeline__row"><span class="timeline__lane">Product</span>
-                <span class="bar bar--before" style="--from: 2; --to: 3.4">Prioritization, PRD</span>
-                <span class="milestone" style="--at: 8">Private beta 🚀</span>
-              </div>
-              <div class="timeline__row"><span class="timeline__lane">Development</span>
-                <span class="bar" style="--from: 6.4; --to: 8">Implementation</span>
-              </div>
-              <span class="timeline__joined" style="--at: 4.4" aria-hidden="true">I joined</span>
-            </div>
-          </figure>
-        </section>
+          <div class="timeline__row"><span class="timeline__lane">Product</span>
+            <span class="bar bar--before" style="--from: 2; --to: 3.4">Prioritization, PRD</span>
+            <span class="milestone" style="--at: 8">Private beta 🚀</span>
+          </div>
+          <div class="timeline__row"><span class="timeline__lane">Development</span>
+            <span class="bar" style="--from: 6.4; --to: 8">Implementation</span>
+          </div>
+          <span class="timeline__joined" style="--at: 4.4" aria-hidden="true">I joined</span>
+        </div>
+      </div>
 
-        <!-- Research -->
-        <section class="chapter" id="research">
-          <h2>Research</h2>
-          <div class="prose">
-            <p>A UX researcher had already interviewed internal solution engineers and customers about how aware they were of their data quality, how they thought about partially usable profiles, and where observability hurt. I built on that work, and three findings shaped everything that followed.</p>
+      <div class="role">
+        <div>
+          <h3>Design</h3>
+          <ul>
+            <li>Created user flows and wireframes</li>
+            <li>Built prototypes for research</li>
+            <li>Delivered high-fidelity mockups</li>
+          </ul>
+        </div>
+        <div>
+          <h3>User research</h3>
+          <ul>
+            <li>Built on existing research</li>
+            <li>Ran usability testing</li>
+            <li>Led research share-outs</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Development</h3>
+          <ul>
+            <li>Delivered pixel-perfect, implementable designs</li>
+            <li>Worked through edge cases with engineers</li>
+            <li>Ran design QA on front-end tickets</li>
+          </ul>
+        </div>
+      </div>
+      <p class="prose prose--note">I was the sole product designer, working with 1 product manager and 4 software engineers.</p>
+    </section>
 
-            <h3>People didn't know their data was unhealthy</h3>
-            <p>Awareness of profile data quality was low. The customers who understood it best were the ones who had already suffered a catastrophic failure, and their only fix had been to start over.</p>
-          </div>
-          <blockquote class="pull">
-            <p>"I was not aware that you can actually break a profile to a point that you cannot do anything with it… I got an answer that <strong>I did a change that basically broke all our profiles and they're now unusable</strong>."</p>
-            <cite>Systems manager at an enterprise customer</cite>
-          </blockquote>
+    <!-- Research -->
+    <section class="case__section wrap">
+      <h2>Discovery research</h2>
+      <div class="prose">
+        <p>Before I joined, a UX researcher ran interviews and focus groups with internal solution engineers and customers to understand customers' awareness of their data quality, their mental models around partially usable profiles, and their pain points around observability and identity resolution strategy. I built on that work. Three insights shaped the project.</p>
+      </div>
 
-          <div class="prose">
-            <h3>The system was rigid, and mistakes were expensive</h3>
-            <p>Identity resolution has to be set up carefully. Each identifier has limits and priorities, and any change needs safeguards, because a bad change can quietly erode customers' trust.</p>
-          </div>
-          <div class="pair pair--tables">
-            <figure class="shot">
-              <img src="img/insight-2a.png" alt="Table of external ID types, such as user_id, email and android.id, and where each is found in a track or identify call." width="566" height="477" loading="lazy">
-              <figcaption>Many ID types, each found in a different place.</figcaption>
-            </figure>
-            <figure class="shot">
-              <img src="img/insight-2b.png" alt="Table of identifiers such as user_id, email and anonymous_id, each with a limit and a priority." width="632" height="258" loading="lazy">
-              <figcaption>Each one with its own limit and priority.</figcaption>
-            </figure>
-          </div>
-
-          <div class="prose">
-            <h3>Profiles were a black box</h3>
-            <p>Customers couldn't identify or fix even the most common issues. Bad merges usually came from upstream mistakes in their own tracking code, but they had no way to tell a Segment bug from a problem in their data.</p>
-          </div>
-          <blockquote class="pull">
-            <p>"<strong>Data inconsistencies are not exactly the fault of Segment, but the implementation within our web platform, but that's always a little bit hard to pinpoint.</strong>"</p>
-            <cite>Product manager, martech and media, at an enterprise customer</cite>
-          </blockquote>
-        </section>
-
-        <!-- Framing -->
-        <section class="chapter" id="framing">
-          <h2>Framing the problem</h2>
-          <div class="prose">
-            <p>We designed for two people. Our primary users were <strong>data engineers</strong>, who need to find data issues and work out why profiles or identity resolution aren't behaving as expected. Our secondary users were <strong>business users</strong>, who want overall profile metrics to justify the investment in Segment. With limited time, we chose to prioritize troubleshooting.</p>
-            <p>From the data engineer's side, the problem looked like this:</p>
-          </div>
-          <blockquote class="statement">
-            <p>"When I notice data issues, I want to troubleshoot what went wrong and fix them myself, so I can trust Segment's data to power my personalized communications. Today I have no visibility into what caused them. All I can do is file a ticket or get my Segment rep on a call."</p>
-          </blockquote>
-          <p class="hmw"><span class="label">How might we</span> make data operators feel confident identifying and troubleshooting data quality issues on their own?</p>
-        </section>
-
-        <!-- Design and testing -->
-        <section class="chapter" id="design">
-          <h2>Designing and testing</h2>
-          <div class="prose">
-            <p>I explored two complementary ideas. An <strong>overview</strong> would summarize how the profile system was performing, so teams could spot problems early. <strong>Logs</strong> would surface every error, violation and success, so engineers could trace a problem to its cause.</p>
-            <p>I tested both with customers and with Twilio's support and solutions teams. The reaction to the logs was immediate:</p>
-          </div>
-          <blockquote class="pull">
-            <p>"We are going from flying blind, no visibility whatsoever and very high cost of actually finding the issues, to having at least some understanding of what's going wrong. <strong>In whatever form you're shipping it, I want to be first in line!</strong>"</p>
-            <cite>Data engineer at an enterprise customer</cite>
-          </blockquote>
-
-          <!-- Logs: text stays in view while the screen scrolls past -->
-          <div class="split">
-            <div class="split__text prose">
-              <h3>What changed in the logs</h3>
-              <p>The table and its side sheet matched how people troubleshoot. But a wall of violations read as alarming, even though violations are expected behaviour. People also needed to search by message ID, not only external ID, and success logs added noise mid-investigation.</p>
-              <ul class="changes">
-                <li>Dropped the warning icon from violations and explained errors and violations in context</li>
-                <li>Added search by message ID</li>
-                <li>Moved success logs to their own tab</li>
-                <li>Added an audit trail of identity resolution changes, so errors can be traced to the change that caused them</li>
-              </ul>
-            </div>
-            <figure class="shot split__media">
-              <img src="img/logs-presented.png" alt="The logs page as first tested: one table mixing errors, violations and success events, with search by external ID only." width="867" height="769" loading="lazy">
-              <figcaption>The logs as first tested.</figcaption>
-            </figure>
-          </div>
-
-          <div class="prose">
-            <h3>What changed in the overview</h3>
-            <p>The overview's metrics and trends helped people gauge the health of their space. But the top errors and their causes lived in separate places, and a high violation rate could scare non-technical users. As one solutions engineering manager put it, the page was "missing the positive growth data". So I combined errors, violations and their causes into one chart, removed the events pie chart, and led with profile growth instead.</p>
-          </div>
-          <figure class="compare" style="--pos: 50%">
-            <div class="compare__frame">
-              <img src="img/overview-before.png" alt="Overview before: an events pie chart and separate tables for top violation and error types." width="818" height="886" loading="lazy">
-              <img class="compare__after" src="img/overview-after.png" alt="Overview after: profile growth up front and one combined chart of top error and violation causes." width="787" height="886" loading="lazy">
-              <span class="compare__line" aria-hidden="true"></span>
-              <span class="compare__tag compare__tag--before" aria-hidden="true">Before</span>
-              <span class="compare__tag compare__tag--after" aria-hidden="true">After</span>
-            </div>
-            <label class="compare__control">
-              <span class="label">Drag to compare</span>
-              <input type="range" min="0" max="100" value="50" aria-label="Compare the overview before and after">
-            </label>
-          </figure>
-        </section>
-
-        <!-- Details -->
-        <section class="chapter" id="details">
-          <h2>Getting the details right</h2>
-          <div class="prose">
-            <h3>One search bar for two kinds of search</h3>
-            <p>People wanted to search logs by message ID and by external ID. Message IDs can be searched directly, but an external ID only makes sense once you've picked its type, and that type also had to work as a filter on its own. The question was how one search bar could support a search that needs a filter and one that doesn't.</p>
-          </div>
-          <div class="tries">
-            <figure class="try">
-              <img src="img/search-explore-1b.png" alt="First try: a regular search bar plus an advanced search with its own external ID type filter." width="1012" height="231" loading="lazy">
-              <figcaption><strong>Two search bars.</strong> External ID search was hidden, and showing two ID filters was confusing.</figcaption>
-            </figure>
-            <figure class="try">
-              <img src="img/search-explore-2.png" alt="Second try: one search bar with an ID type selector built into its left side." width="1030" height="134" loading="lazy">
-              <figcaption><strong>A selector inside the search bar.</strong> Not an existing component, and unclear that message ID needs no filter.</figcaption>
-            </figure>
-          </div>
-          <figure class="shot">
-            <img src="img/search-final.png" alt="Final design: one search bar beside an ID type menu; the placeholder changes to match the selected type." width="1185" height="827" loading="lazy">
-            <figcaption><strong>Final:</strong> one search bar whose placeholder changes with the ID type you pick.</figcaption>
-          </figure>
-
-          <div class="prose">
-            <h3>A side sheet you can scan</h3>
-            <p>Each error or violation opens a side sheet. Over three rounds it became a table of only the relevant details, led by a plain-language explanation and a recommended next step.</p>
-          </div>
-          <div class="sheets">
-            <figure class="shot"><img src="img/sheet-explore-1.png" alt="Side sheet exploration 1: event details as a two-column list under the error message." width="405" height="767" loading="lazy"></figure>
-            <figure class="shot"><img src="img/sheet-explore-2.png" alt="Side sheet exploration 2." width="398" height="778" loading="lazy"></figure>
-            <figure class="shot"><img src="img/sheet-final.png" alt="Final side sheet: the error message with a recommended next step, above a scannable table of details." width="430" height="699" loading="lazy"><figcaption>✅ Final</figcaption></figure>
-          </div>
-        </section>
-
-        <!-- Final design -->
-        <section class="chapter" id="final">
-          <h2>The final design</h2>
-          <div class="prose">
-            <p>Profiles Insights shipped to private beta in July 2023 with an overview, errors and violations, success logs, an audit trail, and an email digest of profile health.</p>
-          </div>
-          <div class="gallery">
-            <figure class="shot gallery__wide"><img src="img/final-17.png" alt="Errors and violations tab: a table of events with type and timestamp." width="1440" height="1131" loading="lazy"><figcaption>Errors and violations: the starting point for troubleshooting.</figcaption></figure>
-            <figure class="shot"><img src="img/final-18.png" alt="Success logs tab, separated from errors to reduce noise." width="1440" height="1131" loading="lazy"><figcaption>Success logs, in their own tab.</figcaption></figure>
-            <figure class="shot"><img src="img/final-19.png" alt="Audit trail tab listing identity resolution setting changes and who made them." width="1440" height="1131" loading="lazy"><figcaption>Audit trail of setting changes.</figcaption></figure>
-          </div>
-          <div class="sheets">
-            <figure class="shot"><img src="img/sheet-details.png" alt="Side sheet with details of a violation and a recommended next step." width="617" height="1137" loading="lazy"><figcaption>Details and next step</figcaption></figure>
-            <figure class="shot"><img src="img/sheet-code.png" alt="Side sheet showing the raw event payload as code." width="617" height="1141" loading="lazy"><figcaption>Raw event</figcaption></figure>
-            <figure class="shot"><img src="img/sheet-logs.png" alt="Side sheet showing related logs for the same profile." width="617" height="1187" loading="lazy"><figcaption>Related logs</figcaption></figure>
-          </div>
-        </section>
-
-        <!-- Impact -->
-        <section class="chapter" id="impact">
-          <h2>Impact</h2>
-          <div class="prose">
-            <p class="callout"><span class="callout__number">20%</span> fewer profile-observability tickets after launch.</p>
-            <p>Support and Solutions Engineers became heavy users of Profiles Insights, and escalations to engineers over Slack dropped noticeably.</p>
-            <h3>What I learned</h3>
-            <p>My whole team was based in India. I learned to work well asynchronously, with recorded walkthroughs and clear documentation, cutting down on meetings while keeping everyone unblocked and aligned.</p>
-          </div>
-          <a class="case__next" href="../../#work">← Back to all work</a>
-        </section>
+      <article class="insight">
+        <p class="label">Insight 1</p>
+        <p class="insight__text">Customers have low awareness of the quality and health of their profile data. The most aware were those who had already suffered catastrophic data quality problems, and their only workaround was to start over with Segment.</p>
+        <blockquote class="quote">
+          <p>"I was not aware that you can actually break a profile to a point that you cannot do anything with it. So this is like dark knowledge. It's nowhere documented… And I got an answer that <strong>I did a change that basically broke all our profiles and they're now unusable</strong>."</p>
+          <cite>Systems manager at an enterprise customer</cite>
+        </blockquote>
       </article>
-    </div>
+
+      <article class="insight">
+        <p class="label">Insight 2</p>
+        <p class="insight__text">Segment's identity resolution system is complicated and rigid. It needs careful setup, and any change to it needs safeguards to avoid expensive outcomes that erode customers' trust.</p>
+        <div class="shot-pair">
+          <figure class="shot">
+            <img src="img/insight-2a.png" alt="Table of external ID types, such as user_id, email and android.id, and where each is found in a track or identify call." width="566" height="477" loading="lazy">
+          </figure>
+          <figure class="shot">
+            <img src="img/insight-2b.png" alt="Table of identifiers such as user_id, email and anonymous_id, each with a limit and a priority." width="632" height="258" loading="lazy">
+          </figure>
+        </div>
+      </article>
+
+      <article class="insight">
+        <p class="label">Insight 3</p>
+        <p class="insight__text">Segment profiles are a black box. Customers don't know how to identify and fix even the most common issues. Unintended or incorrect profile merges usually come from errors upstream, in customers' code or from not following tracking best practices, but customers had no way to tell a Segment bug from a problem in their own data.</p>
+        <blockquote class="quote">
+          <p>"<strong>Data inconsistencies are not exactly the fault of Segment, but the implementation within our web platform, but that's always a little bit hard to pinpoint.</strong> So any issue that does come up, it's hard to pinpoint whether that's the issue in Segment or whether there's an issue in the platform."</p>
+          <cite>Product manager, martech and media, at an enterprise customer</cite>
+        </blockquote>
+      </article>
+    </section>
+
+    <!-- Users and framing -->
+    <section class="case__section wrap">
+      <h2>Who we designed for</h2>
+      <div class="personas">
+        <div class="persona persona--primary">
+          <p class="label">Primary persona</p>
+          <p><strong>Data engineers</strong> who need to identify data issues and troubleshoot why profiles or the identity resolution system don't behave as expected.</p>
+        </div>
+        <div class="persona">
+          <p class="label">Secondary persona</p>
+          <p><strong>Business users</strong> who want overall profile metrics to justify Segment's ROI.</p>
+        </div>
+      </div>
+      <p class="prose prose--note">We decided to prioritize troubleshooting.</p>
+
+      <div class="prose">
+        <h3>Customer problem statement</h3>
+      </div>
+      <blockquote class="statement">
+        <p>As a data operator or admin who governs data performance, when I notice data issues, I want to troubleshoot what went wrong and fix them myself, so that I can trust Segment's data to power my personalized communications.</p>
+        <p>Today I have no visibility into what caused profile data issues or how my identity strategy is performing. All I can do is file support tickets or get my Segment rep on a call to help me troubleshoot.</p>
+      </blockquote>
+
+      <p class="hmw"><span class="label">How might we</span> make data operators feel confident identifying and troubleshooting data quality issues on their own?</p>
+    </section>
+
+    <!-- Concepts -->
+    <section class="case__section wrap">
+      <h2>Design concepts</h2>
+      <div class="concepts">
+        <div class="concept">
+          <p class="label">Concept 1 · Overview</p>
+          <p>Summary metrics that show how the profile system is performing and enable proactive monitoring.</p>
+        </div>
+        <div class="concept">
+          <p class="label">Concept 2 · Logs</p>
+          <p>Logs that surface errors, violations and successes in the profile system, to make troubleshooting possible.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feedback -->
+    <section class="case__section wrap">
+      <h2>Feedback and iterations</h2>
+      <div class="prose">
+        <p class="prose__big">Customers and Support were thrilled about this feature.</p>
+        <p>The errors and violations table and its side sheet gave people what they needed to troubleshoot. The overview page had all the key information, but needed more work to help users connect the data into a full picture.</p>
+      </div>
+      <div class="quotes">
+        <blockquote class="quote">
+          <p>"This Logs section is very useful. We are going from flying blind, no visibility whatsoever and very high cost of actually finding the issues, to having at least some understanding of what's going wrong. <strong>In whatever form you're shipping it, I want to be first in line!</strong>"</p>
+          <cite>Data engineer at an enterprise customer</cite>
+        </blockquote>
+        <blockquote class="quote">
+          <p>"Observability really is the main pain point we have with Profiles right now with big customers. This will reduce the number of tickets if they learn how to use the tool."</p>
+          <cite>Customer success lead, Twilio</cite>
+        </blockquote>
+        <blockquote class="quote">
+          <p>"<strong>In my opinion this is gonna have a massive impact on the support team and clients are gonna love it!</strong> For us it's gonna cut the time we spend on this a lot."</p>
+          <cite>Customer success lead, Twilio</cite>
+        </blockquote>
+      </div>
+
+      <h3 class="case__subhead">What we heard about the logs, and what changed</h3>
+      <div class="iteration">
+        <figure class="shot">
+          <img src="img/logs-presented.png" alt="The logs page as first presented: one table mixing errors, violations and success events, with search by external ID only." width="867" height="769" loading="lazy">
+          <figcaption>What was presented</figcaption>
+        </figure>
+        <div class="iteration__notes">
+          <ol class="findings">
+            <li>Customers might feel <strong>overwhelmed</strong> by the number of violations, reading them as something negative. In fact, violations are the expected behavior of their identity resolution system.</li>
+            <li>Customers need to search logs by message ID, but the design only supported external IDs.</li>
+            <li>The errors and violations table and its side sheet were insightful and matched how users troubleshoot.</li>
+            <li>Success logs are useful but add <strong>noise</strong> during troubleshooting. Customers also wanted an audit trail of identity resolution changes, to correlate with errors and violations.</li>
+          </ol>
+          <div class="changes">
+            <p class="label">Design changes</p>
+            <ul>
+              <li>Removed the warning icon from violations and added educational content about errors and violations.</li>
+              <li>Added search by message ID.</li>
+              <li>Moved success logs to their own tab to reduce noise.</li>
+              <li>Added an audit trail for transparency.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="case__subhead">What we heard about the overview, and what changed</h3>
+      <div class="heard">
+        <div>
+          <p class="label">👍 What worked</p>
+          <ul>
+            <li>Overview metrics helped gauge the health of a space.</li>
+            <li>Users liked seeing overall trends, to proactively monitor profile health.</li>
+          </ul>
+        </div>
+        <div>
+          <p class="label">👎 What didn't</p>
+          <ul>
+            <li>The top 5 error and violation types and their causes could be better integrated.</li>
+            <li>A high violation rate could scare non-technical users. The page lacked a positive spin.</li>
+          </ul>
+        </div>
+      </div>
+      <blockquote class="quote quote--wide">
+        <p>"If I put on the marketer hat, they would like to see some performing metrics and how well they are hitting their goals. How many complete profiles do I have? How many people can I reach? The overview page is missing the positive growth data."</p>
+        <cite>Solutions engineering manager, Twilio</cite>
+      </blockquote>
+      <div class="changes changes--wide">
+        <p class="label">Design changes</p>
+        <ul>
+          <li>Combined the top error and violation types and their causes into one chart.</li>
+          <li>Removed the pie chart: non-technical users care about profiles more than raw events, and it put too much emphasis on violations.</li>
+        </ul>
+      </div>
+      <div class="before-after">
+        <figure class="shot">
+          <img src="img/overview-before.png" alt="Overview before: an events pie chart and separate tables for top violation and error types." width="818" height="886" loading="lazy">
+          <figcaption>Before</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="img/overview-after.png" alt="Overview after: profile growth up front and a single combined chart of top error and violation causes." width="787" height="886" loading="lazy">
+          <figcaption>After</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- UI explorations -->
+    <section class="case__section wrap">
+      <h2>UI explorations</h2>
+
+      <h3 class="case__subhead">The search and filter challenge</h3>
+      <dl class="challenge">
+        <div><dt>The ask</dt><dd>As a user, I want to search logs by message ID and by external ID.</dd></div>
+        <div><dt>Technical limitation</dt><dd>Message IDs can be searched directly, but searching by external ID requires picking an external ID type first. External ID type is also an important filter that has to work on its own, independently of search.</dd></div>
+        <div><dt>UI challenge</dt><dd>Design one search bar that supports two kinds of search: one that needs a filter and one that doesn't.</dd></div>
+      </dl>
+
+      <div class="explore">
+        <div class="explore__item">
+          <p class="label">❌ Exploration 1</p>
+          <p>Two search bars: a regular search for message ID, and an advanced search for external ID with an external ID type filter.</p>
+          <figure class="shot"><img src="img/search-explore-1.png" alt="Exploration 1: a search bar for message ID next to the type and filter controls." width="1012" height="160" loading="lazy"></figure>
+          <figure class="shot"><img src="img/search-explore-1b.png" alt="Exploration 1 with advanced search open: a second search bar and external ID type filter for searching by external ID." width="1012" height="231" loading="lazy"></figure>
+          <p class="explore__con">Search by external ID is hidden, and it's odd to have two search bars and two external ID filters.</p>
+        </div>
+        <div class="explore__item">
+          <p class="label">❌ Exploration 2</p>
+          <figure class="shot"><img src="img/search-explore-2.png" alt="Exploration 2: one search bar with an external ID type selector built into its left side." width="1030" height="134" loading="lazy"></figure>
+          <p class="explore__con">Not an existing component, and it's unclear that no filter is needed when searching by message ID.</p>
+        </div>
+        <div class="explore__item explore__item--final">
+          <p class="label">✅ Final design</p>
+          <p>One search bar, whose placeholder text changes with the filter selection.</p>
+          <figure class="shot"><img src="img/search-final.png" alt="Final design: the errors and violations page with one search bar and an external ID type filter." width="1185" height="827" loading="lazy"></figure>
+        </div>
+      </div>
+
+      <h3 class="case__subhead">Side sheet exploration</h3>
+      <div class="sheets">
+        <figure class="shot"><img src="img/sheet-explore-1.png" alt="Side sheet exploration 1: event details as a two-column list under the error message." width="405" height="767" loading="lazy"></figure>
+        <figure class="shot"><img src="img/sheet-explore-2.png" alt="Side sheet exploration 2." width="398" height="778" loading="lazy"></figure>
+        <figure class="shot"><img src="img/sheet-final.png" alt="Final side sheet: the error message with a recommended next step, above a scannable table of details." width="430" height="699" loading="lazy"><figcaption>✅ Final design</figcaption></figure>
+      </div>
+      <ul class="prose prose--list">
+        <li>A table format is the most scannable.</li>
+        <li>Each error and violation gets a recommended next step.</li>
+        <li>Irrelevant details are removed from the table.</li>
+      </ul>
+    </section>
+
+    <!-- Final design -->
+    <section class="case__section wrap">
+      <h2>Final design</h2>
+      <div class="gallery">
+        <figure class="shot"><img src="img/final-17.png" alt="Errors and violations tab: a table of events with type and timestamp." width="1440" height="1131" loading="lazy"><figcaption>Errors and violations</figcaption></figure>
+        <figure class="shot"><img src="img/final-18.png" alt="Success logs tab, separated from errors to reduce noise." width="1440" height="1131" loading="lazy"><figcaption>Success logs, in their own tab</figcaption></figure>
+        <figure class="shot"><img src="img/final-19.png" alt="Audit trail tab listing identity resolution setting changes and who made them." width="1440" height="1131" loading="lazy"><figcaption>Audit trail</figcaption></figure>
+        <figure class="shot"><img src="img/final-settings.png" alt="Settings tab for subscribing to an email digest of profile health." width="1440" height="1093" loading="lazy"><figcaption>Email digest settings</figcaption></figure>
+      </div>
+      <div class="sheets">
+        <figure class="shot"><img src="img/sheet-details.png" alt="Side sheet with details of a violation and a recommended next step." width="617" height="1137" loading="lazy"><figcaption>Side sheet: details</figcaption></figure>
+        <figure class="shot"><img src="img/sheet-code.png" alt="Side sheet showing the raw event payload as code." width="617" height="1141" loading="lazy"><figcaption>Side sheet: raw event</figcaption></figure>
+        <figure class="shot"><img src="img/sheet-logs.png" alt="Side sheet showing related logs for the same profile." width="617" height="1187" loading="lazy"><figcaption>Side sheet: related logs</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section class="case__section wrap">
+      <h2>Results and impact</h2>
+      <div class="stat stat--result">
+        <div class="stat__body">
+          <p class="stat__number">20%</p>
+          <p class="stat__label">decrease in profile-observability tickets.</p>
+          <ul class="stat__facts">
+            <li>Profiles Insights is used heavily by Support and Solutions Engineers.</li>
+            <li>We saw a noticeable drop in escalations to engineers over Slack.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Learnings -->
+    <section class="case__section wrap">
+      <h2>Learnings</h2>
+      <div class="prose">
+        <p>All of my teammates were based in India. I learned to work efficiently asynchronously, with recorded videos and good documentation, to cut down on meetings while keeping the team unblocked and aligned.</p>
+      </div>
+      <a class="case__next" href="../../#work">← Back to all work</a>
+    </section>
   </main>
 
   <footer class="footer wrap">
@@ -299,6 +402,5 @@
   </footer>
 
   <script src="../../script.js"></script>
-  <script src="case.js"></script>
 </body>
 </html>
