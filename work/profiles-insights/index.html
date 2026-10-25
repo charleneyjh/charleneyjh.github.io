@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="../../styles.css">
   <link rel="stylesheet" href="case.css">
 </head>
-<body>
+<body class="profiles-page">
   <header class="nav" id="nav">
     <div class="nav__inner">
       <a class="nav__name" href="../../">Charlene Yang</a>
@@ -30,16 +30,17 @@
     <!-- Intro -->
     <header class="case__intro wrap">
       <a class="case__back label" href="../../#work">← All work</a>
-      <p class="label">Case study · Twilio Segment</p>
       <h1>Profiles Insights</h1>
       <p class="case__lede">Giving data engineers a window into Segment's identity resolution system, so they can spot and fix profile issues themselves instead of filing support tickets.</p>
       <dl class="case__meta">
         <div><dt>Timeline</dt><dd>Mar – May 2023</dd></div>
-        <div><dt>Scope</dt><dd>0 → 1 design</dd></div>
         <div><dt>Role</dt><dd>Sole product designer</dd></div>
         <div><dt>Team</dt><dd>1 PM, 1 designer, 4 engineers</dd></div>
         <div><dt>Outcome</dt><dd>20% fewer observability tickets</dd></div>
       </dl>
+      <nav class="case__contents" aria-label="Case study sections">
+        <a href="#problem">The problem</a><a href="#research">Research</a><a href="#iterations">Iterations</a><a href="#final-design">Final design ↓</a><a href="#results">Impact</a>
+      </nav>
     </header>
 
     <figure class="shot shot--hero wrap-wide">
@@ -47,49 +48,31 @@
     </figure>
 
     <!-- Background -->
-    <section class="case__section wrap">
+    <section class="case__section" id="background"><div class="wrap">
       <h2>Background</h2>
       <div class="prose">
-        <h3>What is Segment?</h3>
-        <p>Segment is a customer data platform (CDP) that helps businesses collect, unify and activate their data to power personalized experiences.</p>
+        <p>Segment is a customer data platform (CDP) that helps businesses collect, unify and activate their data to power personalized experiences. Profiles are Segment's flagship product. Segment's identity resolution system tracks every interaction across the whole user journey to build unified, real-time customer identities.</p>
+        <p><strong>The Profiles team's mission is to build and activate rich, trusted profiles everywhere, to power the future of personalized customer engagement.</strong></p>
       </div>
-      <figure class="shot">
-        <img src="img/segment-cdp.png" alt="Diagram of Segment collecting data from many sources and sending it to many destinations." width="1136" height="675" loading="lazy">
-      </figure>
-      <div class="prose">
-        <h3>What is a Segment profile?</h3>
-        <p>Profiles are Segment's flagship product. Segment's identity resolution system tracks every interaction across the whole user journey to build unified, real-time customer identities.</p>
-      </div>
-      <figure class="shot">
-        <img src="img/segment-profile.png" alt="Diagram of events from different sources merging into a single customer profile." width="1116" height="577" loading="lazy">
-      </figure>
-      <div class="prose">
-        <h3>The team's mission</h3>
-        <p>The Profiles team's mission is to build and activate rich, trusted profiles everywhere, to power the future of personalized customer engagement. Building "Golden Profiles" was the company's top priority for 2023.</p>
-      </div>
-    </section>
+    </div></section>
 
     <!-- Problem -->
-    <section class="case__section wrap">
+    <section class="case__section profile-band--muted" id="problem"><div class="wrap">
       <h2>The problem</h2>
-      <div class="stat">
+      <div class="stat stat--text">
         <div class="stat__body">
-          <p class="stat__number">75%</p>
-          <p class="stat__label">of Profiles support tickets relate to <strong>profile observability and repair</strong>.</p>
+          <p class="stat__label problem-headline"><strong class="problem-percent">75%</strong> of Profiles support tickets relate to <strong>profile observability and repair</strong>.</p>
           <ul class="stat__facts">
-            <li>About 12.5% of Profiles tickets were escalated to the engineering team.</li>
-            <li>46% of issues were about missing data on profiles.</li>
+            <li>About <strong>12.5%</strong> of Profiles tickets were escalated to the engineering team.</li>
+            <li><strong>46%</strong> of issues were about missing data on profiles.</li>
             <li>Profile observability was reported as the biggest product gap, affecting customers worth $17.9M in annual recurring revenue.</li>
           </ul>
         </div>
-        <figure class="shot shot--small">
-          <img src="img/problem-profile-card.png" alt="A sample customer profile card listing recent events and computed traits." width="632" height="751" loading="lazy">
-        </figure>
       </div>
-    </section>
+    </div></section>
 
     <!-- Timeline and role -->
-    <section class="case__section wrap">
+    <section class="case__section" id="role"><div class="wrap">
       <h2>Timeline and my role</h2>
       <div class="timeline" role="img" aria-label="Project timeline from November 2022 to July 2023. Discovery research ran November to January, then feature prioritization and the PRD. I joined in March 2023 for design ideation, usability studies in April, and design iteration and handoff in May. Implementation ran from May to July, followed by a private beta launch in July 2023.">
         <div class="timeline__inner">
@@ -111,7 +94,7 @@
           <div class="timeline__row"><span class="timeline__lane">Development</span>
             <span class="bar" style="--from: 6.4; --to: 8">Implementation</span>
           </div>
-          <span class="timeline__joined" style="--at: 4.4" aria-hidden="true">I joined</span>
+          <span class="timeline__joined" style="--at: 4.4" aria-hidden="true"><span class="timeline__joined-label">I joined · Mar 2023</span></span>
         </div>
       </div>
 
@@ -141,19 +124,19 @@
           </ul>
         </div>
       </div>
-      <p class="prose prose--note">I was the sole product designer, working with 1 product manager and 4 software engineers.</p>
-    </section>
+      <p class="prose prose--note prose--full">I was the sole product designer, working with 1 product manager and 4 software engineers.</p>
+    </div></section>
 
     <!-- Research -->
-    <section class="case__section wrap">
+    <section class="case__section profile-band--muted" id="research"><div class="wrap">
       <h2>Discovery research</h2>
-      <div class="prose">
-        <p>Before I joined, a UX researcher ran interviews and focus groups with internal solution engineers and customers to understand customers' awareness of their data quality, their mental models around partially usable profiles, and their pain points around observability and identity resolution strategy. I built on that work. Three insights shaped the project.</p>
+      <div class="prose prose--full">
+        <p>Before I joined, a UX researcher ran interviews and focus groups with internal solution engineers and customers to understand customers' awareness of their data quality, their mental models around partially usable profiles, and their pain points around observability and identity resolution strategy.</p>
       </div>
 
       <article class="insight">
-        <p class="label">Insight 1</p>
-        <p class="insight__text">Customers have low awareness of the quality and health of their profile data. The most aware were those who had already suffered catastrophic data quality problems, and their only workaround was to start over with Segment.</p>
+        <div class="insight__description"><p class="label">Insight 1</p>
+        <p class="insight__text">Customers have low awareness of the quality and health of their profile data. The most aware were those who had already suffered catastrophic data quality problems, and their only workaround was to start over with Segment.</p></div>
         <blockquote class="quote">
           <p>"I was not aware that you can actually break a profile to a point that you cannot do anything with it. So this is like dark knowledge. It's nowhere documented… And I got an answer that <strong>I did a change that basically broke all our profiles and they're now unusable</strong>."</p>
           <cite>Systems manager at an enterprise customer</cite>
@@ -161,33 +144,30 @@
       </article>
 
       <article class="insight">
-        <p class="label">Insight 2</p>
-        <p class="insight__text">Segment's identity resolution system is complicated and rigid. It needs careful setup, and any change to it needs safeguards to avoid expensive outcomes that erode customers' trust.</p>
+        <div class="insight__description"><p class="label">Insight 2</p>
+        <p class="insight__text">Segment's identity resolution system is complicated and rigid. It needs careful setup, and any change to it needs safeguards to avoid expensive outcomes that erode customers' trust.</p></div>
         <div class="shot-pair">
           <figure class="shot">
             <img src="img/insight-2a.png" alt="Table of external ID types, such as user_id, email and android.id, and where each is found in a track or identify call." width="566" height="477" loading="lazy">
-          </figure>
-          <figure class="shot">
-            <img src="img/insight-2b.png" alt="Table of identifiers such as user_id, email and anonymous_id, each with a limit and a priority." width="632" height="258" loading="lazy">
           </figure>
         </div>
       </article>
 
       <article class="insight">
-        <p class="label">Insight 3</p>
-        <p class="insight__text">Segment profiles are a black box. Customers don't know how to identify and fix even the most common issues. Unintended or incorrect profile merges usually come from errors upstream, in customers' code or from not following tracking best practices, but customers had no way to tell a Segment bug from a problem in their own data.</p>
+        <div class="insight__description"><p class="label">Insight 3</p>
+        <p class="insight__text">Segment profiles are a black box. Customers don't know how to identify and fix even the most common issues. Unintended or incorrect profile merges usually come from errors upstream, in customers' code or from not following tracking best practices, but customers had no way to tell a Segment bug from a problem in their own data.</p></div>
         <blockquote class="quote">
           <p>"<strong>Data inconsistencies are not exactly the fault of Segment, but the implementation within our web platform, but that's always a little bit hard to pinpoint.</strong> So any issue that does come up, it's hard to pinpoint whether that's the issue in Segment or whether there's an issue in the platform."</p>
           <cite>Product manager, martech and media, at an enterprise customer</cite>
         </blockquote>
       </article>
-    </section>
+    </div></section>
 
     <!-- Users and framing -->
-    <section class="case__section wrap">
+    <section class="case__section" id="users"><div class="wrap">
       <h2>Who we designed for</h2>
       <div class="personas">
-        <div class="persona persona--primary">
+        <div class="persona">
           <p class="label">Primary persona</p>
           <p><strong>Data engineers</strong> who need to identify data issues and troubleshoot why profiles or the identity resolution system don't behave as expected.</p>
         </div>
@@ -196,7 +176,6 @@
           <p><strong>Business users</strong> who want overall profile metrics to justify Segment's ROI.</p>
         </div>
       </div>
-      <p class="prose prose--note">We decided to prioritize troubleshooting.</p>
 
       <div class="prose">
         <h3>Customer problem statement</h3>
@@ -206,27 +185,34 @@
         <p>Today I have no visibility into what caused profile data issues or how my identity strategy is performing. All I can do is file support tickets or get my Segment rep on a call to help me troubleshoot.</p>
       </blockquote>
 
-      <p class="hmw"><span class="label">How might we</span> make data operators feel confident identifying and troubleshooting data quality issues on their own?</p>
-    </section>
+    </div></section>
+
+    <section class="profiles-hmw" aria-label="Design question"><div class="wrap">
+      <p class="hmw"><strong>How might we</strong> make data operators feel confident identifying and troubleshooting data quality issues on their own?</p>
+    </div></section>
 
     <!-- Concepts -->
-    <section class="case__section wrap">
+    <section class="case__section profile-band--muted" id="concepts"><div class="wrap">
       <h2>Design concepts</h2>
+      <a class="case__jump" href="#final-design">Jump to final design ↓</a>
       <div class="concepts">
         <div class="concept">
-          <p class="label">Concept 1 · Overview</p>
+          <p class="label">Overview</p>
           <p>Summary metrics that show how the profile system is performing and enable proactive monitoring.</p>
+          <figure class="shot"><img src="img/concept-overview.svg" alt="Abstract overview concept: layered trend lines and orbiting shapes suggest a system-wide view." width="640" height="400" loading="lazy"></figure>
         </div>
         <div class="concept">
-          <p class="label">Concept 2 · Logs</p>
+          <p class="label">Logs</p>
           <p>Logs that surface errors, violations and successes in the profile system, to make troubleshooting possible.</p>
+          <figure class="shot"><img src="img/concept-logs.svg" alt="Abstract logs concept: individual signals converge into a connected event stream." width="640" height="400" loading="lazy"></figure>
         </div>
       </div>
-    </section>
+    </div></section>
 
     <!-- Feedback -->
-    <section class="case__section wrap">
+    <section class="case__section" id="iterations"><div class="wrap">
       <h2>Feedback and iterations</h2>
+      <div class="feedback-summary">
       <div class="prose">
         <p class="prose__big">Customers and Support were thrilled about this feature.</p>
         <p>The errors and violations table and its side sheet gave people what they needed to troubleshoot. The overview page had all the key information, but needed more work to help users connect the data into a full picture.</p>
@@ -246,7 +232,7 @@
         </blockquote>
       </div>
 
-      <h3 class="case__subhead">What we heard about the logs, and what changed</h3>
+      </div>
       <div class="iteration">
         <figure class="shot">
           <img src="img/logs-presented.png" alt="The logs page as first presented: one table mixing errors, violations and success events, with search by external ID only." width="867" height="769" loading="lazy">
@@ -272,6 +258,10 @@
       </div>
 
       <h3 class="case__subhead">What we heard about the overview, and what changed</h3>
+      <div class="iteration overview-feedback">
+        <figure class="shot"><img src="img/overview-before.png" alt="The overview screen presented during research, with an events pie chart and separate top error and violation tables." width="818" height="886" loading="lazy"><figcaption>Overview presented in research</figcaption></figure>
+        <div class="iteration__notes">
+
       <div class="heard">
         <div>
           <p class="label">👍 What worked</p>
@@ -299,6 +289,8 @@
           <li>Removed the pie chart: non-technical users care about profiles more than raw events, and it put too much emphasis on violations.</li>
         </ul>
       </div>
+        </div>
+      </div>
       <div class="before-after">
         <figure class="shot">
           <img src="img/overview-before.png" alt="Overview before: an events pie chart and separate tables for top violation and error types." width="818" height="886" loading="lazy">
@@ -309,10 +301,10 @@
           <figcaption>After</figcaption>
         </figure>
       </div>
-    </section>
+    </div></section>
 
     <!-- UI explorations -->
-    <section class="case__section wrap">
+    <section class="case__section profile-band--muted" id="explorations"><div class="wrap">
       <h2>UI explorations</h2>
 
       <h3 class="case__subhead">The search and filter challenge</h3>
@@ -353,26 +345,28 @@
         <li>Each error and violation gets a recommended next step.</li>
         <li>Irrelevant details are removed from the table.</li>
       </ul>
-    </section>
+    </div></section>
 
     <!-- Final design -->
-    <section class="case__section wrap">
+    <section class="case__section" id="final-design"><div class="wrap">
       <h2>Final design</h2>
-      <div class="gallery">
-        <figure class="shot"><img src="img/final-17.png" alt="Errors and violations tab: a table of events with type and timestamp." width="1440" height="1131" loading="lazy"><figcaption>Errors and violations</figcaption></figure>
-        <figure class="shot"><img src="img/final-18.png" alt="Success logs tab, separated from errors to reduce noise." width="1440" height="1131" loading="lazy"><figcaption>Success logs, in their own tab</figcaption></figure>
-        <figure class="shot"><img src="img/final-19.png" alt="Audit trail tab listing identity resolution setting changes and who made them." width="1440" height="1131" loading="lazy"><figcaption>Audit trail</figcaption></figure>
-        <figure class="shot"><img src="img/final-settings.png" alt="Settings tab for subscribing to an email digest of profile health." width="1440" height="1093" loading="lazy"><figcaption>Email digest settings</figcaption></figure>
+      <figure class="shot final-overview"><img src="img/final-overview.png" alt="Final overview page with active profile growth, violation and error trends, and top causes." width="1440" height="1634" loading="lazy"><figcaption>Overview</figcaption></figure>
+      <div class="design-walkthrough">
+        <article class="design-feature"><div><h3>Errors and violations</h3><p>Find the events that need investigation in a dedicated table, then open a side sheet for details and a recommended next step.</p></div><figure class="shot"><img src="img/final-17.png" alt="Errors and violations tab showing event types and timestamps." width="1440" loading="lazy"></figure></article>
+        <article class="design-feature"><div><h3>Success logs</h3><p>Successful events have their own tab, preserving useful information while keeping the troubleshooting view focused.</p></div><figure class="shot"><img src="img/final-18.png" alt="Success events in their own logs tab." width="1440" loading="lazy"></figure></article>
+        <article class="design-feature"><div><h3>Audit trail</h3><p>Review identity resolution setting changes and who made them, so changes can be correlated with errors and violations.</p></div><figure class="shot"><img src="img/final-19.png" alt="Audit trail showing identity resolution changes." width="1440" loading="lazy"></figure></article>
+        <article class="design-feature"><div><h3>Email digest settings</h3><p>Subscribe to a digest of profile health to support ongoing monitoring.</p></div><figure class="shot"><img src="img/final-settings.png" alt="Email digest subscription settings." width="1440" loading="lazy"></figure></article>
       </div>
+      <h3 class="case__subhead">Details for troubleshooting</h3>
       <div class="sheets">
         <figure class="shot"><img src="img/sheet-details.png" alt="Side sheet with details of a violation and a recommended next step." width="617" height="1137" loading="lazy"><figcaption>Side sheet: details</figcaption></figure>
         <figure class="shot"><img src="img/sheet-code.png" alt="Side sheet showing the raw event payload as code." width="617" height="1141" loading="lazy"><figcaption>Side sheet: raw event</figcaption></figure>
         <figure class="shot"><img src="img/sheet-logs.png" alt="Side sheet showing related logs for the same profile." width="617" height="1187" loading="lazy"><figcaption>Side sheet: related logs</figcaption></figure>
       </div>
-    </section>
+    </div></section>
 
     <!-- Results -->
-    <section class="case__section wrap">
+    <section class="case__section profile-band--muted" id="results"><div class="wrap">
       <h2>Results and impact</h2>
       <div class="stat stat--result">
         <div class="stat__body">
@@ -384,16 +378,9 @@
           </ul>
         </div>
       </div>
-    </section>
+    </div></section>
 
-    <!-- Learnings -->
-    <section class="case__section wrap">
-      <h2>Learnings</h2>
-      <div class="prose">
-        <p>All of my teammates were based in India. I learned to work efficiently asynchronously, with recorded videos and good documentation, to cut down on meetings while keeping the team unblocked and aligned.</p>
-      </div>
-      <a class="case__next" href="../../#work">← Back to all work</a>
-    </section>
+    <div class="wrap"><a class="case__next" href="../../#work">← Back to all work</a></div>
   </main>
 
   <footer class="footer wrap">

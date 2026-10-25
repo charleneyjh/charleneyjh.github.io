@@ -1,0 +1,19 @@
+/* The case study retains its original Wix layout and component typography. */
+html { scroll-behavior: smooth; }
+[id^="comp-"] { scroll-margin-top: 70px; }
+#wix-portfolio-return { position: fixed; inset: 0 0 auto; z-index: 100000; height: 50px; display: flex; align-items: center; justify-content: center; background: #f2f3f5; color: #173642; font: 14px Arial, sans-serif; text-decoration: none; border-bottom: 1px solid #e3e5e8; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+/* Retire the broken third-party back-to-top widget. */
+#comp-jb89cvv3 { display: none; }
+
+/* Portfolio font families only; original sizes, line heights and layout remain. */
+body, body :is(p, span, a, li, button, input, textarea, label, figcaption) {
+  font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif !important;
+}
+body :is(h1, h2, h3, h4, h5, h6),
+body :is(h1, h2, h3, h4, h5, h6) * {
+  font-family: "Newsreader", Georgia, "Times New Roman", serif !important;
+}
+body :is(code, pre, kbd, samp), body :is(code, pre, kbd, samp) * {
+  font-family: "DM Mono", ui-monospace, monospace !important;
+}
