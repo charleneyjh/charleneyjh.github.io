@@ -1,0 +1,46 @@
+/* Selected Work — stacked folio. */
+#work.stacked-folio .card { position: relative; border-radius: 0; }
+#work.stacked-folio .card:hover { transform: none; }
+#work.stacked-folio .card__cover { border: 0; border-radius: 0; }
+#work.stacked-folio .card__body { padding: 0; }
+#work.stacked-folio .work-number { display: block; color: var(--ink-soft); font: 400 12px var(--font-mono); }
+#work.stacked-folio .work-arrow { display: block; font: 28px/1 var(--font-sans); transition: transform .25s; }
+#work.stacked-folio .card:hover .work-arrow { transform: translate(3px,-3px); }
+#work.stacked-folio .cards > li:focus-within { z-index: 8; }
+/* Original folio composition, with separate sheets. */
+#work.stacked-folio .cards { display: grid; gap: 40px; padding-bottom: 40px; }
+#work.stacked-folio .cards > li { position: relative; top: auto; }
+#work.stacked-folio .card { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; min-height: 440px; padding: 56px 40px 40px !important; background: #e3eadd !important; border: 1px solid #bdcbbb !important; box-shadow: 0 2px 8px #1f2a2409 !important; }
+#work.stacked-folio .cards > li:nth-child(3n+2) .card { background: #e4e9ed !important; border-color: #c4cfd5 !important; }
+#work.stacked-folio .cards > li:nth-child(3n) .card { background: #eee6da !important; border-color: #d7caba !important; }
+#work.stacked-folio .card__cover { aspect-ratio: 4/3; object-fit: contain; background: #ffffff70; }
+#work.stacked-folio .filter-cover { padding: 24px; min-height: 280px; background: #ffffff70; }
+#work.stacked-folio .work-number { position: absolute; left: 40px; top: 18px; }
+#work.stacked-folio .work-arrow { position: absolute; right: 28px; top: 22px; }
+#work.stacked-folio h3 { font-size: clamp(32px,4vw,48px); }
+#work.stacked-folio .card__body h3+p { font-size: 17px; }
+#work.stacked-folio .card:focus-visible { outline: 3px solid var(--accent); }
+@media(max-width:760px) {
+  #work.stacked-folio .card { grid-template-columns: 1fr; gap: 24px; padding: 48px 24px 28px !important; min-height: 0; }
+}
+
+/* Restore the original folio stacking interaction. */
+@media(min-width:761px) and (prefers-reduced-motion:no-preference) {
+  #work.stacked-folio .cards { display: block; }
+  #work.stacked-folio .cards > li { position: sticky; top: calc(78px + var(--work-i) * 9px); padding-bottom: 30px; }
+}
+
+/* Aperture cursor: open hairline ring with a directional center. */
+@media(pointer:fine) {
+  #work.stacked-folio .card, #work.stacked-folio .card * { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 36 36'%3E%3Cpath d='M27.4 12A11.2 11.2 0 1 0 24 27.4' fill='none' stroke='%23fbfcf9' stroke-width='3.5'/%3E%3Cpath d='M27.4 12A11.2 11.2 0 1 0 24 27.4' fill='none' stroke='%232f5d50' stroke-width='1.1'/%3E%3C/svg%3E") 18 18, pointer; }
+}
+
+
+#work.stacked-folio .cards > li.work-twilio .card { background: #e5f1fc !important; border-color: #c5dcef !important; }
+
+#work.stacked-folio .cards > li.work-filters .card { background: #FFF1EB !important; border-color: #d7caba !important; }
+#work.stacked-folio .work-filters .filter-cover { background: #FFF1EB; }
+
+#work.stacked-folio .cards > li.work-audience .card { background: #e3eadd !important; border-color: #bdcbbb !important; }
+
+#work.stacked-folio .work-arrow { width: 28px; height: 28px; }

@@ -8,9 +8,12 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&family=Instrument+Sans:wght@400..700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&family=Figtree:wght@400..700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=hero-shorter">
+  <link rel="stylesheet" href="work.css?v=ring-only">
   <link rel="stylesheet" href="playground/ramble/ramble.css">
+<link rel="stylesheet" href="assets/fonts/portfolio-fonts.css?v=figtree1">
+<link rel="stylesheet" href="explorations/filter-covers/approved-cover.css?v=1">
 </head>
 <body>
   <header class="nav" id="nav">
@@ -20,7 +23,6 @@
         <ul class="nav__links">
           <li><a href="#work">Work</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#playground">Playground</a></li>
         </ul>
       </nav>
     </div>
@@ -28,7 +30,7 @@
 
   <main id="top">
     <!-- Hero -->
-    <section class="hero wrap">
+    <section class="hero wrap hero--doodle">
       <div class="hero__text">
         <h1>Hi, I'm Charlene.</h1>
         <p class="hero__tagline">I turn complex systems and ambiguity into simple, elegant design.</p>
@@ -43,45 +45,55 @@
     </section>
 
     <!-- Work -->
-    <section class="section wrap" id="work">
+    <section class="section wrap stacked-folio" id="work">
       <header class="section__head">
         <h2>Selected work</h2>
       </header>
       <ul class="cards">
-<li><a class="card card--link" href="https://www.figma.com/slides/qnaPb6iT52kSnINGH5uLfD/Unified-Filtering-Case-Study?node-id=71-241&amp;t=2kRzQA90dWEoLIZE-0" target="_blank" rel="noopener"><div class="filter-cover" aria-hidden="true"><span>Unified Filters</span><div><i>Property ▾</i><i>Condition ▾</i><i>Value</i></div><small>AND &nbsp; + Add condition</small></div><div class="card__body"><p class="label">Case study · Work in progress</p><h3>Unified Filters</h3><p>A case study in progress. Explore the current slide deck.</p><p class="card__cta">View the Figma deck ↗</p></div></a></li>
-<li><a class="card card--link" href="work/audience-activation/"><img class="card__cover" src="work/audience-activation/img/iteration-after.png" alt="Revised audience activation setup in Segment" width="944" height="531" loading="lazy"><div class="card__body"><p class="label">Case study · Twilio Segment</p><h3>Audience Activation</h3><p>Unifying audience activation into a guided flow across classic and linked audiences.</p><p class="card__cta">Read the case study →</p></div></a></li>
-<li>
-          <a class="card card--link" href="work/twilio-onboarding/">
-            <img class="card__cover" src="work/twilio-onboarding/img/wix/original-00.img" alt="Twilio’s redesigned account dashboard and guided onboarding" width="536" height="366" loading="lazy">
-            <div class="card__body">
-              <p class="label">Case study · Twilio</p>
-              <h3>Twilio Onboarding</h3>
-              <p>Building an onboarding framework from 0 to 1 to help developers build their first application with Twilio.</p>
-              <p class="card__cta">Read the case study →</p>
-            </div>
-          </a>
-        </li>
-<li>
+<li class="work-filters" style="--work-i: 0"><a class="card card--link cover" href="https://www.figma.com/slides/qnaPb6iT52kSnINGH5uLfD/Unified-Filtering-Case-Study?node-id=71-241&amp;t=2kRzQA90dWEoLIZE-0" target="_blank" rel="noopener"><div class="cover-number">01</div><div class="art art-clarity">
+
+<svg class="connections connections--original" viewBox="0 0 600 520" preserveAspectRatio="none" aria-hidden="true"><path d="M20 120H150Q210 120 210 240Q210 260 230 260H340M40 260H230M20 395H155Q210 395 210 280Q210 260 230 260"/><path class="doodle-accent" d="M276 113l8-8M283 124l13-3M274 103l3-10M364 371q6-9 11 0t10 0t10 0"/><path class="doodle-faint" d="M30 316q9-7 18-2t17-2M67 309l-2 4-5-2"/><circle class="doodle-hollow" cx="344" cy="260" r="4"/></svg>
+<div class="old old-one"><p>[property ] [operator ] [value]</p></div>
+<div class="old old-two"><p>completed demo 2 times in the last 30 days where...</p></div>
+<div class="old old-three"><p>is associated to any Open Deals where Deal owner = me</p></div>
+<div class="editor"><img src="explorations/filter-covers/img/editor.png" alt="Unified filter editor combining property, event, and association conditions"></div>
+
+
+</div><div class="cover-copy"><p class="eyebrow">DATA PLATFORM · HUBSPOT</p><h3>Unified Filters</h3><p>Unify query and filter design pattern across HubSpot products</p><span class="cover-link"><img class="cover-link-logo" src="explorations/filter-covers/img/hubspot-icon.svg" alt="HubSpot">View case study <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 16 16 4M4 4h12v12"/></svg></span></div><svg class="corner-arrow" viewBox="0 0 28 28" aria-hidden="true"><path d="M7 21 21 7M7 7h14v14"/></svg></a></li>
+<li class="work-audience" style="--work-i: 1"><a class="card card--link" href="work/audience-activation/"><img class="card__cover" src="work/audience-activation/img/iteration-after.png" alt="Revised audience activation setup in Segment" width="944" height="531" loading="lazy"><div class="card__body"><p class="label">Case study · Twilio Segment</p><h3>Audience Activation</h3><p>Streamline and unify audience activation UX to downstream tools</p><p class="card__cta">Read the case study →</p></div><span class="work-number" aria-hidden="true">02</span><svg class="work-arrow" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M7 21 21 7M7 7h14v14" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke"/></svg></a></li>
+<li style="--work-i: 2"><a class="card card--link" href="work/custom-events/"><img class="card__cover" src="work/custom-events/img/review.png" alt="HubSpot custom event data-model review" width="936" height="1230" loading="lazy"><div class="card__body"><p class="label">Case study · HubSpot</p><h3>Custom Events</h3><p>Helping teams connect external event data to the right CRM records with confidence.</p><p class="card__cta">Read the case study →</p></div><span class="work-number" aria-hidden="true">03</span><svg class="work-arrow" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M7 21 21 7M7 7h14v14" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke"/></svg></a></li>
+<li style="--work-i: 3">
           <a class="card card--link" href="work/profiles-insights/">
             <img class="card__cover" src="work/profiles-insights/img/final-overview.png" alt="" width="1440" height="1634" loading="lazy">
             <div class="card__body">
               <p class="label">Case study · Twilio Segment</p>
               <h3>Profiles Insights</h3>
-              <p>Helping data engineers see inside Segment's identity resolution, so they can find and fix profile issues themselves.</p>
+              <p>Help data operators see inside Segment's identity resolution system to troubleshoot profile issues</p>
               <p class="card__cta">Read the case study →</p>
             </div>
-          </a>
+          <span class="work-number" aria-hidden="true">04</span><svg class="work-arrow" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M7 21 21 7M7 7h14v14" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke"/></svg></a>
         </li>
-<li>
+<li class="work-twilio" style="--work-i: 4">
+          <a class="card card--link" href="work/twilio-onboarding/">
+            <img class="card__cover" src="work/twilio-onboarding/img/wix/original-00.img" alt="Twilio’s redesigned account dashboard and guided onboarding" width="536" height="366" loading="lazy">
+            <div class="card__body">
+              <p class="label">Growth design · Twilio</p>
+              <h3>Twilio Growth</h3>
+              <p>Built Twilio's first onboarding framework from 0 to 1 to help developers onboard.</p>
+              <p class="card__cta">Read the case study →</p>
+            </div>
+          <span class="work-number" aria-hidden="true">05</span><svg class="work-arrow" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M7 21 21 7M7 7h14v14" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke"/></svg></a>
+        </li>
+<li style="--work-i: 5">
           <a class="card card--link" href="work/neighborcircle/">
             <img class="card__cover" src="work/neighborcircle/img/cover.png" alt="NeighborCircle mobile app mockups" width="1500" height="1500" loading="lazy">
             <div class="card__body">
-              <p class="label">Case study · CHI 2019</p>
+              <p class="label">Case study · Student Design Competition CHI 2019</p>
               <h3>NeighborCircle</h3>
-              <p>Building trust between neighbors through thoughtful sharing and opportunities to connect in person.</p>
+              <p>Build trust between neighbors through thoughtful sharing and opportunities to connect in person.</p>
               <p class="card__cta">Read the case study →</p>
             </div>
-          </a>
+          <span class="work-number" aria-hidden="true">06</span><svg class="work-arrow" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M7 21 21 7M7 7h14v14" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke"/></svg></a>
         </li>
       </ul>
     </section>
@@ -112,7 +124,7 @@
     </section>
 
     <!-- Playground: kept like a junk journal -->
-    <section class="section wrap" id="playground">
+    <section class="section wrap" id="playground" hidden>
       <header class="section__head">
         <h2>Playground</h2>
         <p class="section__intro">Things I make and tinker with outside of work, kept the way I like best: as a junk journal.</p>
@@ -227,7 +239,5 @@
   </footer>
 
   <script src="script.js?v=resolve1"></script>
-  <script src="playground/ramble/cat.js"></script>
-  <script src="playground/ramble/ramble.js"></script>
 </body>
 </html>

@@ -605,3 +605,9 @@
   .profiles-page #users { padding-block: 48px; }
   .profiles-page .profiles-hmw { padding-block: 64px; }
 }
+
+/* Latest annotation refinements. */
+.profiles-page #background strong { font-weight: 500; }
+.profiles-page .problem-percent { color: var(--accent); }
+.profiles-page .profiles-hmw .hmw, .profiles-page .profiles-hmw .hmw strong { font-weight: 500; }
+.profiles-page #users .customer-problem-heading { padding-top: 40px; }

@@ -18,3 +18,10 @@ document.querySelectorAll('a').forEach(link => {
 });
 const overviewLink = document.querySelector('a[data-anchor-comp-id="PAGE_TOP_ANCHOR"]');
 if (overviewLink) overviewLink.href = '#SITE_HEADER';
+
+// Local review annotations for this migrated case study.
+if (['localhost', '127.0.0.1'].includes(location.hostname) && !document.getElementById('annotate-root')) {
+  const annotations = document.createElement('script');
+  annotations.src = '/dev/annotate.js?v=resolve1';
+  document.body.appendChild(annotations);
+}
