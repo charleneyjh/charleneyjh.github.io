@@ -124,7 +124,7 @@
       <code></code>
       <textarea placeholder="What should change here?"></textarea>
       <div class="row">
-        ${note ? '<button class="del" type="button">Delete</button>' : ''}
+        ${note ? '<button class="resolve" type="button">Resolve</button><button class="del" type="button">Delete</button>' : ''}
         <button class="cancel" type="button">Cancel</button>
         <button class="save" type="button">Save</button>
       </div>`;
@@ -147,6 +147,15 @@
     };
     box.querySelector('.save').onclick = commit;
     box.querySelector('.cancel').onclick = closeBox;
+    if (note) box.querySelector('.resolve').onclick = () => {
+      let resolved = [];
+      try { resolved = JSON.parse(localStorage.getItem('resolvedAnnotations')) || []; } catch {}
+      resolved.push({ ...note, resolvedAt: new Date().toISOString() });
+      localStorage.setItem('resolvedAnnotations', JSON.stringify(resolved));
+      notes = notes.filter(n => n !== note);
+      closeBox();
+      save();
+    };
     if (note) box.querySelector('.del').onclick = () => {
       notes = notes.filter(n => n !== note);
       closeBox();

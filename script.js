@@ -73,5 +73,5 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 // Dev-only: the comment overlay never loads on the published site.
 if (['localhost', '127.0.0.1'].includes(location.hostname)) {
-  document.body.appendChild(Object.assign(document.createElement('script'), { src: '/dev/annotate.js' }));
+  document.body.appendChild(Object.assign(document.createElement('script'), { src: '/dev/annotate.js?v=resolve1' }));
 }
