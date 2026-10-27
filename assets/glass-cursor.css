@@ -36,3 +36,15 @@
  }
  .glass-cursor::before { left:3px;top:2px;width:7px;height:2px;background:rgba(255,255,255,.95);filter:blur(.2px); }
 }
+
+/* Selected study 2: Cool water. Fixed 20px with a clear center. */
+@media (any-pointer:fine) {
+ .glass-cursor {
+  border:0;
+  background:radial-gradient(ellipse at 30% 18%,#ffffff52,transparent 35%),radial-gradient(circle,transparent 53%,#a9d4df19 73%,#ffffffa6 100%);
+  outline:1px solid #527a9699;
+  box-shadow:inset .8px 1px 1px #fffffff2,inset -1px -1.5px 1.7px #426b9b85,0 2px 5px #365e8159,0 0 2px #b4dceb80;
+ }
+ .glass-cursor::before { content:none; }
+ .glass-cursor::after { content:'';position:absolute;inset:1px;border-radius:50%;border-top:1px solid #fff;border-left:.7px solid #ffffffb3;transform:rotate(-25deg); }
+}
