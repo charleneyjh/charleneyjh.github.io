@@ -1,0 +1,38 @@
+/* A light, translucent water droplet for fine pointers. */
+.glass-cursor { display:none; }
+@media (any-pointer:fine) {
+ html.glass-cursor-active, html.glass-cursor-active body,
+ html.glass-cursor-active body * { cursor:none!important; }
+ .glass-cursor { display:block; position:fixed; left:0;top:0; width:32px;height:34px; margin:-17px 0 0 -16px; z-index:2147483646; pointer-events:none; opacity:0; border-radius:48% 52% 52% 48% / 43% 44% 56% 57%; border:1px solid rgba(255,255,255,.8); background:radial-gradient(ellipse at 28% 20%,rgba(255,255,255,.65),rgba(255,255,255,.08) 45%,rgba(95,138,150,.22) 80%); backdrop-filter:blur(2px) saturate(1.25); -webkit-backdrop-filter:blur(2px) saturate(1.25); box-shadow:inset 1px 1.5px 2px #ffffffb3,inset -1px -1.5px 2px #547a8633,0 3px 8px #1f443540,0 0 0 1px #55746666; transition:opacity .12s,width .18s,height .18s,margin .18s; }
+ .glass-cursor::before { content:''; position:absolute; left:5px;top:3px;width:8px;height:3px;border-radius:50%;background:#ffffffb8;filter:blur(.5px);transform:rotate(-26deg); }
+ .glass-cursor.is-link { width:38px;height:39px;margin:-19.5px 0 0 -19px; }
+ .glass-cursor.is-visible { opacity:1; }
+}
+
+/* Fixed circular glass cursor, including hover states. */
+@media (any-pointer:fine) {
+ .glass-cursor, .glass-cursor.is-link { width:20px;height:20px;margin:-10px 0 0 -10px;border-radius:50%;transition:opacity .12s; }
+ .glass-cursor::before { left:3px;top:2px;width:6px;height:2px; }
+}
+
+/* Clear glass: preserve legibility beneath the pointer. */
+@media (any-pointer:fine) {
+ .glass-cursor {
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+  background:radial-gradient(ellipse at 28% 20%,rgba(255,255,255,.15),rgba(255,255,255,.015) 45%,rgba(95,138,150,.025) 80%);
+  border-color:rgba(255,255,255,.55);
+  box-shadow:inset 1px 1px 1.5px #ffffff60,inset -1px -1px 1.5px #547a861a,0 1px 3px #1f44351f,0 0 0 .5px #55746640;
+ }
+ .glass-cursor::before { background:#ffffff66; }
+}
+
+/* Stronger beveled rim around the clear center. */
+@media (any-pointer:fine) {
+ .glass-cursor {
+  border-color:rgba(255,255,255,.92);
+  background:radial-gradient(circle,transparent 56%,rgba(98,132,141,.13) 73%,rgba(255,255,255,.42) 95%);
+  box-shadow:inset 1.5px 1.5px 1.5px rgba(255,255,255,.95),inset -1.5px -2px 1.5px rgba(44,75,85,.4),0 0 0 1px rgba(62,91,98,.5),1px 3px 4px rgba(25,52,60,.25);
+ }
+ .glass-cursor::before { left:3px;top:2px;width:7px;height:2px;background:rgba(255,255,255,.95);filter:blur(.2px); }
+}

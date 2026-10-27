@@ -122,13 +122,13 @@
 .password-actions button { padding:10px 16px; border:1px solid #bdcbbb; border-radius:5px; background:transparent; color:var(--ink); cursor:pointer; }
 .password-actions button[type=submit] { background:#2f5d50; border-color:#2f5d50; color:white; }
 
-/* A light, translucent water droplet for fine pointers. */
-.glass-cursor { display:none; }
-@media (pointer:fine) and (hover:hover) {
- html.glass-cursor-active, html.glass-cursor-active body,
- html.glass-cursor-active body * { cursor:none!important; }
- .glass-cursor { display:block; position:fixed; left:0;top:0; width:24px;height:26px; margin:-13px 0 0 -12px; z-index:2147483646; pointer-events:none; opacity:0; border-radius:48% 52% 52% 48% / 43% 44% 56% 57%; border:1px solid rgba(255,255,255,.8); background:radial-gradient(ellipse at 28% 20%,rgba(255,255,255,.65),rgba(255,255,255,.08) 45%,rgba(95,138,150,.12) 80%); backdrop-filter:blur(2px) saturate(1.25); -webkit-backdrop-filter:blur(2px) saturate(1.25); box-shadow:inset 1px 1.5px 2px #ffffffb3,inset -1px -1.5px 2px #547a8633,0 1px 4px #1f44352e,0 0 0 .5px #55746640; transition:opacity .12s,width .18s,height .18s,margin .18s; }
- .glass-cursor::before { content:''; position:absolute; left:5px;top:3px;width:8px;height:3px;border-radius:50%;background:#ffffffb8;filter:blur(.5px);transform:rotate(-26deg); }
- .glass-cursor.is-link { width:30px;height:31px;margin:-15.5px 0 0 -15px; }
- .glass-cursor.is-visible { opacity:1; }
+
+/* Highlight the case study action when its card is hovered or keyboard focused. */
+#work.stacked-folio .card:hover .card__cta,
+#work.stacked-folio .card:focus-visible .card__cta,
+#work.stacked-folio .work-filters .card:hover .cover-link,
+#work.stacked-folio .work-filters .card:focus-visible .cover-link {
+ text-decoration:underline;
+ text-decoration-thickness:1px;
+ text-underline-offset:4px;
 }
