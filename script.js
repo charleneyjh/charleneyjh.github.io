@@ -104,3 +104,31 @@ if (['localhost', '127.0.0.1'].includes(location.hostname)) {
     window.location.assign(link.href);
   });
 })();
+
+// Liquid glass pointer: direct tracking, with a small spring back to its resting shape.
+(() => {
+ if (!matchMedia('(pointer:fine) and (hover:hover)').matches) return;
+ const droplet = document.createElement('div');
+ droplet.className = 'glass-cursor'; droplet.setAttribute('aria-hidden','true');
+ document.body.append(droplet);
+ const reduced = matchMedia('(prefers-reduced-motion:reduce)');
+ let x=0,y=0,lastX=0,lastY=0,stretch=0,angle=0,frame=0,seen=false;
+ const hide=()=>{document.documentElement.classList.remove('glass-cursor-active');droplet.classList.remove('is-visible');seen=false;};
+ function paint(){
+  stretch*=.76;
+  droplet.style.transform=`translate3d(${x}px,${y}px,0) rotate(${angle}rad) scale(${1+stretch},${1-stretch*.45})`;
+  frame=stretch>.001?requestAnimationFrame(paint):0;
+ }
+ document.addEventListener('pointermove',event=>{
+  if(event.pointerType!=='mouse'||event.target.closest('dialog,input,textarea,select,[contenteditable="true"],#annotate-root')){hide();return;}
+  x=event.clientX;y=event.clientY;
+  if(seen&&!reduced.matches){const dx=x-lastX,dy=y-lastY;angle=Math.atan2(dy,dx);stretch=Math.min(.16,Math.hypot(dx,dy)*.003);}
+  lastX=x;lastY=y;seen=true;
+  document.documentElement.classList.add('glass-cursor-active');droplet.classList.add('is-visible');
+  droplet.classList.toggle('is-link',!!event.target.closest('a,button,[role="button"]'));
+  if(!frame)paint();
+ },{passive:true});
+ document.documentElement.addEventListener('pointerleave',hide);
+ window.addEventListener('blur',hide);
+ document.addEventListener('pointerdown',()=>{stretch=0;});
+})();

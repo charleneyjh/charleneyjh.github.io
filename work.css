@@ -30,10 +30,6 @@
   #work.stacked-folio .cards > li { position: sticky; top: calc(78px + var(--work-i) * 9px); padding-bottom: 30px; }
 }
 
-/* Aperture cursor: open hairline ring with a directional center. */
-@media(pointer:fine) {
-  #work.stacked-folio .card, #work.stacked-folio .card * { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 36 36'%3E%3Cpath d='M27.4 12A11.2 11.2 0 1 0 24 27.4' fill='none' stroke='%23fbfcf9' stroke-width='3.5'/%3E%3Cpath d='M27.4 12A11.2 11.2 0 1 0 24 27.4' fill='none' stroke='%232f5d50' stroke-width='1.1'/%3E%3C/svg%3E") 18 18, pointer; }
-}
 
 
 #work.stacked-folio .cards > li.work-twilio .card { background: #e5f1fc !important; border-color: #c5dcef !important; }
@@ -125,3 +121,14 @@
 .password-actions { display:flex; justify-content:flex-end; gap:12px; }
 .password-actions button { padding:10px 16px; border:1px solid #bdcbbb; border-radius:5px; background:transparent; color:var(--ink); cursor:pointer; }
 .password-actions button[type=submit] { background:#2f5d50; border-color:#2f5d50; color:white; }
+
+/* A light, translucent water droplet for fine pointers. */
+.glass-cursor { display:none; }
+@media (pointer:fine) and (hover:hover) {
+ html.glass-cursor-active, html.glass-cursor-active body,
+ html.glass-cursor-active body * { cursor:none!important; }
+ .glass-cursor { display:block; position:fixed; left:0;top:0; width:24px;height:26px; margin:-13px 0 0 -12px; z-index:2147483646; pointer-events:none; opacity:0; border-radius:48% 52% 52% 48% / 43% 44% 56% 57%; border:1px solid rgba(255,255,255,.8); background:radial-gradient(ellipse at 28% 20%,rgba(255,255,255,.65),rgba(255,255,255,.08) 45%,rgba(95,138,150,.12) 80%); backdrop-filter:blur(2px) saturate(1.25); -webkit-backdrop-filter:blur(2px) saturate(1.25); box-shadow:inset 1px 1.5px 2px #ffffffb3,inset -1px -1.5px 2px #547a8633,0 1px 4px #1f44352e,0 0 0 .5px #55746640; transition:opacity .12s,width .18s,height .18s,margin .18s; }
+ .glass-cursor::before { content:''; position:absolute; left:5px;top:3px;width:8px;height:3px;border-radius:50%;background:#ffffffb8;filter:blur(.5px);transform:rotate(-26deg); }
+ .glass-cursor.is-link { width:30px;height:31px;margin:-15.5px 0 0 -15px; }
+ .glass-cursor.is-visible { opacity:1; }
+}
