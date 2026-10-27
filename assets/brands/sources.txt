@@ -1,0 +1,3 @@
+HubSpot: user-provided HubSpot Icon - Colored - zonalogo.com.svg
+Twilio: official logo SVG from https://www.twilio.com/en-us (icon viewBox crop)
+Segment: https://www.vectorlogo.zone/logos/segment/segment-icon.svg

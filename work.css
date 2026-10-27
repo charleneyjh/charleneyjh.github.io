@@ -44,3 +44,84 @@
 #work.stacked-folio .cards > li.work-audience .card { background: #e3eadd !important; border-color: #bdcbbb !important; }
 
 #work.stacked-folio .work-arrow { width: 28px; height: 28px; }
+
+#work.stacked-folio .card h3, #work.stacked-folio .work-filters .cover-copy h3 { font-size: 40px; }
+
+/* Profiles Insights: a straight screen with the product navigation cropped away. */
+.profiles-cover-screen { width: 76%; margin-inline: auto; border: 1px solid #b6c4ac; border-radius: 6px; overflow: hidden; background: #fff; box-shadow: 0 12px 23px #6c81511a; }
+.profiles-cover-bar { display: flex; align-items: center; gap: 4px; height: 17px; padding-left: 9px; background: #f7f9f4; border-bottom: 1px solid #d8e0d1; }
+.profiles-cover-bar i { width: 4px; height: 4px; border-radius: 50%; background: #c0cbb7; }
+.profiles-cover-crop { overflow: hidden; }
+.profiles-cover-crop img { display: block; width: 116.04%; max-width: none; height: auto; margin-left: -16.04%; }
+@media(max-width:760px) { .profiles-cover-screen { width: 76%; } }
+
+/* Keep desktop folio sheets consistent; reveal the top of the Profiles screen. */
+.profiles-cover-crop { aspect-ratio: 4 / 3; }
+@media(min-width:851px) {
+ #work.stacked-folio .card { height: 520px; min-height: 520px; }
+ #work.stacked-folio .work-filters .card.cover,
+ #work.stacked-folio .work-neighborcircle .card { height: 520px; min-height: 520px; }
+ #work.stacked-folio .work-filters .art,
+ #work.stacked-folio .work-neighborcircle .art { height: 518px; }
+}
+
+.profiles-cover-crop img { transform: translateY(-12%); }
+
+.card__cta { display: flex; align-items: center; gap: 10px; }
+.case-study-logo { flex: 0 0 auto; display: block; width: 22px; height: 22px; object-fit: contain; }
+
+/* Straight screen covers, with product-specific outline colors. */
+.clean-cover-screen { width:90%; margin-inline:auto; overflow:hidden; border:1px solid var(--screen-outline); border-radius:6px; background:#fff; box-shadow:0 10px 22px var(--screen-shadow); }
+.clean-cover-screen--audience { --screen-outline:#8eafce; --screen-shadow:#6b8eb51a; --screen-bar:#f4f8fc; --screen-dot:#b8cbdc; }
+.clean-cover-screen--event { --screen-outline:#e4b26e; --screen-shadow:#c794581a; --screen-bar:#fff9f0; --screen-dot:#e3c79e; }
+.clean-cover-bar { display:flex; align-items:center; gap:4px; height:17px; padding-left:9px; background:var(--screen-bar); border-bottom:1px solid var(--screen-outline); }
+.clean-cover-bar i { display:block; width:4px; height:4px; border-radius:50%; background:var(--screen-dot); }
+.clean-cover-crop { overflow:hidden; aspect-ratio:4/3; }
+.clean-cover-image { display:block; width:100%; max-width:none; height:auto; }
+.clean-cover-screen--audience .clean-cover-crop { aspect-ratio:16/10; }
+.clean-cover-screen--audience .clean-cover-image { width:110%; margin-left:-5%; margin-top:-7%; }
+.clean-cover-screen--event .clean-cover-image { margin-top:-2%; }
+@media(max-width:760px) { .clean-cover-screen { width:100%; } }
+
+/* Give the three product screens the full visual column and preserve page titles. */
+.clean-cover-screen, .profiles-cover-screen { width:100%; }
+.clean-cover-screen--audience .clean-cover-image { width:100%; margin:0; }
+.clean-cover-screen--audience .clean-cover-crop { aspect-ratio:1174/781; }
+.clean-cover-screen--event .clean-cover-image { margin-top:0; }
+.clean-cover-screen--event .clean-cover-crop { aspect-ratio:936/810; }
+.profiles-cover-crop img { transform:none; }
+.profiles-cover-crop { aspect-ratio:1.12; }
+@media(max-width:760px) { .profiles-cover-screen { width:100%; } }
+
+/* Twilio uses the same straight product-screen treatment. */
+.clean-cover-screen--twilio { --screen-outline:#8eafce; --screen-shadow:#6b8eb51a; --screen-bar:#f4f8fc; --screen-dot:#b8cbdc; }
+.clean-cover-screen--twilio .clean-cover-crop { aspect-ratio:1.34; }
+.clean-cover-screen--twilio .clean-cover-image { width:125%; margin-left:-25%; margin-top:-8%; transform:none; }
+
+/* Inset the onboarding content from the left edge of its frame. */
+.clean-cover-screen--twilio .clean-cover-crop { padding-left:18px; }
+
+/* Shared card typography: Audience Activation is the reference. */
+#work.stacked-folio .card h3 { font:500 40px/1.2 var(--font-serif); letter-spacing:normal; }
+#work.stacked-folio .card .label,
+#work.stacked-folio .work-filters .cover-copy .eyebrow { font:500 13px/1.4 var(--font-mono); letter-spacing:.02em; }
+#work.stacked-folio .card .card__body h3+p,
+#work.stacked-folio .work-filters .cover-copy>p:not(.eyebrow) { font:400 17px/1.6 var(--font-sans); letter-spacing:normal; }
+#work.stacked-folio .card .card__cta,
+#work.stacked-folio .work-filters .cover-copy .cover-link { font:500 14px/1.4 var(--font-mono); letter-spacing:normal; }
+#work.stacked-folio .work-filters .cover-copy h3 { font:500 40px/1.2 var(--font-serif); letter-spacing:normal; }
+
+#work.stacked-folio .work-filters .cover-copy .eyebrow { font:500 13px/1.4 var(--font-mono) !important; letter-spacing:.02em !important; }
+#work.stacked-folio .work-filters .cover-copy>p:not(.eyebrow) { font:400 17px/1.6 var(--font-sans) !important; }
+
+#case-password { width:min(420px,calc(100% - 40px)); padding:32px; border:1px solid #bdcbbb; border-radius:12px; background:#f7f8f3; color:var(--ink); box-shadow:0 20px 70px #20332c30; }
+#case-password::backdrop { background:#20332c66; backdrop-filter:blur(4px); }
+#case-password h2 { font:500 32px/1.2 var(--font-serif); margin:0 0 12px; }
+#case-password p,#case-password label,#case-password input,#case-password button { font-family:var(--font-sans); }
+#case-password label { display:block; margin:24px 0 8px; font-size:14px; }
+#case-password input { width:100%; padding:12px; border:1px solid #a6b5aa; border-radius:5px; font-size:16px; box-sizing:border-box; }
+#case-password input:focus-visible,#case-password button:focus-visible { outline:2px solid #2f5d50; outline-offset:3px; }
+#case-password-error { min-height:20px; margin:8px 0 16px; color:#a02c27; font-size:13px; }
+.password-actions { display:flex; justify-content:flex-end; gap:12px; }
+.password-actions button { padding:10px 16px; border:1px solid #bdcbbb; border-radius:5px; background:transparent; color:var(--ink); cursor:pointer; }
+.password-actions button[type=submit] { background:#2f5d50; border-color:#2f5d50; color:white; }

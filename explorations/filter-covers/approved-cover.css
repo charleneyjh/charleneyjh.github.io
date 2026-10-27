@@ -160,3 +160,5 @@ body[data-connector="elastic"] .connections--original { stroke: #b8a08d; stroke-
  #work.stacked-folio .work-filters .cover-copy > p:not(.eyebrow) { font-size: 18px; }
  #work.stacked-folio .work-filters .cover-copy h3 { font-size: 44px; }
 }
+
+#work.stacked-folio .work-filters .cover-copy h3 { font-size: 40px; }
