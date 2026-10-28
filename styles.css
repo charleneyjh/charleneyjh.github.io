@@ -778,3 +778,8 @@ textarea,
 /* Bring Selected Work 40px closer while retaining the hero composition. */
 .hero { padding-top: calc(clamp(48px, 9vw, 96px) - 20px); padding-bottom: calc(clamp(48px, 9vw, 96px) - 20px); }
 @media(min-width:760px) { .hero { min-height: calc(clamp(380px, 42vw, 500px) - 40px); } }
+
+/* About shares the full content width and sits closer to selected work. */
+#about {margin-top:-80px;}
+#about .about {grid-template-columns:minmax(0,1fr);}
+#about .about__body,#about .about__body p {width:100%;max-width:none;}
