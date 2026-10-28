@@ -368,5 +368,11 @@
   </main>
 
   <script src="../../assets/glass-cursor.js?v=3"></script>
+  <script>
+    // Dev-only: the comment overlay never loads on the published site.
+    if (['localhost', '127.0.0.1'].includes(location.hostname)) {
+      document.body.appendChild(Object.assign(document.createElement('script'), { src: '/dev/annotate.js?v=resolve1' }));
+    }
+  </script>
 </body>
 </html>
