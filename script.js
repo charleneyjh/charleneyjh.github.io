@@ -105,3 +105,10 @@ if (['localhost', '127.0.0.1'].includes(location.hostname)) {
   });
 })();
 
+
+(() => {
+ const section=document.querySelector('#work'),rail=document.querySelector('.work-year');if(!section||!rail)return;
+ const cards=[...section.querySelectorAll('.cards > li')],years=['2026','2024','2023','2023','2021','2019'],value=rail.querySelector('.work-year__value');let active=-1,queued=false;
+ function update(){queued=false;const bounds=section.getBoundingClientRect();rail.style.opacity=bounds.top<innerHeight*.52&&bounds.bottom>innerHeight*.48?'1':'0';let next=0;cards.forEach((card,i)=>{if(card.getBoundingClientRect().top<innerHeight*.52)next=i});if(next!==active){const changed=years[next]!==years[active];active=next;value.textContent=years[next];rail.style.setProperty('--year-progress',((next+1)/cards.length*100)+'%');if(changed){value.classList.remove('is-changing');void value.offsetWidth;value.classList.add('is-changing')}}}
+ addEventListener('scroll',()=>{if(!queued){queued=true;requestAnimationFrame(update)}},{passive:true});addEventListener('resize',update);update();
+})();
