@@ -169,3 +169,14 @@
 }
 
 #work.stacked-folio .cards > li.work-profiles .card { background:#e3eadd!important;border-color:#bdcbbb!important; }
+
+#work.stacked-folio .cards > li.work-autocapture .card {background:#e5f1fc!important;border-color:#c5dcef!important;}
+.autocapture-placeholder {width:100%;aspect-ratio:4/3;display:grid;place-items:center;border:1px dashed #a9bdc9;border-radius:6px;background:#ffffff35;color:#6b808c;font:400 12px 'DM Mono',monospace;}
+#work .card--coming-soon {cursor:default;}
+#work .card--coming-soon:hover .card__cta {text-decoration:none;}
+
+#work.stacked-folio .cards > li.work-neighborcircle .card {background:#eee6da!important;border-color:#d7caba!important;}
+
+#work.stacked-folio .card--coming-soon .card__cta,
+#work.stacked-folio .card--coming-soon:hover .card__cta,
+#work.stacked-folio .card--coming-soon:focus-within .card__cta {text-decoration:none!important;}
