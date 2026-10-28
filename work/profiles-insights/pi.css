@@ -86,7 +86,7 @@ strong { font-weight: 700; }
 .pi-compare { margin-top: 48px; }
 
 /* Timeline */
-.pi-timeline { overflow-x: auto; margin-bottom: 48px; padding: 24px 24px 12px; background: #fff; border: 1px solid var(--pi-line); border-radius: 4px; }
+.pi-timeline { overflow-x: auto; margin-bottom: 48px; padding: 24px 24px 12px; background: #fff; border: 1px solid var(--pi-line); border-radius: 4px; box-shadow: var(--pi-shadow); }
 .pi-timeline__inner { --lane: 112px; --months: 10; position: relative; min-width: 620px; margin-left: var(--lane); background: repeating-linear-gradient(90deg, var(--pi-line) 0 1px, transparent 1px 20%); }
 .pi-timeline__months { display: grid; grid-template-columns: repeat(5, 1fr); padding: 0 0 12px 8px; font-size: 13px; color: var(--pi-soft); }
 .pi-timeline__row { position: relative; height: 52px; }
@@ -112,3 +112,26 @@ strong { font-weight: 700; }
   .pi-row + .pi-row { margin-top: 48px; }
   .pi-top { padding: 16px; }
 }
+
+/* Review round 1 */
+.pi-plain ul { list-style: none; padding-left: 0; }
+.pi-plain li + li { margin-top: 8px; }
+.pi-shot--small { max-width: 340px; }
+.pi-research .pi-row + .pi-row { margin-top: 92px; }
+.pi-personas > div + div { margin-top: 0; }
+.pi-concept { display: block; width: 160px; height: auto; color: var(--pi-ink); margin-bottom: 24px; }
+.pi-quote--low { margin-top: 200px !important; }
+.pi-raise { position: relative; top: -100px; }
+
+.pi-tabs__list { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+.pi-tabs__list button { padding: 8px 16px; border: 1px solid var(--pi-line); border-radius: 999px; background: #fff; color: var(--pi-ink); font: 600 14px/1.4 Figtree, ui-sans-serif, system-ui, sans-serif; cursor: pointer; }
+.pi-tabs__list button[aria-selected="true"] { background: var(--pi-ink); border-color: var(--pi-ink); color: #fff; }
+.pi-tabs__list button:focus-visible { outline: 2px solid var(--pi-ink); outline-offset: 2px; }
+.pi-tabs [data-panel][hidden] { display: none; }
+.pi-sheet .pi-shot { max-width: 400px; }
+@media (max-width: 760px) {
+  .pi-quote--low { margin-top: 0 !important; }
+  .pi-raise { top: 0; }
+  .pi-research .pi-row + .pi-row { margin-top: 64px; }
+}
+.pi-sheet .pi-shot + .pi-shot { margin-top: 0; }

@@ -26,8 +26,8 @@
       <div class="pi-overview">
         <div>
           <h2>Overview</h2>
-          <p>75% of Segment Profiles support tickets were about profile observability and repair. Customers couldn't see why their profiles broke, so every issue turned into a support ticket or a call with their Segment rep.</p>
-          <p>I designed Profiles Insights to help data engineers diagnose and resolve profile issues in Segment on their own. After launch, profile-observability tickets dropped by 20%.</p>
+          <p>75% of Segment Profiles support tickets were about profile observability and repair.</p>
+          <p>I led the design of Profiles Insights to help data engineers diagnose and resolve profile issues in Segment on their own. After launch, profile-observability tickets dropped by 20%.</p>
         </div>
         <div>
           <h2>My team: Profiles</h2>
@@ -40,7 +40,7 @@
     <!-- Context -->
     <section class="pi-section" id="context"><div class="pi-wrap">
       <h2>Context</h2>
-      <p>Segment is a customer data platform (CDP) that helps businesses collect, unify and activate their data to power personalized experiences. Profiles are Segment's flagship product. Segment's identity resolution system tracks every interaction across the whole user journey to build unified, real-time customer identities.</p>
+      <p>Segment is a customer data platform (CDP) that helps businesses collect, unify and activate their data to power personalized experiences. Profiles is Segment's flagship product. It uses an identity resolution system that tracks every interaction across the whole user journey to build unified, real-time customer identities.</p>
       <p class="pi-statement">The Profiles team's mission is to build and activate rich, trusted profiles everywhere, to power the future of personalized customer engagement.</p>
 
       <div class="pi-block">
@@ -81,7 +81,7 @@
         </div>
       </div>
 
-      <div class="pi-grid pi-grid--3">
+      <div class="pi-grid pi-grid--3 pi-plain">
         <div>
           <h3>Design</h3>
           <ul>
@@ -101,7 +101,7 @@
         <div>
           <h3>Development</h3>
           <ul>
-            <li>Delivered pixel-perfect, implementable designs</li>
+            <li>Delivered pixel-perfect designs</li>
             <li>Worked through edge cases with engineers</li>
             <li>Ran design QA on front-end tickets</li>
           </ul>
@@ -110,8 +110,8 @@
     </div></section>
 
     <!-- Research -->
-    <section class="pi-section" id="research"><div class="pi-wrap">
-      <h2>Discovery research</h2>
+    <section class="pi-section pi-research" id="research"><div class="pi-wrap">
+      <h2>Research insights</h2>
       <p>Before I joined, a UX researcher ran interviews and focus groups with internal solution engineers and customers to understand customers' awareness of their data quality, their mental models around partially usable profiles, and their pain points around observability and identity resolution strategy.</p>
 
       <div class="pi-block">
@@ -131,7 +131,7 @@
             <h3>A complicated, rigid system</h3>
             <p>Segment's identity resolution system is complicated and rigid. It needs careful setup, and any change to it needs safeguards to avoid expensive outcomes that erode customers' trust.</p>
           </div>
-          <figure class="pi-shot"><img src="img/insight-2a.png" alt="Table of external ID types, such as user_id, email and android.id, and where each is found in a track or identify call." width="566" height="477" loading="lazy"></figure>
+          <figure class="pi-shot pi-shot--small"><img src="img/insight-2a.png" alt="Table of external ID types, such as user_id, email and android.id, and where each is found in a track or identify call." width="566" height="477" loading="lazy"></figure>
         </div>
 
         <div class="pi-row">
@@ -150,7 +150,7 @@
     <!-- Users and framing -->
     <section class="pi-section pi-section--muted" id="users"><div class="pi-wrap">
       <h2>Who we designed for</h2>
-      <div class="pi-personas">
+      <div class="pi-grid pi-grid--2 pi-personas">
         <div>
           <h4>Primary persona</h4>
           <p>Data engineers who need to identify data issues and troubleshoot why profiles or the identity resolution system don't behave as expected.</p>
@@ -174,10 +174,30 @@
       <h2>Design concepts</h2>
       <div class="pi-grid pi-grid--2">
         <div>
+          <svg class="pi-concept" viewBox="0 0 160 112" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="1" width="158" height="110" rx="6"/>
+            <path d="M1 17h158"/>
+            <circle cx="10" cy="9" r="1.5" fill="currentColor" stroke="none"/><circle cx="17" cy="9" r="1.5" fill="currentColor" stroke="none"/><circle cx="24" cy="9" r="1.5" fill="currentColor" stroke="none"/>
+            <rect x="12" y="28" width="40" height="22" rx="3"/><rect x="60" y="28" width="40" height="22" rx="3"/><rect x="108" y="28" width="40" height="22" rx="3"/>
+            <path d="M18 43l7-5 7 3 7-7 7 4"/><path d="M66 43l7-3 7 2 7-6 7 3"/><path d="M114 43l7-6 7 4 7-3 7 1"/>
+            <rect x="12" y="60" width="88" height="40" rx="3"/>
+            <path d="M24 92V80M36 92V70M48 92V76M60 92V68M72 92V84M84 92V74"/>
+            <rect x="108" y="60" width="40" height="40" rx="3"/>
+            <path d="M115 70h26M115 78h20M115 86h24M115 94h14"/>
+          </svg>
           <h3>Overview</h3>
           <p>Summary metrics that show how the profile system is performing and enable proactive monitoring.</p>
         </div>
         <div>
+          <svg class="pi-concept" viewBox="0 0 160 112" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="1" width="158" height="110" rx="6"/>
+            <path d="M1 17h158"/>
+            <circle cx="10" cy="9" r="1.5" fill="currentColor" stroke="none"/><circle cx="17" cy="9" r="1.5" fill="currentColor" stroke="none"/><circle cx="24" cy="9" r="1.5" fill="currentColor" stroke="none"/>
+            <rect x="12" y="26" width="64" height="10" rx="3"/>
+            <path d="M12 46h136M12 62h136M12 78h136M12 94h136"/>
+            <circle cx="18" cy="54" r="3"/><circle cx="18" cy="70" r="3"/><circle cx="18" cy="86" r="3"/><circle cx="18" cy="102" r="3"/>
+            <path d="M28 54h50M28 70h38M28 86h56M28 102h44M110 54h28M110 70h28M110 86h28M110 102h28"/>
+          </svg>
           <h3>Logs</h3>
           <p>Logs that surface errors, violations and successes in the profile system, to make troubleshooting possible.</p>
         </div>
@@ -238,7 +258,7 @@
               <li>Removed the pie chart: non-technical users care about profiles more than raw events, and it put too much emphasis on violations.</li>
             </ul>
           </div>
-          <blockquote class="pi-quote">
+          <blockquote class="pi-quote pi-quote--low">
             <p>"If I put on the marketer hat, they would like to see some performing metrics and how well they are hitting their goals. How many complete profiles do I have? How many people can I reach? <strong>The overview page is missing the positive growth data.</strong>"</p>
             <cite>— Solutions engineering manager, Twilio</cite>
           </blockquote>
@@ -266,47 +286,52 @@
         <li><strong>UI challenge.</strong> Design one search bar that supports two kinds of search: one that needs a filter and one that doesn't.</li>
       </ul>
 
-      <div class="pi-block">
-        <div class="pi-row pi-row--center">
-          <div>
-            <h3>Exploration 1</h3>
-            <p>Two search bars: a regular search for message ID, and an advanced search for external ID with an external ID type filter. Search by external ID is hidden, and it's odd to have two search bars and two external ID filters.</p>
-          </div>
-          <div>
-            <figure class="pi-shot"><img src="img/search-explore-1.png" alt="Exploration 1: a search bar for message ID next to the type and filter controls." width="1012" height="160" loading="lazy"></figure>
-            <figure class="pi-shot"><img src="img/search-explore-1b.png" alt="Exploration 1 with advanced search open: a second search bar and external ID type filter for searching by external ID." width="1012" height="231" loading="lazy"></figure>
-          </div>
+      <div class="pi-block pi-tabs" data-tabs>
+        <div class="pi-tabs__list" role="tablist" aria-label="Search explorations">
+          <button type="button" role="tab" aria-selected="true">Exploration 1</button>
+          <button type="button" role="tab" aria-selected="false">Exploration 2</button>
+          <button type="button" role="tab" aria-selected="false">Final design</button>
         </div>
-
-        <div class="pi-row pi-row--center">
+        <div class="pi-row">
           <div>
-            <h3>Exploration 2</h3>
-            <p>An external ID type selector built into the search bar. It's not an existing component, and it's unclear that no filter is needed when searching by message ID.</p>
+            <div data-panel role="tabpanel">
+              <figure class="pi-shot"><img src="img/search-explore-1.png" alt="Exploration 1: a search bar for message ID next to the type and filter controls." width="1012" height="160" loading="lazy"></figure>
+              <figure class="pi-shot"><img src="img/search-explore-1b.png" alt="Exploration 1 with advanced search open: a second search bar and external ID type filter for searching by external ID." width="1012" height="231" loading="lazy"></figure>
+            </div>
+            <div data-panel role="tabpanel" hidden>
+              <figure class="pi-shot"><img src="img/search-explore-2.png" alt="Exploration 2: one search bar with an external ID type selector built into its left side." width="1030" height="134" loading="lazy"></figure>
+            </div>
+            <div data-panel role="tabpanel" hidden>
+              <figure class="pi-shot"><img src="img/search-final.png" alt="Final design: the errors and violations page with one search bar and an external ID type filter." width="1185" height="827" loading="lazy"></figure>
+            </div>
           </div>
-          <figure class="pi-shot"><img src="img/search-explore-2.png" alt="Exploration 2: one search bar with an external ID type selector built into its left side." width="1030" height="134" loading="lazy"></figure>
-        </div>
-
-        <div class="pi-row pi-row--center">
           <div>
-            <h3>Final design</h3>
-            <p>One search bar, whose placeholder text changes with the filter selection.</p>
+            <p data-panel>Two search bars: a regular search for message ID, and an advanced search for external ID with an external ID type filter. Search by external ID is hidden, and it's odd to have two search bars and two external ID filters.</p>
+            <p data-panel hidden>An external ID type selector built into the search bar. It's not an existing component, and it's unclear that no filter is needed when searching by message ID.</p>
+            <p data-panel hidden>One search bar, whose placeholder text changes with the filter selection.</p>
           </div>
-          <figure class="pi-shot"><img src="img/search-final.png" alt="Final design: the errors and violations page with one search bar and an external ID type filter." width="1185" height="827" loading="lazy"></figure>
         </div>
       </div>
 
-      <div class="pi-block">
+      <div class="pi-block pi-tabs" data-tabs>
         <h2>Side sheet exploration</h2>
-        <div class="pi-grid pi-grid--3">
-          <figure class="pi-shot"><img src="img/sheet-explore-1.png" alt="Side sheet exploration 1: event details as a two-column list under the error message." width="405" height="767" loading="lazy"></figure>
-          <figure class="pi-shot"><img src="img/sheet-explore-2.png" alt="Side sheet exploration 2." width="398" height="778" loading="lazy"></figure>
-          <figure class="pi-shot"><img src="img/sheet-final.png" alt="Final side sheet: the error message with a recommended next step, above a scannable table of details." width="430" height="699" loading="lazy"><figcaption>Final design</figcaption></figure>
+        <div class="pi-tabs__list" role="tablist" aria-label="Side sheet explorations">
+          <button type="button" role="tab" aria-selected="true">Exploration 1</button>
+          <button type="button" role="tab" aria-selected="false">Exploration 2</button>
+          <button type="button" role="tab" aria-selected="false">Final design</button>
         </div>
-        <ul class="pi-list" style="margin-top: 32px">
-          <li>A table format is the most scannable.</li>
-          <li>Each error and violation gets a recommended next step.</li>
-          <li>Irrelevant details are removed from the table.</li>
-        </ul>
+        <div class="pi-row">
+          <div class="pi-sheet">
+            <figure class="pi-shot" data-panel role="tabpanel"><img src="img/sheet-explore-1.png" alt="Side sheet exploration 1: event details as a two-column list under the error message." width="405" height="767" loading="lazy"></figure>
+            <figure class="pi-shot" data-panel role="tabpanel" hidden><img src="img/sheet-explore-2.png" alt="Side sheet exploration 2." width="398" height="778" loading="lazy"></figure>
+            <figure class="pi-shot" data-panel role="tabpanel" hidden><img src="img/sheet-final.png" alt="Final side sheet: the error message with a recommended next step, above a scannable table of details." width="430" height="699" loading="lazy"></figure>
+          </div>
+          <ul class="pi-list">
+            <li>A table format is the most scannable.</li>
+            <li>Each error and violation gets a recommended next step.</li>
+            <li>Irrelevant details are removed from the table.</li>
+          </ul>
+        </div>
       </div>
     </div></section>
 
@@ -314,7 +339,7 @@
     <section class="pi-section pi-section--muted" id="final-design"><div class="pi-wrap">
       <h2>Design walkthrough</h2>
       <div class="pi-row pi-row--wide-visual pi-row--center">
-        <div>
+        <div class="pi-raise">
           <h3>Overview</h3>
           <p>Profile growth, violation and error trends, and their top causes, in one view for proactive monitoring.</p>
         </div>
@@ -367,6 +392,16 @@
     </div></section>
   </main>
 
+  <script>
+    document.querySelectorAll('[data-tabs]').forEach(group => {
+      const tabs = [...group.querySelectorAll('[role="tab"]')];
+      const columns = [...group.querySelectorAll('.pi-row > *')];
+      tabs.forEach((tab, i) => tab.addEventListener('click', () => {
+        tabs.forEach((t, j) => t.setAttribute('aria-selected', String(i === j)));
+        columns.forEach(col => [...col.querySelectorAll(':scope > [data-panel]')].forEach((panel, j) => { panel.hidden = i !== j; }));
+      }));
+    });
+  </script>
   <script src="../../assets/glass-cursor.js?v=3"></script>
   <script>
     // Review-only: the comment overlay loads locally and on Vercel branch previews, never on the published site.
