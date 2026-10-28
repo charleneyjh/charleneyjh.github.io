@@ -206,3 +206,5 @@ strong { font-weight: 700; }
 .pi-tabs__list button { padding: 0 0 12px; margin-bottom: -1px; border: 0; border-bottom: 2px solid transparent; border-radius: 0; background: none; color: var(--pi-soft); font-size: 16px; }
 .pi-tabs__list button:hover { color: var(--pi-ink); }
 .pi-tabs__list button[aria-selected="true"] { background: none; color: var(--pi-ink); border-bottom-color: var(--pi-ink); }
+.pi-tabs__list { width: 50%; }
+@media (max-width: 760px) { .pi-tabs__list { width: 100%; } }

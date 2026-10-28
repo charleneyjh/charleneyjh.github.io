@@ -173,29 +173,23 @@
       <h2>Design concepts</h2>
       <div class="pi-grid pi-grid--2">
         <div>
-          <svg class="pi-concept" viewBox="0 0 160 112" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="1" y="1" width="158" height="110" rx="6"/>
-            <path d="M1 17h158"/>
-            <circle cx="10" cy="9" r="1.5" fill="currentColor" stroke="none"/><circle cx="17" cy="9" r="1.5" fill="currentColor" stroke="none"/><circle cx="24" cy="9" r="1.5" fill="currentColor" stroke="none"/>
-            <rect x="12" y="28" width="40" height="22" rx="3"/><rect x="60" y="28" width="40" height="22" rx="3"/><rect x="108" y="28" width="40" height="22" rx="3"/>
-            <path d="M18 43l7-5 7 3 7-7 7 4"/><path d="M66 43l7-3 7 2 7-6 7 3"/><path d="M114 43l7-6 7 4 7-3 7 1"/>
-            <rect x="12" y="60" width="88" height="40" rx="3"/>
-            <path d="M24 92V80M36 92V70M48 92V76M60 92V68M72 92V84M84 92V74"/>
-            <rect x="108" y="60" width="40" height="40" rx="3"/>
-            <path d="M115 70h26M115 78h20M115 86h24M115 94h14"/>
+          <svg class="pi-concept" viewBox="0 0 160 112" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="1" width="158" height="110" rx="8" stroke="currentColor" stroke-width="2"/>
+            <rect x="12" y="12" width="40" height="26" rx="4" fill="#d6ebf8"/><rect x="60" y="12" width="40" height="26" rx="4" fill="#d6ebf8"/><rect x="108" y="12" width="40" height="26" rx="4" fill="#d6ebf8"/>
+            <path d="M18 30l7-5 7 3 7-7 7 4M66 30l7-3 7 2 7-6 7 3M114 30l7-6 7 4 7-3 7 1" stroke="currentColor" stroke-width="2"/>
+            <path d="M18 98V82M32 98V70M46 98V78M60 98V64M74 98V86M88 98V74" stroke="#7fbde6" stroke-width="8"/>
+            <path d="M110 58h38M110 70h28M110 82h34M110 94h22" stroke="currentColor" stroke-width="2"/>
           </svg>
           <h3>Overview</h3>
           <p>Summary metrics that show how the profile system is performing and enable proactive monitoring.</p>
         </div>
         <div>
-          <svg class="pi-concept" viewBox="0 0 160 112" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="1" y="1" width="158" height="110" rx="6"/>
-            <path d="M1 17h158"/>
-            <circle cx="10" cy="9" r="1.5" fill="currentColor" stroke="none"/><circle cx="17" cy="9" r="1.5" fill="currentColor" stroke="none"/><circle cx="24" cy="9" r="1.5" fill="currentColor" stroke="none"/>
-            <rect x="12" y="26" width="64" height="10" rx="3"/>
-            <path d="M12 46h136M12 62h136M12 78h136M12 94h136"/>
-            <circle cx="18" cy="54" r="3"/><circle cx="18" cy="70" r="3"/><circle cx="18" cy="86" r="3"/><circle cx="18" cy="102" r="3"/>
-            <path d="M28 54h50M28 70h38M28 86h56M28 102h44M110 54h28M110 70h28M110 86h28M110 102h28"/>
+          <svg class="pi-concept" viewBox="0 0 160 112" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="1" width="158" height="110" rx="8" stroke="currentColor" stroke-width="2"/>
+            <rect x="12" y="12" width="72" height="14" rx="7" fill="#d6ebf8"/>
+            <circle cx="18" cy="44" r="4" fill="#7fbde6"/><circle cx="18" cy="62" r="4" fill="#7fbde6"/><circle cx="18" cy="80" r="4" fill="#d6ebf8"/><circle cx="18" cy="98" r="4" fill="#7fbde6"/>
+            <path d="M30 44h52M30 62h40M30 80h58M30 98h46" stroke="currentColor" stroke-width="2"/>
+            <path d="M112 44h36M112 62h36M112 80h36M112 98h36" stroke="#9aa9b0" stroke-width="2"/>
           </svg>
           <h3>Logs</h3>
           <p>Logs that surface errors, violations and successes in the profile system, to make troubleshooting possible.</p>
@@ -321,8 +315,8 @@
         </div>
         <div class="pi-row">
           <div class="pi-sheet">
-            <figure class="pi-shot" data-panel role="tabpanel"><img src="img/sheet-explore-1-crop.png" alt="Side sheet exploration 1: event details as a two-column list under the error message." width="365" height="659" loading="lazy"></figure>
-            <figure class="pi-shot" data-panel role="tabpanel" hidden><img src="img/sheet-explore-2-crop.png" alt="Side sheet exploration 2: details grouped under Incoming message, Source and Retry." width="358" height="659" loading="lazy"></figure>
+            <figure class="pi-shot" data-panel role="tabpanel"><img src="img/sheet-explore-1-crop.png" alt="Side sheet exploration 1: event details as a two-column list under the error message." width="365" height="455" loading="lazy"></figure>
+            <figure class="pi-shot" data-panel role="tabpanel" hidden><img src="img/sheet-explore-2-crop.png" alt="Side sheet exploration 2: details grouped under Incoming message, Source and Retry." width="358" height="595" loading="lazy"></figure>
             <figure class="pi-shot" data-panel role="tabpanel" hidden><img src="img/sheet-final-crop.png" alt="Final side sheet: the error message with a recommended next step, above a scannable table of details." width="390" height="515" loading="lazy"></figure>
           </div>
           <ul class="pi-list">
@@ -385,14 +379,6 @@
         <figure class="pi-shot"><img src="img/final-settings.png" alt="Email digest subscription settings." loading="lazy"></figure>
       </div>
 
-      <div class="pi-block">
-        <h3>Details for troubleshooting</h3>
-        <div class="pi-grid pi-grid--3">
-          <figure class="pi-shot pi-shot--labelled"><img src="img/sheet-details.png" alt="Side sheet with details of a violation and a recommended next step." width="617" height="1137" loading="lazy"><figcaption>Details</figcaption></figure>
-          <figure class="pi-shot pi-shot--labelled"><img src="img/sheet-code.png" alt="Side sheet showing the raw event payload as code." width="617" height="1141" loading="lazy"><figcaption>Raw event</figcaption></figure>
-          <figure class="pi-shot pi-shot--labelled"><img src="img/sheet-logs.png" alt="Side sheet showing related logs for the same profile." width="617" height="1187" loading="lazy"><figcaption>Related logs</figcaption></figure>
-        </div>
-      </div>
     </div></section>
 
     <!-- Results -->
@@ -417,11 +403,11 @@
   <script>
     // Clear review comments that have already been applied.
     try {
-      const applied = ['remove Second sentence', 'I led the design of Profiles insights...', "Profiles is Segment's flagship product It uses a identity resolution system", 'add some shadow', 'remove "implementable"', 'remove all bullet points in this setion', 'Change to "Research insights.“', 'make it smaller', 'add 20px more padding in between the 3 insights', 'use a two-column layout for the personas', 'Can you draw a simple icon or diagram to represent the concept of an overview, with a rough dashboard and locks?', 'Move this entire quote down by about 200 pixels.', 'Use a carousel to show these three screenshots, with tabs for Exploration 1, Exploration 2, and Final design. Use a two-column layout: the screenshot goes on the left, and the three bullet points you have below go on the right.', "Use a carousel, or a tab format here as well, with two columns. The first column would show all the screenshots, and you'd have a tab to navigate around them. On the right, there's a column that shows the text, the descriptions.", 'Move this off by 100 pixels.', 'With out product, Support and Solution engineers reported a 30% Decrease in time it takes to complete profiles observability tasks.', 'remove', 'bigger font size', '20 px more padding below', 'move it up with 80px', 'Further crop these screenshots so that only the screens show up, with no background images and no exploration ones. As for the text in there.', 'Make the image smaller.', "Change the tabs. I don't want buttons.", 'Change to tabs.', 'Crop the screenshot at the bottom a bit, just across the white space, so that it takes up less space.'];
-      if (!localStorage.getItem('piAppliedCleanup3')) {
+      const applied = ['remove Second sentence', 'I led the design of Profiles insights...', "Profiles is Segment's flagship product It uses a identity resolution system", 'add some shadow', 'remove "implementable"', 'remove all bullet points in this setion', 'Change to "Research insights.“', 'make it smaller', 'add 20px more padding in between the 3 insights', 'use a two-column layout for the personas', 'Can you draw a simple icon or diagram to represent the concept of an overview, with a rough dashboard and locks?', 'Move this entire quote down by about 200 pixels.', 'Use a carousel to show these three screenshots, with tabs for Exploration 1, Exploration 2, and Final design. Use a two-column layout: the screenshot goes on the left, and the three bullet points you have below go on the right.', "Use a carousel, or a tab format here as well, with two columns. The first column would show all the screenshots, and you'd have a tab to navigate around them. On the right, there's a column that shows the text, the descriptions.", 'Move this off by 100 pixels.', 'With out product, Support and Solution engineers reported a 30% Decrease in time it takes to complete profiles observability tasks.', 'remove', 'bigger font size', '20 px more padding below', 'move it up with 80px', 'Further crop these screenshots so that only the screens show up, with no background images and no exploration ones. As for the text in there.', 'Make the image smaller.', "Change the tabs. I don't want buttons.", 'Change to tabs.', 'Crop the screenshot at the bottom a bit, just across the white space, so that it takes up less space.', 'You should crop this as well. Remove the white space at the bottom.', "for the tabs -Don't draw the line across the whole page. Just stop it at about half the page.", "All the tabs don't draw the line across the page; they just stop at half of the page.", 'You can remove this entire session of details for troubleshooting.'];
+      if (!localStorage.getItem('piAppliedCleanup4')) {
         const notes = JSON.parse(localStorage.getItem('annotations')) || [];
         localStorage.setItem('annotations', JSON.stringify(notes.filter(n => !applied.includes((n.comment || '').trim()))));
-        localStorage.setItem('piAppliedCleanup3', '1');
+        localStorage.setItem('piAppliedCleanup4', '1');
       }
     } catch {}
     // Review-only: the comment overlay loads locally and on Vercel branch previews, never on the published site.
