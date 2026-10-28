@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unified filters — Charlene Yang</title>
+  <meta name="description" content="Case study: leading a platform initiative at HubSpot to turn a fragmented filter experience into one shared model.">
+  <link rel="stylesheet" href="../../assets/fonts/portfolio-fonts.css?v=figtree1">
+  <link rel="stylesheet" href="filters.css?v=1">
+  <link rel="stylesheet" href="../../assets/glass-cursor.css?v=7">
+</head>
+<body class="uf-page">
+  <nav class="uf-topnav" aria-label="Portfolio navigation"><a href="../../">← Back to home</a></nav>
+
+  <main>
+    <!-- Hero -->
+    <header class="uf-hero">
+      <div class="uf-wrap uf-hero__grid">
+        <div>
+          <p class="uf-kicker">Case study · HubSpot</p>
+          <h1>Unified filters</h1>
+          <p class="uf-lede">How I led a platform initiative to turn a fragmented filter experience into a shared model.</p>
+        </div>
+        <div class="uf-cover" aria-hidden="true">
+          <img class="uf-cover__picker" src="img/cover-picker.png" alt="" width="340" height="509">
+          <img class="uf-cover__editor" src="img/cover-editor.png" alt="" width="434" height="730">
+        </div>
+      </div>
+    </header>
+
+    <!-- Overview -->
+    <section class="uf-section">
+      <div class="uf-wrap uf-overview">
+        <div>
+          <h2>Overview</h2>
+          <p>Filtering is how HubSpot customers find their data and ask questions about it. It sits at the center of four pillar products, yet it was a top 3 CSAT complaint in all four. Each product had its own filter, with different capabilities and different UI.</p>
+          <p>When engineering bet on one unified query platform, I set the direction for the front end: one shared filter model that's intuitive for simple questions, capable of complex ones, and consistent across HubSpot. It launched in private beta in October 2026, and Segments and Workflows have committed to migrate.</p>
+        </div>
+        <dl class="uf-facts">
+          <div><dt>My role</dt><dd>Lead product designer</dd></div>
+          <div><dt>My team</dt><dd>1 PM, 1 PD, 1 TL, 5 FE engineers</dd></div>
+          <div><dt>Timeline</dt><dd>Apr – Oct 2026</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- Context -->
+    <section class="uf-section uf-section--muted">
+      <div class="uf-wrap">
+        <h2>Context</h2>
+        <p class="uf-prose">HubSpot is a go-to-market platform that brings marketing, sales, customer service and operations into one system, built on a shared customer database. People come to HubSpot to find their data and ask questions about it. <strong>Filtering is how they do it.</strong></p>
+
+        <h3 class="uf-subhead">Filtering is the core interaction in four pillar products</h3>
+        <div class="uf-products">
+          <article>
+            <h4>CRM</h4>
+            <p>HubSpot's most-trafficked page. Filtering is how customers find the right records.</p>
+            <p class="uf-users">Sales reps, CRM admins</p>
+          </article>
+          <article>
+            <h4>Segments</h4>
+            <p>Building a segment is filtering CRM records.</p>
+            <p class="uf-users">Marketers</p>
+          </article>
+          <article>
+            <h4>Automation</h4>
+            <p>Filters define every trigger and branch in an automation.</p>
+            <p class="uf-users">RevOps, CRM admins, marketers</p>
+          </article>
+          <article>
+            <h4>Reporting</h4>
+            <p>Every report starts by narrowing the data to what matters.</p>
+            <p class="uf-users">CRM admins, marketers, RevOps</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem -->
+    <section class="uf-section">
+      <div class="uf-wrap">
+        <h2>The problem</h2>
+        <p class="uf-prose">Yet filtering was a top 3 CSAT complaint in all four products. Customers told us the same thing in different words.</p>
+
+        <div class="uf-quotes">
+          <blockquote class="uf-quote">
+            <p>“HubSpot's data segmentation feels ‘option-divey,’ where the abundance of options and inconsistent interfaces can be overwhelming. The segmentation tools often present multiple ways to achieve similar outcomes, such as using lists, workflows, or filters, without a clear and unified approach, creating confusion.”</p>
+            <cite>Marketing operations manager</cite>
+          </blockquote>
+          <blockquote class="uf-quote">
+            <p>“Using the same filters as I do to view Contacts, I get very different results when I put together a list. Very confusing and not an effective use of time.”</p>
+            <cite>Marketing ops lead</cite>
+          </blockquote>
+        </div>
+
+        <h3 class="uf-subhead">CSAT themes</h3>
+        <ul class="uf-list">
+          <li><strong>Not flexible.</strong> Users couldn't express the questions they actually had, and nesting support was limited.</li>
+          <li><strong>Missing capabilities.</strong> Basic needs worked in one product but not another.</li>
+          <li><strong>Inconsistent.</strong> Different capabilities and different UI meant the same “filter” could give different answers.</li>
+          <li><strong>Poor usability.</strong> The filtering UX was unintuitive and confusing, and the list of operators was bloated and overlapping.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Opportunity -->
+    <section class="uf-section uf-section--muted">
+      <div class="uf-wrap">
+        <h2>The opportunity</h2>
+        <p class="uf-prose">Engineering made a big bet: one unified query platform to replace the separate query backends behind each product. With every product about to query data the same way, design had a huge opportunity to unify the front end too.</p>
+
+        <div class="uf-flow" role="img" aria-label="Four existing query backends (CRM Search, Sales Views, ILS, Snowflake) are replaced by one unified query platform. A single filter editor sits on top of it and serves the CRM index, Segments, Workflows, Reporting and more.">
+          <div class="uf-flow__old">
+            <p class="uf-flow__label">Existing query backends</p>
+            <span>CRM Search</span><span>Sales Views</span><span>ILS</span><span>Snowflake</span>
+          </div>
+          <p class="uf-flow__arrow">Replaced by</p>
+          <div class="uf-flow__node uf-flow__node--dark">Unified query platform<small>The backend</small></div>
+          <div class="uf-flow__node">Filter editor<small>The front end</small></div>
+          <div class="uf-flow__surfaces">
+            <p class="uf-flow__label">Filter surfaces</p>
+            <span>CRM index</span><span>Segments</span><span>Workflows</span><span>Reporting</span><span>…</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HMW -->
+    <section class="uf-hmw">
+      <div class="uf-wrap uf-hmw__grid">
+        <div>
+          <p class="uf-kicker">For customers</p>
+          <h2>How might we make filtering intuitive for simple questions, capable of complex ones, and consistent across HubSpot?</h2>
+        </div>
+        <div>
+          <p class="uf-kicker">For the platform</p>
+          <h2>How might we make the platform filter editor the easiest way for product teams to ship fast, consistent filtering?</h2>
+        </div>
+      </div>
+    </section>
+
+    <!-- Success metrics -->
+    <section class="uf-section">
+      <div class="uf-wrap">
+        <h2>Defining success</h2>
+        <p class="uf-prose">We agreed on how we'd measure success before launch, from the first weeks to the long term.</p>
+        <ol class="uf-metrics">
+          <li><span>Launch</span><h4>Time to value</h4><p>Time to create a segment, measured by a randomized A/B test.</p></li>
+          <li><span>+2 weeks</span><h4>Customer satisfaction</h4><p>In-product survey.</p></li>
+          <li><span>+1 quarter</span><h4>Customer satisfaction</h4><p>A lower share of negative CSAT verbatims tagged as filtering.</p></li>
+          <li><span>Ongoing</span><h4>Platform adoption</h4><p>Adoption of the new filter editor, fewer custom filter components, and a lower pattern detach rate.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Role + timeline -->
+    <section class="uf-section uf-section--muted">
+      <div class="uf-wrap">
+        <h2>My role</h2>
+        <p class="uf-prose">As the lead product designer, I set the direction of the new filter UX and aligned product and design leaders across the pillar product areas.</p>
+        <div class="uf-three">
+          <div>
+            <h3>Design strategy and cross-team influence</h3>
+            <p>Defined the shared filter model and the design principles every product area builds on. Led cross-team workshops to identify needs and drive alignment.</p>
+          </div>
+          <div>
+            <h3>Research and design</h3>
+            <p>Audit, competitive analysis, discovery research and usability testing. Delivered high-fidelity mockups and specs, design system patterns and documentation.</p>
+          </div>
+          <div>
+            <h3>Development</h3>
+            <p>Handed off vibe-coded live prototypes, did QA and worked through edge cases with engineers.</p>
+          </div>
+        </div>
+
+        <h3 class="uf-subhead">Project timeline</h3>
+        <div class="uf-timeline" role="img" aria-label="Project timeline, April to October 2026. Research ran April to May, with usability testing in July and August. Design principles were set in June, phase 1 design ran July to September, and phase 2 design started in late September. Cross-team input gathering happened in June and cross-team alignment in July. Phase 1 was built from August to September and launched in private beta in October.">
+          <div class="uf-timeline__inner">
+            <div class="uf-timeline__months"><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span></div>
+            <div class="uf-timeline__row"><span class="uf-timeline__lane">Research</span>
+              <span class="uf-bar" style="--from:0.05;--to:1.27">Discovery calls, audit, competitive analysis</span>
+              <span class="uf-bar uf-bar--low" style="--from:1.4;--to:1.73">Assist in NL filtering research</span>
+              <span class="uf-bar" style="--from:3.72;--to:4.68">Usability testing</span>
+            </div>
+            <div class="uf-timeline__row"><span class="uf-timeline__lane">Design</span>
+              <span class="uf-bar uf-bar--low" style="--from:2.84;--to:3.25">Design principles</span>
+              <span class="uf-bar" style="--from:3.42;--to:5.45">Phase 1 design and design reviews</span>
+              <span class="uf-bar" style="--from:5.53;--to:6.25">Phase 2 design</span>
+            </div>
+            <div class="uf-timeline__row"><span class="uf-timeline__lane">Alignment</span>
+              <span class="uf-bar" style="--from:2.01;--to:2.42">Cross-team input gathering</span>
+              <span class="uf-bar" style="--from:3.42;--to:4.05">Cross-team alignment</span>
+            </div>
+            <div class="uf-timeline__row"><span class="uf-timeline__lane">Build</span>
+              <span class="uf-bar" style="--from:4.15;--to:5.93">Implementation for phase 1</span>
+              <span class="uf-milestone" style="--at:6">Launched in private beta</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shared baseline -->
+    <section class="uf-section">
+      <div class="uf-wrap">
+        <p class="uf-kicker">My process</p>
+        <h2>Define a shared baseline</h2>
+        <div class="uf-feature">
+          <div>
+            <h3>UX audit and competitive analysis</h3>
+            <p>I audited the filter patterns across platforms through four lenses: interaction design, content, functionality and data schema. I also looked at how other tools handle filtering.</p>
+            <h3 class="uf-subhead">Stakeholder research</h3>
+            <p>I shared the audit and talked with each product team to understand which differences were intentional, and which were design workarounds for system limitations.</p>
+          </div>
+          <figure class="uf-shot">
+            <img src="img/audit-consistency.png" alt="The consistency audit board in FigJam, comparing filter screens across products by interaction design, content strategy, functionality, schema and data layers." width="927" height="642" loading="lazy">
+          </figure>
+        </div>
+        <div class="uf-pair">
+          <figure class="uf-shot"><img src="img/audit-competitive.png" alt="Competitive intel board with rows of filtering screenshots from other products." width="816" height="645" loading="lazy"></figure>
+          <figure class="uf-shot"><img src="img/audit-heuristics.png" alt="A table of design principles and heuristics for filtering, by user interface, interaction design, content, functionality, schema and data." width="466" height="568" loading="lazy"></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Discovery research -->
+    <section class="uf-section uf-section--muted">
+      <div class="uf-wrap">
+        <h2>Discovery research</h2>
+        <div class="uf-feature">
+          <div>
+            <p>Filtering serves a wide range of users, from RevOps and sales reps to marketers and business analysts, with very different technical levels and data literacy. Some were scared to even open the filter panel. Others asked for complex queries the platform couldn't support. <strong>Progressive disclosure is key.</strong></p>
+            <p>We assumed each tool served a different persona with different filtering needs. Research showed the opposite: <strong>users' filtering needs were far more alike than different across tools.</strong> For example, sales reps on the CRM index often needed the same cross-object filtering as marketers in Segments. Filtering limits pushed users to the wrong tool and caused confusion and frustration.</p>
+          </div>
+          <blockquote class="uf-quote">
+            <p>“It makes it easier to work in different areas of HubSpot when you don't have to consider that certain things have limitations to them versus other tools within the platform. But for some reason you decided to artificially limit the functionality for this particular part of the platform.”</p>
+            <cite>Sales operations manager</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- Design principles -->
+    <section class="uf-section">
+      <div class="uf-wrap">
+        <h2>Set design principles</h2>
+        <div class="uf-feature">
+          <div>
+            <h3>The situation</h3>
+            <p>Each team wanted a “simpler” filter for their everyday cases, plus the advanced capabilities their app specifically needed. As a platform team, my tech lead wanted one filter editor everywhere that exposed nearly everything the query could do. I needed to set a direction our team could all stand behind.</p>
+            <h3 class="uf-subhead">My approach</h3>
+            <p>I reframed the goal: consistency is a means, not the goal. The goal is successful task completion in each app. I defined consistency as a learnable pattern, not identical UI, so small variants could live within one shared model. Then I let user research draw the line between the shared baseline and app-specific capabilities.</p>
+            <h3 class="uf-subhead">The result</h3>
+            <p>These became the team's design principles. We stopped re-litigating each feature, design conversations got faster, and we converged on a phase 1 solution quickly.</p>
+          </div>
+          <figure class="uf-shot">
+            <img src="img/principles-doc.png" alt="The filters design base principles doc, starting with: breaking consistency requires intent and evidence; advanced capabilities must not tax the default path; baseline capabilities are exposed everywhere; users must be able to predict their results." width="712" height="725" loading="lazy">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Design decisions -->
+    <section class="uf-section uf-section--muted" id="design">
+      <div class="uf-wrap">
+        <p class="uf-kicker">What we built</p>
+        <h2>Design decisions</h2>
+
+        <div class="uf-decision">
+          <h3>One model that scales from a single condition to complex queries</h3>
+          <div class="uf-ba">
+            <figure class="uf-shot">
+              <p class="uf-tag">Before</p>
+              <img src="img/nesting-before.png" alt="The old advanced filters panel, where a single condition already sits inside Group 1 with an 'or' to add another group." width="673" height="393" loading="lazy">
+              <figcaption>Every filter had two levels of nesting. That was intimidating for simple use cases and not enough for complex ones.</figcaption>
+            </figure>
+            <figure class="uf-shot">
+              <p class="uf-tag">After</p>
+              <div class="uf-ba__after">
+                <img src="img/nesting-simple.png" alt="The new All filters panel with two plain conditions joined by 'and'." width="575" height="393" loading="lazy">
+                <img src="img/nesting-complex.png" alt="The same panel with groups and a subgroup that filters on associated deals." width="271" height="393" loading="lazy">
+              </div>
+              <figcaption>Users add nesting only when they need it, from a single condition up to three levels.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="uf-decision">
+          <h3>Flexible filtering with drag and drop, group and ungroup</h3>
+          <p class="uf-prose">Restructuring a filter shouldn't mean rebuilding it. Users can drag a condition into or out of a group, drop one condition onto another to create a group, or turn any condition into a group from its menu.</p>
+          <div class="uf-trio">
+            <figure class="uf-shot"><img src="img/drag-move.png" alt="Dragging the condition 'City is any of Cambridge, Seattle' into Group 2." width="368" height="647" loading="lazy"></figure>
+            <figure class="uf-shot"><img src="img/drag-group.png" alt="Dropping a condition with a 'Drop to create a group' hint." width="368" height="647" loading="lazy"></figure>
+            <figure class="uf-shot uf-shot--center"><img src="img/turn-into-group.png" alt="A condition's menu with Duplicate, Pin filter, Turn into filter group and Delete." width="614" height="312" loading="lazy"></figure>
+          </div>
+        </div>
+
+        <div class="uf-decision">
+          <h3>Scalable data panel IA for many data sources</h3>
+          <p class="uf-prose">Each product filters on different data. A segment starts from a primary object and can reach into its events, memberships and associated objects. A workflow pulls from its trigger and from earlier actions. The data panel uses one structure that can hold all of them.</p>
+          <div class="uf-ia">
+            <div class="uf-ia__card">
+              <p class="uf-flow__label">Segment</p>
+              <ul class="uf-tree">
+                <li><span class="uf-tree__root">Primary object</span>
+                  <ul>
+                    <li><span>Properties</span></li>
+                    <li><span>Events</span><ul class="uf-tree__side"><li><span>Event properties</span></li></ul></li>
+                    <li><span>Membership</span></li>
+                    <li><span>Associated objects</span>
+                      <ul>
+                        <li><span>Properties</span></li>
+                        <li><span>Events</span><ul class="uf-tree__side"><li><span>Event properties</span></li></ul></li>
+                        <li><span>Membership</span></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li><span class="uf-tree__root">External data source</span>
+                  <ul><li><span>Properties</span></li></ul>
+                </li>
+              </ul>
+            </div>
+            <div class="uf-ia__card">
+              <p class="uf-flow__label">Workflow</p>
+              <ul class="uf-tree">
+                <li><span class="uf-tree__root">Data from trigger</span>
+                  <ul>
+                    <li><span>Triggered event</span></li>
+                    <li><span>Primary object of the triggered event</span></li>
+                    <li><span>Associated objects to primary object</span></li>
+                  </ul>
+                </li>
+                <li><span class="uf-tree__root">Data from workflow</span>
+                  <ul>
+                    <li><span>Previous action 1 tokens</span></li>
+                    <li><span>Previous action 2 tokens</span></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="uf-decision">
+          <h3>One consistent UX pattern across associated objects and events</h3>
+          <p class="uf-prose">Filtering on associated records and filtering on events looked like two different problems, and each product had solved them differently. Underneath, they ask the same questions, so they share one pattern.</p>
+          <div class="uf-table-wrap">
+            <table class="uf-table">
+              <thead>
+                <tr><th scope="col"><span class="uf-visually-hidden">Pattern</span></th><th scope="col">Associated objects</th><th scope="col">Linked events</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Existence</th><td>Has / has no associated deal</td><td>Has done / has not done Opened email</td></tr>
+                <tr><th scope="row">Quantity</th><td>Number of associated deals is at least 3</td><td>Opened email at least 3 times</td></tr>
+                <tr><th scope="row">Attribute</th><td>Any (or all) associated deals where amount &gt; $1,000</td><td>Opened email where campaign is Spring Sale</td></tr>
+                <tr><th scope="row">Aggregation</th><td>Total deal amount &gt; $50,000</td><td>Total purchase amount &gt; $500</td></tr>
+                <tr><th scope="row">Which one</th><td>First / most recently associated deal</td><td>First / most recent email opened event</td></tr>
+                <tr><th scope="row">Scoped by</th><td>Association label (e.g. Primary)</td><td>Time window (e.g. last 30 days)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="uf-decision">
+          <h3>Reduce operators by 30% by moving the choices to values</h3>
+          <p class="uf-prose">Long, overlapping operator lists were one of the top usability complaints. Instead of an operator for every case, the choices move into the value: a property comparison mode lets users compare against another property, and a new date picker handles relative and fixed dates in one place.</p>
+          <div class="uf-ops">
+            <figure class="uf-shot">
+              <p class="uf-tag">Property comparison mode</p>
+              <img src="img/operators-property.png" alt="A filter on Amount, 'is equal to', with the value set to 'Select a property' and a picker listing company properties such as Annual revenue." width="492" height="617" loading="lazy">
+            </figure>
+            <figure class="uf-shot">
+              <p class="uf-tag">New date picker</p>
+              <img src="img/operators-date.png" alt="A date filter set to 'Tomorrow', with relative date options and a fixed date tab showing a two-month calendar." width="918" height="616" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="uf-decision">
+          <h3>Learn filtering once, use it everywhere</h3>
+          <div class="uf-ba uf-ba--wide">
+            <figure class="uf-shot">
+              <p class="uf-tag">Before</p>
+              <img src="img/before-fragmented.png" alt="A collage of different filter panels from across HubSpot, each with its own layout and styling." width="1072" height="527" loading="lazy">
+            </figure>
+            <figure class="uf-shot">
+              <p class="uf-tag">After</p>
+              <img src="img/after-unified.png" alt="The unified filter editor with groups, a subgroup on associated deals and an event filter." width="628" height="740" loading="lazy">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Demo -->
+    <section class="uf-demo">
+      <div class="uf-wrap">
+        <h2>Meet filter editor vNEXT</h2>
+        <a class="uf-button" href="https://filter-prototype-zeta.vercel.app/#standalone" target="_blank" rel="noopener">Open the live demo →</a>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section class="uf-section">
+      <div class="uf-wrap">
+        <h2>Where it landed</h2>
+        <div class="uf-feature">
+          <ol class="uf-results">
+            <li>
+              <h3>Launched in private beta</h3>
+              <p>Thousands of requests to join the beta in one week, and lots of positive customer feedback. The work was recognized by our CTO on Slack.</p>
+            </li>
+            <li>
+              <h3>Product teams on board to migrate in Q1 2027</h3>
+              <p>Segments and Workflows committed to the migration on their roadmaps.</p>
+            </li>
+          </ol>
+          <div class="uf-feedback">
+            <img src="img/feedback-1.png" alt="Customer comment, with the name blurred." width="1106" height="258" loading="lazy">
+            <img src="img/feedback-2.png" alt="Customer comments, with names blurred: 'Happiest days of my life: 1. Birth of my son 2. The day cross object filtering went live in HubSpot', 'I'm so happy this is live! It's been one of my wave a magic wand answers for so long with the product team!', and 'Something I've been waiting for for 5 years!!!'" width="1102" height="830" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reflection -->
+    <section class="uf-section uf-section--muted">
+      <div class="uf-wrap">
+        <h2>What I've learned</h2>
+        <div class="uf-three uf-three--two">
+          <div>
+            <h3>Set the direction, don't wait for it</h3>
+            <p>With no dedicated PM for most of the project, the biggest risk was no decision at all. My tech lead and I stepped in to fill the gap. I learned to set the direction early, ground it in research, and let others push on it. We debated almost every decision, and that push and pull is how we got to a design that's intuitive and scales to complex use cases.</p>
+          </div>
+          <div>
+            <h3>Go as deep as the query goes</h3>
+            <p>Every filter is a query underneath. Understanding how the query works showed me where different requests were really the same need, and where the UI had to expose real complexity.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Next -->
+    <section class="uf-section">
+      <div class="uf-wrap">
+        <h2>If I had more time</h2>
+        <p class="uf-prose">Two directions are in progress: natural language combined with manual filtering, and subquery support.</p>
+
+        <div class="uf-decision">
+          <h3>Every part of an association filter multiplies the options</h3>
+          <div class="uf-sentence" role="img" aria-label="The filter sentence 'Contact has any associated deals where amount is over $1,000'. Phase 1 supports any of, all of, no, first and most recent; is over, is under, is, is between; and literal values. Phase 2 explores 3 of, sum, avg, min and max, deal's associated company revenue, aggregate values and associated company revenue as tokens.">
+            <div class="uf-sentence__part"><span class="uf-sentence__word">Contact has</span></div>
+            <div class="uf-sentence__part"><span class="uf-chip">any</span>
+              <span class="uf-opt">any of</span><span class="uf-opt">all of</span><span class="uf-opt">no</span><span class="uf-opt">first</span><span class="uf-opt">most recent</span><span class="uf-opt uf-opt--next">3 of</span><span class="uf-opt uf-opt--next">sum</span><span class="uf-opt uf-opt--next">avg</span><span class="uf-opt uf-opt--next">min / max</span>
+            </div>
+            <div class="uf-sentence__part"><span class="uf-sentence__word">associated</span></div>
+            <div class="uf-sentence__part"><span class="uf-chip">deals</span>
+              <span class="uf-opt uf-opt--next">Deal's associated company revenue</span>
+            </div>
+            <div class="uf-sentence__part"><span class="uf-sentence__word">where</span></div>
+            <div class="uf-sentence__part"><span class="uf-chip">amount</span></div>
+            <div class="uf-sentence__part"><span class="uf-chip">is over</span>
+              <span class="uf-opt">is over</span><span class="uf-opt">is under</span><span class="uf-opt">is</span><span class="uf-opt">is between</span>
+            </div>
+            <div class="uf-sentence__part"><span class="uf-chip">$1,000</span>
+              <span class="uf-opt">$1,000</span><span class="uf-opt uf-opt--next">Avg/sum/max amount of all deals</span><span class="uf-opt uf-opt--next">Contact's associated company revenue</span>
+            </div>
+          </div>
+          <div class="uf-callout">
+            <p class="uf-callout__x">×2</p>
+            <p>Swap a literal value for a data token, and every combination doubles.</p>
+            <ul class="uf-legend">
+              <li><span class="uf-opt">&nbsp;</span>Phase 1: platform support</li>
+              <li><span class="uf-opt uf-opt--next">&nbsp;</span>Phase 2: exploring</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="uf-decision">
+          <h3>Design exploration for subquery</h3>
+          <div class="uf-sub">
+            <figure class="uf-shot"><img src="img/subquery-picker.png" alt="The data picker with Deals expanded into three options: has/has no associated records, count or calculate from records, and find one record and get value." width="433" height="605" loading="lazy"></figure>
+            <figure class="uf-shot"><img src="img/subquery-editor.png" alt="A filter comparing 'Sum of deal amount of associated deals' to 'Average of deal amount of deals with label', with a side panel to define the sum and filter which deals count." width="794" height="454" loading="lazy"></figure>
+          </div>
+          <a class="uf-button uf-button--light" href="https://claude.ai/artifact/Qapa5vPnfeKegKHPkg5sXf" target="_blank" rel="noopener">Open the live demo →</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="uf-wrap uf-end"><a href="../../#work">← Back to all work</a></div>
+  </main>
+
+  <script src="../../assets/glass-cursor.js?v=3"></script>
+</body>
+</html>
