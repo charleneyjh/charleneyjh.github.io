@@ -376,3 +376,5 @@ strong { font-weight: 600; }
 .uf-sentence__part { flex: none; }
 .uf-chip { min-width: 0; white-space: nowrap; }
 .uf-opt { max-width: 168px; }
+.uf-results li.uf-recognition { display: block; padding-top: 24px; border-top: 1px solid var(--uf-line); counter-increment: none; font-weight: 600; }
+.uf-results li.uf-recognition::before { content: none; }
