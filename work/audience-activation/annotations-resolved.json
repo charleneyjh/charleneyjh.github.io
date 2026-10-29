@@ -134,5 +134,25 @@
  {
   "selector": "#alignment > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > figure:nth-of-type(1) > img",
   "comment": "I think you left out a screenshot"
+ },
+ {
+  "selector": "#final-design > div > div:nth-of-type(1) > div:nth-of-type(2) > figure:nth-of-type(1) > img",
+  "comment": "I'd like you to record a GIF"
+ },
+ {
+  "selector": "#final-design > div > div:nth-of-type(2) > figure > img",
+  "comment": "Then I'd like you to record a GIF"
+ },
+ {
+  "selector": "#final-design > div > div:nth-of-type(3) > figure > img",
+  "comment": "For this one, could you start"
+ },
+ {
+  "selector": "#final-design > div > div:nth-of-type(4) > div:nth-of-type(2) > figure:nth-of-type(1) > img",
+  "comment": "And lastly"
+ },
+ {
+  "selector": "#pivot > div > div > div:nth-of-type(2) > figure > img",
+  "comment": "Replace the three screenshots"
  }
 ]
