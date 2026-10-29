@@ -1,0 +1,26 @@
+/* Case study side nav: dot rail, labels show on hover. Same design as the Profiles Insights nav.
+   Each page tints it with --cn-dot-a, --cn-dot-b and --cn-glow. */
+.case-nav {
+  --cn-ink: #003448;
+  --cn-muted: #8a9ba3;
+  --cn-line: #dde5e9;
+  --cn-ring: #c9d5db;
+  position: fixed; left: 32px; top: 50%; z-index: 2147483000;
+  transform: translateY(-50%); opacity: 0; pointer-events: none; transition: opacity .3s ease;
+  font-family: "Figtree", ui-sans-serif, system-ui, sans-serif;
+}
+.case-nav.is-shown { opacity: 1; pointer-events: auto; }
+.case-nav ol { position: relative; list-style: none; margin: 0; padding: 0; }
+.case-nav ol::before { content: ""; position: absolute; left: 4px; top: 10px; bottom: 10px; width: 1px; background: var(--cn-line); }
+.case-nav a { position: relative; display: block; padding: 6px 0 6px 22px; color: transparent; font-size: 13px; font-weight: 500; line-height: 1.3; text-decoration: none; white-space: nowrap; transition: color .2s ease; }
+.case-nav a::before { content: ""; position: absolute; left: 0; top: 50%; width: 9px; height: 9px; border-radius: 50%; background: #fff; box-shadow: inset 0 0 0 1px var(--cn-ring); transform: translateY(-50%); transition: background-color .2s ease, box-shadow .2s ease; }
+.case-nav a[aria-current]::before { background: linear-gradient(135deg, var(--cn-dot-a), var(--cn-dot-b)); box-shadow: 0 0 0 4px var(--cn-glow); }
+.case-nav:hover a, .case-nav a:focus-visible { color: var(--cn-muted); }
+.case-nav a[aria-current], .case-nav a:hover { color: var(--cn-ink); }
+@media (max-width: 1279px) { .case-nav { display: none; } }
+
+/* Page tints */
+.case-nav--events { --cn-dot-a: #f6dca8; --cn-dot-b: #e5b25d; --cn-glow: rgba(229, 178, 93, .2); }
+.case-nav--twilio { --cn-dot-a: #f9a9b3; --cn-dot-b: #f2596b; --cn-glow: rgba(242, 89, 107, .16); }
+.case-nav--neighbor { --cn-dot-a: #fcd08f; --cn-dot-b: #f79a0e; --cn-glow: rgba(247, 154, 14, .18); }
+.case-nav--filters { --cn-ink: #16202e; --cn-muted: #8a8f96; --cn-line: #e4dfd5; --cn-ring: #d4ccbf; --cn-dot-a: #eab196; --cn-dot-b: #c4643a; --cn-glow: rgba(196, 100, 58, .16); }
