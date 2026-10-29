@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/fonts/portfolio-fonts.css?v=figtree1">
   <link rel="stylesheet" href="../profiles-insights/pi.css?v=1">
-  <link rel="stylesheet" href="audience.css?v=6">
+  <link rel="stylesheet" href="audience.css?v=7">
   <link rel="stylesheet" href="../../assets/glass-cursor.css?v=7">
 </head>
 <body>
@@ -214,25 +214,34 @@
         </blockquote>
       </div>
 
-      <div class="pi-block">
+      <div class="pi-block pi-tabs" data-tabs>
         <h3>Enrichment and mapping: one step or two?</h3>
-        <div class="pi-grid pi-grid--2 pi-compare aa-options">
-          <figure class="pi-shot pi-shot--labelled aa-bare">
-            <figcaption>Option 1: two steps</figcaption>
-            <img src="img/layout-option-1.webp" alt="Option 1: enriching events with traits as its own wizard step, before mapping." width="1328" height="970" loading="lazy">
-          </figure>
-          <figure class="pi-shot pi-shot--labelled aa-bare">
-            <figcaption>Option 2: one page</figcaption>
-            <img src="img/layout-option-2.webp" alt="Option 2: enrichment and mapping configured together on one page." width="924" height="1418" loading="lazy">
-          </figure>
+        <div class="pi-tabs__list" role="tablist" aria-label="Layout options">
+          <button type="button" role="tab" aria-selected="true">Option 1</button>
+          <button type="button" role="tab" aria-selected="false">Option 2</button>
         </div>
-        <p class="aa-after-compare">Most participants preferred option 2. Configuring enrichment and mapping usually takes some back and forth, and they wanted to come back and edit both in one place.</p>
+        <div class="pi-row">
+          <div>
+            <figure class="pi-shot aa-bare" data-panel role="tabpanel"><img src="img/layout-option-1.webp" alt="Option 1: enriching events with traits as its own wizard step, before mapping." width="1328" height="970" loading="lazy"></figure>
+            <figure class="pi-shot aa-bare aa-option2" data-panel role="tabpanel" hidden><img src="img/layout-option-2.webp" alt="Option 2: enrichment and mapping configured together on one page." width="924" height="1418" loading="lazy"></figure>
+          </div>
+          <div>
+            <div data-panel>
+              <h4>Enrichment and mapping as two steps</h4>
+              <p>We debated whether to make the setup more digestible by breaking it into steps, or to give users full visibility while configuring the event.</p>
+            </div>
+            <div data-panel hidden>
+              <h4>✅ Enrichment and mapping on one page</h4>
+              <p>Participants preferred this option. Configuring enrichment and mapping usually takes some back and forth, and they wanted to come back and edit both in one place.</p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="pi-block">
         <div class="pi-row">
           <div>
-            <h3>Track or Identify?</h3>
+            <h3>Pain point: Track or Identify?</h3>
             <p>Participants struggled to choose between a Track and an Identify call on the first step. They didn't understand the difference, or what it meant for the downstream tools.</p>
           </div>
           <figure class="pi-shot pi-shot--labelled aa-bare">
@@ -246,8 +255,8 @@
             <p>Users relied on the name and description of the Action to decide between Track and Identify, because that terminology (for example, "Update user profile" for Braze) matches the terminology in the destination tool. After some digging, we found that most Actions are built with a default trigger that already defines the call type.</p>
           </div>
           <div>
-            <figure class="pi-shot aa-bare"><img src="img/finding-action-names.webp" alt="Braze Actions: Track Event, Update User Profile and Track Purchase, each with a short description." width="1125" height="641" loading="lazy"></figure>
-            <figure class="pi-shot aa-bare"><img src="img/finding-default-trigger.webp" alt="Braze documentation: Update User Profile is a cloud Action whose default trigger is type = identify." width="1568" height="945" loading="lazy"></figure>
+            <figure class="pi-shot aa-bare aa-small"><img src="img/finding-action-names.webp" alt="Braze Actions: Track Event, Update User Profile and Track Purchase, each with a short description." width="1125" height="641" loading="lazy"></figure>
+            <figure class="pi-shot aa-bare aa-small"><img src="img/finding-default-trigger.webp" alt="Braze documentation: Update User Profile is a cloud Action whose default trigger is type = identify." width="1568" height="945" loading="lazy"></figure>
           </div>
         </div>
       </div>
@@ -256,16 +265,8 @@
     <!-- Iterations -->
     <section class="pi-section" id="iterations"><div class="pi-wrap">
       <h2>Design iteration</h2>
-      <div class="pi-grid pi-grid--3 aa-before">
-        <figure class="pi-shot aa-bare"><img src="img/before-1-event-type.webp" alt="Before, step 1: select an event type." width="1385" height="1010" loading="lazy"></figure>
-        <figure class="pi-shot aa-bare"><img src="img/before-2-enrich.webp" alt="Before, step 2: enrich events with traits." width="1402" height="1031" loading="lazy"></figure>
-        <figure class="pi-shot aa-bare"><img src="img/before-3-map.webp" alt="Before, step 3: select an Action and map events." width="1295" height="1035" loading="lazy"></figure>
-      </div>
-      <p class="aa-caption">Before: select event type, enrich, then map.</p>
-
-      <div class="pi-block pi-row">
+      <div class="pi-row">
         <div>
-          <h3>What changed</h3>
           <ul class="pi-list">
             <li>Removed the Track or Identify call selection as the first step.</li>
             <li>Used the default trigger of the Action to infer a Track or Identify call.</li>
@@ -273,7 +274,6 @@
           </ul>
         </div>
         <div>
-          <figure class="pi-shot aa-bare"><img src="img/after-select-action.webp" alt="After: the Select an Action step explains which call Segment will send, based on the Action's default trigger." width="1675" height="605" loading="lazy"></figure>
           <figure class="pi-shot aa-bare aa-tall"><img src="img/after-flow.webp" alt="After: enrich, select an Action and map events on one page." width="947" height="1723" loading="lazy"></figure>
         </div>
       </div>
@@ -282,7 +282,7 @@
     <!-- Usability testing -->
     <section class="pi-section pi-section--muted" id="usability"><div class="pi-wrap">
       <h2>Usability testing</h2>
-      <p>Given the major changes to the flow, we ran usability tests with 5 more external customers.</p>
+      <p>Given the major changes to the flow, we ran usability tests with 5 more external customers, and they revealed something surprising.</p>
       <ul class="pi-list">
         <li>The activation flow was intuitive and easy to follow. Pre-filling the event trigger and call type based on the selected Action matched users' workflow.</li>
         <li>Previewing events wasn't enough. Sending a test event was a must-have, ideally with the ability to edit the user ID.</li>
@@ -290,7 +290,7 @@
       </ul>
 
       <div class="pi-block">
-        <h2>The surprise: who actually activates audiences</h2>
+        <h2>The surprise: marketers aren't the ones who activate audiences</h2>
         <p>We had always assumed Engage was a product for marketers. The interviews showed something different. Audience activation was too technical for most marketers to set up. They usually built the audience and handed it off to a data engineer for activation. Sometimes data engineers set up the first audience-to-destination configuration, and marketers copied and reused it.</p>
         <p class="pi-statement aa-debate">The debate: should we build for data engineers, or enable marketers to self-serve?</p>
         <div class="pi-grid pi-grid--2 aa-debate-points">
@@ -310,7 +310,7 @@
       </div>
 
       <div class="pi-block">
-        <h3>Design changes</h3>
+        <h3>Design changes for technical users</h3>
         <div class="pi-grid pi-grid--2 aa-iter">
           <figure class="pi-shot aa-bare">
             <img src="img/iter-raw-payload.webp" alt="Event preview showing the raw payload by default." width="1456" height="1000" loading="lazy">
@@ -336,10 +336,10 @@
       <div class="pi-block">
         <div class="pi-row">
           <div>
-            <h3>One pattern, two audience types</h3>
             <p>I worked closely with the Linked audience designer on an end-to-end teardown of features and UI components across linked and classic audiences. We weighed bespoke UI against unified components, made the decisions together, and documented where the two products align and differ.</p>
           </div>
           <div class="aa-teardown">
+            <figure class="pi-shot aa-bare aa-teardown__map"><img src="img/teardown-map.webp" alt="End-to-end teardown in Figma: the linked and classic audience flows laid out side by side." width="655" height="1311" loading="lazy"></figure>
             <figure class="pi-shot aa-bare"><img src="img/teardown-notes-1.webp" alt="Shared decision notes comparing linked and classic audiences: entry points, destination categories and event types." width="823" height="493" loading="lazy"></figure>
             <figure class="pi-shot aa-bare"><img src="img/teardown-notes-2.webp" alt="More shared decision notes: configuring events, trait selection and event previews." width="823" height="688" loading="lazy"></figure>
           </div>
@@ -465,6 +465,16 @@
     </div></section>
   </main>
 
+  <script>
+    document.querySelectorAll('[data-tabs]').forEach(group => {
+      const tabs = [...group.querySelectorAll('[role="tab"]')];
+      const columns = [...group.querySelectorAll('.pi-row > *')];
+      tabs.forEach((tab, i) => tab.addEventListener('click', () => {
+        tabs.forEach((t, j) => t.setAttribute('aria-selected', String(i === j)));
+        columns.forEach(col => [...col.querySelectorAll(':scope > [data-panel]')].forEach((panel, j) => { panel.hidden = i !== j; }));
+      }));
+    });
+  </script>
   <dialog class="pi-lightbox" aria-label="Enlarged image"><button type="button" class="pi-lightbox__close" aria-label="Close">×</button><div class="pi-lightbox__body"></div></dialog>
   <script>
     // Click any screenshot to see it larger.

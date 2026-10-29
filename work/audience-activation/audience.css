@@ -115,3 +115,12 @@
 @media (max-width: 760px) { .pi-hero__shot img { max-height: 260px; } }
 .aa-metric { margin: 24px 0 !important; font-size: 20px; line-height: 1.45; }
 #metric .pi-shot img { max-height: 520px; object-fit: cover; object-position: top left; }
+
+/* Review round 4 */
+.pi-tabs h3 { margin-bottom: 24px; }
+.pi-tabs [data-panel] h4 { margin-bottom: 8px; font-size: 18px; }
+.aa-option2 img { max-height: 560px; width: auto; max-width: 100%; }
+.aa-small { width: 70%; }
+.aa-teardown { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); grid-template-rows: auto auto; gap: 12px; align-items: start; }
+.aa-teardown__map { grid-row: span 2; }
+.aa-teardown .pi-shot + .pi-shot { margin-top: 0; }
