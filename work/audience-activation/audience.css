@@ -99,3 +99,10 @@
   .aa-fc__steps > li:not(:last-child)::after { content: ""; position: absolute; top: 100%; left: 50%; width: 1px; height: var(--gap); background: #9fb2bb; }
   .aa-fc__steps > li:not(:last-child) .aa-fc__node::after, .aa-fc__steps > li:not(:last-child) .aa-fc__node::before { display: none; }
 }
+
+/* Review round 2 */
+.aa-cdp { margin: 40px 0; }
+.aa-cdp img { border-radius: 8px; }
+.pi-section--muted .aa-fc__bracket span { background: var(--pi-muted); }
+.pi-hero__shot { border: 0; background: none; }
+.pi-hero__shot img { border: 1px solid var(--pi-line); border-bottom: 0; border-radius: 4px 4px 0 0; }

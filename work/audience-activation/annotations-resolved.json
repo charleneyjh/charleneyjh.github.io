@@ -10,5 +10,21 @@
  {
   "selector": "#current > div > p",
   "comment": "Remove this"
+ },
+ {
+  "selector": "#overview > div > div:nth-of-type(1) > div > img",
+  "comment": "remove the Background"
+ },
+ {
+  "selector": "#overview > div > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(2)",
+  "comment": "remove"
+ },
+ {
+  "selector": "#context > div > h2",
+  "comment": "I think I might have some screenshots from the deck"
+ },
+ {
+  "selector": "#current > div > h2",
+  "comment": "Move the current experience session"
  }
 ]
