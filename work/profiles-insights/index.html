@@ -406,6 +406,30 @@
       }));
     });
   </script>
+  <dialog class="pi-lightbox" aria-label="Enlarged image"><button type="button" class="pi-lightbox__close" aria-label="Close">×</button><div class="pi-lightbox__body"></div></dialog>
+  <script>
+    // Click any screenshot to see it larger; animated demos keep playing.
+    (() => {
+      const box = document.querySelector('.pi-lightbox');
+      const body = box.querySelector('.pi-lightbox__body');
+      document.querySelectorAll('.pi-shot, .pi-hero__shot').forEach(shot => {
+        shot.classList.add('pi-zoomable');
+        shot.tabIndex = 0;
+        const open = () => {
+          const demo = shot.classList.contains('pi-demo');
+          const node = demo ? shot.cloneNode(true) : (shot.querySelector('img') || shot).cloneNode(true);
+          if (demo) node.classList.remove('pi-zoomable');
+          node.removeAttribute('tabindex');
+          node.querySelectorAll('img').forEach(img => img.loading = 'eager');
+          body.replaceChildren(node);
+          box.showModal();
+        };
+        shot.addEventListener('click', open);
+        shot.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+      });
+      box.addEventListener('click', e => { if (e.target === box || e.target.closest('.pi-lightbox__close')) box.close(); });
+    })();
+  </script>
   <script src="../../assets/glass-cursor.js?v=3"></script>
   <script>
     // Clear review comments that have already been applied.

@@ -249,3 +249,14 @@ strong { font-weight: 700; }
 @keyframes pi-ov-next { 0%, 56% { opacity: 0; } 60%, 92% { opacity: 1; } 97%, 100% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .pi-tip { opacity: 1; } .pi-demo__next { display: none; } }
 @media (prefers-reduced-motion: reduce) { .pi-demo__sheet--err { display: none; } }
+
+/* Click to enlarge */
+.pi-zoomable { cursor: zoom-in; }
+.pi-zoomable:focus-visible { outline: 2px solid var(--pi-ink); outline-offset: 4px; }
+.pi-lightbox { width: min(1400px, 94vw); max-width: none; max-height: 94vh; padding: 0; border: 0; border-radius: 8px; background: #fff; overflow: auto; }
+.pi-lightbox::backdrop { background: rgba(0, 20, 30, .72); }
+.pi-lightbox__body { padding: 48px 24px 24px; }
+.pi-lightbox__body > img { display: block; width: auto; max-width: 100%; max-height: calc(94vh - 96px); margin: 0 auto; border: 1px solid var(--pi-line); border-radius: 4px; }
+.pi-lightbox__body > .pi-demo { max-width: min(100%, calc((94vh - 96px) * var(--ratio, 1.27))); margin: 0 auto; }
+.pi-lightbox__body > .pi-demo--overview { --ratio: .88; }
+.pi-lightbox__close { position: absolute; top: 8px; right: 12px; width: 36px; height: 36px; border: 0; background: none; color: var(--pi-ink); font-size: 28px; line-height: 1; cursor: pointer; }
