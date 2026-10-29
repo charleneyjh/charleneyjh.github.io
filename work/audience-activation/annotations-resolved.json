@@ -282,5 +282,9 @@
  {
   "selector": "#alignment > div > div:nth-of-type(2) > div > div:nth-of-type(2) > figure:nth-of-type(2) > img",
   "comment": "I want these pictures to be bigger"
+ },
+ {
+  "selector": "#results > div > ul > li:nth-of-type(2)",
+  "comment": "merge this with bullet point 1"
  }
 ]
