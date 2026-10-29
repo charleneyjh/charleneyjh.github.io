@@ -154,5 +154,21 @@
  {
   "selector": "#pivot > div > div > div:nth-of-type(2) > figure > img",
   "comment": "Replace the three screenshots"
+ },
+ {
+  "selector": "#role > div > div:nth-of-type(1)",
+  "comment": "The timeline is too verbose"
+ },
+ {
+  "selector": "#alignment > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2)",
+  "comment": "remove"
+ },
+ {
+  "selector": "#alignment > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p",
+  "comment": "remove"
+ },
+ {
+  "selector": "#alignment > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > h3",
+  "comment": "remove"
  }
 ]
