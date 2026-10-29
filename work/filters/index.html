@@ -8,10 +8,12 @@
   <link rel="stylesheet" href="../../assets/fonts/portfolio-fonts.css?v=figtree1">
   <link rel="stylesheet" href="filters.css?v=1">
   <link rel="stylesheet" href="../../assets/glass-cursor.css?v=7">
+  <link rel="stylesheet" href="../../assets/case-nav.css?v=1">
 </head>
 <body class="uf-page">
   <nav class="uf-topnav" aria-label="Portfolio navigation"><a href="../../">← Back to home</a></nav>
 
+  <nav class="case-nav case-nav--filters" aria-label="Case study sections"><ol><li><a href="#overview">Overview</a></li><li><a href="#context">Context</a></li><li><a href="#problem">The problem</a></li><li><a href="#opportunity">The opportunity</a></li><li><a href="#success">Defining success</a></li><li><a href="#role">My role</a></li><li><a href="#process">Process</a></li><li><a href="#design">Design decisions</a></li><li><a href="#results">Results</a></li><li><a href="#learnings">What I've learned</a></li><li><a href="#next">If I had more time</a></li></ol></nav>
   <main>
     <!-- Hero -->
     <header class="uf-hero">
@@ -29,7 +31,7 @@
     </header>
 
     <!-- Overview -->
-    <section class="uf-section">
+    <section id="overview" class="uf-section">
       <div class="uf-wrap uf-overview">
         <div>
           <h2>Overview</h2>
@@ -45,7 +47,7 @@
     </section>
 
     <!-- Context -->
-    <section class="uf-section uf-section--muted">
+    <section id="context" class="uf-section uf-section--muted">
       <div class="uf-wrap">
         <h2>Context</h2>
         <p class="uf-prose">HubSpot is a go-to-market platform that brings marketing, sales, customer service and operations into one system, built on a shared customer database. People come to HubSpot to find their data and ask questions about it. <strong>Filtering is how they do it.</strong></p>
@@ -77,7 +79,7 @@
     </section>
 
     <!-- Problem -->
-    <section class="uf-section">
+    <section id="problem" class="uf-section">
       <div class="uf-wrap">
         <h2>The problem</h2>
         <p class="uf-prose">Yet filtering was a top 3 CSAT complaint in all four products. Customers told us the same thing in different words.</p>
@@ -104,7 +106,7 @@
     </section>
 
     <!-- Opportunity -->
-    <section class="uf-section uf-section--muted">
+    <section id="opportunity" class="uf-section uf-section--muted">
       <div class="uf-wrap">
         <h2>The opportunity</h2>
         <p class="uf-prose">Engineering made a big bet: one unified query platform to replace the separate query backends behind each product. With every product about to query data the same way, design had a huge opportunity to unify the front end too.</p>
@@ -140,7 +142,7 @@
     </section>
 
     <!-- Success metrics -->
-    <section class="uf-section">
+    <section id="success" class="uf-section">
       <div class="uf-wrap">
         <h2>Defining success</h2>
         <p class="uf-prose">We agreed on how we'd measure success before launch, from the first weeks to the long term.</p>
@@ -154,7 +156,7 @@
     </section>
 
     <!-- Role + timeline -->
-    <section class="uf-section uf-section--muted">
+    <section id="role" class="uf-section uf-section--muted">
       <div class="uf-wrap">
         <h2>My role</h2>
         <p class="uf-prose">As the lead product designer, I set the direction of the new filter UX and aligned product and design leaders across the pillar product areas.</p>
@@ -201,7 +203,7 @@
     </section>
 
     <!-- Shared baseline -->
-    <section class="uf-section">
+    <section id="process" class="uf-section">
       <div class="uf-wrap">
         <p class="uf-kicker">My process</p>
         <h2>Define a shared baseline</h2>
@@ -402,7 +404,7 @@
     </section>
 
     <!-- Results -->
-    <section class="uf-section">
+    <section id="results" class="uf-section">
       <div class="uf-wrap">
         <h2>Where it landed</h2>
         <div class="uf-feature">
@@ -426,7 +428,7 @@
     </section>
 
     <!-- Reflection -->
-    <section class="uf-section uf-section--muted">
+    <section id="learnings" class="uf-section uf-section--muted">
       <div class="uf-wrap">
         <h2>What I've learned</h2>
         <div class="uf-three uf-three--two">
@@ -443,7 +445,7 @@
     </section>
 
     <!-- Next -->
-    <section class="uf-section">
+    <section id="next" class="uf-section">
       <div class="uf-wrap">
         <h2>If I had more time</h2>
         <p class="uf-prose">Two directions are in progress: natural language combined with manual filtering, and subquery support.</p>
@@ -493,6 +495,7 @@
   </main>
 
   <script src="../../assets/glass-cursor.js?v=3"></script>
+  <script src="../../assets/case-nav.js?v=1"></script>
   <script src="../../dev/annotate.js"></script>
 </body>
 </html>
