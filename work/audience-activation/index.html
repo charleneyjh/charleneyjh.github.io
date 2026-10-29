@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/fonts/portfolio-fonts.css?v=figtree1">
   <link rel="stylesheet" href="../profiles-insights/pi.css?v=1">
-  <link rel="stylesheet" href="audience.css?v=3">
+  <link rel="stylesheet" href="audience.css?v=4">
   <link rel="stylesheet" href="../../assets/glass-cursor.css?v=7">
 </head>
 <body>
@@ -73,31 +73,19 @@
     <!-- Timeline and role -->
     <section class="pi-section pi-section--muted" id="role"><div class="pi-wrap">
       <h2>Timeline and my role</h2>
-      <div class="pi-timeline aa-timeline" role="img" aria-label="Project timeline from October 2023 to March 2024. October: understanding the context. October to November: research, design ideation and the PRD, with concept testing and usability studies in November. December: design iteration and handoff. January to February: implementation. March: redesign, a new PRD, implementation and launch.">
-        <div class="pi-timeline__inner">
-          <div class="pi-timeline__months" aria-hidden="true">
-            <span>Oct 2023</span><span>Nov 2023</span><span>Dec 2023</span><span>Jan 2024</span><span>Feb 2024</span><span>Mar 2024</span>
-          </div>
-          <div class="pi-timeline__row"><span class="pi-timeline__lane">Research</span>
-            <span class="pi-bar" style="--from: 1; --to: 1.45">Concept testing</span>
-            <span class="pi-bar" style="--from: 1.75; --to: 1.95">Usability studies</span>
-          </div>
-          <div class="pi-timeline__row"><span class="pi-timeline__lane">Design</span>
-            <span class="pi-bar" style="--from: 0.05; --to: 0.7">Context</span>
-            <span class="pi-bar" style="--from: 0.85; --to: 1.4">Ideation</span>
-            <span class="pi-bar" style="--from: 2; --to: 2.55">Iteration, handoff</span>
-            <span class="pi-bar" style="--from: 5; --to: 5.35">Redesign</span>
-          </div>
-          <div class="pi-timeline__row"><span class="pi-timeline__lane">Product</span>
-            <span class="pi-bar" style="--from: 0.05; --to: 0.7">Context</span>
-            <span class="pi-bar" style="--from: 0.85; --to: 1.9">Research, PRD</span>
-            <span class="pi-bar" style="--from: 5; --to: 5.3">PRD</span>
-            <span class="pi-milestone" style="--at: 5.7">Launch</span>
-          </div>
-          <div class="pi-timeline__row"><span class="pi-timeline__lane">Development</span>
-            <span class="pi-bar" style="--from: 3.1; --to: 4.65">Implementation</span>
-            <span class="pi-bar" style="--from: 5.2; --to: 5.65">Implementation</span>
-          </div>
+      <div class="aa-gantt" role="img" aria-label="Project timeline from October 2023 to March 2024. October: understanding the context. October to November: research, design ideation and the PRD. November: concept testing and usability studies. December: design iteration and handoff. January to February: implementation. March, after the reduction in force: redesign, a scaled-back implementation and launch.">
+        <div class="aa-gantt__head" aria-hidden="true"><span></span><div class="aa-gantt__months"><span>Oct 2023</span><span>Nov</span><span>Dec</span><span>Jan 2024</span><span>Feb</span><span>Mar</span></div></div>
+        <div class="aa-gantt__body">
+          <div class="aa-gantt__row"><span>Understand context</span><div class="aa-gantt__track"><i style="--from: 0.05; --to: 0.75"></i></div></div>
+          <div class="aa-gantt__row"><span>Research and PRD</span><div class="aa-gantt__track"><i style="--from: 0.8; --to: 1.9"></i></div></div>
+          <div class="aa-gantt__row"><span>Design ideation</span><div class="aa-gantt__track"><i style="--from: 0.8; --to: 1.4"></i></div></div>
+          <div class="aa-gantt__row"><span>Concept testing</span><div class="aa-gantt__track"><i style="--from: 1; --to: 1.45"></i></div></div>
+          <div class="aa-gantt__row"><span>Usability studies</span><div class="aa-gantt__track"><i style="--from: 1.6; --to: 1.95"></i></div></div>
+          <div class="aa-gantt__row"><span>Iteration and handoff</span><div class="aa-gantt__track"><i style="--from: 2; --to: 2.6"></i></div></div>
+          <div class="aa-gantt__row"><span>Implementation</span><div class="aa-gantt__track"><i class="aa-gantt__dev" style="--from: 3.1; --to: 4.7"></i></div></div>
+          <div class="aa-gantt__row aa-gantt__row--pivot"><span>Redesign and PRD</span><div class="aa-gantt__track"><i style="--from: 5; --to: 5.35"></i></div></div>
+          <div class="aa-gantt__row aa-gantt__row--pivot"><span>Scaled-back build</span><div class="aa-gantt__track"><i class="aa-gantt__dev" style="--from: 5.3; --to: 5.75"></i></div></div>
+          <div class="aa-gantt__row aa-gantt__row--pivot"><span>Launch</span><div class="aa-gantt__track"><b style="--at: 5.85"></b></div></div>
         </div>
       </div>
 
@@ -133,18 +121,17 @@
     <!-- Current experience -->
     <section class="pi-section" id="current"><div class="pi-wrap">
       <h2>The current experience</h2>
-      <p>Activating an audience took five steps across two parts of the app.</p>
-      <div class="aa-flow" role="img" aria-label="Current flow: add a destination to the space, build an audience, then activation: add the destination to the audience and turn on Send Track or Send Identify, enrich the payload with traits (optional), and configure mappings in Connections by selecting an Action, defining an event trigger, mapping properties and optionally sending a test event.">
-        <div class="aa-flow__span"><span>Audience activation</span></div>
-        <ol class="aa-flow__steps">
-          <li>Add destination to the space</li>
-          <li>Build an audience</li>
-          <li>Add destination to the audience
-            <ul><li>Turn on "Send Track" and/or "Send Identify"</li></ul>
+      <div class="aa-fc" role="img" aria-label="Current flow: add a destination to the space, build an audience, then activation: add the destination to the audience and turn on Send Track or Send Identify, enrich the payload with traits (optional), and configure mappings in Connections by selecting an Action, defining an event trigger, mapping properties and optionally sending a test event.">
+        <div class="aa-fc__bracket" aria-hidden="true"><span>Audience activation</span></div>
+        <ol class="aa-fc__steps">
+          <li><div class="aa-fc__node">Add destination to the space</div></li>
+          <li><div class="aa-fc__node">Build an audience</div></li>
+          <li class="aa-fc__act"><div class="aa-fc__node">Add destination to the audience</div>
+            <ul class="aa-fc__subs"><li>Turn on "Send Track" and/or "Send Identify"</li></ul>
           </li>
-          <li>Enrich payload with traits (optional)</li>
-          <li>Configure mappings in Connections
-            <ul><li>Select an Action</li><li>Define event trigger</li><li>Map properties</li><li>Send test event (optional)</li></ul>
+          <li class="aa-fc__act"><div class="aa-fc__node">Enrich payload with traits (optional)</div></li>
+          <li class="aa-fc__act"><div class="aa-fc__node">Configure mappings in Connections</div>
+            <ul class="aa-fc__subs"><li>Select an Action</li><li>Define event trigger</li><li>Map properties</li><li>Send test event (optional)</li></ul>
           </li>
         </ol>
       </div>
