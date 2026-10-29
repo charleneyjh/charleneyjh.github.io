@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/fonts/portfolio-fonts.css?v=figtree1">
   <link rel="stylesheet" href="../profiles-insights/pi.css?v=1">
-  <link rel="stylesheet" href="audience.css?v=8">
+  <link rel="stylesheet" href="audience.css?v=9">
   <link rel="stylesheet" href="../../assets/glass-cursor.css?v=7">
 </head>
 <body>
@@ -90,6 +90,7 @@
             <figcaption>Audience settings in Engage</figcaption>
             <img src="img/legacy-engage-settings.webp" alt="Legacy Braze destination settings in Engage, with Send Identify and Send Track toggles." width="832" height="1173" loading="lazy">
           </figure>
+          <div class="aa-break" aria-hidden="true"><span></span><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m18.84 12.25 1.72-1.71a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="m5.17 11.75-1.71 1.71a5 5 0 0 0 7.07 7.07l1.71-1.71"/><path d="M8 2v3M2 8h3M16 19v3M19 16h3"/></svg><span></span></div>
           <figure class="pi-shot pi-shot--labelled">
             <figcaption>Activation flow in Connections</figcaption>
             <img src="img/legacy-connections-flow.webp" alt="Legacy mapping page in Connections: select events, add a test event, and map fields to the destination." width="950" height="1991" loading="lazy">
@@ -322,15 +323,15 @@
     <section class="pi-section" id="alignment"><div class="pi-wrap">
       <h2>Cross-team review</h2>
       <p>Two teams raised feedback in review:</p>
-      <ul class="pi-list">
+      <ol class="pi-list">
         <li>The Linked audience engineering team wanted the UX for linked and classic audiences unified further. Reusing UI components would greatly reduce engineering time.</li>
         <li>The Audience compute engineering team was concerned about removing the "connect destination" step from the audience creation flow.</li>
-      </ul>
+      </ol>
 
       <div class="pi-block">
         <div class="pi-row">
           <div>
-            <p>I worked closely with the Linked audience designer on an end-to-end teardown of features and UI components across linked and classic audiences. We weighed bespoke UI against unified components, made the decisions together, and documented where the two products align and differ.</p>
+            <p>1. I worked closely with the Linked audience designer on an end-to-end teardown of features and UI components across linked and classic audiences. We weighed bespoke UI against unified components, made the decisions together, and documented where the two products align and differ.</p>
           </div>
           <div class="aa-teardown">
             <figure class="pi-shot aa-bare aa-teardown__map"><img src="img/teardown-map.webp" alt="End-to-end teardown in Figma: the linked and classic audience flows laid out side by side." width="655" height="1311" loading="lazy"></figure>
@@ -341,10 +342,9 @@
       </div>
 
       <div class="pi-block">
-        <h3>Removing the "connect destination" step</h3>
         <div class="pi-row">
           <div>
-            <p>I proposed removing the "connect destination" step from the audience creation flow. Audience activation now had its own flow, so keeping the step was redundant and gave users the false impression that their task was complete. The Audience compute team was concerned that, with the current logic, this would increase the cost of computing audiences.</p>
+            <p>2. I proposed removing the "connect destination" step from the audience creation flow. Audience activation now had its own flow, so keeping the step was redundant and gave users the false impression that their task was complete. The Audience compute team was concerned that, with the current logic, this would increase the cost of computing audiences.</p>
             <p>I found out the reasoning behind the concern, brainstormed with engineers on ways to mitigate the risk, and proposed a few options for the team's input.</p>
             <p>The team unanimously agreed with the proposal. The result was a unified, streamlined UX with a small backend change to the compute logic and no added risk. The engineering task was committed to the Audience compute team's Q1 backlog.</p>
           </div>
@@ -362,14 +362,14 @@
       <div class="pi-row pi-row--wide-visual pi-row--center">
         <div>
           <h3>Connect a destination</h3>
-          <p>Activation starts from the audience. Until a destination is added, the audience makes clear it won't sync.</p>
+          <p>Adding a destination brings users into the wizard setup flow.</p>
         </div>
         <figure class="pi-shot aa-visual"><img src="img/final-1-connect.webp" alt="Clicking Add destination on an audience with no destinations, picking Braze in the Connect destination modal and clicking Next, which opens the Select action step." width="1200" height="853" loading="lazy"></figure>
       </div>
       <div class="pi-row pi-row--wide-visual pi-row--center">
         <div>
           <h3>Select an Action</h3>
-          <p>Users pick the Action in the destination's own terms. The call type comes from the Action's default trigger, and users only choose between Track and Identify when an Action doesn't define one.</p>
+          <p>Users pick the Action. The Track or Identify call options are only presented when the Action doesn't have a default trigger.</p>
         </div>
         <figure class="pi-shot"><img src="img/final-2-action.webp" alt="Selecting Identify User, which has no default trigger, shows the Track or Identify event type choice. Selecting Update User Profile, which has one, does not." width="1200" height="853" loading="lazy"></figure>
       </div>
