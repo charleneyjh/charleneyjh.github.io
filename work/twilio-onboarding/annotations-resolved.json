@@ -26,5 +26,25 @@
  {
   "selector": "#comp-kzxk75bb > p > span > span",
   "comment": "span one row"
+ },
+ {
+  "selector": "#comp-kzvp4zp9 > p > span > span > span",
+  "comment": "smaller size"
+ },
+ {
+  "selector": "#comp-kzvnedbj > p > span > span > span",
+  "comment": "smaller size"
+ },
+ {
+  "selector": "#comp-kzvq22qo > h2 > span",
+  "comment": "span one row"
+ },
+ {
+  "selector": "#comp-kzwdu4c5 > div:nth-of-type(1)",
+  "comment": "these diagram is so messy"
+ },
+ {
+  "selector": "#comp-kzwdxzm6 > p > span",
+  "comment": "move up 20px"
  }
 ]

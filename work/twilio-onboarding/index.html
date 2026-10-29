@@ -285,8 +285,20 @@ p.portfolio-heading, p.portfolio-heading * { font-family: "Figtree", ui-sans-ser
 </style><style id="twilio-comment-refinements">
 #comp-kzvnedef p, #comp-kzvnedef p *, #comp-kzx30tk6 p, #comp-kzx30tk6 p * { font-weight: 700 !important; }
 #comp-kzxdalvd p, #comp-kzxdalvd p *, #comp-kzxe15j9 p, #comp-kzxe15j9 p * { font-weight: 700 !important; }
-#comp-kzx9s7uk, #comp-kzwe1dmk, #comp-kzwe2208, #comp-kzx3ud3a, #comp-kzxk75bb { width: max-content !important; }
-#comp-kzx9s7uk :is(p, h4), #comp-kzwe1dmk :is(p, h4), #comp-kzwe2208 :is(p, h4), #comp-kzx3ud3a :is(p, h4), #comp-kzxk75bb :is(p, h4) { white-space: nowrap; }
+#comp-kzvp4zp9 p, #comp-kzvp4zp9 p *, #comp-kzvnedbj p, #comp-kzvnedbj p * { font-size: 16px !important; }
+#comp-kzvp4zp9 p, #comp-kzvnedbj p { text-align: left !important; }
+#comp-kzvp4zp9 { transform: translateX(-177px); }
+#comp-kzvnedbj { transform: translateX(-209px); }
+#comp-kzwdxzm6 { transform: translateY(-20px); }
+#comp-kzwdxzm6 span { color: rgb(219, 148, 33) !important; }
+#comp-kzwcokjq, #comp-kzwct1i8, #comp-kzwcvbjw, #comp-kzwcw3ff, #comp-kzwdntrq, #comp-kzwdn2aq, #comp-kzwdlkyp, #comp-kzwdu4c5 { visibility: hidden; }
+.flow-diagram { position: absolute; z-index: 1; display: flex; align-items: center; gap: 8px; height: 86px; }
+.flow-diagram .flow-group { flex: 1 1 auto; display: flex; align-items: center; gap: 8px; height: 100%; box-sizing: border-box; padding: 0 10px; border: 2px dashed rgb(219, 148, 33); border-radius: 5px; }
+.flow-diagram .flow-step { padding: 16px; flex: none; background: rgb(157, 179, 159); color: #fff; font-size: 16px; font-weight: 600; line-height: 24px; white-space: nowrap; }
+.flow-diagram .flow-arrow { position: relative; height: 1px; background: #282626; flex: 1 1 16px; min-width: 16px; max-width: 40px; }
+.flow-diagram .flow-arrow::after { content: ""; position: absolute; right: 0; top: -3px; border: solid #282626; border-width: 0 1px 1px 0; padding: 3px; transform: rotate(-45deg); }
+#comp-kzx9s7uk, #comp-kzwe1dmk, #comp-kzwe2208, #comp-kzx3ud3a, #comp-kzxk75bb, #comp-kzvq22qo { width: max-content !important; }
+#comp-kzx9s7uk :is(p, h4), #comp-kzwe1dmk :is(p, h4), #comp-kzwe2208 :is(p, h4), #comp-kzx3ud3a :is(p, h4), #comp-kzxk75bb :is(p, h4), #comp-kzvq22qo h2 { white-space: nowrap; }
 </style><style id="portfolio-wix-original-emphasis">
 /* Wix encoded emphasis in font-family names; retain those weights in portfolio fonts. */
 [style*="orig_lato_bold"], [style*="orig_lato_bold"] * { font-weight: 700 !important; }
@@ -684,7 +696,32 @@ They appreciate the guided experience with clear CTA and easy reach of support w
 
 
 
-<script src="wix-preserved.js?v=annotations1"></script><script src="../../assets/glass-cursor.js?v=3"></script>
+<script src="wix-preserved.js?v=annotations1"></script><script>
+  // Rebuilds the legacy onboarding flow diagram with consistent box spacing, in place of the Wix boxes.
+  (function () {
+    const anchor = document.getElementById('comp-kzwcokjq');
+    const frame = document.getElementById('comp-kzwdu4c5');
+    if (!anchor || !frame) return;
+    const host = anchor.offsetParent || document.body;
+    const step = text => '<div class="flow-step">' + text + '</div>';
+    const arrow = '<span class="flow-arrow" aria-hidden="true"></span>';
+    const flow = document.createElement('div');
+    flow.className = 'flow-diagram';
+    flow.innerHTML = step('Sign up') + arrow + step('Verify email and phone number') + arrow +
+      '<div class="flow-group">' + step('Fill out onboarding questionnaire') + arrow + step('Land on Account Dashboard') + '</div>';
+    host.appendChild(flow);
+    const place = () => {
+      const h = host.getBoundingClientRect();
+      flow.style.left = (anchor.getBoundingClientRect().left - h.left) + 'px';
+      flow.style.top = (frame.getBoundingClientRect().top - h.top) + 'px';
+      flow.style.width = (frame.getBoundingClientRect().right - anchor.getBoundingClientRect().left) + 'px';
+    };
+    place();
+    addEventListener('resize', place);
+    document.fonts && document.fonts.ready.then(place);
+  })();
+</script>
+<script src="../../assets/glass-cursor.js?v=3"></script>
 <script>
     // Review-only: the comment overlay loads locally and on Vercel branch previews, never on the published site.
     if (['localhost', '127.0.0.1'].includes(location.hostname) || /-git-.*\.vercel\.app$/.test(location.hostname)) {
