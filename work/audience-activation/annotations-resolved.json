@@ -218,5 +218,29 @@
  {
   "selector": "#usability > div > div:nth-of-type(1) > p:nth-of-type(2)",
   "comment": "I made this the same font size"
+ },
+ {
+  "selector": "#results > div > div > div > div:nth-of-type(1) > h4",
+  "comment": "Use the same font size"
+ },
+ {
+  "selector": "#results > div > div > div > div:nth-of-type(2) > h4",
+  "comment": "Use the same font size"
+ },
+ {
+  "selector": "#final-design > div > h2",
+  "comment": "add 40px"
+ },
+ {
+  "selector": "#alignment > div > p",
+  "comment": "Two feedback"
+ },
+ {
+  "selector": "#concept > div > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > figure:nth-of-type(1) > img",
+  "comment": "Put these two images"
+ },
+ {
+  "selector": "#metric > div > div > div > p:nth-of-type(2)",
+  "comment": "Make this the same size"
  }
 ]

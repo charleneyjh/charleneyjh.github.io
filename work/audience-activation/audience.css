@@ -147,3 +147,10 @@ ol.pi-list { padding-left: 24px; list-style: decimal; }
   .aa-role li { white-space: normal; }
 }
 .aa-debate { font-size: 20px; line-height: 28px; }
+
+/* Review round 6 */
+#results .pi-personas h4 { font-size: inherit; line-height: inherit; font-weight: 700; }
+#final-design h2 { margin-bottom: 72px; }
+.aa-findings { gap: 16px; align-items: start; }
+.aa-findings .pi-shot + .pi-shot { margin-top: 0; }
+.aa-metric { font-size: inherit !important; line-height: inherit; font-weight: 700; }

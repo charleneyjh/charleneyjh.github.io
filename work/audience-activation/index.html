@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/fonts/portfolio-fonts.css?v=figtree1">
   <link rel="stylesheet" href="../profiles-insights/pi.css?v=1">
-  <link rel="stylesheet" href="audience.css?v=11">
+  <link rel="stylesheet" href="audience.css?v=12">
   <link rel="stylesheet" href="../../assets/glass-cursor.css?v=7">
 </head>
 <body>
@@ -249,9 +249,9 @@
             <h3>The Action already knows</h3>
             <p>Users relied on the name and description of the Action to decide between Track and Identify, because that terminology (for example, "Update user profile" for Braze) matches the terminology in the destination tool. After some digging, we found that most Actions are built with a default trigger that already defines the call type.</p>
           </div>
-          <div>
-            <figure class="pi-shot aa-bare aa-small"><img src="img/finding-action-names.webp" alt="Braze Actions: Track Event, Update User Profile and Track Purchase, each with a short description." width="1125" height="641" loading="lazy"></figure>
-            <figure class="pi-shot aa-bare aa-small"><img src="img/finding-default-trigger.webp" alt="Braze documentation: Update User Profile is a cloud Action whose default trigger is type = identify." width="1568" height="945" loading="lazy"></figure>
+          <div class="pi-grid pi-grid--2 aa-findings">
+            <figure class="pi-shot aa-bare"><img src="img/finding-action-names.webp" alt="Braze Actions: Track Event, Update User Profile and Track Purchase, each with a short description." width="1125" height="641" loading="lazy"></figure>
+            <figure class="pi-shot aa-bare"><img src="img/finding-default-trigger.webp" alt="Braze documentation: Update User Profile is a cloud Action whose default trigger is type = identify." width="1568" height="945" loading="lazy"></figure>
           </div>
         </div>
       </div>
@@ -322,7 +322,7 @@
     <!-- Cross-team -->
     <section class="pi-section" id="alignment"><div class="pi-wrap">
       <h2>Cross-team review</h2>
-      <p>Two teams raised feedback in review:</p>
+      <p>Two pieces of feedback were raised in review:</p>
       <ol class="pi-list">
         <li>The Linked audience engineering team wanted the UX for linked and classic audiences unified further. Reusing UI components would greatly reduce engineering time.</li>
         <li>The Audience compute engineering team was concerned about removing the "connect destination" step from the audience creation flow.</li>
