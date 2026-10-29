@@ -19,9 +19,7 @@
     <header class="uf-hero">
       <div class="uf-wrap uf-hero__grid">
         <div>
-          <p class="uf-kicker">Case study · HubSpot</p>
           <h1>Unified filters</h1>
-          <p class="uf-lede">How I led a platform initiative to turn a fragmented filter experience into a shared model.</p>
         </div>
         <div class="uf-cover" aria-hidden="true">
           <img class="uf-cover__picker" src="img/cover-picker.png" alt="" width="340" height="509">
@@ -35,8 +33,7 @@
       <div class="uf-wrap uf-overview">
         <div>
           <h2>Overview</h2>
-          <p>Filtering is how HubSpot customers find their data and ask questions about it. It sits at the center of four pillar products, yet it was a top 3 CSAT complaint in all four. Each product had its own filter, with different capabilities and different UI.</p>
-          <p>When engineering bet on one unified query platform, I set the direction for the front end: one shared filter model that's intuitive for simple questions, capable of complex ones, and consistent across HubSpot. It launched in private beta in October 2026, and Segments and Workflows have committed to migrate.</p>
+          <p>I led a platform initiative to turn a fragmented filter experience into a shared model, adopted by 3 pillar products in HubSpot.</p>
         </div>
         <dl class="uf-facts">
           <div><dt>My role</dt><dd>Lead product designer</dd></div>
@@ -116,9 +113,13 @@
             <p class="uf-flow__label">Existing query backends</p>
             <span>CRM Search</span><span>Sales Views</span><span>ILS</span><span>Snowflake</span>
           </div>
-          <p class="uf-flow__arrow">Replaced by</p>
+          <div class="uf-flow__link uf-flow__link--replace"><span>Replaced by</span></div>
           <div class="uf-flow__node uf-flow__node--dark">Unified query platform<small>The backend</small></div>
-          <div class="uf-flow__node">Filter editor<small>The front end</small></div>
+          <div class="uf-flow__link"></div>
+          <div class="uf-flow__node uf-flow__node--editor">Filter editor<small>The front end</small></div>
+          <svg class="uf-flow__fan" viewBox="0 0 60 100" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0 50 C30 50 30 10 60 10" /><path d="M0 50 C30 50 30 30 60 30" /><path d="M0 50 L60 50" /><path d="M0 50 C30 50 30 70 60 70" /><path d="M0 50 C30 50 30 90 60 90" />
+          </svg>
           <div class="uf-flow__surfaces">
             <p class="uf-flow__label">Filter surfaces</p>
             <span>CRM index</span><span>Segments</span><span>Workflows</span><span>Reporting</span><span>…</span>
@@ -129,14 +130,17 @@
 
     <!-- HMW -->
     <section class="uf-hmw">
-      <div class="uf-wrap uf-hmw__grid">
-        <div>
-          <p class="uf-kicker">For customers</p>
-          <h2>How might we make filtering intuitive for simple questions, capable of complex ones, and consistent across HubSpot?</h2>
-        </div>
-        <div>
-          <p class="uf-kicker">For the platform</p>
-          <h2>How might we make the platform filter editor the easiest way for product teams to ship fast, consistent filtering?</h2>
+      <div class="uf-wrap">
+        <h2 class="uf-hmw__title">How might we</h2>
+        <div class="uf-hmw__grid">
+          <div>
+            <p class="uf-kicker">For customers</p>
+            <p class="uf-hmw__q">How might we make filtering intuitive for simple questions, capable of complex ones, and consistent across HubSpot?</p>
+          </div>
+          <div>
+            <p class="uf-kicker">For the platform</p>
+            <p class="uf-hmw__q">How might we make the platform filter editor the easiest way for product teams to ship fast, consistent filtering?</p>
+          </div>
         </div>
       </div>
     </section>
@@ -147,10 +151,10 @@
         <h2>Defining success</h2>
         <p class="uf-prose">We agreed on how we'd measure success before launch, from the first weeks to the long term.</p>
         <ol class="uf-metrics">
-          <li><span>Launch</span><h4>Time to value</h4><p>Time to create a segment, measured by a randomized A/B test.</p></li>
-          <li><span>+2 weeks</span><h4>Customer satisfaction</h4><p>In-product survey.</p></li>
-          <li><span>+1 quarter</span><h4>Customer satisfaction</h4><p>A lower share of negative CSAT verbatims tagged as filtering.</p></li>
-          <li><span>Ongoing</span><h4>Platform adoption</h4><p>Adoption of the new filter editor, fewer custom filter components, and a lower pattern detach rate.</p></li>
+          <li><span class="uf-metrics__when">Launch</span><div class="uf-metrics__card"><h4>Time to value</h4><p>Time to create a segment, measured by a randomized A/B test.</p></div></li>
+          <li><span class="uf-metrics__when">+2 weeks</span><div class="uf-metrics__card"><h4>Customer satisfaction</h4><p>In-product survey.</p></div></li>
+          <li><span class="uf-metrics__when">+1 quarter</span><div class="uf-metrics__card"><h4>Customer satisfaction</h4><p>A lower share of negative CSAT verbatims tagged as filtering.</p></div></li>
+          <li><span class="uf-metrics__when">Ongoing</span><div class="uf-metrics__card"><h4>Platform adoption</h4><p>Adoption of the new filter editor, fewer custom filter components, and a lower pattern detach rate.</p></div></li>
         </ol>
       </div>
     </section>
@@ -207,26 +211,24 @@
       <div class="uf-wrap">
         <p class="uf-kicker">My process</p>
         <h2>Define a shared baseline</h2>
-        <div class="uf-feature">
+        <div class="uf-feature uf-feature--collage">
           <div>
             <h3>UX audit and competitive analysis</h3>
             <p>I audited the filter patterns across platforms through four lenses: interaction design, content, functionality and data schema. I also looked at how other tools handle filtering.</p>
             <h3 class="uf-subhead">Stakeholder research</h3>
             <p>I shared the audit and talked with each product team to understand which differences were intentional, and which were design workarounds for system limitations.</p>
           </div>
-          <figure class="uf-shot">
-            <img src="img/audit-consistency.png" alt="The consistency audit board in FigJam, comparing filter screens across products by interaction design, content strategy, functionality, schema and data layers." width="927" height="642" loading="lazy">
-          </figure>
-        </div>
-        <div class="uf-pair">
-          <figure class="uf-shot"><img src="img/audit-competitive.png" alt="Competitive intel board with rows of filtering screenshots from other products." width="816" height="645" loading="lazy"></figure>
-          <figure class="uf-shot"><img src="img/audit-heuristics.png" alt="A table of design principles and heuristics for filtering, by user interface, interaction design, content, functionality, schema and data." width="466" height="568" loading="lazy"></figure>
+          <div class="uf-collage">
+            <img class="uf-collage__a" src="img/audit-consistency.png" alt="The consistency audit board in FigJam, comparing filter screens across products by interaction design, content strategy, functionality, schema and data layers." width="927" height="642" loading="lazy">
+            <img class="uf-collage__b" src="img/audit-competitive.png" alt="Competitive intel board with rows of filtering screenshots from other products." width="816" height="645" loading="lazy">
+            <img class="uf-collage__c" src="img/audit-heuristics.png" alt="A table of design principles and heuristics for filtering, by user interface, interaction design, content, functionality, schema and data." width="466" height="568" loading="lazy">
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Discovery research -->
-    <section class="uf-section uf-section--muted">
+    <section class="uf-section uf-section--muted uf-discovery">
       <div class="uf-wrap">
         <h2>Discovery research</h2>
         <div class="uf-feature">
@@ -243,7 +245,7 @@
     </section>
 
     <!-- Design principles -->
-    <section class="uf-section">
+    <section class="uf-section uf-principles">
       <div class="uf-wrap">
         <h2>Set design principles</h2>
         <div class="uf-feature">
@@ -303,22 +305,22 @@
           <div class="uf-ia">
             <div class="uf-ia__card">
               <p class="uf-flow__label">Segment</p>
-              <ul class="uf-tree">
-                <li><span class="uf-tree__root">Primary object</span>
+              <ul class="uf-htree">
+                <li><span class="uf-htree__root">Primary object</span>
                   <ul>
                     <li><span>Properties</span></li>
-                    <li><span>Events</span><ul class="uf-tree__side"><li><span>Event properties</span></li></ul></li>
+                    <li><span>Events</span><ul><li><span>Event properties</span></li></ul></li>
                     <li><span>Membership</span></li>
                     <li><span>Associated objects</span>
                       <ul>
                         <li><span>Properties</span></li>
-                        <li><span>Events</span><ul class="uf-tree__side"><li><span>Event properties</span></li></ul></li>
+                        <li><span>Events</span><ul><li><span>Event properties</span></li></ul></li>
                         <li><span>Membership</span></li>
                       </ul>
                     </li>
                   </ul>
                 </li>
-                <li><span class="uf-tree__root">External data source</span>
+                <li><span class="uf-htree__root">External data source</span>
                   <ul><li><span>Properties</span></li></ul>
                 </li>
               </ul>
@@ -447,7 +449,7 @@
     <!-- Next -->
     <section id="next" class="uf-section">
       <div class="uf-wrap">
-        <h2>If I had more time</h2>
+        <h2>If I had more time...</h2>
         <p class="uf-prose">Two directions are in progress: natural language combined with manual filtering, and subquery support.</p>
 
         <div class="uf-decision">

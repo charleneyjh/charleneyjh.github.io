@@ -378,3 +378,98 @@ strong { font-weight: 600; }
 .uf-opt { max-width: 168px; }
 .uf-results li.uf-recognition { display: block; padding-top: 8px; counter-increment: none; font-weight: 600; }
 .uf-results li.uf-recognition::before { content: none; }
+
+/* ---------- Round 1 comments ---------- */
+.uf-prose { max-width: none; }
+.uf-hero h1 { font-size: clamp(40px, 4.4vw, 60px); white-space: nowrap; }
+.uf-hero__grid > div:first-child { padding-bottom: 0; }
+.uf-cover { background: none; padding-top: 32px; }
+#overview h2 { margin-bottom: 16px; font-size: 24px; }
+.uf-subhead { margin-bottom: 32px; }
+.uf-feature .uf-subhead { margin-bottom: 12px; }
+#process h2 { margin-bottom: 64px; }
+.uf-discovery h2, .uf-principles h2 { margin-bottom: 44px; }
+.uf-discovery .uf-feature > div > p:first-child { margin-bottom: 40px; }
+.uf-discovery .uf-quote { margin-top: 80px; }
+.uf-principles .uf-shot img { box-shadow: 0 12px 32px rgba(22, 32, 46, .12); }
+.uf-principles h3 { font-size: 18px; }
+.uf-decision > h3 { margin-bottom: 32px; }
+.uf-trio img { background: none; border: 0; }
+
+/* Quotes: the orange line follows the quote text only */
+.uf-quotes { grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 48px; align-items: start; }
+.uf-quote { padding-left: 0; border-left: 0; }
+.uf-quote p { padding-left: 20px; border-left: 3px solid var(--uf-accent); }
+.uf-quote cite { padding-left: 23px; }
+
+/* Opportunity diagram with connectors, as in the deck */
+.uf-flow { grid-template-columns: minmax(150px, 1fr) minmax(90px, .7fr) minmax(150px, 1fr) 40px minmax(150px, 1fr) 56px minmax(140px, .9fr); gap: 0; }
+.uf-flow__link { position: relative; align-self: center; height: 1px; background: #d9b8a6; }
+.uf-flow__link--replace { background: var(--uf-accent); }
+.uf-flow__link--replace::before { content: ""; position: absolute; left: -4px; top: -4px; width: 9px; height: 9px; border-radius: 50%; background: var(--uf-accent); }
+.uf-flow__link--replace::after { content: ""; position: absolute; right: -2px; top: -7px; width: 15px; height: 15px; border-radius: 50%; background: #fff; box-shadow: inset 0 0 0 4px #fff, inset 0 0 0 9px var(--uf-accent); border: 1.5px solid var(--uf-accent); box-sizing: border-box; }
+.uf-flow__link span { position: absolute; left: 50%; bottom: 10px; transform: translateX(-50%); font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--uf-accent); white-space: nowrap; }
+.uf-flow__node { position: relative; z-index: 1; }
+.uf-flow__node--editor::after { content: ""; position: absolute; right: -8px; top: 50%; width: 15px; height: 15px; margin-top: -7px; border-radius: 50%; background: #fff; border: 1.5px solid var(--uf-accent); box-shadow: inset 0 0 0 3px #fff, inset 0 0 0 8px var(--uf-accent); box-sizing: border-box; }
+.uf-flow__fan { align-self: stretch; width: 100%; height: calc(100% - 34px); margin-top: 34px; overflow: visible; }
+.uf-flow__fan path { fill: none; stroke: #d9b8a6; stroke-width: 1.2; vector-effect: non-scaling-stroke; }
+.uf-flow__surfaces { grid-template-rows: auto repeat(5, 1fr); gap: 10px; }
+.uf-flow__surfaces .uf-flow__label { margin-bottom: 0; height: 24px; }
+.uf-flow__old .uf-flow__label { margin-bottom: 4px; }
+@media (max-width: 900px) {
+  .uf-flow { grid-template-columns: 1fr; gap: 16px; }
+  .uf-flow__link, .uf-flow__fan, .uf-flow__node--editor::after { display: none; }
+}
+
+/* How might we */
+.uf-hmw__title { margin-bottom: 48px; text-align: center; font-size: clamp(32px, 4vw, 48px); font-weight: 700; }
+.uf-hmw__q { font-size: clamp(19px, 1.8vw, 22px); line-height: 1.5; }
+
+/* Success metrics on a timeline, as in the deck */
+.uf-metrics { position: relative; gap: 24px; margin-top: 48px; padding-top: 0; }
+.uf-metrics::before { content: ""; position: absolute; left: 0; right: 0; top: 40px; height: 2px; background: var(--uf-ink); opacity: .85; }
+.uf-metrics li { position: relative; padding: 0; background: none; border-radius: 0; }
+.uf-metrics .uf-metrics__when { display: block; height: 32px; margin: 0; font-size: 15px; font-weight: 600; color: var(--uf-ink); }
+.uf-metrics li::before { content: ""; position: absolute; left: 0; top: 33px; width: 16px; height: 16px; border-radius: 50%; background: var(--uf-muted); box-shadow: inset 0 0 0 5px var(--uf-muted), inset 0 0 0 8px var(--uf-accent); border: 1.5px solid var(--uf-accent); box-sizing: border-box; }
+.uf-metrics li::after { content: ""; position: absolute; left: 7px; top: 49px; width: 2px; height: 31px; background: var(--uf-accent); }
+.uf-metrics__card { margin-top: 48px; padding: 24px; background: var(--uf-muted); border-radius: 12px; }
+@media (max-width: 760px) { .uf-metrics::before { display: none; } }
+
+/* Process collage */
+.uf-feature--collage { grid-template-columns: minmax(0, .9fr) minmax(0, 1.3fr); align-items: center; }
+.uf-collage { position: relative; aspect-ratio: 1.15; }
+.uf-collage img { position: absolute; border-radius: 10px; }
+.uf-collage__a { top: 0; right: 0; width: 78%; z-index: 1; }
+.uf-collage__b { left: 0; bottom: 4%; width: 62%; z-index: 2; }
+.uf-collage__c { right: 0; bottom: 0; width: 34%; z-index: 3; }
+@media (max-width: 760px) { .uf-collage { aspect-ratio: 1.1; } }
+
+/* Segment data panel diagram, as in the deck */
+.uf-htree, .uf-htree ul { list-style: none; margin: 0; padding: 0; }
+.uf-htree > li + li { margin-top: 28px; }
+.uf-htree li { display: flex; align-items: flex-start; }
+.uf-htree span { flex: none; display: inline-block; padding: 6px 12px; font-size: 15px; line-height: 22px; background: #ece6dc; border-radius: 6px; white-space: nowrap; }
+.uf-htree .uf-htree__root { font-weight: 600; background: var(--uf-accent-wash); }
+.uf-htree ul { position: relative; display: flex; flex-direction: column; gap: 10px; margin-left: 28px; }
+.uf-htree ul::before { content: ""; position: absolute; left: -28px; top: 17px; width: 14px; border-top: 1px solid #cfc6b8; }
+.uf-htree ul > li { position: relative; }
+.uf-htree ul > li::before { content: ""; position: absolute; left: -14px; top: 17px; width: 14px; border-top: 1px solid #cfc6b8; }
+.uf-htree ul > li::after { content: ""; position: absolute; left: -14px; top: -10px; bottom: 0; border-left: 1px solid #cfc6b8; }
+.uf-htree ul > li:first-child::after { top: 17px; }
+.uf-htree ul > li:last-child::after { bottom: auto; height: 27px; }
+.uf-htree ul > li:first-child:last-child::after { display: none; }
+.uf-ia { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); }
+.uf-ia__card { overflow-x: auto; }
+.uf-flow > .uf-flow__old, .uf-flow > .uf-flow__link, .uf-flow > .uf-flow__node { margin-top: 34px; }
+@media (max-width: 900px) { .uf-flow > .uf-flow__old, .uf-flow > .uf-flow__node { margin-top: 0; } }
+.uf-hmw .uf-hmw__title { margin-bottom: 48px; font-size: clamp(36px, 4.4vw, 52px); font-weight: 700; line-height: 1.15; }
+.uf-ia { grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr); }
+.uf-ia__card { padding: 24px; }
+.uf-htree span { padding: 5px 10px; font-size: 14px; }
+.uf-htree ul { margin-left: 24px; }
+.uf-htree ul::before { left: -24px; width: 12px; }
+.uf-htree ul > li::before { left: -12px; width: 12px; }
+.uf-htree ul > li::after { left: -12px; }
+.uf-htree ul > li:first-child::after { top: 16px; }
+.uf-htree ul > li:last-child::after { height: 26px; }
+.uf-htree ul::before, .uf-htree ul > li::before { top: 16px; }
