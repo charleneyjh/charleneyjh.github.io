@@ -26,5 +26,49 @@
  {
   "selector": "#current > div > h2",
   "comment": "Move the current experience session"
+ },
+ {
+  "selector": "#overview > div > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)",
+  "comment": "remove \"like Breeze\""
+ },
+ {
+  "selector": "#current > div > div:nth-of-type(4) > div:nth-of-type(2) > h4",
+  "comment": "I want the North Star Matrix"
+ },
+ {
+  "selector": "#overview > div > div:nth-of-type(1) > div > img",
+  "comment": "add some shadow"
+ },
+ {
+  "selector": "#overview > div > div:nth-of-type(2) > div:nth-of-type(1) > p",
+  "comment": "\"a unified audience activation design pattern"
+ },
+ {
+  "selector": "#context > div > figure > img",
+  "comment": "Never mind, just remove this image"
+ },
+ {
+  "selector": "#problem > div > p:nth-of-type(1)",
+  "comment": "Change it to"
+ },
+ {
+  "selector": "#problem > div > ul > li:nth-of-type(3)",
+  "comment": "Make this its own paragraph"
+ },
+ {
+  "selector": "#problem > div > p:nth-of-type(2)",
+  "comment": "Add \"Our goal"
+ },
+ {
+  "selector": "#role > div > p",
+  "comment": "move up 20px"
+ },
+ {
+  "selector": "#role > div > p",
+  "comment": "add \"I was the sole designer"
+ },
+ {
+  "selector": "#role",
+  "comment": "Move the timeline and my role section"
  }
 ]

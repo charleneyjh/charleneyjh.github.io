@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/fonts/portfolio-fonts.css?v=figtree1">
   <link rel="stylesheet" href="../profiles-insights/pi.css?v=1">
-  <link rel="stylesheet" href="audience.css?v=5">
+  <link rel="stylesheet" href="audience.css?v=6">
   <link rel="stylesheet" href="../../assets/glass-cursor.css?v=7">
 </head>
 <body>
@@ -24,6 +24,8 @@
       <li><a href="#current">Current experience</a></li>
       <li><a href="#problem">Problem</a></li>
       <li><a href="#role">My role</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#metric">North star metric</a></li>
       <li><a href="#concept">Concept testing</a></li>
       <li><a href="#iterations">Iterations</a></li>
       <li><a href="#usability">Usability testing</a></li>
@@ -43,7 +45,7 @@
       <div class="pi-overview">
         <div>
           <h2>Overview</h2>
-          <p>I designed a unified audience activation flow for Twilio Segment, so users could send an audience to downstream tools like Braze in one guided setup, for both classic audiences and the new linked audiences.</p>
+          <p>I designed a unified audience activation design pattern for two Segment audiences, classic and linked, so users could send an audience to downstream tools in one guided setup.</p>
         </div>
         <div>
           <h2>My team</h2>
@@ -57,7 +59,6 @@
     <section class="pi-section" id="context"><div class="pi-wrap">
       <h2>Context</h2>
       <p>Segment is a customer data platform (CDP) that helps businesses collect, unify and activate their data to power personalized experiences.</p>
-      <figure class="pi-shot aa-bare aa-cdp"><img src="img/segment-cdp.webp" alt="Segment collects events from cloud apps, websites and internal tools, and sends them to analytics, messaging, warehouse, advertising and sales tools." width="1136" height="675" loading="lazy"></figure>
       <p>An audience is a group of profiles that share certain behaviors or traits. After building an audience in Segment, users sync it to their connected destinations. The most popular ones are multi-channel marketing apps.</p>
     </div></section>
 
@@ -100,40 +101,13 @@
     <!-- Problem -->
     <section class="pi-section" id="problem"><div class="pi-wrap">
       <h2>The problem</h2>
-      <p>Segment launched a new generation of destinations ("Action destinations"), but we never updated the audience activation UX. The gap showed up in support tickets and in sales.</p>
+      <p>The UX gap was introduced by the launch of a new generation of destinations ("Action destinations") and was never closed. The customer pain showed up in support tickets and in sales.</p>
       <ul class="pi-list">
         <li><strong>~20% of audience support tickets</strong> were related to confusion with activation.</li>
         <li><strong>42 product gaps</strong> filed were related to audience activation, with <strong>$34M</strong> in associated ARR.</li>
-        <li>Segment was building a new type of audience ("linked audience") that needed to activate with Action destinations too.</li>
       </ul>
-      <p class="pi-statement aa-ask">Design a unified audience activation pattern that works for both classic and linked audiences.</p>
-
-      <div class="pi-block">
-        <h2>Linked vs. classic audiences</h2>
-        <p>To design one pattern for both audience types, I mapped where they differ. The steps were the same: event triggers, enrichment and field mapping. The real difference was in the backend.</p>
-        <div class="aa-table-wrap">
-          <table class="aa-table">
-            <thead><tr><th></th><th scope="col">Linked audience</th><th scope="col">Classic audience</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">Backend architecture</th><td>1:1 relationship between a linked audience and a mapping</td><td>Many:1 relationship between classic audiences and a mapping</td></tr>
-              <tr><th scope="row">Event triggers</th><td>Audience entered and exited, entity added and removed</td><td>Audience entered and exited</td></tr>
-              <tr><th scope="row">Enrichment</th><td>Profile traits, plus entity data from the warehouse</td><td>Profile traits only</td></tr>
-              <tr><th scope="row">Field mapping</th><td>Required. Some destinations have presets that skip mapping.</td><td>Required</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="pi-block pi-grid pi-grid--2 pi-personas">
-        <div>
-          <h4>Target users</h4>
-          <p>Technical marketers who build audiences in Segment and want to activate them in downstream tools for personalized campaigns.</p>
-        </div>
-        <div>
-          <h4>North star metric</h4>
-          <p>Reduce time to value, from adding a destination to an audience to audience data flowing, by 25%. The median time was ~70 hours across all destinations.</p>
-        </div>
-      </div>
+      <p>On the other hand, Segment was building a new type of audience ("linked audience") that needed to activate with Action destinations too.</p>
+      <p class="pi-statement aa-ask">Our goal was to design a unified audience activation pattern that works for both classic and linked audiences.</p>
     </div></section>
 
     <!-- Timeline and role -->
@@ -155,7 +129,7 @@
         </div>
       </div>
 
-      <p>I was the sole product designer, working closely with the designer on the Linked audience team.</p>
+      <p>I was the sole designer on the Classic audience team, working closely with the designer on the Linked audience team.</p>
       <div class="pi-grid pi-grid--3 pi-plain aa-role">
         <div>
           <h3>Design</h3>
@@ -187,8 +161,44 @@
 
 
 
+    <!-- Preliminary research -->
+    <section class="pi-section" id="research"><div class="pi-wrap">
+      <h2>Linked vs. classic audiences</h2>
+      <p>To design one pattern for both audience types, I mapped where they differ. The steps were the same: event triggers, enrichment and field mapping. The real difference was in the backend.</p>
+      <div class="aa-table-wrap">
+        <table class="aa-table">
+          <thead><tr><th></th><th scope="col">Linked audience</th><th scope="col">Classic audience</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Backend architecture</th><td>1:1 relationship between a linked audience and a mapping</td><td>Many:1 relationship between classic audiences and a mapping</td></tr>
+            <tr><th scope="row">Event triggers</th><td>Audience entered and exited, entity added and removed</td><td>Audience entered and exited</td></tr>
+            <tr><th scope="row">Enrichment</th><td>Profile traits, plus entity data from the warehouse</td><td>Profile traits only</td></tr>
+            <tr><th scope="row">Field mapping</th><td>Required. Some destinations have presets that skip mapping.</td><td>Required</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div></section>
+
+    <!-- North star metric -->
+    <section class="pi-section pi-section--muted" id="metric"><div class="pi-wrap">
+      <div class="pi-row pi-row--center">
+        <div>
+          <h2>North star metric</h2>
+          <p>We mapped out the experience of activating an audience, and instrumented tracking in Mixpanel to establish a baseline.</p>
+          <p class="pi-statement aa-metric">Reduce time to value, from adding a destination to an audience to audience data flowing, by 25%.</p>
+          <p>The median time was ~70 hours across all destinations.</p>
+        </div>
+        <figure class="pi-shot"><img src="img/metrics-mapping.webp" alt="Mapping of the audience activation flows, from connecting a destination to configuring Actions, used to plan the tracking." width="998" height="1072" loading="lazy"></figure>
+      </div>
+    </div></section>
+
+    <!-- Target users -->
+    <section class="pi-section" id="users"><div class="pi-wrap">
+      <h2>Target users</h2>
+      <p>Technical marketers who build audiences in Segment and want to activate them in downstream tools for personalized campaigns.</p>
+    </div></section>
+
     <!-- Concept testing -->
-    <section class="pi-section" id="concept"><div class="pi-wrap">
+    <section class="pi-section pi-section--muted" id="concept"><div class="pi-wrap">
       <h2>Design concept and testing</h2>
       <p>My concept was a full-page wizard that guides users through each step of activating their audience in one place. We presented the mocks to a few solutions engineers and the Segment marketing team.</p>
       <p>The wizard format was well received by all participants. They felt the new design gave them a more streamlined and intuitive setup, and the steps of enriching the event, selecting an Action and configuring the mapping matched their workflow.</p>
@@ -244,7 +254,7 @@
     </div></section>
 
     <!-- Iterations -->
-    <section class="pi-section pi-section--muted" id="iterations"><div class="pi-wrap">
+    <section class="pi-section" id="iterations"><div class="pi-wrap">
       <h2>Design iteration</h2>
       <div class="pi-grid pi-grid--3 aa-before">
         <figure class="pi-shot aa-bare"><img src="img/before-1-event-type.webp" alt="Before, step 1: select an event type." width="1385" height="1010" loading="lazy"></figure>
@@ -270,7 +280,7 @@
     </div></section>
 
     <!-- Usability testing -->
-    <section class="pi-section" id="usability"><div class="pi-wrap">
+    <section class="pi-section pi-section--muted" id="usability"><div class="pi-wrap">
       <h2>Usability testing</h2>
       <p>Given the major changes to the flow, we ran usability tests with 5 more external customers.</p>
       <ul class="pi-list">
@@ -315,7 +325,7 @@
     </div></section>
 
     <!-- Cross-team -->
-    <section class="pi-section pi-section--muted" id="alignment"><div class="pi-wrap">
+    <section class="pi-section" id="alignment"><div class="pi-wrap">
       <h2>Cross-team review</h2>
       <p>Two teams raised feedback in review:</p>
       <ul class="pi-list">
@@ -363,7 +373,7 @@
     </div></section>
 
     <!-- Final design -->
-    <section class="pi-section" id="final-design"><div class="pi-wrap">
+    <section class="pi-section pi-section--muted" id="final-design"><div class="pi-wrap">
       <h2>Design walkthrough</h2>
       <div class="pi-row pi-row--wide-visual pi-row--center">
         <div>
@@ -403,7 +413,7 @@
     </div></section>
 
     <!-- Pivot -->
-    <section class="pi-section pi-section--muted" id="pivot"><div class="pi-wrap">
+    <section class="pi-section" id="pivot"><div class="pi-wrap">
       <h2>Pivot after the reduction in force</h2>
       <p>Linked audiences launched with the new, unified UX pattern. But Segment had new priorities for 2024, and optimizing classic audiences wasn't one of them. Our engineering team was affected by the reduction in force in March, with 50% of the work still left.</p>
       <p class="pi-statement aa-hmw">How might we still deliver customer value with a smaller team?</p>

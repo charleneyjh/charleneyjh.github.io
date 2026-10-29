@@ -106,3 +106,12 @@
 .pi-section--muted .aa-fc__bracket span { background: var(--pi-muted); }
 .pi-hero__shot { border: 0; background: none; }
 .pi-hero__shot img { border: 1px solid var(--pi-line); border-bottom: 0; border-radius: 4px 4px 0 0; }
+
+/* Review round 3 */
+.aa-gantt { margin-bottom: 28px; }
+.pi-hero__shot img { box-shadow: var(--pi-shadow); }
+.pi-hero__shot { max-height: none; overflow: visible; }
+.pi-hero__shot img { width: 100%; max-height: 360px; object-fit: cover; object-position: top; }
+@media (max-width: 760px) { .pi-hero__shot img { max-height: 260px; } }
+.aa-metric { margin: 24px 0 !important; font-size: 20px; line-height: 1.45; }
+#metric .pi-shot img { max-height: 520px; object-fit: cover; object-position: top left; }
