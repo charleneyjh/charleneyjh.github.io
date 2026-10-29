@@ -348,11 +348,13 @@
           <h3>Errors and violations</h3>
           <p>Find the events that need investigation in a dedicated table, then open a side sheet for details and a recommended next step.</p>
         </div>
-        <figure class="pi-shot pi-demo pi-demo--errors" role="img" aria-label="Clicking a row in the errors and violations table opens a side sheet with details and a recommended next step, then the Message payload tab shows the raw event.">
+        <figure class="pi-shot pi-demo pi-demo--errors" role="img" aria-label="Clicking a violation row opens a side sheet with details and a recommended next step. View all lists the external IDs that got dropped, and the Message payload tab shows the raw event. Clicking an error row opens the error side sheet.">
           <img src="img/final-17.png" alt="" width="1440" height="1131" loading="lazy">
           <span class="pi-demo__row" style="top: 75.2%"></span>
+          <span class="pi-demo__row pi-demo__row--err" style="top: 37.75%"></span>
           <span class="pi-demo__dim"></span>
-          <span class="pi-demo__sheet"><img src="img/sheet-details.png" alt="" loading="lazy"><img class="pi-demo__sheet2" src="img/sheet-code.png" alt="" loading="lazy"></span>
+          <span class="pi-demo__sheet"><img src="img/sheet-details.png" alt="" loading="lazy"><img class="pi-demo__ids" src="img/sheet-ids.png" alt="" loading="lazy"><img class="pi-demo__sheet2" src="img/sheet-code.png" alt="" loading="lazy"></span>
+          <span class="pi-demo__sheet pi-demo__sheet--err"><img src="img/sheet-error.png" alt="" loading="lazy"></span>
           <svg class="pi-demo__cursor" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 2l14 12-6.5 1L16 22l-3 1.3-3.4-7.1L5 20z" fill="#111" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
         </figure>
       </div>
