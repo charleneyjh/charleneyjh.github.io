@@ -11,6 +11,9 @@
   const root = document.createElement('div');
   root.id = 'annotate-root';
   const shadow = root.attachShadow({ mode: 'open' });
+  // Keys typed in the comment box must not reach page-level shortcuts (the Vercel toolbar binds "c"):
+  // outside the shadow root the event looks like it came from a plain div, not a text field.
+  ['keydown', 'keypress', 'keyup'].forEach(t => shadow.addEventListener(t, e => e.stopPropagation()));
   shadow.innerHTML = `
     <style>
       :host { all: initial; font: 14px/1.4 ui-sans-serif, system-ui, sans-serif; }

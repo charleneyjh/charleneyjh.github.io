@@ -3,5 +3,16 @@
   "framework": null,
   "buildCommand": null,
   "outputDirectory": ".",
-  "trailingSlash": true
+  "trailingSlash": true,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "x-vercel-skip-toolbar",
+          "value": "1"
+        }
+      ]
+    }
+  ]
 }
