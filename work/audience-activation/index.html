@@ -4,6 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Audience Activation — Charlene Yang</title>
+  <script>
+    /* Keep a plain "c" keypress from opening the Vercel preview toolbar. */
+    (function () {
+      function block(e) {
+        if (e.key !== 'c' && e.key !== 'C') return;
+        if (e.metaKey || e.ctrlKey || e.altKey) return;
+        var t = e.target;
+        if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
+        e.stopImmediatePropagation();
+      }
+      ['keydown', 'keypress', 'keyup'].forEach(function (type) { window.addEventListener(type, block, true); });
+    })();
+  </script>
   <meta name="description" content="Case study: designing a unified audience activation flow at Twilio Segment, for sending classic and linked audiences to downstream tools.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
