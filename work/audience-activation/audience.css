@@ -159,3 +159,13 @@ ol.pi-list { padding-left: 24px; list-style: decimal; }
 #alignment .pi-row h3 + h4 { margin-top: 0; }
 .aa-debate-points p + p { margin-top: 16px; }
 .aa-gantt__track .aa-gantt__launch .aa-gantt__milestone { position: static; flex: none; width: 10px; height: 10px; margin-right: 2px; border-radius: 2px; background: #4f9e83; transform: rotate(45deg); }
+/* Proposal docs as an overlapping collage */
+.aa-docs { position: relative; display: block; min-height: 400px; }
+.aa-docs .pi-shot { position: absolute; margin: 0; }
+.aa-docs .pi-shot img { box-shadow: var(--pi-shadow); background: #fff; }
+.aa-docs .pi-shot:nth-child(1) { top: 0; left: 0; width: 62%; z-index: 1; }
+.aa-docs .pi-shot:nth-child(2) { top: 96px; right: 0; width: 60%; z-index: 2; }
+@media (max-width: 760px) {
+  .aa-docs { min-height: 0; display: grid; gap: 16px; }
+  .aa-docs .pi-shot { position: static; width: 100% !important; }
+}
