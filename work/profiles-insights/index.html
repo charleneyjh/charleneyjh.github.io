@@ -460,11 +460,9 @@
     })();
   </script>
   <script>
-    // Side nav: highlight the section in view. Style variant via ?nav=a|b|c while reviewing.
+    // Side nav: highlight the section in view.
     (() => {
       const nav = document.querySelector('.pi-nav');
-      const v = new URLSearchParams(location.search).get('nav');
-      nav.dataset.style = ['a', 'b', 'c'].includes(v) ? v : 'a';
       const links = [...nav.querySelectorAll('a')];
       const targets = links.map(a => document.querySelector(a.getAttribute('href')));
       const update = () => {
@@ -476,19 +474,6 @@
       };
       addEventListener('scroll', update, { passive: true });
       update();
-      if (['localhost', '127.0.0.1'].includes(location.hostname) || /-git-.*\.vercel\.app$/.test(location.hostname)) {
-        const sw = document.createElement('div');
-        sw.className = 'pi-navswitch';
-        sw.innerHTML = 'Nav style ' + ['a', 'b', 'c'].map(k => `<button type="button" data-k="${k}">${k.toUpperCase()}</button>`).join('');
-        sw.addEventListener('click', e => {
-          const k = e.target.dataset.k; if (!k) return;
-          nav.dataset.style = k;
-          sw.querySelectorAll('button').forEach(b => b.toggleAttribute('aria-pressed', b.dataset.k === k));
-          const u = new URL(location); u.searchParams.set('nav', k); history.replaceState(null, '', u);
-        });
-        sw.querySelector(`[data-k="${nav.dataset.style}"]`).setAttribute('aria-pressed', '');
-        document.body.append(sw);
-      }
     })();
   </script>
   <script src="../../assets/glass-cursor.js?v=3"></script>
