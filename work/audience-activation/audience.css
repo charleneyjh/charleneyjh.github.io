@@ -146,3 +146,4 @@ ol.pi-list { padding-left: 24px; list-style: decimal; }
   .aa-role { grid-template-columns: 1fr; }
   .aa-role li { white-space: normal; }
 }
+.aa-debate { font-size: 20px; line-height: 28px; }

@@ -214,5 +214,9 @@
  {
   "selector": "#metric > div > div > div > p:nth-of-type(1)",
   "comment": "I led a matric workshop"
+ },
+ {
+  "selector": "#usability > div > div:nth-of-type(1) > p:nth-of-type(2)",
+  "comment": "I made this the same font size"
  }
 ]
