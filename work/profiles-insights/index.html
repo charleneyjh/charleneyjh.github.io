@@ -173,23 +173,38 @@
       <h2>Design concepts</h2>
       <div class="pi-grid pi-grid--2">
         <div>
-          <svg class="pi-concept" viewBox="0 0 160 112" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="1" y="1" width="158" height="110" rx="8" stroke="currentColor" stroke-width="2"/>
-            <rect x="12" y="12" width="40" height="26" rx="4" fill="#d6ebf8"/><rect x="60" y="12" width="40" height="26" rx="4" fill="#d6ebf8"/><rect x="108" y="12" width="40" height="26" rx="4" fill="#d6ebf8"/>
-            <path d="M18 30l7-5 7 3 7-7 7 4M66 30l7-3 7 2 7-6 7 3M114 30l7-6 7 4 7-3 7 1" stroke="currentColor" stroke-width="2"/>
-            <path d="M18 98V82M32 98V70M46 98V78M60 98V64M74 98V86M88 98V74" stroke="#7fbde6" stroke-width="8"/>
-            <path d="M110 58h38M110 70h28M110 82h34M110 94h22" stroke="currentColor" stroke-width="2"/>
+          <svg class="pi-concept" viewBox="0 0 200 140" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <defs>
+              <linearGradient id="cov-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4f9fb"/><stop offset="1" stop-color="#eaf3f6"/></linearGradient>
+              <linearGradient id="cov-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a9d6ee"/><stop offset="1" stop-color="#cfe7f3" stop-opacity=".6"/></linearGradient>
+              <linearGradient id="cov-mint" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#bfe3d6"/><stop offset="1" stop-color="#cfe2f2"/></linearGradient>
+              <filter id="cov-sh" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#5b7f92" flood-opacity=".10"/></filter>
+            </defs>
+            <rect x="0" y="0" width="200" height="140" rx="14" fill="url(#cov-bg)"/>
+            <g filter="url(#cov-sh)" fill="#fff"><rect x="14" y="14" width="52" height="34" rx="7"/><rect x="74" y="14" width="52" height="34" rx="7"/><rect x="134" y="14" width="52" height="34" rx="7"/><rect x="14" y="58" width="112" height="68" rx="8"/><rect x="134" y="58" width="52" height="68" rx="8"/></g>
+            <path d="M22 26h18M82 26h14M142 26h20" stroke="#d3dce1" stroke-width="2.5"/>
+            <path d="M22 40l7-4 7 2 8-6 8 3 6-2M82 40l7-2 7 1 8-5 8 2 6-3M142 40l7-5 7 3 8-2 8 1 6-3" stroke="#8cc5e3" stroke-width="1.25"/>
+            <g fill="url(#cov-fill)"><rect x="26" y="96" width="9" height="20" rx="3"/><rect x="42" y="82" width="9" height="34" rx="3"/><rect x="58" y="90" width="9" height="26" rx="3"/><rect x="74" y="74" width="9" height="42" rx="3"/><rect x="90" y="100" width="9" height="16" rx="3"/><rect x="106" y="86" width="9" height="30" rx="3"/></g>
+            <path d="M142 74h30M142 86h22M142 98h28M142 110h18" stroke="#d3dce1" stroke-width="2.5"/>
           </svg>
           <h3>Overview</h3>
           <p>Summary metrics that show how the profile system is performing and enable proactive monitoring.</p>
         </div>
         <div>
-          <svg class="pi-concept" viewBox="0 0 160 112" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="1" y="1" width="158" height="110" rx="8" stroke="currentColor" stroke-width="2"/>
-            <rect x="12" y="12" width="72" height="14" rx="7" fill="#d6ebf8"/>
-            <circle cx="18" cy="44" r="4" fill="#7fbde6"/><circle cx="18" cy="62" r="4" fill="#7fbde6"/><circle cx="18" cy="80" r="4" fill="#d6ebf8"/><circle cx="18" cy="98" r="4" fill="#7fbde6"/>
-            <path d="M30 44h52M30 62h40M30 80h58M30 98h46" stroke="currentColor" stroke-width="2"/>
-            <path d="M112 44h36M112 62h36M112 80h36M112 98h36" stroke="#9aa9b0" stroke-width="2"/>
+          <svg class="pi-concept" viewBox="0 0 200 140" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <defs>
+              <linearGradient id="clg-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4f9fb"/><stop offset="1" stop-color="#eaf3f6"/></linearGradient>
+              <linearGradient id="clg-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a9d6ee"/><stop offset="1" stop-color="#cfe7f3" stop-opacity=".6"/></linearGradient>
+              <linearGradient id="clg-mint" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#bfe3d6"/><stop offset="1" stop-color="#cfe2f2"/></linearGradient>
+              <filter id="clg-sh" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#5b7f92" flood-opacity=".10"/></filter>
+            </defs>
+            <rect x="0" y="0" width="200" height="140" rx="14" fill="url(#clg-bg)"/>
+            <rect x="14" y="14" width="96" height="16" rx="8" fill="#fff" filter="url(#clg-sh)"/>
+            <circle cx="24" cy="22" r="3" stroke="#a9bcc5" stroke-width="1.25"/>
+            <g filter="url(#clg-sh)" fill="#fff"><rect x="14" y="40" width="172" height="20" rx="6"/><rect x="14" y="66" width="172" height="20" rx="6"/><rect x="14" y="92" width="172" height="20" rx="6"/><rect x="14" y="118" width="172" height="14" rx="6"/></g>
+            <circle cx="26" cy="50" r="3.5" fill="#f2b8a6"/><circle cx="26" cy="76" r="3.5" fill="url(#clg-mint)"/><circle cx="26" cy="102" r="3.5" fill="#a9d6ee"/>
+            <path d="M38 50h64M38 76h50M38 102h72" stroke="#d3dce1" stroke-width="2.5"/>
+            <path d="M146 50h28M146 76h28M146 102h28" stroke="#e3e9ec" stroke-width="2.5"/>
           </svg>
           <h3>Logs</h3>
           <p>Logs that surface errors, violations and successes in the profile system, to make troubleshooting possible.</p>

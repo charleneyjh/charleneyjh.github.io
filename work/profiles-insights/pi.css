@@ -119,7 +119,7 @@ strong { font-weight: 700; }
 .pi-shot--small { max-width: 340px; }
 .pi-research .pi-row + .pi-row { margin-top: 92px; }
 .pi-personas > div + div { margin-top: 0; }
-.pi-concept { display: block; width: 160px; height: auto; color: var(--pi-ink); margin-bottom: 24px; }
+.pi-concept { display: block; width: 200px; height: auto; color: var(--pi-ink); margin-bottom: 24px; }
 .pi-quote--low { margin-top: 200px !important; }
 .pi-raise { position: relative; top: -100px; }
 
