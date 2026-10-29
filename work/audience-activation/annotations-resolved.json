@@ -1,0 +1,14 @@
+[
+ {
+  "selector": "#role > div > div:nth-of-type(1)",
+  "comment": "This timeline chart is too ugly"
+ },
+ {
+  "selector": "#current > div > div:nth-of-type(1)",
+  "comment": "Make this more like a flowchart diagram"
+ },
+ {
+  "selector": "#current > div > p",
+  "comment": "Remove this"
+ }
+]
