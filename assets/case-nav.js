@@ -19,6 +19,17 @@
     links.forEach((a, n) => { const t = target(n); if (t && t.getBoundingClientRect().top <= y) i = n; });
     links.forEach((a, n) => a.toggleAttribute('aria-current', n === i));
     nav.classList.toggle('is-shown', scrollY > 200);
+    nav.classList.toggle('case-nav--on-dark', isDark());
+  };
+  // Switch to light labels when the rail sits over a dark band.
+  const isDark = () => {
+    const r = nav.getBoundingClientRect();
+    const under = document.elementsFromPoint(r.left + 4, r.top + r.height / 2).find(el => !nav.contains(el));
+    for (let el = under; el; el = el.parentElement) {
+      const m = getComputedStyle(el).backgroundColor.match(/[\d.]+/g);
+      if (m && (m.length < 4 || +m[3] > 0.5)) return (0.299 * m[0] + 0.587 * m[1] + 0.114 * m[2]) < 110;
+    }
+    return false;
   };
   addEventListener('scroll', update, { passive: true });
   update();

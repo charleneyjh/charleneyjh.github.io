@@ -1,0 +1,190 @@
+[
+ {
+  "selector": "main > header > div > div:nth-of-type(1) > p:nth-of-type(1)",
+  "comment": "remove"
+ },
+ {
+  "selector": "main > header > div > div:nth-of-type(1) > p:nth-of-type(2)",
+  "comment": "remove"
+ },
+ {
+  "selector": "main > header > div > div:nth-of-type(2)",
+  "comment": "remove bakground"
+ },
+ {
+  "selector": "#overview > div > div > p:nth-of-type(1)",
+  "comment": "Replace all content under overview"
+ },
+ {
+  "selector": "#overview > div > div > h2",
+  "comment": "smaller size"
+ },
+ {
+  "selector": "main > header > div > div:nth-of-type(1) > h1",
+  "comment": "One line"
+ },
+ {
+  "selector": "#context > div > p",
+  "comment": "span the entire row"
+ },
+ {
+  "selector": "#context > div > h3",
+  "comment": "add 20px paddings below"
+ },
+ {
+  "selector": "#problem > div > div > blockquote:nth-of-type(1) > p",
+  "comment": "make this 5 line"
+ },
+ {
+  "selector": "#problem > div > div > blockquote:nth-of-type(2)",
+  "comment": "reduce the length of the orange line"
+ },
+ {
+  "selector": "#problem > div > h3",
+  "comment": "add 20px padding below"
+ },
+ {
+  "selector": "#opportunity > div > div",
+  "comment": "you are missing the arrows"
+ },
+ {
+  "selector": "main > section:nth-of-type(5)",
+  "comment": "put"
+ },
+ {
+  "selector": "#success",
+  "comment": "Please use the same timeline"
+ },
+ {
+  "selector": "#process",
+  "comment": "I use the two-column layout"
+ },
+ {
+  "selector": "#process > div > h2",
+  "comment": "add 40px paddings below"
+ },
+ {
+  "selector": "main > section:nth-of-type(9) > div > div > blockquote",
+  "comment": "move this 80px below"
+ },
+ {
+  "selector": "main > section:nth-of-type(9) > div > div > div > p:nth-of-type(1)",
+  "comment": "add 40px paddings below"
+ },
+ {
+  "selector": "main > section:nth-of-type(9) > div > h2",
+  "comment": "add 20px paddings below"
+ },
+ {
+  "selector": "main > section:nth-of-type(10) > div > h2",
+  "comment": "add 20px paddings below"
+ },
+ {
+  "selector": "main > section:nth-of-type(10) > div > div > figure > img",
+  "comment": "add shadow"
+ },
+ {
+  "selector": "main > section:nth-of-type(10) > div > div > div > h3:nth-of-type(1)",
+  "comment": "reduce font size"
+ },
+ {
+  "selector": "main > section:nth-of-type(10) > div > div > div > h3:nth-of-type(2)",
+  "comment": "reduce font size"
+ },
+ {
+  "selector": "main > section:nth-of-type(10) > div > div > div > h3:nth-of-type(3)",
+  "comment": "reduce font size"
+ },
+ {
+  "selector": "#design > div > div:nth-of-type(2) > div > figure:nth-of-type(3) > img",
+  "comment": "remove the background color"
+ },
+ {
+  "selector": "#design > div > div:nth-of-type(2) > div > figure:nth-of-type(2) > img",
+  "comment": "remove the background color"
+ },
+ {
+  "selector": "#design > div > div:nth-of-type(2) > div > figure:nth-of-type(1) > img",
+  "comment": "remove the background color"
+ },
+ {
+  "selector": "#design > div > div:nth-of-type(2) > h3",
+  "comment": "add 20px padding below"
+ },
+ {
+  "selector": "#design > div > div:nth-of-type(3) > h3",
+  "comment": "add 20px padding below"
+ },
+ {
+  "selector": "#design > div > div:nth-of-type(3) > div > div:nth-of-type(1)",
+  "comment": "please make the same diagram"
+ },
+ {
+  "selector": "#design > div > div:nth-of-type(4) > p",
+  "comment": "span the entire row"
+ },
+ {
+  "selector": "#design > div > div:nth-of-type(5) > p",
+  "comment": "span the entire row"
+ },
+ {
+  "selector": "#design > div > div:nth-of-type(5) > div > figure:nth-of-type(1) > img",
+  "comment": "Record a GIF"
+ },
+ {
+  "selector": "#design > div > div:nth-of-type(5) > div > figure:nth-of-type(2) > img",
+  "comment": "Record a GIF"
+ },
+ {
+  "selector": "main > section:nth-of-type(12)",
+  "comment": "I'm going to have a design walkthrough"
+ },
+ {
+  "selector": "#next > div > p",
+  "comment": "Span the entire row"
+ },
+ {
+  "selector": "#next > div > h2",
+  "comment": "add"
+ },
+ {
+  "selector": "main > section:nth-of-type(10)",
+  "comment": "Make the text span longer"
+ },
+ {
+  "selector": "#role > div > h3",
+  "comment": "add 20px padding below"
+ },
+ {
+  "selector": "#process > div > div > div:nth-of-type(1) > p:nth-of-type(1)",
+  "comment": "move this up 20px"
+ },
+ {
+  "selector": "#process > div > div > div:nth-of-type(1) > h3:nth-of-type(1)",
+  "comment": "move this up 20 px"
+ },
+ {
+  "selector": "main > section:nth-of-type(10) > div > div > figure > img",
+  "comment": "make the image 10% smaller"
+ },
+ {
+  "selector": "main > section:nth-of-type(10) > div > div > div",
+  "comment": "Increase column width"
+ },
+ {
+  "selector": "#design > div > div:nth-of-type(3) > div > div:nth-of-type(2)",
+  "comment": "match the diagram"
+ },
+ {
+  "selector": "#design > div > div:nth-of-type(5) > div > figure:nth-of-type(2) > img",
+  "comment": "increase the speed"
+ },
+ {
+  "selector": "nav:nth-of-type(2) > ol > li:nth-of-type(8) > a",
+  "comment": "this is not legiable"
+ },
+ {
+  "selector": "#results > div > div > div > img:nth-of-type(2)",
+  "comment": "Make the screenshots more like a collage"
+ }
+]

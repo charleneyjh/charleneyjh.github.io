@@ -24,3 +24,7 @@
 .case-nav--twilio { --cn-dot-a: #f9a9b3; --cn-dot-b: #f2596b; --cn-glow: rgba(242, 89, 107, .16); }
 .case-nav--neighbor { --cn-dot-a: #fcd08f; --cn-dot-b: #f79a0e; --cn-glow: rgba(247, 154, 14, .18); }
 .case-nav--filters { --cn-ink: #16202e; --cn-muted: #8a8f96; --cn-line: #e4dfd5; --cn-ring: #d4ccbf; --cn-dot-a: #eab196; --cn-dot-b: #c4643a; --cn-glow: rgba(196, 100, 58, .16); }
+
+/* Over dark bands */
+.case-nav.case-nav--on-dark { --cn-ink: #fff; --cn-muted: rgba(255, 255, 255, .62); --cn-line: rgba(255, 255, 255, .22); --cn-ring: rgba(255, 255, 255, .4); }
+.case-nav--on-dark a::before { background: transparent; }

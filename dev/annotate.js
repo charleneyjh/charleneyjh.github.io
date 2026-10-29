@@ -226,4 +226,22 @@
   window.__annotations = notes;
   window.__clearAnnotations = () => { notes = []; save(); };
   render();
+
+  // Notes listed in annotations-resolved.json next to the page (selector + start of the comment)
+  // have been applied, so move them to the resolved list.
+  fetch('annotations-resolved.json', { cache: 'no-store' })
+    .then(r => (r.ok ? r.json() : []))
+    .then(done => {
+      const isDone = n => done.some(d => d.selector === n.selector && n.comment.trim().startsWith(d.comment));
+      const matched = notes.filter(isDone);
+      if (!matched.length) return;
+      let resolved = [];
+      try { resolved = JSON.parse(localStorage.getItem('resolvedAnnotations')) || []; } catch {}
+      const at = new Date().toISOString();
+      resolved.push(...matched.map(n => ({ ...n, resolvedAt: at })));
+      localStorage.setItem('resolvedAnnotations', JSON.stringify(resolved));
+      notes = notes.filter(n => !isDone(n));
+      save();
+    })
+    .catch(() => {});
 })();
