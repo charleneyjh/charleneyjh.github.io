@@ -242,5 +242,29 @@
  {
   "selector": "#metric > div > div > div > p:nth-of-type(2)",
   "comment": "Make this the same size"
+ },
+ {
+  "selector": "#alignment > div > div:nth-of-type(2) > div > div:nth-of-type(1) > p:nth-of-type(1)",
+  "comment": "Add situation"
+ },
+ {
+  "selector": "#alignment > div > div:nth-of-type(1) > div > div:nth-of-type(1) > p",
+  "comment": "remove \"1.\""
+ },
+ {
+  "selector": "#alignment > div > div:nth-of-type(2) > div > div:nth-of-type(1) > p:nth-of-type(1)",
+  "comment": "remove \"2.\""
+ },
+ {
+  "selector": "#usability > div > div:nth-of-type(1) > div:nth-of-type(1)",
+  "comment": "don't use 2 Column"
+ },
+ {
+  "selector": "#results > div > ul > li:nth-of-type(3)",
+  "comment": "merge this"
+ },
+ {
+  "selector": "#results > div > ul > li:nth-of-type(4)",
+  "comment": "remove"
  }
 ]

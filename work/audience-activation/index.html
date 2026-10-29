@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/fonts/portfolio-fonts.css?v=figtree1">
   <link rel="stylesheet" href="../profiles-insights/pi.css?v=1">
-  <link rel="stylesheet" href="audience.css?v=12">
+  <link rel="stylesheet" href="audience.css?v=13">
   <link rel="stylesheet" href="../../assets/glass-cursor.css?v=7">
 </head>
 <body>
@@ -288,7 +288,7 @@
         <h2>The surprise: marketers aren't the ones who activate audiences</h2>
         <p>We had always assumed Engage was a product for marketers. The interviews showed something different. Audience activation was too technical for most marketers to set up. They usually built the audience and handed it off to a data engineer for activation. Sometimes data engineers set up the first audience-to-destination configuration, and marketers copied and reused it.</p>
         <p class="pi-statement aa-debate">The debate: should we build for data engineers, or enable marketers to self-serve?</p>
-        <div class="pi-grid pi-grid--2 aa-debate-points">
+        <div class="aa-debate-points">
           <p>Marketers are the experts in the downstream tools. Their technical level also varies with the tools they use. Some destinations, like Salesforce Marketing Cloud, need more technical knowledge.</p>
           <p>The lack of role-based access control (RBAC) in Segment was a further barrier to marketer self-service.</p>
         </div>
@@ -331,7 +331,8 @@
       <div class="pi-block">
         <div class="pi-row">
           <div>
-            <p>1. I worked closely with the Linked audience designer on an end-to-end teardown of features and UI components across linked and classic audiences. We weighed bespoke UI against unified components, made the decisions together, and documented where the two products align and differ.</p>
+            <h3>Address feedback #1</h3>
+            <p>I worked closely with the Linked audience designer on an end-to-end teardown of features and UI components across linked and classic audiences. We weighed bespoke UI against unified components, made the decisions together, and documented where the two products align and differ.</p>
           </div>
           <div class="aa-teardown">
             <figure class="pi-shot aa-bare aa-teardown__map"><img src="img/teardown-map.webp" alt="End-to-end teardown in Figma: the linked and classic audience flows laid out side by side." width="655" height="1311" loading="lazy"></figure>
@@ -344,8 +345,12 @@
       <div class="pi-block">
         <div class="pi-row">
           <div>
-            <p>2. I proposed removing the "connect destination" step from the audience creation flow. Audience activation now had its own flow, so keeping the step was redundant and gave users the false impression that their task was complete. The Audience compute team was concerned that, with the current logic, this would increase the cost of computing audiences.</p>
+            <h3>Address feedback #2</h3>
+            <h4>Situation</h4>
+            <p>I proposed removing the "connect destination" step from the audience creation flow. Audience activation now had its own flow, so keeping the step was redundant and gave users the false impression that their task was complete. The Audience compute team was concerned that, with the current logic, this would increase the cost of computing audiences.</p>
+            <h4>Action</h4>
             <p>I found out the reasoning behind the concern, brainstormed with engineers on ways to mitigate the risk, and proposed a few options for the team's input.</p>
+            <h4>Result</h4>
             <p>The team unanimously agreed with the proposal. The result was a unified, streamlined UX with a small backend change to the compute logic and no added risk. The engineering task was committed to the Audience compute team's Q1 backlog.</p>
           </div>
           <div class="pi-grid pi-grid--2 aa-docs">
@@ -415,9 +420,7 @@
       <h2>Result and impact</h2>
       <ul class="pi-list">
         <li>Linked audiences launched with the new unified UX. All 18 beta customers onboarded successfully after the March launch and gave positive feedback.</li>
-        <li>The scaled-back solution for classic audiences got a positive reaction from all cross-functional stakeholders. The change is small, but it's a step in the right direction.</li>
-        <li>The full design is validated and ready whenever classic audiences become a company priority again.</li>
-        <li>We monitored the time-to-value metric but didn't see a statistically significant improvement.</li>
+        <li>The scaled-back solution for classic audiences got a positive reaction from all cross-functional stakeholders. The change is small, but it's a step in the right direction, and the full design is validated and ready whenever classic audiences become a company priority again.</li>
       </ul>
 
       <div class="pi-block">
