@@ -198,5 +198,21 @@
  {
   "selector": "#current > div > div:nth-of-type(2) > div:nth-of-type(2) > figure:nth-of-type(2) > img",
   "comment": "Can you show a disconnect"
+ },
+ {
+  "selector": "#role > div > div:nth-of-type(1)",
+  "comment": "Why do you use different colors"
+ },
+ {
+  "selector": "#role",
+  "comment": "The alignment of research"
+ },
+ {
+  "selector": "#research > div > p",
+  "comment": "I started off this project"
+ },
+ {
+  "selector": "#metric > div > div > div > p:nth-of-type(1)",
+  "comment": "I led a matric workshop"
  }
 ]

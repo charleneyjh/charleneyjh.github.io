@@ -136,3 +136,13 @@ ol.pi-list { padding-left: 24px; list-style: decimal; }
   .aa-break { flex-direction: column; height: 56px; width: 40px; margin: 8px auto; }
   .aa-break span { flex: 1; width: 0; height: auto; border-top: 0; border-left: 1.5px dashed #9fb2bb; }
 }
+.aa-gantt__track i, .aa-gantt__track i.aa-gantt__dev { background: linear-gradient(90deg, #bfe3d6, #a3d4c2); }
+.aa-gantt__body::after { display: none; }
+.aa-gantt__launch { position: absolute; top: 50%; left: calc(var(--at) / 6 * 100%); display: flex; align-items: center; gap: 4px; font-size: 13px; font-style: normal; font-weight: 600; color: var(--pi-ink); white-space: nowrap; transform: translateY(-50%); }
+.aa-role { grid-template-columns: repeat(3, auto); justify-content: space-between; }
+.aa-role li { white-space: nowrap; }
+@media (max-width: 760px) {
+  .aa-gantt__launch span { display: none; }
+  .aa-role { grid-template-columns: 1fr; }
+  .aa-role li { white-space: normal; }
+}
