@@ -147,7 +147,7 @@ strong { font-weight: 700; }
 .pi-demo__sheet2 { opacity: 0; }
 .pi-demo__cursor { position: absolute; width: 2.4%; min-width: 12px; height: auto; transform-origin: 20% 10%; }
 
-.pi-demo--errors { --t: 20s; }
+.pi-demo--errors { --t: 10s; }
 .pi-demo--errors .pi-demo__cursor { animation: pi-err-cursor var(--t) ease-in-out infinite; }
 .pi-demo--errors .pi-demo__row { animation: pi-err-row var(--t) linear infinite; }
 .pi-demo--errors .pi-demo__row--err { animation-name: pi-err-row2; }
@@ -188,7 +188,7 @@ strong { font-weight: 700; }
 @keyframes pi-err-ids { 0%, 22.5% { opacity: 0; } 23%, 32.5% { opacity: 1; } 33%, 100% { opacity: 0; } }
 @keyframes pi-err-tab { 0%, 42.5% { opacity: 0; } 43%, 60% { opacity: 1; } 61%, 100% { opacity: 0; } }
 
-.pi-demo--logs { --t: 6s; }
+.pi-demo--logs { --t: 3s; }
 .pi-demo--logs .pi-demo__cursor { animation: pi-log-cursor var(--t) ease-in-out infinite; }
 .pi-demo--logs .pi-demo__row { animation: pi-log-row var(--t) linear infinite; }
 .pi-demo--logs .pi-demo__dim { animation: pi-log-dim var(--t) ease infinite; }
@@ -228,7 +228,7 @@ strong { font-weight: 700; }
 @media (max-width: 760px) { .pi-tabs__list { width: 100%; } }
 
 /* Overview demo: hover a bar for the tooltip (Figma hover spec), then click a percentage to open the filtered table */
-.pi-demo--overview { --t: 11s; container-type: inline-size; }
+.pi-demo--overview { --t: 5.5s; container-type: inline-size; }
 .pi-tip { position: absolute; left: 34.8%; top: 43.9%; width: 19.65%; padding: 1.05cqw 0.95cqw; background: #fff; border: 1px solid #d5dae3; border-radius: 0.35cqw; box-shadow: 0 0.3cqw 1cqw rgba(16, 24, 40, .14); color: #3c4566; font-size: 0.97cqw; line-height: 1.4; opacity: 0; animation: pi-ov-tip var(--t) ease infinite; }
 .pi-tip span, .pi-tip strong { display: block; }
 .pi-tip strong { margin-top: 0.7cqw; font-weight: 600; }
