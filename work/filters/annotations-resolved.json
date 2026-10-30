@@ -186,5 +186,73 @@
  {
   "selector": "#results > div > div > div > img:nth-of-type(2)",
   "comment": "Make the screenshots more like a collage"
+ },
+ {
+  "selector": "#context > div > h3",
+  "comment": "add 20px padding below"
+ },
+ {
+  "selector": "#problem > div > p",
+  "comment": "remove \"yet\""
+ },
+ {
+  "selector": "#problem > div > p",
+  "comment": "remove second sentence"
+ },
+ {
+  "selector": "#problem",
+  "comment": "use two column layout"
+ },
+ {
+  "selector": "#opportunity > div > div > svg",
+  "comment": "make each of the line"
+ },
+ {
+  "selector": "#opportunity > div > div > div:nth-of-type(2)",
+  "comment": "the circle to the right"
+ },
+ {
+  "selector": "main > section:nth-of-type(5) > div > h2",
+  "comment": "remove"
+ },
+ {
+  "selector": "#success > div > p",
+  "comment": "remove"
+ },
+ {
+  "selector": "#role > div > h3",
+  "comment": "remove \"project\""
+ },
+ {
+  "selector": "#role > div > div:nth-of-type(2)",
+  "comment": "put timeline on top"
+ },
+ {
+  "selector": "#context > div > h2",
+  "comment": "reduce 2px"
+ },
+ {
+  "selector": "main > section:nth-of-type(9) > div > div > blockquote > p",
+  "comment": "reduce width by 20px"
+ },
+ {
+  "selector": "#design > div > div:nth-of-type(2) > div > figure:nth-of-type(3) > img",
+  "comment": "remove the background"
+ },
+ {
+  "selector": "#design > div > div:nth-of-type(2) > div > figure:nth-of-type(1) > img",
+  "comment": "remove background"
+ },
+ {
+  "selector": "#design > div > div:nth-of-type(2) > div > figure:nth-of-type(2) > img",
+  "comment": "remove background"
+ },
+ {
+  "selector": "#design > div > div:nth-of-type(3) > p",
+  "comment": "Each product filters"
+ },
+ {
+  "selector": "#design > div > div:nth-of-type(5) > p",
+  "comment": "Long, overlapping operator lists"
  }
 ]

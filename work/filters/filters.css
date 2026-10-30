@@ -506,3 +506,16 @@ strong { font-weight: 600; }
 .uf-feedback--collage img[src*="feedback-1"] { position: absolute; right: 0; bottom: 0; width: 76%; z-index: 1; }
 @media (max-width: 900px) { .uf-principles .uf-feature { grid-template-columns: 1fr; } }
 .uf-vtree ul > li:not(:last-child)::after { content: ""; position: absolute; left: -24px; top: 50%; bottom: -12px; border-left: 1px solid #cfc6b8; }
+
+/* Round 3 comments */
+.uf-section h2 { font-size: clamp(28px, 3.4vw, 38px); }
+#context .uf-subhead { margin-bottom: 52px; }
+.uf-problem { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: start; margin-top: 48px; }
+.uf-problem .uf-subhead { margin-top: 0; }
+.uf-problem .uf-quotes { grid-template-columns: 1fr; gap: 40px; margin-top: 0; }
+.uf-discovery .uf-quote p { margin-right: 20px; }
+.uf-role__intro { margin-top: 64px; }
+@media (max-width: 900px) { .uf-problem { grid-template-columns: 1fr; gap: 40px; } }
+.uf-flow__link--replace { z-index: 2; }
+.uf-flow__link--replace::after { right: -8px; }
+.uf-flow__surfaces span { position: relative; z-index: 1; }

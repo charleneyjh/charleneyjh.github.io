@@ -20,7 +20,7 @@
 <body class="uf-page">
   <nav class="uf-topnav" aria-label="Portfolio navigation"><a href="../../">← Back to home</a></nav>
 
-  <nav class="case-nav case-nav--filters" aria-label="Case study sections"><ol><li><a href="#overview">Overview</a></li><li><a href="#context">Context</a></li><li><a href="#problem">The problem</a></li><li><a href="#opportunity">The opportunity</a></li><li><a href="#success">Defining success</a></li><li><a href="#role">My role</a></li><li><a href="#process">Process</a></li><li><a href="#design">Design decisions</a></li><li><a href="#results">Results</a></li><li><a href="#learnings">What I've learned</a></li><li><a href="#next">If I had more time</a></li></ol></nav>
+  <nav class="case-nav case-nav--filters" aria-label="Case study sections"><ol><li><a href="#overview">Overview</a></li><li><a href="#context">Context</a></li><li><a href="#problem">The problem</a></li><li><a href="#opportunity">The opportunity</a></li><li><a href="#success">Defining success</a></li><li><a href="#role">Timeline and my role</a></li><li><a href="#process">Process</a></li><li><a href="#design">Design decisions</a></li><li><a href="#results">Results</a></li><li><a href="#learnings">What I've learned</a></li><li><a href="#next">If I had more time</a></li></ol></nav>
   <main>
     <!-- Hero -->
     <header class="uf-hero">
@@ -86,26 +86,29 @@
     <section id="problem" class="uf-section">
       <div class="uf-wrap">
         <h2>The problem</h2>
-        <p class="uf-prose">Yet filtering was a top 3 CSAT complaint in all four products. Customers told us the same thing in different words.</p>
+        <p class="uf-prose">Filtering was a top 3 CSAT complaint in all four products.</p>
 
-        <div class="uf-quotes">
-          <blockquote class="uf-quote">
-            <p>“HubSpot's data segmentation feels ‘option-divey,’ where the abundance of options and inconsistent interfaces can be overwhelming. The segmentation tools often present multiple ways to achieve similar outcomes, such as using lists, workflows, or filters, without a clear and unified approach, creating confusion.”</p>
-            <cite>Marketing operations manager</cite>
-          </blockquote>
-          <blockquote class="uf-quote">
-            <p>“Using the same filters as I do to view Contacts, I get very different results when I put together a list. Very confusing and not an effective use of time.”</p>
-            <cite>Marketing ops lead</cite>
-          </blockquote>
+        <div class="uf-problem">
+          <div>
+            <h3 class="uf-subhead">CSAT themes</h3>
+            <ul class="uf-list">
+              <li><strong>Not flexible.</strong> Users couldn't express the questions they actually had, and nesting support was limited.</li>
+              <li><strong>Missing capabilities.</strong> Basic needs worked in one product but not another.</li>
+              <li><strong>Inconsistent.</strong> Different capabilities and different UI meant the same “filter” could give different answers.</li>
+              <li><strong>Poor usability.</strong> The filtering UX was unintuitive and confusing, and the list of operators was bloated and overlapping.</li>
+            </ul>
+          </div>
+          <div class="uf-quotes">
+            <blockquote class="uf-quote">
+              <p>“HubSpot's data segmentation feels ‘option-divey,’ where the abundance of options and inconsistent interfaces can be overwhelming. The segmentation tools often present multiple ways to achieve similar outcomes, such as using lists, workflows, or filters, without a clear and unified approach, creating confusion.”</p>
+              <cite>Marketing operations manager</cite>
+            </blockquote>
+            <blockquote class="uf-quote">
+              <p>“Using the same filters as I do to view Contacts, I get very different results when I put together a list. Very confusing and not an effective use of time.”</p>
+              <cite>Marketing ops lead</cite>
+            </blockquote>
+          </div>
         </div>
-
-        <h3 class="uf-subhead">CSAT themes</h3>
-        <ul class="uf-list">
-          <li><strong>Not flexible.</strong> Users couldn't express the questions they actually had, and nesting support was limited.</li>
-          <li><strong>Missing capabilities.</strong> Basic needs worked in one product but not another.</li>
-          <li><strong>Inconsistent.</strong> Different capabilities and different UI meant the same “filter” could give different answers.</li>
-          <li><strong>Poor usability.</strong> The filtering UX was unintuitive and confusing, and the list of operators was bloated and overlapping.</li>
-        </ul>
       </div>
     </section>
 
@@ -124,7 +127,7 @@
           <div class="uf-flow__node uf-flow__node--dark">Unified query platform<small>The backend</small></div>
           <div class="uf-flow__link"></div>
           <div class="uf-flow__node uf-flow__node--editor">Filter editor<small>The front end</small></div>
-          <svg class="uf-flow__fan" viewBox="0 0 60 100" preserveAspectRatio="none" aria-hidden="true">
+          <svg class="uf-flow__fan" viewBox="0 0 60 100" preserveAspectRatio="none" aria-hidden="true" overflow="visible">
             <path d="M0 50 C30 50 30 10 60 10" /><path d="M0 50 C30 50 30 30 60 30" /><path d="M0 50 L60 50" /><path d="M0 50 C30 50 30 70 60 70" /><path d="M0 50 C30 50 30 90 60 90" />
           </svg>
           <div class="uf-flow__surfaces">
@@ -138,7 +141,6 @@
     <!-- HMW -->
     <section class="uf-hmw">
       <div class="uf-wrap">
-        <h2 class="uf-hmw__title">How might we</h2>
         <div class="uf-hmw__grid">
           <div>
             <p class="uf-kicker">For customers</p>
@@ -156,7 +158,6 @@
     <section id="success" class="uf-section">
       <div class="uf-wrap">
         <h2>Defining success</h2>
-        <p class="uf-prose">We agreed on how we'd measure success before launch, from the first weeks to the long term.</p>
         <ol class="uf-metrics">
           <li><span class="uf-metrics__when">Launch</span><div class="uf-metrics__card"><h4>Time to value</h4><p>Time to create a segment, measured by a randomized A/B test.</p></div></li>
           <li><span class="uf-metrics__when">+2 weeks</span><div class="uf-metrics__card"><h4>Customer satisfaction</h4><p>In-product survey.</p></div></li>
@@ -169,24 +170,7 @@
     <!-- Role + timeline -->
     <section id="role" class="uf-section uf-section--muted">
       <div class="uf-wrap">
-        <h2>My role</h2>
-        <p class="uf-prose">As the lead product designer, I set the direction of the new filter UX and aligned product and design leaders across the pillar product areas.</p>
-        <div class="uf-three">
-          <div>
-            <h3>Design strategy and cross-team influence</h3>
-            <p>Defined the shared filter model and the design principles every product area builds on. Led cross-team workshops to identify needs and drive alignment.</p>
-          </div>
-          <div>
-            <h3>Research and design</h3>
-            <p>Audit, competitive analysis, discovery research and usability testing. Delivered high-fidelity mockups and specs, design system patterns and documentation.</p>
-          </div>
-          <div>
-            <h3>Development</h3>
-            <p>Handed off vibe-coded live prototypes, did QA and worked through edge cases with engineers.</p>
-          </div>
-        </div>
-
-        <h3 class="uf-subhead">Project timeline</h3>
+        <h2>Timeline and my role</h2>
         <div class="uf-timeline" role="img" aria-label="Project timeline, April to October 2026. Research ran April to May, with usability testing in July and August. Design principles were set in June, phase 1 design ran July to September, and phase 2 design started in late September. Cross-team input gathering happened in June and cross-team alignment in July. Phase 1 was built from August to September and launched in private beta in October.">
           <div class="uf-timeline__inner">
             <div class="uf-timeline__months"><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span></div>
@@ -208,6 +192,21 @@
               <span class="uf-bar" style="--from:4.15;--to:5.93">Implementation for phase 1</span>
               <span class="uf-milestone" style="--at:6">Launched in private beta</span>
             </div>
+          </div>
+        </div>
+        <p class="uf-prose uf-role__intro">As the lead product designer, I set the direction of the new filter UX and aligned product and design leaders across the pillar product areas.</p>
+        <div class="uf-three">
+          <div>
+            <h3>Design strategy and cross-team influence</h3>
+            <p>Defined the shared filter model and the design principles every product area builds on. Led cross-team workshops to identify needs and drive alignment.</p>
+          </div>
+          <div>
+            <h3>Research and design</h3>
+            <p>Audit, competitive analysis, discovery research and usability testing. Delivered high-fidelity mockups and specs, design system patterns and documentation.</p>
+          </div>
+          <div>
+            <h3>Development</h3>
+            <p>Handed off vibe-coded live prototypes, did QA and worked through edge cases with engineers.</p>
           </div>
         </div>
       </div>
@@ -300,15 +299,15 @@
           <h3>Flexible filtering with drag and drop, group and ungroup</h3>
           <p class="uf-prose">Restructuring a filter shouldn't mean rebuilding it. Users can drag a condition into or out of a group, drop one condition onto another to create a group, or turn any condition into a group from its menu.</p>
           <div class="uf-trio">
-            <figure class="uf-shot"><img src="img/drag-move.png" alt="Dragging the condition 'City is any of Cambridge, Seattle' into Group 2." width="368" height="647" loading="lazy"></figure>
-            <figure class="uf-shot"><img src="img/drag-group.png" alt="Dropping a condition with a 'Drop to create a group' hint." width="368" height="647" loading="lazy"></figure>
+            <figure class="uf-shot"><img src="img/drag-move.png" alt="Dragging the condition 'City is any of Cambridge, Seattle' into Group 2." width="368" height="446" loading="lazy"></figure>
+            <figure class="uf-shot"><img src="img/drag-group.png" alt="Dropping a condition with a 'Drop to create a group' hint." width="368" height="446" loading="lazy"></figure>
             <figure class="uf-shot uf-shot--center"><img src="img/turn-into-group.png" alt="A condition's menu with Duplicate, Pin filter, Turn into filter group and Delete." width="614" height="312" loading="lazy"></figure>
           </div>
         </div>
 
         <div class="uf-decision">
           <h3>Scalable data panel IA for many data sources</h3>
-          <p class="uf-prose">Each product filters on different data. A segment starts from a primary object and can reach into its events, memberships and associated objects. A workflow pulls from its trigger and from earlier actions. The data panel uses one structure that can hold all of them.</p>
+          <p class="uf-prose">Each product filters on a different set of data sources. I designed for a scalable IA that accommodated all of them.</p>
           <div class="uf-ia">
             <div class="uf-ia__card">
               <p class="uf-flow__label">Segment</p>
@@ -375,7 +374,7 @@
 
         <div class="uf-decision">
           <h3>Reduce operators by 30% by moving the choices to values</h3>
-          <p class="uf-prose">Long, overlapping operator lists were one of the top usability complaints. Instead of an operator for every case, the choices move into the value: a property comparison mode lets users compare against another property, and a new date picker handles relative and fixed dates in one place.</p>
+          <p class="uf-prose">Long, overlapping operator lists were one of the top usability complaints. I reduced the operator overhead by introducing modes into the input value: a property comparison mode lets users compare against another property, and a new date picker handles relative and fixed dates in one place.</p>
           <div class="uf-ops">
             <figure class="uf-shot">
               <p class="uf-tag">Property comparison mode</p>
@@ -520,6 +519,29 @@
   </main>
 
   <script src="../../assets/glass-cursor.js?v=3"></script>
+  <script>
+    // Draw the fan from the filter editor to each filter surface, ending on the boxes themselves.
+    (() => {
+      const fan = document.querySelector('.uf-flow__fan');
+      const editor = document.querySelector('.uf-flow__node--editor');
+      if (!fan || !editor) return;
+      const draw = () => {
+        const f = fan.getBoundingClientRect();
+        if (!f.width) return;
+        const e = editor.getBoundingClientRect();
+        const y0 = e.top + e.height / 2 - f.top;
+        fan.setAttribute('viewBox', `0 0 ${f.width} ${f.height}`);
+        fan.innerHTML = [...document.querySelectorAll('.uf-flow__surfaces span')].map(el => {
+          const r = el.getBoundingClientRect();
+          const x1 = r.left - f.left + 2, y1 = r.top + r.height / 2 - f.top, mx = x1 / 2;
+          return `<path d="M0 ${y0} C${mx} ${y0} ${mx} ${y1} ${x1} ${y1}"/>`;
+        }).join('');
+      };
+      draw();
+      addEventListener('resize', draw);
+      addEventListener('load', draw);
+    })();
+  </script>
   <script src="../../assets/case-nav.js?v=2"></script>
   <script src="../../dev/annotate.js"></script>
 </body>
