@@ -254,5 +254,33 @@
  {
   "selector": "#design > div > div:nth-of-type(5) > p",
   "comment": "Long, overlapping operator lists"
+ },
+ {
+  "selector": "#overview > div > dl > div:nth-of-type(3) > dt",
+  "comment": "removee"
+ },
+ {
+  "selector": "#overview > div > dl > div:nth-of-type(3) > dd",
+  "comment": "remove"
+ },
+ {
+  "selector": "#problem > div > p",
+  "comment": "Filtering was consistently"
+ },
+ {
+  "selector": "#design > div > div:nth-of-type(4) > p",
+  "comment": "Filtering on associated records"
+ },
+ {
+  "selector": "#design > div > h2",
+  "comment": "add 40px paddings below"
+ },
+ {
+  "selector": "nav:nth-of-type(2) > ol > li:nth-of-type(11) > a",
+  "comment": "the side nav on dark mode"
+ },
+ {
+  "selector": "#results > div > h2",
+  "comment": "remove the"
  }
 ]

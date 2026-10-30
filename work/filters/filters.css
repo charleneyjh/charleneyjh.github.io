@@ -519,3 +519,9 @@ strong { font-weight: 600; }
 .uf-flow__link--replace { z-index: 2; }
 .uf-flow__link--replace::after { right: -8px; }
 .uf-flow__surfaces span { position: relative; z-index: 1; }
+
+/* Round 4 comments */
+#design > .uf-wrap > h2 { margin-bottom: 64px; }
+.uf-results li { display: block; }
+.uf-results li::before { content: none; }
+.uf-results .uf-recognition { margin-top: 12px; font-weight: 600; }

@@ -27,4 +27,4 @@
 
 /* Over dark bands */
 .case-nav.case-nav--on-dark { --cn-ink: #fff; --cn-muted: rgba(255, 255, 255, .62); --cn-line: rgba(255, 255, 255, .22); --cn-ring: rgba(255, 255, 255, .4); }
-.case-nav--on-dark a::before { background: transparent; }
+.case-nav--on-dark a::before { background: var(--cn-surface, #16202e); }

@@ -27,7 +27,10 @@
     const under = document.elementsFromPoint(r.left + 4, r.top + r.height / 2).find(el => !nav.contains(el));
     for (let el = under; el; el = el.parentElement) {
       const m = getComputedStyle(el).backgroundColor.match(/[\d.]+/g);
-      if (m && (m.length < 4 || +m[3] > 0.5)) return (0.299 * m[0] + 0.587 * m[1] + 0.114 * m[2]) < 110;
+      if (m && (m.length < 4 || +m[3] > 0.5)) {
+        nav.style.setProperty('--cn-surface', `rgb(${m[0]}, ${m[1]}, ${m[2]})`);
+        return (0.299 * m[0] + 0.587 * m[1] + 0.114 * m[2]) < 110;
+      }
     }
     return false;
   };
