@@ -1,0 +1,61 @@
+
+.hero-preview-controls { position: relative; z-index: 3; margin: 20px auto 0; padding: 18px 24px; max-width: 992px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper-raised); }
+.hero-preview-controls fieldset { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.hero-preview-controls legend { font: 500 13px var(--font-mono); margin-bottom: 12px; color: var(--ink-soft); }
+.hero-preview-controls button { font: 500 14px var(--font-sans); border: 1px solid var(--line); border-radius: 24px; background: transparent; color: var(--ink); padding: 8px 14px; cursor: pointer; }
+.hero-preview-controls button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: white; }
+.hero-preview-controls button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.hero-preview-controls p { font-size: 14px; margin-top: 12px; color: var(--ink-soft); }
+.hero-preview-controls .hero-preview-replay { margin-left: auto; }
+.hero[data-motion] .hero__text { animation: none; }
+.hero[data-motion="entrance"] h1 { animation: hero-reveal .85s cubic-bezier(.22,1,.36,1) both; }
+.hero[data-motion="entrance"] .hero__tagline { animation: hero-reveal .85s .16s cubic-bezier(.22,1,.36,1) both; }
+.hero[data-motion="entrance"] .hero__portrait { animation: hero-reveal 1s .24s cubic-bezier(.22,1,.36,1) both; }
+.hero[data-motion="float"] .hero__portrait { animation: hero-float 6s ease-in-out infinite; }
+.hero[data-motion="float"] .hero__portrait::after { animation: hero-outline 6s ease-in-out infinite; }
+.hero[data-motion="float"] .hero__marks--plus { animation: hero-twinkle 4s ease-in-out infinite; transform-origin: center; }
+.hero[data-motion="draw"] .hero__marks path { stroke-dasharray: 100; stroke-dashoffset: 100; animation: hero-draw 1.8s .3s ease both; }
+.hero[data-motion="draw"] .hero__portrait::after { animation: hero-ring 1.1s ease both; }
+.hero[data-motion="draw"] .hero__portrait img { animation: hero-reveal .8s ease both; }
+.hero[data-motion="draw"] h1 { animation: hero-reveal .8s .1s ease both; }
+@keyframes hero-reveal { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes hero-float { 0%,100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-10px) rotate(1deg); } }
+@keyframes hero-outline { 0%,100% { transform: translate(-6%,4%); } 50% { transform: translate(-2%,7%); } }
+@keyframes hero-twinkle { 0%,100% { transform: rotate(0); } 50% { transform: rotate(12deg); } }
+@keyframes hero-draw { to { stroke-dashoffset: 0; } }
+@keyframes hero-ring { from { opacity: 0; transform: translate(-6%,4%) rotate(-25deg) scale(.9); } to { opacity: .7; transform: translate(-6%,4%) rotate(0) scale(1); } }
+@media(prefers-reduced-motion: reduce) { .hero[data-motion] *, .hero[data-motion]::after, .hero[data-motion] *::after { animation: none !important; } .hero[data-motion="draw"] .hero__marks path { stroke-dashoffset: 0; } }
+
+/* Art direction studies — each ends in a stable editorial composition. */
+.hero-art, .hero-title-line { display: none; }
+.hero[data-motion="sketch"] .hero-art, .hero[data-motion="collage"] .hero-art, .hero[data-motion="systems"] .hero-art { display: block; }
+.hero-art { position: absolute; inset: -18%; pointer-events: none; z-index: 3; }
+.hero-art__drawing { width: 100%; height: 100%; overflow: visible; stroke: var(--accent); stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+.hero-art__drawing path, .hero-art__drawing circle, .hero-art span { display: none; }
+.hero[data-motion="sketch"] .hero__portrait::after, .hero[data-motion="collage"] .hero__portrait::after, .hero[data-motion="systems"] .hero__portrait::after,
+.hero[data-motion="sketch"] .hero__marks, .hero[data-motion="collage"] .hero__marks, .hero[data-motion="systems"] .hero__marks { display: none; }
+.hero[data-motion="sketch"] .art-orbit, .hero[data-motion="sketch"] .art-arrow, .hero[data-motion="sketch"] .art-spark { display: block; stroke-dasharray: 1; animation: art-line 1.7s .35s cubic-bezier(.4,0,.2,1) both; }
+.hero[data-motion="sketch"] .art-arrow { animation-delay: 1.45s; animation-duration: .7s; }
+.hero[data-motion="sketch"] .art-spark { animation-delay: 1.2s; animation-duration: .6s; }
+.hero[data-motion="sketch"] .hero-art__note { display: block; position: absolute; width: 200px; left: 24%; top: 92%; font: italic 19px/1.15 var(--font-serif); transform: rotate(-5deg); animation: art-note .7s 1.8s both; }
+.hero[data-motion="sketch"] .hero-title-line { display: block; position: absolute; width: 96%; height: 15px; bottom: -13px; left: 0; stroke: var(--accent); stroke-width: 1.3; fill: none; stroke-dasharray: 1; animation: art-line 1.1s .5s both; }
+.hero[data-motion="sketch"] h1 { position: relative; }
+.hero[data-motion="sketch"] .hero__tagline { margin-top: 28px; animation: hero-reveal .7s .15s both; }
+.hero[data-motion="sketch"] .hero__portrait img { animation: hero-reveal .9s both; }
+.hero[data-motion="collage"] .hero__portrait { transform: rotate(4deg); }
+.hero[data-motion="collage"] .hero__portrait img { border-radius: 2px; border: 9px solid #fcfbf6; border-bottom-width: 40px; aspect-ratio: .88; box-shadow: 0 14px 30px #1f2a241a, 0 1px 3px #1f2a2420; animation: art-paper 1.2s cubic-bezier(.22,1,.36,1) both; }
+.hero[data-motion="collage"] .hero-art__tape { display: block; position: absolute; top: 8%; left: 32%; width: 38%; height: 30px; background: #c6cfafaa; transform: rotate(-10deg); clip-path: polygon(2% 0,97% 3%,100% 93%,0 100%); animation: art-note .4s .8s both; }
+.hero[data-motion="collage"] .hero-art__caption { display: block; position: absolute; bottom: 16%; width: 100%; text-align: center; font: 9px/1.3 var(--font-mono); letter-spacing: .09em; animation: art-note .5s 1s both; }
+.hero[data-motion="collage"] .art-spark { display: block; stroke-dasharray: 1; animation: art-line .7s 1.2s both; }
+.hero[data-motion="collage"] .hero__text { animation: hero-reveal .8s .2s both; }
+.hero[data-motion="systems"] .hero__portrait img { border-radius: 50%; transform: scale(.84); animation: art-focus 1.4s cubic-bezier(.22,1,.36,1) both; }
+.hero[data-motion="systems"] .art-flow { display: block; stroke-dasharray: 1; animation: art-line 1.5s .2s both; }
+.hero[data-motion="systems"] .art-node { display: block; fill: var(--paper); animation: art-note .5s both; }
+.hero[data-motion="systems"] .hero-art__index { display: block; position: absolute; top: 93%; left: 2%; width: 96%; text-align: center; font: 9px var(--font-mono); letter-spacing: .1em; animation: art-note .7s 1.3s both; }
+.hero[data-motion="systems"] h1 { animation: hero-reveal .8s .35s both; }
+@keyframes art-line { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes art-note { from { opacity: 0; } to { opacity: 1; } }
+@keyframes art-paper { from { opacity: 0; transform: translate(24px,-25px) rotate(8deg); } to { opacity: 1; transform: translate(0) rotate(0); } }
+@keyframes art-focus { from { opacity: 0; transform: scale(.68); filter: blur(8px); } to { opacity: 1; transform: scale(.84); filter: blur(0); } }
+@media(max-width:759px) { .hero[data-motion="sketch"], .hero[data-motion="collage"], .hero[data-motion="systems"] { padding-bottom: 90px; } .hero-art__note { font-size: 17px !important; } .hero-preview-controls { margin-inline: 16px; } }
+@media(prefers-reduced-motion:reduce) { .hero[data-motion] *, .hero[data-motion] *::after { animation: none !important; } .hero-art__drawing path, .hero-title-line { stroke-dashoffset: 0; } }

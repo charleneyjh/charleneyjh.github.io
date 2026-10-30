@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head><base href="/">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Charlene Yang — Senior Product Designer</title>
+  <meta name="description" content="Senior Product Designer working on B2B data products: query and filters, data platforms, and developer experience.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&family=Figtree:wght@400..700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=about-full-row">
+  <link rel="stylesheet" href="work.css?v=autocapture-card">
+  <link rel="stylesheet" href="playground/ramble/ramble.css">
+<link rel="stylesheet" href="assets/fonts/portfolio-fonts.css?v=figtree1">
+<link rel="stylesheet" href="explorations/filter-covers/approved-cover.css?v=titles40">
+<link rel="stylesheet" href="explorations/neighbor-covers/approved-cover.css?v=1">
+<link rel="stylesheet" href="assets/glass-cursor.css?v=7">
+<style>
+body .nav,body .hero,body #about,body footer {display:none!important}
+.year-options {position:fixed;z-index:100;inset:0 0 auto;background:#f6f7f1ed;backdrop-filter:blur(16px);border-bottom:1px solid #ccd3ca;padding:14px 28px;display:flex;align-items:center;gap:12px;}
+.year-options a {margin-right:auto;font:500 14px Figtree,sans-serif;color:#2d5147;text-decoration:none}
+.year-options button {border:1px solid #bdcbbb;background:transparent;border-radius:30px;padding:10px 16px;font:500 13px Figtree,sans-serif;color:#263c34;cursor:pointer}
+.year-options button[aria-pressed=true] {background:#2d594c;color:#fff;border-color:#2d594c}
+#work.stacked-folio {width:calc(100% - 250px);max-width:1060px;margin:110px 42px 0 auto;}
+#work .section__head {margin-bottom:24px} #work .section__head h2 {font-size:40px}
+.year-note {font:400 14px/1.5 Figtree,sans-serif;color:#66766d;margin:8px 0 28px;}
+.year-focus {position:fixed;left:30px;top:48%;z-index:20;width:155px;color:#2c5146;pointer-events:none;transition:opacity .2s;}
+.year-focus .year-caption {display:block;font:400 10px 'DM Mono',monospace;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px;}
+.year-focus .year-value {display:block;font:500 56px/1 Newsreader,serif;letter-spacing:-.04em;}
+.year-focus .year-track {display:block;width:100%;height:1px;background:#c7d1c6;margin-top:20px;position:relative;}
+.year-focus .year-track:after {content:'';display:block;width:var(--progress,16%);height:1px;background:#2c5146;transition:width .4s;}
+.year-focus .year-count {display:block;font:400 10px 'DM Mono',monospace;margin-top:12px;color:#7b8b81;}
+body[data-year-style=stamp] .year-focus {left:55px;width:100px;display:flex;flex-direction:column;align-items:center;top:34%;}
+body[data-year-style=stamp] .year-caption {writing-mode:vertical-rl;margin:0 0 20px;letter-spacing:.2em}
+body[data-year-style=stamp] .year-value {writing-mode:vertical-rl;font:500 46px/1 'DM Mono',monospace;letter-spacing:-.07em;}
+body[data-year-style=stamp] .year-track {height:70px;width:1px;margin-top:24px;}
+body[data-year-style=stamp] .year-track:after {width:1px;height:var(--progress,16%);}
+body[data-year-style=timeline] .year-focus {left:40px;width:140px;border-left:1px solid #c5d0c4;padding:24px 0 24px 20px;top:43%;}
+body[data-year-style=timeline] .year-focus:before {content:'';position:absolute;left:-4px;top:65px;width:7px;height:7px;border-radius:50%;background:#2d594c;box-shadow:0 0 0 5px #edf0e7;}
+body[data-year-style=timeline] .year-value {font:400 25px/1 'DM Mono',monospace;letter-spacing:-.04em;}
+body[data-year-style=timeline] .year-track {display:none}
+body[data-year-style=timeline] .year-caption {margin-bottom:14px;}
+.year-value.is-changing {animation:year-in .35s ease both}
+@keyframes year-in {from {opacity:0;transform:translateY(9px)}to {opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce) {.year-value.is-changing {animation:none}.year-focus *{transition:none!important}}
+@media(max-width:760px) {.year-options {padding:12px;gap:5px;flex-wrap:wrap}.year-options a {width:100%}.year-options button {font-size:11px;padding:8px 10px}#work.stacked-folio {width:calc(100% - 76px);margin:140px 12px 0 auto}.year-focus,body[data-year-style=stamp] .year-focus,body[data-year-style=timeline] .year-focus {left:8px;width:48px;top:48%;padding:0;border:0;display:block}.year-focus .year-value,body[data-year-style=stamp] .year-value,body[data-year-style=timeline] .year-value {font:400 15px 'DM Mono',monospace;writing-mode:initial}.year-caption,.year-track,.year-count,.year-focus:before {display:none!important}#work .section__head h2 {font-size:30px}}
+</style><style>
+body[data-year-style="editorial-vertical"] .year-focus { left:30px;top:48%;width:155px;transform:rotate(-90deg);transform-origin:center center; }
+body[data-year-style="editorial-vertical"] .year-value { font:500 56px/1 Newsreader,serif;letter-spacing:-.04em; }
+@media(max-width:760px) { body[data-year-style="editorial-vertical"] .year-focus { left:0;width:64px;top:48%; }body[data-year-style="editorial-vertical"] .year-value { font-size:24px; } }
+</style></head>
+<body data-year-style="editorial"><div class="year-options"><a href="/#work">← Back to homepage · Year studies</a><button data-style="editorial" aria-pressed="true">01 Editorial year</button><button data-style="stamp" aria-pressed="false">02 Margin stamp</button><button data-style="timeline" aria-pressed="false">03 Timeline marker</button><button data-style="editorial-vertical" aria-pressed="false">04 Editorial · vertical</button></div><aside class="year-focus" aria-label="Active project year"><span class="year-caption">Year</span><span class="year-value">2026</span><span class="year-track"></span></aside>
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__name" href="#top">Charlene Yang</a>
+      <nav aria-label="Main">
+        <ul class="nav__links">
+          <li><a href="#work">Work</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero wrap hero--doodle">
+      <div class="hero__text">
+        <h1>Hi, I'm Charlene.</h1>
+        <p class="hero__tagline">I make complex systems feel simple.</p>
+      </div>
+
+      <!-- Blob-shaped portrait with an offset outline and small doodle marks -->
+      <div class="hero__portrait">
+        <img src="assets/photo.jpg" alt="Charlene smiling beside train tracks on the coast" width="720" height="720">
+        <svg class="hero__marks hero__marks--plus" viewBox="0 0 34 34" aria-hidden="true"><path d="M20 3v10M15 8h10M6 13v10M1 18h10M22 20v10M17 25h10"/></svg>
+        <svg class="hero__marks hero__marks--slash" viewBox="0 0 46 16" aria-hidden="true"><path d="M2 14l5-12M11 14l5-12M20 14l5-12M29 14l5-12M38 14l5-12"/></svg>
+      </div>
+    </section>
+
+    <!-- Work -->
+    <section class="section wrap stacked-folio" id="work">
+      <header class="section__head">
+        <h2>Selected work</h2><p class="year-note">Scroll through the folio. Switch treatments above to compare the same cards.</p>
+      </header>
+      <ul class="cards">
+<li class="work-filters" style="--work-i: 0"><a class="card card--link cover" href="https://www.figma.com/deck/qnaPb6iT52kSnINGH5uLfD/Unified-Filtering-Case-Study?node-id=2-4" target="_blank" rel="noopener"><div class="cover-number">01</div><div class="art art-clarity">
+
+<svg class="connections connections--original" viewBox="0 0 600 520" preserveAspectRatio="none" aria-hidden="true"><path d="M20 120H150Q210 120 210 240Q210 260 230 260H340M40 260H230M20 395H155Q210 395 210 280Q210 260 230 260"/><path class="doodle-accent" d="M276 113l8-8M283 124l13-3M274 103l3-10M364 371q6-9 11 0t10 0t10 0"/><path class="doodle-faint" d="M30 316q9-7 18-2t17-2M67 309l-2 4-5-2"/><circle class="doodle-hollow" cx="344" cy="260" r="4"/></svg>
+<div class="old old-one"><p>[property ] [operator ] [value]</p></div>
+<div class="old old-two"><p>completed demo 2 times in the last 30 days where...</p></div>
+<div class="old old-three"><p>is associated to any Open Deals where Deal owner = me</p></div>
+<div class="editor"><img src="explorations/filter-covers/img/editor.png" alt="Unified filter editor combining property, event, and association conditions"></div>
+
+
+</div><div class="cover-copy"><p class="eyebrow">DATA PLATFORM · HUBSPOT</p><h3>Unified Filters</h3><p>Unify query and filter design pattern across HubSpot products</p><span class="cover-link"><img class="cover-link-logo" src="assets/brands/hubspot.svg" alt="HubSpot">View case study →</span></div><svg class="corner-arrow" viewBox="0 0 28 28" aria-hidden="true"><rect x="7.5" y="12" width="13" height="11" rx="2"/><path d="M10 12V8a4 4 0 0 1 8 0v4M14 16v3"/></svg></a></li>
+<li class="work-events" style="--work-i: 1"><a class="card card--link" href="work/custom-events/"><div class="clean-cover-screen clean-cover-screen--event"><div class="clean-cover-bar" aria-hidden="true"><i></i><i></i><i></i></div><div class="clean-cover-crop"><img class="clean-cover-image" src="work/custom-events/img/setup.png" alt="HubSpot event setup showing tracking code, API, webhook, object changes, and spreadsheet import options" width="936" height="873" loading="lazy"></div></div><div class="card__body"><p class="label">Data setup · HubSpot</p><h3>Event setup</h3><p>Reimagine how event data is connected and activated in CRM</p><p class="card__cta"><img class="case-study-logo" src="assets/brands/hubspot.svg" alt="Hubspot">View case study →</p></div><span class="work-number" aria-hidden="true">02</span><svg class="work-arrow" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M7 21 21 7M7 7h14v14" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke"/></svg></a></li>
+<li class="work-profiles" style="--work-i: 2">
+          <a class="card card--link" href="https://www.figma.com/deck/xob44fgZtgGl5oMpGS6BM9/profiles-insights?node-id=1-135" target="_blank" rel="noopener">
+            <div class="profiles-cover-screen"><div class="profiles-cover-bar" aria-hidden="true"><i></i><i></i><i></i></div><div class="profiles-cover-crop"><img src="work/profiles-insights/img/final-overview.png" alt="Profiles Insights overview with profile trends and causes of violations and errors, with navigation cropped out" width="1440" height="1634" loading="lazy"></div></div>
+            <div class="card__body">
+              <p class="label">Observability · Twilio Segment</p>
+              <h3>Profiles Insights</h3>
+              <p>Help data operators see inside Segment's identity resolution system to troubleshoot profile issues</p>
+              <p class="card__cta"><img class="case-study-logo" src="assets/brands/segment.svg" alt="Segment">View case study →</p>
+            </div>
+          <span class="work-number" aria-hidden="true">03</span><svg class="work-arrow" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M7 21 21 7M7 7h14v14" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke"/></svg></a>
+        </li>
+<li class="work-audience" style="--work-i: 3"><a class="card card--link" href="https://www.figma.com/deck/6Li1TKBZHpfYnoxeI8evT4/Audience-activation?node-id=1-81&amp;t=bCKfpMn7P0A67aoQ-1" target="_blank" rel="noopener"><div class="clean-cover-screen clean-cover-screen--audience"><div class="clean-cover-bar" aria-hidden="true"><i></i><i></i><i></i></div><div class="clean-cover-crop"><img class="clean-cover-image" src="work/audience-activation/img/cover-selected.png" alt="Audience activation event configuration with trait enrichment and a raw event preview" width="1174" height="781" loading="lazy"></div></div><div class="card__body"><p class="label">Data configuration · Twilio Segment</p><h3>Audience Activation</h3><p>Streamline and unify audience activation UX to downstream tools</p><p class="card__cta"><img class="case-study-logo" src="assets/brands/segment.svg" alt="Segment">View case study →</p></div><span class="work-number" aria-hidden="true">04</span><svg class="work-arrow" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M7 21 21 7M7 7h14v14" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke"/></svg></a></li>
+<li class="work-twilio" style="--work-i: 4">
+          <a class="card card--link" href="work/twilio-onboarding/">
+            <div class="clean-cover-screen clean-cover-screen--twilio"><div class="clean-cover-bar" aria-hidden="true"><i></i><i></i><i></i></div><div class="clean-cover-crop"><img class="clean-cover-image" src="work/twilio-onboarding/img/wix/original-00.img" alt="Twilio’s redesigned account dashboard and guided onboarding, with navigation cropped out" width="536" height="366" loading="lazy"></div></div>
+            <div class="card__body">
+              <p class="label">Growth design · Twilio</p>
+              <h3>Twilio Growth</h3>
+              <p>Build Twilio's first developer onboarding framework from 0 to 1.</p>
+              <p class="card__cta"><img class="case-study-logo" src="assets/brands/twilio.svg" alt="Twilio">View case study →</p>
+            </div>
+          <span class="work-number" aria-hidden="true">05</span><svg class="work-arrow" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M7 21 21 7M7 7h14v14" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke"/></svg></a>
+        </li>
+<li class="work-neighborcircle" style="--work-i: 5">
+          <a class="card card--link" href="work/neighborcircle/">
+            <div class="art natural natural-park"><svg class="organic-map" viewBox="0 0 600 520" aria-hidden="true"><path class="road-edge" d="M-30 357C71 410 156 350 181 269S248 115 351 145S438 235 496 201S551 97 630 139M78-30C45 59 82 131 159 141S277 92 291-30M474 210C442 288 472 349 539 373S582 460 563 550"/><path class="organic-road" d="M-30 357C71 410 156 350 181 269S248 115 351 145S438 235 496 201S551 97 630 139M78-30C45 59 82 131 159 141S277 92 291-30M474 210C442 288 472 349 539 373S582 460 563 550"/><path class="organic-walk" d="M64 234C102 183 191 211 212 301S322 410 381 357S438 303 489 316"/><g class="house" transform="translate(44 74) rotate(-7) scale(0.75)"><path d="M-22 1L0-18L22 1V24H-22Z" fill="#fff9ed"/><path d="M-27 2L0-22L27 2"/><path d="M-5 24V9H5V24"/></g><g class="house" transform="translate(156 74) rotate(6) scale(0.65)"><path d="M-22 1L0-18L22 1V24H-22Z" fill="#fff9ed"/><path d="M-27 2L0-22L27 2"/><path d="M-5 24V9H5V24"/></g><g class="house" transform="translate(384 77) rotate(8) scale(0.72)"><path d="M-22 1L0-18L22 1V24H-22Z" fill="#fff9ed"/><path d="M-27 2L0-22L27 2"/><path d="M-5 24V9H5V24"/></g><g class="house" transform="translate(536 116) rotate(-9) scale(0.7)"><path d="M-22 1L0-18L22 1V24H-22Z" fill="#fff9ed"/><path d="M-27 2L0-22L27 2"/><path d="M-5 24V9H5V24"/></g><g class="house" transform="translate(62 283) rotate(-8) scale(0.68)"><path d="M-22 1L0-18L22 1V24H-22Z" fill="#fff9ed"/><path d="M-27 2L0-22L27 2"/><path d="M-5 24V9H5V24"/></g><g class="house" transform="translate(118 433) rotate(5) scale(0.7)"><path d="M-22 1L0-18L22 1V24H-22Z" fill="#fff9ed"/><path d="M-27 2L0-22L27 2"/><path d="M-5 24V9H5V24"/></g><g class="house" transform="translate(274 390) rotate(-6) scale(0.6)"><path d="M-22 1L0-18L22 1V24H-22Z" fill="#fff9ed"/><path d="M-27 2L0-22L27 2"/><path d="M-5 24V9H5V24"/></g><g class="house" transform="translate(516 296) rotate(7) scale(0.6)"><path d="M-22 1L0-18L22 1V24H-22Z" fill="#fff9ed"/><path d="M-27 2L0-22L27 2"/><path d="M-5 24V9H5V24"/></g><g class="house" transform="translate(471 445) rotate(-10) scale(0.75)"><path d="M-22 1L0-18L22 1V24H-22Z" fill="#fff9ed"/><path d="M-27 2L0-22L27 2"/><path d="M-5 24V9H5V24"/></g><g class="map-doodles"><path d="M389 103l4-12m4 20 12-5"/><circle cx="119" cy="189" r="4"/></g></svg><div class="phone"><img src="work/neighborcircle/img/map.gif" alt="NeighborCircle map screen"></div></div>
+            <div class="card__body">
+              <p class="label">Student Design Competition · CHI 2019</p>
+              <h3>NeighborCircle</h3>
+              <p>Build trust between neighbors through thoughtful sharing and opportunities to connect in person.</p>
+              <p class="card__cta"><img class="case-study-logo case-study-logo--chi" src="assets/brands/chi-2019.png" alt="CHI 2019">View case study →</p>
+            </div>
+          <span class="work-number" aria-hidden="true">06</span><svg class="work-arrow" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M7 21 21 7M7 7h14v14" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke"/></svg></a>
+        </li>
+</ul>
+    </section>
+
+    <!-- About -->
+    <section class="section wrap" id="about">
+      <header class="section__head">
+        <h2>About</h2>
+      </header>
+      <div class="about">
+        <div class="about__body">
+<p>Hi, I’m Charlene, a product designer based in Seattle.</p>
+<p>What I love most about design is the moment a messy problem finally starts to make sense. My work starts with the system, not the screen: I go deep on how things work, down to the data and technical details, before I design anything. Over 7 years at HubSpot and Twilio, that has meant taking complex products and making them feel simple to use. I do the hard work so customers don’t have to.</p>
+<p>I work in the open with engineering and product partners and welcome a good debate. I build with AI, prototyping ideas and exploring the edge of design and technology.</p>
+<p>Away from my desk, you’ll find me remodeling some corner of my house, doing Pilates, or spending time in nature.</p>
+<p>Interested in working together? <a href="mailto:charleneyjh@gmail.com">Let’s talk!</a></p>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Playground: kept like a junk journal -->
+    <section class="section wrap" id="playground" hidden>
+      <header class="section__head">
+        <h2>Playground</h2>
+        <p class="section__intro">Things I make and tinker with outside of work, kept the way I like best: as a junk journal.</p>
+      </header>
+      <div class="jj">
+        <article class="jj-page jj-page--ramble project rb">
+          <span class="jj-tape jj-tape--left" aria-hidden="true"></span>
+          <span class="jj-tape jj-tape--right" aria-hidden="true"></span>
+        <div class="project__info">
+          <img class="project__icon" src="playground/ramble/icon.svg" alt="" width="64" height="64">
+          <h3 class="project__title">Ramble</h3>
+          <p class="project__text">Talk through a thought, get it back as tidy notes. Tap <kbd>⌥ Option</kbd>, talk, tap it again, and Ramble types a clean note wherever your cursor is, with a pixel cat that listens along.</p>
+        </div>
+
+        <div class="project__demo">
+          <div class="rb-screen">
+            <div class="rb-menubar">
+              <span>Notes</span>
+              <span class="rb-menubar__right">
+                <svg class="rb-menubar__icon" viewBox="0 0 18 14" aria-label="Ramble"><path d="M2 5v4M5.5 3v8M9 1v12M12.5 3v8M16 5v4"/></svg>
+                <span>9:41</span>
+              </span>
+            </div>
+            <div class="rb-window">
+              <div class="rb-window__bar">
+                <span class="rb-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="rb-window__title">Untitled</span>
+              </div>
+              <div class="rb-note" aria-live="polite"></div>
+            </div>
+            <div class="rb-bar" aria-hidden="true">
+              <div class="rb-bar__cat">
+                <canvas class="rb-cat" width="144" height="66"></canvas>
+                <canvas class="rb-bubble" width="40" height="40"></canvas>
+              </div>
+              <div class="rb-pill">
+                <span class="rb-pill__rec"></span>
+                <span class="rb-pill__wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+                <button class="rb-pill__cancel" type="button" tabindex="-1" title="Cancel this recording">✕</button>
+                <span class="rb-pill__text"></span>
+              </div>
+            </div>
+          </div>
+          <div class="rb-controls">
+            <button class="rb-key" type="button" aria-label="Option" aria-describedby="rb-status"><span class="rb-key__glyph" aria-hidden="true">⌥</span><span class="rb-key__name" aria-hidden="true">option</span></button>
+            <p class="rb-status" id="rb-status">Tap <kbd>⌥ Option</kbd> on your keyboard, or click this button, to start talking.</p>
+          </div>
+        </div>
+      </article>
+
+        <div class="jj-row">
+        <article class="jj-page jj-page--home">
+          <span class="jj-tape" aria-hidden="true"></span>
+          <p class="jj-ticket">Home remodeling</p>
+          <div class="jj-collage jj-collage--home">
+            <figure class="jj-scrap jj-scrap--main" style="--r: -1.5deg">
+              <div class="scrap__paper">
+                <img src="assets/kitchen.jpg" alt="Charlene's remodeled kitchen: marble backsplash, walnut cabinets and brass wall lights" width="900" height="675" loading="lazy">
+                <figcaption>my kitchen, remodeled</figcaption>
+              </div>
+            </figure>
+            <figure class="jj-scrap jj-scrap--inset" style="--r: 4deg">
+              <span class="jj-tape jj-tape--small" aria-hidden="true"></span>
+              <div class="scrap__paper">
+                <img src="assets/kitchen-detail.jpg" alt="Close-up of the range, marble backsplash and brass sconces" width="699" height="700" loading="lazy">
+                <figcaption>brass + marble</figcaption>
+              </div>
+            </figure>
+          </div>
+          <ul class="jj-swatches" aria-label="Materials">
+            <li><span style="--c: #5a3b2a"></span>walnut</li>
+            <li><span class="jj-swatch--marble"></span>marble</li>
+            <li><span style="--c: #b8925a"></span>brass</li>
+          </ul>
+        </article>
+
+        <article class="jj-page jj-page--cat">
+          <span class="jj-tape" aria-hidden="true"></span>
+          <p class="jj-ticket">My cat</p>
+          <div class="jj-collage jj-collage--cat">
+            <figure class="jj-scrap" style="--r: -4deg">
+              <div class="scrap__paper">
+                <img src="assets/cat-desk.jpg" alt="Charlene's orange and white cat sitting on a notebook with its eyes closed" width="522" height="800" loading="lazy">
+                <figcaption>desk supervisor</figcaption>
+              </div>
+            </figure>
+            <figure class="jj-scrap" style="--r: 3deg">
+              <span class="jj-tape jj-tape--small" aria-hidden="true"></span>
+              <div class="scrap__paper">
+                <img src="assets/cat-nap.jpg" alt="The same cat asleep in a patch of sunlight" width="900" height="672" loading="lazy">
+                <figcaption>nap time</figcaption>
+              </div>
+            </figure>
+          </div>
+          <svg class="jj-stamp" viewBox="0 0 80 80" aria-hidden="true">
+            <circle cx="40" cy="40" r="35" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3"/>
+            <ellipse cx="40" cy="48" rx="11" ry="9"/>
+            <ellipse cx="26" cy="35" rx="4.5" ry="6" transform="rotate(-20 26 35)"/>
+            <ellipse cx="35" cy="28" rx="4.5" ry="6"/>
+            <ellipse cx="45" cy="28" rx="4.5" ry="6"/>
+            <ellipse cx="54" cy="35" rx="4.5" ry="6" transform="rotate(20 54 35)"/>
+          </svg>
+        </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer wrap">
+    <p class="label">© <span id="year"></span> Charlene Yang</p>
+    <p class="label"><a href="mailto:charleneyjh@gmail.com">Say hello</a></p>
+  </footer>
+
+  <dialog id="case-password" aria-labelledby="case-password-title">
+    <form id="case-password-form">
+      <h2 id="case-password-title">Unified Filters</h2>
+      <p>Enter the password to view this case study.</p>
+      <label for="case-password-input">Password</label>
+      <input id="case-password-input" type="password" autocomplete="off" required aria-describedby="case-password-error">
+      <p id="case-password-error" role="alert"></p>
+      <div class="password-actions"><button type="button" id="case-password-cancel">Cancel</button><button type="submit">View case study</button></div>
+    </form>
+  </dialog>
+  <script src="script.js?v=glass-cursor2"></script>
+<script src="assets/glass-cursor.js?v=3"></script>
+<script>
+(()=>{const cards=[...document.querySelectorAll('#work .cards > li')],years=['2026','2024','2023','2023','2022','2019'];let active=-1,queued=false;const value=document.querySelector('.year-value'),focus=document.querySelector('.year-focus');function update(){queued=false;let next=0;cards.forEach((card,i)=>{if(card.getBoundingClientRect().top<innerHeight*.52)next=i});if(next!==active){active=next;value.textContent=years[next];value.classList.remove('is-changing');void value.offsetWidth;value.classList.add('is-changing');focus.style.setProperty('--progress',((next+1)/cards.length*100)+'%')}const r=document.querySelector('#work').getBoundingClientRect();focus.style.opacity=r.bottom<100?'0':'1'}addEventListener('scroll',()=>{if(!queued){queued=true;requestAnimationFrame(update)}},{passive:true});addEventListener('resize',update);document.querySelectorAll('[data-style]').forEach(button=>button.addEventListener('click',()=>{document.body.dataset.yearStyle=button.dataset.style;document.querySelectorAll('[data-style]').forEach(b=>b.setAttribute('aria-pressed',b===button?'true':'false'));history.replaceState(null,'',location.pathname+'#'+button.dataset.style)}));const initial=document.querySelector('[data-style="'+location.hash.slice(1)+'"]');if(initial)initial.click();update()})();
+</script></body>
+</html>

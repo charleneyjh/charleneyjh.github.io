@@ -1,0 +1,182 @@
+/* Selected Work — stacked folio. */
+#work.stacked-folio .card { position: relative; border-radius: 0; }
+#work.stacked-folio .card:hover { transform: none; }
+#work.stacked-folio .card__cover { border: 0; border-radius: 0; }
+#work.stacked-folio .card__body { padding: 0; }
+#work.stacked-folio .work-number { display: block; color: var(--ink-soft); font: 400 12px var(--font-mono); }
+#work.stacked-folio .work-arrow { display: block; font: 28px/1 var(--font-sans); transition: transform .25s; }
+#work.stacked-folio .card:hover .work-arrow { transform: translate(3px,-3px); }
+#work.stacked-folio .cards > li:focus-within { z-index: 8; }
+/* Original folio composition, with separate sheets. */
+#work.stacked-folio .cards { display: grid; gap: 40px; padding-bottom: 40px; }
+#work.stacked-folio .cards > li { position: relative; top: auto; }
+#work.stacked-folio .card { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; min-height: 440px; padding: 56px 40px 40px !important; background: #e3eadd !important; border: 1px solid #bdcbbb !important; box-shadow: 0 2px 8px #1f2a2409 !important; }
+#work.stacked-folio .cards > li:nth-child(3n+2) .card { background: #e4e9ed !important; border-color: #c4cfd5 !important; }
+#work.stacked-folio .cards > li:nth-child(3n) .card { background: #eee6da !important; border-color: #d7caba !important; }
+#work.stacked-folio .card__cover { aspect-ratio: 4/3; object-fit: contain; background: #ffffff70; }
+#work.stacked-folio .filter-cover { padding: 24px; min-height: 280px; background: #ffffff70; }
+#work.stacked-folio .work-number { position: absolute; left: 40px; top: 18px; }
+#work.stacked-folio .work-arrow { position: absolute; right: 28px; top: 22px; }
+#work.stacked-folio h3 { font-size: clamp(32px,4vw,48px); }
+#work.stacked-folio .card__body h3+p { font-size: 17px; }
+#work.stacked-folio .card:focus-visible { outline: 3px solid var(--accent); }
+@media(max-width:760px) {
+  #work.stacked-folio .card { grid-template-columns: 1fr; gap: 24px; padding: 48px 24px 28px !important; min-height: 0; }
+}
+
+/* Restore the original folio stacking interaction. */
+@media(min-width:761px) and (prefers-reduced-motion:no-preference) {
+  #work.stacked-folio .cards { display: block; }
+  #work.stacked-folio .cards > li { position: sticky; top: calc(78px + var(--work-i) * 9px); padding-bottom: 30px; }
+}
+
+
+
+#work.stacked-folio .cards > li.work-twilio .card { background: #e5f1fc !important; border-color: #c5dcef !important; }
+
+#work.stacked-folio .cards > li.work-filters .card { background: #FFF1EB !important; border-color: #d7caba !important; }
+#work.stacked-folio .work-filters .filter-cover { background: #FFF1EB; }
+
+#work.stacked-folio .cards > li.work-audience .card { background: #e3eadd !important; border-color: #bdcbbb !important; }
+
+#work.stacked-folio .work-arrow { width: 28px; height: 28px; }
+
+#work.stacked-folio .card h3, #work.stacked-folio .work-filters .cover-copy h3 { font-size: 40px; }
+
+/* Profiles Insights: a straight screen with the product navigation cropped away. */
+.profiles-cover-screen { width: 76%; margin-inline: auto; border: 1px solid #b6c4ac; border-radius: 6px; overflow: hidden; background: #fff; box-shadow: 0 12px 23px #6c81511a; }
+.profiles-cover-bar { display: flex; align-items: center; gap: 4px; height: 17px; padding-left: 9px; background: #f7f9f4; border-bottom: 1px solid #d8e0d1; }
+.profiles-cover-bar i { width: 4px; height: 4px; border-radius: 50%; background: #c0cbb7; }
+.profiles-cover-crop { overflow: hidden; }
+.profiles-cover-crop img { display: block; width: 116.04%; max-width: none; height: auto; margin-left: -16.04%; }
+@media(max-width:760px) { .profiles-cover-screen { width: 76%; } }
+
+/* Keep desktop folio sheets consistent; reveal the top of the Profiles screen. */
+.profiles-cover-crop { aspect-ratio: 4 / 3; }
+@media(min-width:851px) {
+ #work.stacked-folio .card { height: 520px; min-height: 520px; }
+ #work.stacked-folio .work-filters .card.cover,
+ #work.stacked-folio .work-neighborcircle .card { height: 520px; min-height: 520px; }
+ #work.stacked-folio .work-filters .art,
+ #work.stacked-folio .work-neighborcircle .art { height: 518px; }
+}
+
+.profiles-cover-crop img { transform: translateY(-12%); }
+
+.card__cta { display: flex; align-items: center; gap: 10px; }
+.case-study-logo { flex: 0 0 auto; display: block; width: 22px; height: 22px; object-fit: contain; }
+
+/* Straight screen covers, with product-specific outline colors. */
+.clean-cover-screen { width:90%; margin-inline:auto; overflow:hidden; border:1px solid var(--screen-outline); border-radius:6px; background:#fff; box-shadow:0 10px 22px var(--screen-shadow); }
+.clean-cover-screen--audience { --screen-outline:#b6c4ac; --screen-shadow:#6c81511a; --screen-bar:#f7f9f4; --screen-dot:#c0cbb7; }
+.clean-cover-screen--event { --screen-outline:#e4b26e; --screen-shadow:#c794581a; --screen-bar:#fff9f0; --screen-dot:#e3c79e; }
+.clean-cover-bar { display:flex; align-items:center; gap:4px; height:17px; padding-left:9px; background:var(--screen-bar); border-bottom:1px solid var(--screen-outline); }
+.clean-cover-bar i { display:block; width:4px; height:4px; border-radius:50%; background:var(--screen-dot); }
+.clean-cover-crop { overflow:hidden; aspect-ratio:4/3; }
+.clean-cover-image { display:block; width:100%; max-width:none; height:auto; }
+.clean-cover-screen--audience .clean-cover-crop { aspect-ratio:16/10; }
+.clean-cover-screen--audience .clean-cover-image { width:110%; margin-left:-5%; margin-top:-7%; }
+.clean-cover-screen--event .clean-cover-image { margin-top:-2%; }
+@media(max-width:760px) { .clean-cover-screen { width:100%; } }
+
+/* Give the three product screens the full visual column and preserve page titles. */
+.clean-cover-screen, .profiles-cover-screen { width:100%; }
+.clean-cover-screen--audience .clean-cover-image { width:100%; margin:0; }
+.clean-cover-screen--audience .clean-cover-crop { aspect-ratio:1174/781; }
+.clean-cover-screen--event .clean-cover-image { margin-top:0; }
+.clean-cover-screen--event .clean-cover-crop { aspect-ratio:936/810; }
+.profiles-cover-crop img { transform:none; }
+.profiles-cover-crop { aspect-ratio:1.12; }
+@media(max-width:760px) { .profiles-cover-screen { width:100%; } }
+
+/* Twilio uses the same straight product-screen treatment. */
+.clean-cover-screen--twilio { --screen-outline:#8eafce; --screen-shadow:#6b8eb51a; --screen-bar:#f4f8fc; --screen-dot:#b8cbdc; }
+.clean-cover-screen--twilio .clean-cover-crop { aspect-ratio:1.34; }
+.clean-cover-screen--twilio .clean-cover-image { width:125%; margin-left:-25%; margin-top:-8%; transform:none; }
+
+/* Inset the onboarding content from the left edge of its frame. */
+.clean-cover-screen--twilio .clean-cover-crop { padding-left:18px; }
+
+/* Shared card typography: Audience Activation is the reference. */
+#work.stacked-folio .card h3 { font:500 40px/1.2 var(--font-serif); letter-spacing:normal; }
+#work.stacked-folio .card .label,
+#work.stacked-folio .work-filters .cover-copy .eyebrow { font:500 13px/1.4 var(--font-mono); letter-spacing:.02em; }
+#work.stacked-folio .card .card__body h3+p,
+#work.stacked-folio .work-filters .cover-copy>p:not(.eyebrow) { font:400 17px/1.6 var(--font-sans); letter-spacing:normal; }
+#work.stacked-folio .card .card__cta,
+#work.stacked-folio .work-filters .cover-copy .cover-link { font:500 14px/1.4 var(--font-mono); letter-spacing:normal; }
+#work.stacked-folio .work-filters .cover-copy h3 { font:500 40px/1.2 var(--font-serif); letter-spacing:normal; }
+
+#work.stacked-folio .work-filters .cover-copy .eyebrow { font:500 13px/1.4 var(--font-mono) !important; letter-spacing:.02em !important; }
+#work.stacked-folio .work-filters .cover-copy>p:not(.eyebrow) { font:400 17px/1.6 var(--font-sans) !important; }
+
+#case-password { width:min(420px,calc(100% - 40px)); padding:32px; border:1px solid #bdcbbb; border-radius:12px; background:#f7f8f3; color:var(--ink); box-shadow:0 20px 70px #20332c30; }
+#case-password::backdrop { background:#20332c66; backdrop-filter:blur(4px); }
+#case-password h2 { font:500 32px/1.2 var(--font-serif); margin:0 0 12px; }
+#case-password p,#case-password label,#case-password input,#case-password button { font-family:var(--font-sans); }
+#case-password label { display:block; margin:24px 0 8px; font-size:14px; }
+#case-password input { width:100%; padding:12px; border:1px solid #a6b5aa; border-radius:5px; font-size:16px; box-sizing:border-box; }
+#case-password input:focus-visible,#case-password button:focus-visible { outline:2px solid #2f5d50; outline-offset:3px; }
+#case-password-error { min-height:20px; margin:8px 0 16px; color:#a02c27; font-size:13px; }
+.password-actions { display:flex; justify-content:flex-end; gap:12px; }
+.password-actions button { padding:10px 16px; border:1px solid #bdcbbb; border-radius:5px; background:transparent; color:var(--ink); cursor:pointer; }
+.password-actions button[type=submit] { background:#2f5d50; border-color:#2f5d50; color:white; }
+
+
+/* Highlight the case study action when its card is hovered or keyboard focused. */
+#work.stacked-folio .card:hover .card__cta,
+#work.stacked-folio .card:focus-visible .card__cta,
+#work.stacked-folio .work-filters .card:hover .cover-link,
+#work.stacked-folio .work-filters .card:focus-visible .cover-link {
+ text-decoration:underline;
+ text-decoration-thickness:1px;
+ text-underline-offset:4px;
+}
+
+/* Keep Event setup’s color independent of its position. */
+#work.stacked-folio .cards > li.work-events .card { background: #eee6da !important; border-color: #d7caba !important; }
+
+/* Scroll-linked editorial years. */
+.work-year { position:fixed;left:30px;top:48%;z-index:20;width:155px;color:#2c5146;pointer-events:none;opacity:0;transform:rotate(-90deg);transform-origin:center;transition:opacity .2s; }
+.work-year__label {display:block;font:400 10px 'DM Mono',monospace;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px;}
+.work-year__value {display:block;font:500 56px/1 Newsreader,serif;letter-spacing:-.04em;}
+.work-year__track {display:block;width:100%;height:1px;background:#c7d1c6;margin-top:20px;}
+.work-year__track:after {content:'';display:block;width:var(--year-progress,16%);height:1px;background:#2c5146;transition:width .4s;}
+.work-year__value.is-changing {animation:work-year-in .35s ease both;}
+@keyframes work-year-in {from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+@media(min-width:761px) {#work.stacked-folio {width:calc(100% - 250px);max-width:1060px;margin-left:auto;margin-right:42px;}}
+@media(max-width:760px) {.work-year{left:3px;width:60px;top:48%;}.work-year__value{font-size:24px}.work-year__label{font-size:8px;margin-bottom:8px}.work-year__track{margin-top:10px}#work.stacked-folio{width:calc(100% - 76px);margin-left:auto;margin-right:12px;}}
+@media(prefers-reduced-motion:reduce) {.work-year,.work-year__track:after{transition:none}.work-year__value.is-changing{animation:none}}
+
+#work .case-study-logo--chi { width:44px;height:26px;object-fit:contain; }
+
+/* Keep the work heading on the same page grid as the hero. */
+@media(min-width:761px) {
+ #work.stacked-folio > .section__head { transform:translateX(calc(max(0px, (100vw - var(--wrap)) / 2) - 100vw + 42px + min(1060px, 100vw - 250px))); }
+}
+@media(max-width:760px) {
+ #work.stacked-folio > .section__head { transform:translateX(-64px); }
+}
+
+/* Use the same content grid for the hero, work heading, and every card. */
+#work.stacked-folio { width:100%;max-width:var(--wrap);margin-left:auto;margin-right:auto; }
+#work.stacked-folio > .section__head { transform:none; }
+@media(min-width:761px) {
+ .work-year {left:max(-12px,calc((100vw - var(--wrap)) / 2 - 145px));}
+}
+@media(max-width:760px) {
+ .work-year {left:-18px;width:55px;}.work-year__label {display:none;}.work-year__track {display:none;}
+}
+
+#work.stacked-folio .cards > li.work-profiles .card { background:#e3eadd!important;border-color:#bdcbbb!important; }
+
+#work.stacked-folio .cards > li.work-autocapture .card {background:#e5f1fc!important;border-color:#c5dcef!important;}
+.autocapture-placeholder {width:100%;aspect-ratio:4/3;display:grid;place-items:center;border:1px dashed #a9bdc9;border-radius:6px;background:#ffffff35;color:#6b808c;font:400 12px 'DM Mono',monospace;}
+#work .card--coming-soon {cursor:default;}
+#work .card--coming-soon:hover .card__cta {text-decoration:none;}
+
+#work.stacked-folio .cards > li.work-neighborcircle .card {background:#eee6da!important;border-color:#d7caba!important;}
+
+#work.stacked-folio .card--coming-soon .card__cta,
+#work.stacked-folio .card--coming-soon:hover .card__cta,
+#work.stacked-folio .card--coming-soon:focus-within .card__cta {text-decoration:none!important;}

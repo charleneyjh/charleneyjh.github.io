@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Audience Activation — Charlene Yang</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" type="image/png" sizes="96x96">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="description" content="Case study: designing a unified audience activation flow at Twilio Segment, for sending classic and linked audiences to downstream tools.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/fonts/portfolio-fonts.css?v=figtree1">
+  <link rel="stylesheet" href="../profiles-insights/pi.css?v=1">
+  <link rel="stylesheet" href="audience.css?v=15">
+  <link rel="stylesheet" href="../../assets/glass-cursor.css?v=7">
+</head>
+<body>
+  <div class="pi-top"><a class="pi-back" href="../../">← Back to home</a></div>
+
+  <nav class="pi-nav" aria-label="Case study sections">
+    <ol>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#context">Context</a></li>
+      <li><a href="#current">Current experience</a></li>
+      <li><a href="#problem">Problem</a></li>
+      <li><a href="#role">My role</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#metric">North star metric</a></li>
+      <li><a href="#concept">Concept testing</a></li>
+      <li><a href="#iterations">Iterations</a></li>
+      <li><a href="#usability">Usability testing</a></li>
+      <li><a href="#alignment">Cross-team work</a></li>
+      <li><a href="#final-design">Walkthrough</a></li>
+      <li><a href="#pivot">Pivot</a></li>
+      <li><a href="#results">Results</a></li>
+    </ol>
+  </nav>
+  <main>
+    <!-- Hero -->
+    <header class="pi-hero" id="overview"><div class="pi-wrap">
+      <div class="pi-hero__top">
+        <h1>Audience Activation</h1>
+        <div class="pi-hero__shot"><img src="img/hero.webp" alt="The new audience activation flow: enriching an audience event with traits next to a raw event preview." width="1124" height="760"></div>
+      </div>
+      <div class="pi-overview">
+        <div>
+          <h2>Overview</h2>
+          <p>I designed a unified audience activation design pattern for two Segment audiences, classic and linked, so users could send an audience to downstream tools in one guided setup.</p>
+        </div>
+        <div>
+          <h2>My team</h2>
+          <p>1 PM, 1 PD, 2 ENG</p>
+          <p>Oct 2023 – Mar 2024</p>
+        </div>
+      </div>
+    </div></header>
+
+    <!-- Context -->
+    <section class="pi-section" id="context"><div class="pi-wrap">
+      <h2>Context</h2>
+      <p>Segment is a customer data platform (CDP) that helps businesses collect, unify and activate their data to power personalized experiences.</p>
+      <p>An audience is a group of profiles that share certain behaviors or traits. After building an audience in Segment, users sync it to their connected destinations. The most popular ones are multi-channel marketing apps.</p>
+    </div></section>
+
+    <!-- Current experience -->
+    <section class="pi-section pi-section--muted" id="current"><div class="pi-wrap">
+      <h2>The current experience</h2>
+      <div class="aa-fc" role="img" aria-label="Current flow: add a destination to the space, build an audience, then activation: add the destination to the audience and turn on Send Track or Send Identify, enrich the payload with traits (optional), and configure mappings in Connections by selecting an Action, defining an event trigger, mapping properties and optionally sending a test event.">
+        <div class="aa-fc__bracket" aria-hidden="true"><span>Audience activation</span></div>
+        <ol class="aa-fc__steps">
+          <li><div class="aa-fc__node">Add destination to the space</div></li>
+          <li><div class="aa-fc__node">Build an audience</div></li>
+          <li class="aa-fc__act"><div class="aa-fc__node">Add destination to the audience</div>
+            <ul class="aa-fc__subs"><li>Turn on "Send Track" and/or "Send Identify"</li></ul>
+          </li>
+          <li class="aa-fc__act"><div class="aa-fc__node">Enrich payload with traits (optional)</div></li>
+          <li class="aa-fc__act"><div class="aa-fc__node">Configure mappings in Connections</div>
+            <ul class="aa-fc__subs"><li>Select an Action</li><li>Define event trigger</li><li>Map properties</li><li>Send test event (optional)</li></ul>
+          </li>
+        </ol>
+      </div>
+
+      <div class="pi-block pi-row">
+        <div>
+          <h3>Done, or not done?</h3>
+          <p>Most customers turned on their audience in Engage settings and thought they were done. They didn't know the rest of the activation setup lived on a different page. The disjointed UI didn't match users' expectations and contributed to ~20% of audience-related support tickets.</p>
+        </div>
+        <div class="pi-grid pi-grid--2 aa-legacy">
+          <figure class="pi-shot pi-shot--labelled">
+            <figcaption>Audience settings in Engage</figcaption>
+            <img src="img/legacy-engage-settings.webp" alt="Legacy Braze destination settings in Engage, with Send Identify and Send Track toggles." width="832" height="1173" loading="lazy">
+          </figure>
+          <div class="aa-break" aria-hidden="true"><span></span><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m18.84 12.25 1.72-1.71a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="m5.17 11.75-1.71 1.71a5 5 0 0 0 7.07 7.07l1.71-1.71"/><path d="M8 2v3M2 8h3M16 19v3M19 16h3"/></svg><span></span></div>
+          <figure class="pi-shot pi-shot--labelled">
+            <figcaption>Activation flow in Connections</figcaption>
+            <img src="img/legacy-connections-flow.webp" alt="Legacy mapping page in Connections: select events, add a test event, and map fields to the destination." width="950" height="1991" loading="lazy">
+          </figure>
+        </div>
+      </div>
+    </div></section>
+
+    <!-- Problem -->
+    <section class="pi-section" id="problem"><div class="pi-wrap">
+      <h2>The problem</h2>
+      <p>The UX gap was introduced by the launch of a new generation of destinations ("Action destinations") and was never closed. The customer pain showed up in support tickets and in sales.</p>
+      <ul class="pi-list">
+        <li><strong>~20% of audience support tickets</strong> were related to confusion with activation.</li>
+        <li><strong>42 product gaps</strong> filed were related to audience activation, with <strong>$34M</strong> in associated ARR.</li>
+      </ul>
+      <p>On the other hand, Segment was building a new type of audience ("linked audience") that needed to activate with Action destinations too.</p>
+      <p class="pi-statement aa-ask">Our goal was to design a unified audience activation pattern that works for both classic and linked audiences.</p>
+    </div></section>
+
+    <!-- Timeline and role -->
+    <section class="pi-section pi-section--muted" id="role"><div class="pi-wrap">
+      <h2>Timeline and my role</h2>
+      <div class="aa-gantt" role="img" aria-label="Project timeline from October 2023 to March 2024. Research: October to November. Design: October to December, and again in March. Product: October to November, and again in March. Development: January to February, then a scaled-back build and launch in March 2024.">
+        <div class="aa-gantt__head" aria-hidden="true"><span></span><div class="aa-gantt__months"><span>Oct 2023</span><span>Nov</span><span>Dec</span><span>Jan 2024</span><span>Feb</span><span>Mar</span></div></div>
+        <div class="aa-gantt__body">
+          <div class="aa-gantt__row"><span>Research</span><div class="aa-gantt__track"><i style="--from: 0.05; --to: 1.95"></i></div></div>
+          <div class="aa-gantt__row"><span>Design</span><div class="aa-gantt__track"><i style="--from: 0.8; --to: 2.6"></i><i style="--from: 5; --to: 5.35"></i></div></div>
+          <div class="aa-gantt__row"><span>Product</span><div class="aa-gantt__track"><i style="--from: 0.8; --to: 1.9"></i><i style="--from: 5; --to: 5.35"></i></div></div>
+          <div class="aa-gantt__row"><span>Development</span><div class="aa-gantt__track"><i class="aa-gantt__dev" style="--from: 3.1; --to: 4.7"></i><i class="aa-gantt__dev" style="--from: 5.1; --to: 5.4"></i><em class="aa-gantt__launch" style="--at: 5.47"><i class="aa-gantt__milestone" aria-hidden="true"></i><span>Launch</span></em></div></div>
+        </div>
+      </div>
+
+      <p>I was the sole designer on the Classic audience team, working closely with the designer on the Linked audience team.</p>
+      <div class="pi-grid pi-grid--3 pi-plain aa-role">
+        <div>
+          <h3>Design</h3>
+          <ul>
+            <li>Created user flows and wireframes</li>
+            <li>Built prototypes for research</li>
+            <li>Delivered high-fidelity mockups</li>
+            <li>Aligned across teams</li>
+          </ul>
+        </div>
+        <div>
+          <h3>User research</h3>
+          <ul>
+            <li>Audited the current UX</li>
+            <li>Ran concept testing</li>
+            <li>Ran usability testing</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Development</h3>
+          <ul>
+            <li>Delivered pixel-perfect, implementable designs</li>
+            <li>Worked through edge cases with engineers</li>
+          </ul>
+        </div>
+      </div>
+    </div></section>
+
+
+
+
+    <!-- Preliminary research -->
+    <section class="pi-section" id="research"><div class="pi-wrap">
+      <h2>Linked vs. classic audiences</h2>
+      <p>I started off this project by mapping the differences and similarities between classic audiences and linked audiences. The steps were the same: event triggers, enrichment and field mapping. The real difference was in the backend.</p>
+      <div class="aa-table-wrap">
+        <table class="aa-table">
+          <thead><tr><th></th><th scope="col">Linked audience</th><th scope="col">Classic audience</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Backend architecture</th><td>1:1 relationship between a linked audience and a mapping</td><td>Many:1 relationship between classic audiences and a mapping</td></tr>
+            <tr><th scope="row">Event triggers</th><td>Audience entered and exited, entity added and removed</td><td>Audience entered and exited</td></tr>
+            <tr><th scope="row">Enrichment</th><td>Profile traits, plus entity data from the warehouse</td><td>Profile traits only</td></tr>
+            <tr><th scope="row">Field mapping</th><td>Required. Some destinations have presets that skip mapping.</td><td>Required</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div></section>
+
+    <!-- North star metric -->
+    <section class="pi-section pi-section--muted" id="metric"><div class="pi-wrap">
+      <div class="pi-row pi-row--center">
+        <div>
+          <h2>North star metric</h2>
+          <p>I led a metrics workshop with my PM to map out the experience of activating an audience, and we instrumented tracking in Mixpanel to establish a baseline.</p>
+          <p class="pi-statement aa-metric">Reduce time to value, from adding a destination to an audience to audience data flowing, by 25%.</p>
+          <p>The median time was ~70 hours across all destinations.</p>
+        </div>
+        <figure class="pi-shot"><img src="img/metrics-mapping.webp" alt="Mapping of the audience activation flows, from connecting a destination to configuring Actions, used to plan the tracking." width="998" height="1072" loading="lazy"></figure>
+      </div>
+    </div></section>
+
+    <!-- Target users -->
+    <section class="pi-section" id="users"><div class="pi-wrap">
+      <h2>Target users</h2>
+      <p>Technical marketers who build audiences in Segment and want to activate them in downstream tools for personalized campaigns.</p>
+    </div></section>
+
+    <!-- Concept testing -->
+    <section class="pi-section pi-section--muted" id="concept"><div class="pi-wrap">
+      <h2>Design concept and testing</h2>
+      <p>My concept was a full-page wizard that guides users through each step of activating their audience in one place. We presented the mocks to a few solutions engineers and the Segment marketing team.</p>
+      <p>The wizard format was well received by all participants. They felt the new design gave them a more streamlined and intuitive setup, and the steps of enriching the event, selecting an Action and configuring the mapping matched their workflow.</p>
+
+      <div class="pi-grid pi-grid--2 pi-quotes">
+        <blockquote class="pi-quote">
+          <p>"Creating the mapping in Salesforce mapping settings is a pain. I have to go to mapping settings and configure the event type as identify, the audience key, etc. <strong>This flow replaces that, right? The fact that it's inherited is great.</strong>"</p>
+          <cite>— Principal advisory architect, Twilio</cite>
+        </blockquote>
+        <blockquote class="pi-quote">
+          <p>"I think it's straightforward and makes a lot of sense from my side. The redundancy comes in when we have to do the same things a bunch of times. <strong>I love it.</strong>"</p>
+          <cite>— Customer success product technical lead, Twilio</cite>
+        </blockquote>
+      </div>
+
+      <div class="pi-block pi-tabs" data-tabs>
+        <h3>Enrichment and mapping: one step or two?</h3>
+        <div class="pi-tabs__list" role="tablist" aria-label="Layout options">
+          <button type="button" role="tab" aria-selected="true">Option 1</button>
+          <button type="button" role="tab" aria-selected="false">Option 2</button>
+        </div>
+        <div class="pi-row">
+          <div>
+            <figure class="pi-shot aa-bare" data-panel role="tabpanel"><img src="img/layout-option-1.webp" alt="Option 1: enriching events with traits as its own wizard step, before mapping." width="1328" height="970" loading="lazy"></figure>
+            <figure class="pi-shot aa-bare aa-option2" data-panel role="tabpanel" hidden><img src="img/layout-option-2.webp" alt="Option 2: enrichment and mapping configured together on one page." width="924" height="1418" loading="lazy"></figure>
+          </div>
+          <div>
+            <div data-panel>
+              <h4>Enrichment and mapping as two steps</h4>
+              <p>We debated whether to make the setup more digestible by breaking it into steps, or to give users full visibility while configuring the event.</p>
+            </div>
+            <div data-panel hidden>
+              <h4>✅ Enrichment and mapping on one page</h4>
+              <p>Participants preferred this option. Configuring enrichment and mapping usually takes some back and forth, and they wanted to come back and edit both in one place.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pi-block">
+        <div class="pi-row">
+          <div>
+            <h3>Pain point: Track or Identify?</h3>
+            <p>Participants struggled to choose between a Track and an Identify call on the first step. They didn't understand the difference, or what it meant for the downstream tools.</p>
+          </div>
+          <figure class="pi-shot pi-shot--labelled aa-bare">
+            <figcaption>What was presented</figcaption>
+            <img src="img/concept-call-type.webp" alt="The first wizard step as presented: choose between Audience entered and exited (a track event) or Audience membership changed (an identify event)." width="985" height="726" loading="lazy">
+          </figure>
+        </div>
+        <div class="pi-row">
+          <div>
+            <h3>The Action already knows</h3>
+            <p>Users relied on the name and description of the Action to decide between Track and Identify, because that terminology (for example, "Update user profile" for Braze) matches the terminology in the destination tool. After some digging, we found that most Actions are built with a default trigger that already defines the call type.</p>
+          </div>
+          <div class="pi-grid pi-grid--2 aa-findings">
+            <figure class="pi-shot aa-bare"><img src="img/finding-action-names.webp" alt="Braze Actions: Track Event, Update User Profile and Track Purchase, each with a short description." width="1125" height="641" loading="lazy"></figure>
+            <figure class="pi-shot aa-bare"><img src="img/finding-default-trigger.webp" alt="Braze documentation: Update User Profile is a cloud Action whose default trigger is type = identify." width="1568" height="945" loading="lazy"></figure>
+          </div>
+        </div>
+      </div>
+    </div></section>
+
+    <!-- Iterations -->
+    <section class="pi-section" id="iterations"><div class="pi-wrap">
+      <h2>Design iteration</h2>
+      <div class="pi-row">
+        <div>
+          <ul class="pi-list">
+            <li>Removed the Track or Identify call selection as the first step.</li>
+            <li>Used the default trigger of the Action to infer a Track or Identify call.</li>
+            <li>Put event enrichment and mapping on the same page.</li>
+          </ul>
+        </div>
+        <div>
+          <figure class="pi-shot aa-bare aa-tall"><img src="img/after-flow.webp" alt="After: enrich, select an Action and map events on one page." width="947" height="1723" loading="lazy"></figure>
+        </div>
+      </div>
+    </div></section>
+
+    <!-- Usability testing -->
+    <section class="pi-section pi-section--muted" id="usability"><div class="pi-wrap">
+      <h2>Usability testing</h2>
+      <p>Given the major changes to the flow, we ran usability tests with 5 more external customers, and they revealed something surprising.</p>
+      <ul class="pi-list">
+        <li>The activation flow was intuitive and easy to follow. Pre-filling the event trigger and call type based on the selected Action matched users' workflow.</li>
+        <li>Previewing events wasn't enough. Sending a test event was a must-have, ideally with the ability to edit the user ID.</li>
+        <li>Technical users loved seeing the raw payload.</li>
+      </ul>
+
+      <div class="pi-block">
+        <h2>The surprise: marketers aren't the ones who activate audiences</h2>
+        <p>We had always assumed Engage was a product for marketers. The interviews showed something different. Audience activation was too technical for most marketers to set up. They usually built the audience and handed it off to a data engineer for activation. Sometimes data engineers set up the first audience-to-destination configuration, and marketers copied and reused it.</p>
+        <p class="pi-statement aa-debate">The debate: should we build for data engineers, or enable marketers to self-serve?</p>
+        <div class="aa-debate-points">
+          <p>Marketers are the experts in the downstream tools. Their technical level also varies with the tools they use. Some destinations, like Salesforce Marketing Cloud, need more technical knowledge.</p>
+          <p>The lack of role-based access control (RBAC) in Segment was a further barrier to marketer self-service.</p>
+        </div>
+        <div class="pi-grid pi-grid--2 pi-personas aa-principle">
+          <div>
+            <h4>Now</h4>
+            <p>Meet customers where they are in the product. Because of the technical nature of the flow, design for data engineers and technical marketers.</p>
+          </div>
+          <div>
+            <h4>Long term</h4>
+            <p>Marketers want less dependency on their data team, and the product isn't there yet. We need more foundational research on the marketer persona, RBAC requirements and the gaps in marketer self-service.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pi-block">
+        <h3>Design changes for technical users</h3>
+        <div class="pi-grid pi-grid--2 aa-iter">
+          <figure class="pi-shot aa-bare">
+            <img src="img/iter-raw-payload.webp" alt="Event preview showing the raw payload by default." width="1456" height="1000" loading="lazy">
+            <figcaption>Show the raw payload by default in the event preview.</figcaption>
+          </figure>
+          <figure class="pi-shot aa-bare">
+            <img src="img/iter-test-event.webp" alt="Preview and test panel with an editable user ID and a Send test event to destination button." width="1943" height="1328" loading="lazy">
+            <figcaption>Send a test event, with an editable user ID.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div></section>
+
+    <!-- Cross-team -->
+    <section class="pi-section" id="alignment"><div class="pi-wrap">
+      <h2>Cross-team review</h2>
+      <p>Two pieces of feedback were raised in review:</p>
+      <ol class="pi-list">
+        <li>The Linked audience engineering team wanted the UX for linked and classic audiences unified further. Reusing UI components would greatly reduce engineering time.</li>
+        <li>The Audience compute engineering team was concerned about removing the "connect destination" step from the audience creation flow.</li>
+      </ol>
+
+      <div class="pi-block">
+        <div class="pi-row">
+          <div>
+            <h3>Address feedback #1</h3>
+            <p>I worked closely with the Linked audience designer on an end-to-end teardown of features and UI components across linked and classic audiences. We weighed bespoke UI against unified components, made the decisions together, and documented where the two products align and differ.</p>
+          </div>
+          <div class="aa-teardown">
+            <figure class="pi-shot aa-bare aa-teardown__map"><img src="img/teardown-map.webp" alt="End-to-end teardown in Figma: the linked and classic audience flows laid out side by side." width="655" height="1311" loading="lazy"></figure>
+            <figure class="pi-shot aa-bare"><img src="img/teardown-notes-1.webp" alt="Shared decision notes comparing linked and classic audiences: entry points, destination categories and event types." width="823" height="493" loading="lazy"></figure>
+            <figure class="pi-shot aa-bare"><img src="img/teardown-notes-2.webp" alt="More shared decision notes: configuring events, trait selection and event previews." width="823" height="688" loading="lazy"></figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="pi-block">
+        <div class="pi-row">
+          <div>
+            <h3>Address feedback #2</h3>
+            <p><strong>Situation:</strong> I proposed removing the "connect destination" step from the audience creation flow. Audience activation now had its own flow, so keeping the step was redundant and gave users the false impression that their task was complete. The Audience compute team was concerned that, with the current logic, this would increase the cost of computing audiences.</p>
+            <p><strong>Action:</strong> I found out the reasoning behind the concern, brainstormed with engineers on ways to mitigate the risk, and proposed a few options for the team's input.</p>
+            <p><strong>Result:</strong> The team unanimously agreed with the proposal. The result was a unified, streamlined UX with a small backend change to the compute logic and no added risk. The engineering task was committed to the Audience compute team's Q1 backlog.</p>
+          </div>
+          <div class="aa-docs">
+            <figure class="pi-shot aa-bare"><img src="img/compute-doc.webp" alt="Proposal doc (blurred): remove the connect destination step from the classic audience creation flow." width="984" height="1252" loading="lazy"></figure>
+            <figure class="pi-shot aa-bare"><img src="img/compute-decision.webp" alt="Decision table: every reviewer voted for option 5, noting it was low risk and gave a consistent experience." width="1072" height="1014" loading="lazy"></figure>
+          </div>
+        </div>
+      </div>
+    </div></section>
+
+    <!-- Final design -->
+    <section class="pi-section pi-section--muted" id="final-design"><div class="pi-wrap">
+      <h2>Design walkthrough</h2>
+      <div class="pi-row pi-row--wide-visual pi-row--center">
+        <div>
+          <h3>Connect a destination</h3>
+          <p>Adding a destination brings users into the wizard setup flow.</p>
+        </div>
+        <figure class="pi-shot aa-visual"><img src="img/final-1-connect.webp?v=2" alt="Clicking Add destination on an audience with no destinations, picking Braze in the Connect destination modal and clicking Next, which opens the Select action step." width="1200" height="853" loading="lazy"></figure>
+      </div>
+      <div class="pi-row pi-row--wide-visual pi-row--center">
+        <div>
+          <h3>Select an Action</h3>
+          <p>Users pick the Action. The Track or Identify call options are only presented when the Action doesn't have a default trigger.</p>
+        </div>
+        <figure class="pi-shot"><img src="img/final-2-action.webp?v=2" alt="Selecting Identify User, which has no default trigger, shows the Track or Identify event type choice. Selecting Update User Profile, which has one, does not." width="1200" height="853" loading="lazy"></figure>
+      </div>
+      <div class="pi-row pi-row--wide-visual pi-row--center">
+        <div>
+          <h3>Configure the event</h3>
+          <p>Enrichment and mapping live on one page, with a raw payload preview and a test event sent to the destination before saving.</p>
+        </div>
+        <figure class="pi-shot"><img src="img/final-3-configure.webp?v=2" alt="Configure event: selecting traits, switching the event preview between raw and pretty, then sending a test event to Braze, which succeeds." width="1200" height="853" loading="lazy"></figure>
+      </div>
+      <div class="pi-row pi-row--wide-visual pi-row--center">
+        <div>
+          <h3>Back on the audience</h3>
+          <p>The new event shows up on the destination, and the audience shows what it syncs to.</p>
+        </div>
+        <figure class="pi-shot aa-visual"><img src="img/final-4-added.webp?v=2" alt="Clicking Save and enable returns to the audience with an Event successfully added message. Closing the side sheet shows the destination with one event, enabled." width="1200" height="853" loading="lazy"></figure>
+      </div>
+    </div></section>
+
+    <!-- Pivot -->
+    <section class="pi-section" id="pivot"><div class="pi-wrap">
+      <h2>Pivot after the reduction in force</h2>
+      <p>Linked audiences launched with the new, unified UX pattern. But Segment had new priorities for 2024, and optimizing classic audiences wasn't one of them. Our engineering team was affected by the reduction in force in March, with 50% of the work still left.</p>
+      <p class="pi-statement aa-hmw">How might we still deliver customer value with a smaller team?</p>
+
+      <div class="pi-block pi-row">
+        <div>
+          <h3>A quick win</h3>
+          <p>The goal was a low-risk UX improvement scoped to 2 engineering weeks.</p>
+          <ul class="pi-list">
+            <li>Added a Mappings tab to the audience's destination side sheet that points users to configure mappings in Connections.</li>
+            <li>Cleaned up the audience settings side sheet with a clearer information architecture.</li>
+          </ul>
+        </div>
+        <div>
+          <figure class="pi-shot"><img src="img/pivot-flow.webp?v=2" alt="Adding a destination to an audience, then clicking Add mapping in the new Matching mappings column, which opens the destination side sheet's Matching mappings tab with a link to add mappings in Connections." width="1200" height="853" loading="lazy"></figure>
+        </div>
+      </div>
+    </div></section>
+
+    <!-- Results -->
+    <section class="pi-section pi-result" id="results"><div class="pi-wrap">
+      <h2>Result and impact</h2>
+      <ul class="pi-list">
+        <li>Linked audiences launched with the new unified UX. All 18 beta customers onboarded successfully after the March launch and gave positive feedback. Audience activation was a core part of the Linked Audiences launch, which contributed millions of dollars in ARR.</li>
+        <li>The scaled-back solution for classic audiences got a positive reaction from all cross-functional stakeholders. The change is small, but it's a step in the right direction, and the full design is validated and ready whenever classic audiences become a company priority again.</li>
+      </ul>
+
+      <div class="pi-block">
+        <h2>Learnings and reflections</h2>
+        <div class="pi-grid pi-grid--2 pi-personas">
+          <div>
+            <h4>Partnering with a team whose goals conflict</h4>
+            <p>Working with the Linked audience team came with a lot of friction, because the two teams had different goals: faster time to market with a pilot product, versus migrating existing customers without introducing regressions. If I did this again, I would engage the Linked audience team at a later phase, once their focus had shifted to feature parity with classic audiences.</p>
+          </div>
+          <div>
+            <h4>Foundational persona research matters</h4>
+            <p>Segment lacked foundational research on the target persona, and for most of the project we worked under the wrong assumption. We course-corrected quickly, but valuable time was lost.</p>
+          </div>
+        </div>
+      </div>
+      <p class="pi-end"><a class="pi-back" href="../../#work">← Back to all work</a></p>
+    </div></section>
+  </main>
+
+  <script>
+    document.querySelectorAll('[data-tabs]').forEach(group => {
+      const tabs = [...group.querySelectorAll('[role="tab"]')];
+      const columns = [...group.querySelectorAll('.pi-row > *')];
+      tabs.forEach((tab, i) => tab.addEventListener('click', () => {
+        tabs.forEach((t, j) => t.setAttribute('aria-selected', String(i === j)));
+        columns.forEach(col => [...col.querySelectorAll(':scope > [data-panel]')].forEach((panel, j) => { panel.hidden = i !== j; }));
+      }));
+    });
+  </script>
+  <dialog class="pi-lightbox" aria-label="Enlarged image"><button type="button" class="pi-lightbox__close" aria-label="Close">×</button><div class="pi-lightbox__body"></div></dialog>
+  <script>
+    // Click any screenshot to see it larger.
+    (() => {
+      const box = document.querySelector('.pi-lightbox');
+      const body = box.querySelector('.pi-lightbox__body');
+      document.querySelectorAll('.pi-shot, .pi-hero__shot').forEach(shot => {
+        shot.classList.add('pi-zoomable');
+        shot.tabIndex = 0;
+        const open = () => {
+          const node = (shot.querySelector('img') || shot).cloneNode(true);
+          node.loading = 'eager';
+          body.replaceChildren(node);
+          box.showModal();
+        };
+        shot.addEventListener('click', open);
+        shot.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+      });
+      box.addEventListener('click', e => { if (e.target === box || e.target.closest('.pi-lightbox__close')) box.close(); });
+    })();
+  </script>
+  <script>
+    // Side nav: highlight the section in view.
+    (() => {
+      const nav = document.querySelector('.pi-nav');
+      const links = [...nav.querySelectorAll('a')];
+      const targets = links.map(a => document.querySelector(a.getAttribute('href')));
+      const update = () => {
+        const y = innerHeight * 0.35;
+        let i = 0;
+        targets.forEach((t, n) => { if (t.getBoundingClientRect().top <= y) i = n; });
+        links.forEach((a, n) => a.toggleAttribute('aria-current', n === i));
+        nav.classList.toggle('is-shown', scrollY > 200);
+      };
+      addEventListener('scroll', update, { passive: true });
+      update();
+    })();
+  </script>
+  <script src="../../assets/glass-cursor.js?v=3"></script>
+  <script>
+    // Review-only: the comment overlay loads locally and on Vercel branch previews, never on the published site.
+    if (['localhost', '127.0.0.1'].includes(location.hostname) || /-git-.*\.vercel\.app$/.test(location.hostname)) {
+      document.body.appendChild(Object.assign(document.createElement('script'), { src: '/dev/annotate.js?v=autoresolve2' }));
+    }
+  </script>
+</body>
+</html>

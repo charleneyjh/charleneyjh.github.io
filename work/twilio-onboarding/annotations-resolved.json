@@ -1,0 +1,50 @@
+[
+ {
+  "selector": "#comp-kzx9s7uk > p > span > span",
+  "comment": "span in one row"
+ },
+ {
+  "selector": "#comp-kzxdalvd > p > span",
+  "comment": "bold"
+ },
+ {
+  "selector": "#comp-kzxe15j9 > p",
+  "comment": "bold"
+ },
+ {
+  "selector": "#comp-kzwe1dmk > p > span",
+  "comment": "span one row"
+ },
+ {
+  "selector": "#comp-kzwe2208 > p",
+  "comment": "span one row"
+ },
+ {
+  "selector": "#comp-kzx3ud3a > h4 > span > span > span",
+  "comment": "span how row"
+ },
+ {
+  "selector": "#comp-kzxk75bb > p > span > span",
+  "comment": "span one row"
+ },
+ {
+  "selector": "#comp-kzvp4zp9 > p > span > span > span",
+  "comment": "smaller size"
+ },
+ {
+  "selector": "#comp-kzvnedbj > p > span > span > span",
+  "comment": "smaller size"
+ },
+ {
+  "selector": "#comp-kzvq22qo > h2 > span",
+  "comment": "span one row"
+ },
+ {
+  "selector": "#comp-kzwdu4c5 > div:nth-of-type(1)",
+  "comment": "these diagram is so messy"
+ },
+ {
+  "selector": "#comp-kzwdxzm6 > p > span",
+  "comment": "move up 20px"
+ }
+]
