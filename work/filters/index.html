@@ -478,6 +478,32 @@
         <p class="uf-prose">Two directions are in progress: natural language combined with manual filtering, and subquery support.</p>
 
         <div class="uf-decision">
+          <h3>Learnings from natural language filtering</h3>
+          <p class="uf-prose">A parallel research study by the Segments team tested building filters through chat.</p>
+          <div class="uf-nl">
+            <div>
+              <h4>What the study found</h4>
+              <ul class="uf-list">
+                <li><strong>Manual filtering is table stakes.</strong> 10 out of 10 customers built filters faster by hand than through chat.</li>
+                <li><strong>Chat at the edges, manual at the center.</strong> Chat helps with shape, the rough intent. Manual handles precision.</li>
+                <li><strong>Chat breaks down on complex and messy data.</strong></li>
+              </ul>
+            </div>
+            <div>
+              <h4>What we decided</h4>
+              <p>Rebuild the manual foundation first, designed so chat can hand off into the manual builder later.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="uf-decision">
+          <h3>Design exploration for NL filtering</h3>
+          <p class="uf-prose">Designed with the NL filtering UX in mind: chat fills in the manual filter, and asks when a word like “best” is ambiguous.</p>
+          <figure class="uf-shot uf-gif"><img src="img/nl-filtering.gif" alt="Recording: typing 'My best customers in California' to Breeze, answering its question about what 'best' means, adding that as context, and the filter editor filling in four conditions." width="1000" height="899" loading="lazy"></figure>
+          <a class="uf-button uf-button--light" href="https://claude.ai/artifact/Qapa5vPnfeKegKHPkg5sXf" target="_blank" rel="noopener">Open the live demo →</a>
+        </div>
+
+        <div class="uf-decision">
           <h3>Every part of an association filter multiplies the options</h3>
           <div class="uf-sentence" role="img" aria-label="The filter sentence 'Contact has any associated deals where amount is over $1,000'. Phase 1 supports any of, all of, no, first and most recent; is over, is under, is, is between; and literal values. Phase 2 explores 3 of, sum, avg, min and max, deal's associated company revenue, aggregate values and associated company revenue as tokens.">
             <div class="uf-sentence__part"><span class="uf-sentence__word">Contact has</span></div>
@@ -509,10 +535,7 @@
 
         <div class="uf-decision">
           <h3>Design exploration for subquery</h3>
-          <div class="uf-sub">
-            <figure class="uf-shot"><img src="img/subquery-picker.png" alt="The data picker with Deals expanded into three options: has/has no associated records, count or calculate from records, and find one record and get value." width="433" height="605" loading="lazy"></figure>
-            <figure class="uf-shot"><img src="img/subquery-editor.png" alt="A filter comparing 'Sum of deal amount of associated deals' to 'Average of deal amount of deals with label', with a side panel to define the sum and filter which deals count." width="794" height="454" loading="lazy"></figure>
-          </div>
+          <figure class="uf-shot uf-gif"><img src="img/subquery.gif" alt="Recording: adding a filter on associated deals with 'Count or calculate from records', setting it to the sum of deal amount from deals with the Decision maker label where deal stage is Closed won, then entering a value." width="1000" height="675" loading="lazy"></figure>
           <a class="uf-button uf-button--light" href="https://claude.ai/artifact/Qapa5vPnfeKegKHPkg5sXf" target="_blank" rel="noopener">Open the live demo →</a>
         </div>
       </div>
