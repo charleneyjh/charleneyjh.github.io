@@ -537,3 +537,11 @@ strong { font-weight: 600; }
 .uf-gif { margin-top: 32px; }
 .uf-gif img { display: block; width: 100%; max-width: 1000px; height: auto; border-radius: 12px; border: 1px solid var(--uf-line); }
 @media (max-width: 900px) { .uf-nl { grid-template-columns: 1fr; gap: 32px; } }
+
+/* Round 5 comments */
+.uf-section h2 { font-size: clamp(26px, 3.4vw, 36px); }
+.uf-demo h2 { font-size: clamp(36px, 5vw, 60px); }
+#overview h2 { font-size: 24px; }
+#learnings h2 { margin-bottom: 44px; }
+.uf-cover__picker { width: 40.8%; margin-right: -1%; }
+.uf-cover__editor { width: 50.3%; }

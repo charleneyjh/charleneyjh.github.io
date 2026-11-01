@@ -282,5 +282,21 @@
  {
   "selector": "#results > div > h2",
   "comment": "remove the"
+ },
+ {
+  "selector": "main > header > div > div:nth-of-type(2) > img:nth-of-type(2)",
+  "comment": "remove background color"
+ },
+ {
+  "selector": "main > header > div > div:nth-of-type(2) > img:nth-of-type(1)",
+  "comment": "remove background color"
+ },
+ {
+  "selector": "#context > div > h3",
+  "comment": "4 HubSpot pillar products"
+ },
+ {
+  "selector": "#learnings > div > h2",
+  "comment": "add 20px padding below"
  }
 ]
