@@ -342,5 +342,17 @@
  {
   "selector": "main > section:nth-of-type(13)",
   "comment": "this is the same section"
+ },
+ {
+  "selector": "#results",
+  "comment": "use a different background"
+ },
+ {
+  "selector": "#learnings",
+  "comment": "use white"
+ },
+ {
+  "selector": "#next",
+  "comment": "use yellow"
  }
 ]
