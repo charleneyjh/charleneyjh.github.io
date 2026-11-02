@@ -39,6 +39,19 @@ function line(parent,pts,r,color){const curve=new THREE.CatmullRomCurve3(pts.map
 let seed=159;function rand(){seed=(seed*16807)%2147483647;return(seed-1)/2147483646;}function range(a,b){return a+(b-a)*rand();}
 const ground=box(scene,0,-.35,0,200,.6,200,colors.grass);ground.castShadow=false;
 for(let i=0;i<9;i++){const hill=ball(scene,-75+i*18,-1,-45-range(0,18),range(12,25),i%2?'#a2af90':'#94a582',[1,.22,1]);hill.castShadow=false;}
+// Overlapping rounded low-poly hills, with bases buried below the ground.
+for(const [depth,height,color,phase] of [[-51,8,'#b0bbb0',1.8],[-38,5.5,'#a4b39c',.8],[-28,2.8,'#99aa88',2.6]]){
+ for(let i=0;i<11;i++){
+  const x=-90+i*18,rise=height*(.8+.25*Math.sin(i*1.7+phase));
+  const geometry=new THREE.SphereGeometry(1,10,6);
+  const hill=new THREE.Mesh(geometry,new THREE.MeshStandardMaterial({color,roughness:1,flatShading:true}));
+  hill.position.set(x,-1.6,depth+Math.sin(i*1.3+phase)*3);hill.scale.set(17,rise,10);hill.name='distant-landscape';hill.castShadow=false;scene.add(hill);
+ }
+}
+for(let i=0;i<15;i++){
+ const x=-30+i*4.3,z=-21-Math.sin(i*2.1)*2.4,h=.45+(Math.sin(i*4.7)+1)*.3;
+ const pine=new THREE.Mesh(new THREE.ConeGeometry(h*.24,h,5),mat('#728b70'));pine.position.set(x,h*.5+.12,z);pine.castShadow=false;scene.add(pine);
+}
 const sites={greenhouse:{x:0,z:-3,title:'Code greenhouse',short:'CODE GREENHOUSE',number:'01 / EXPERIMENTS',subtitle:'Small ideas, made tangible.',body:'这里将展示我的 vibe coding projects、交互实验与小工具。当前是空间原型，作品尚未加入。',height:5},cabin:{x:-10,z:.8,title:'Living cabin',short:'LIVING CABIN',number:'02 / SPACES',subtitle:'A home is always becoming.',body:'这间木屋是空间设计与 home remodeling 的入口。之后会放入材质探索、空间方案与改造记录。',height:3.8},florist:{x:10,z:-1,title:'Candle atelier',short:'CANDLE ATELIER',number:'03 / OBJECTS & SCENT',subtitle:'Making room for a slower ritual.',body:'这间花店是蜡烛、器皿、香气与材料实验的创作空间。之后会加入真实作品、过程照片和设计故事。',height:3.6},pergola:{x:-8,z:-9.5,title:'The pergola',short:'THE PERGOLA',number:'04 / PAUSE',subtitle:'Nothing to finish. A moment to stay.',body:'一个可以停留的角落。第一阶段先确认开放式圆穹顶、路径和周围留白。',height:4.5}};
 const targets=[];const labels=[];let gardenSplatRenderer=null;
 function siteGroup(key){const data=sites[key],g=new THREE.Group();g.position.set(data.x,0,data.z);g.userData.place=key;scene.add(g);targets.push(g);const el=document.createElement('div');el.className='map-label';el.innerHTML='<span class="dot">●</span>'+data.short;document.querySelector('#labels').append(el);labels.push({el,key,pos:new THREE.Vector3(data.x,data.height,data.z)});return g;}
