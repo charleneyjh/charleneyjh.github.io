@@ -1,0 +1,12 @@
+.nc-cover .shot { margin: 0; }
+.nc-cover img { max-height: 560px; object-fit: contain; background: #fff; }
+.nc-stack { display: grid; gap: 32px; margin-top: 32px; }
+.nc-stack > div > p + p { margin-top: 12px; }
+.nc-concept, .nc-feature { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: start; }
+.nc-concept .shot, .nc-feature .shot { margin: 0; }
+.nc-concept img { max-height: 360px; object-fit: contain; }
+.nc-feature img { width: auto; max-width: 100%; max-height: 560px; margin-inline: auto; }
+.nc-source { margin-top: 24px; }
+.neighborcircle .case__jump { margin-top: 24px; margin-bottom: 0; }
+@media (max-width: 760px) { .nc-concept, .nc-feature { grid-template-columns: 1fr; gap: 24px; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

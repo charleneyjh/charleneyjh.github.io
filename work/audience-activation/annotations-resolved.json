@@ -1,0 +1,290 @@
+[
+ {
+  "selector": "#role > div > div:nth-of-type(1)",
+  "comment": "This timeline chart is too ugly"
+ },
+ {
+  "selector": "#current > div > div:nth-of-type(1)",
+  "comment": "Make this more like a flowchart diagram"
+ },
+ {
+  "selector": "#current > div > p",
+  "comment": "Remove this"
+ },
+ {
+  "selector": "#overview > div > div:nth-of-type(1) > div > img",
+  "comment": "remove the Background"
+ },
+ {
+  "selector": "#overview > div > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(2)",
+  "comment": "remove"
+ },
+ {
+  "selector": "#context > div > h2",
+  "comment": "I think I might have some screenshots from the deck"
+ },
+ {
+  "selector": "#current > div > h2",
+  "comment": "Move the current experience session"
+ },
+ {
+  "selector": "#overview > div > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)",
+  "comment": "remove \"like Breeze\""
+ },
+ {
+  "selector": "#current > div > div:nth-of-type(4) > div:nth-of-type(2) > h4",
+  "comment": "I want the North Star Matrix"
+ },
+ {
+  "selector": "#overview > div > div:nth-of-type(1) > div > img",
+  "comment": "add some shadow"
+ },
+ {
+  "selector": "#overview > div > div:nth-of-type(2) > div:nth-of-type(1) > p",
+  "comment": "\"a unified audience activation design pattern"
+ },
+ {
+  "selector": "#context > div > figure > img",
+  "comment": "Never mind, just remove this image"
+ },
+ {
+  "selector": "#problem > div > p:nth-of-type(1)",
+  "comment": "Change it to"
+ },
+ {
+  "selector": "#problem > div > ul > li:nth-of-type(3)",
+  "comment": "Make this its own paragraph"
+ },
+ {
+  "selector": "#problem > div > p:nth-of-type(2)",
+  "comment": "Add \"Our goal"
+ },
+ {
+  "selector": "#role > div > p",
+  "comment": "move up 20px"
+ },
+ {
+  "selector": "#role > div > p",
+  "comment": "add \"I was the sole designer"
+ },
+ {
+  "selector": "#role",
+  "comment": "Move the timeline and my role section"
+ },
+ {
+  "selector": "#concept > div > div:nth-of-type(2) > div > figure:nth-of-type(1) > img",
+  "comment": "I made this a two-column layout"
+ },
+ {
+  "selector": "#concept > div > div:nth-of-type(2) > p",
+  "comment": "remove this"
+ },
+ {
+  "selector": "#concept > div > div:nth-of-type(3) > div:nth-of-type(1) > div > h3",
+  "comment": "Add \"Pain point"
+ },
+ {
+  "selector": "#concept > div > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > figure:nth-of-type(1) > img",
+  "comment": "make the image 30% smaller"
+ },
+ {
+  "selector": "#concept > div > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > figure:nth-of-type(2) > img",
+  "comment": "make the image 30% smaller"
+ },
+ {
+  "selector": "#iterations > div > div:nth-of-type(1) > figure:nth-of-type(1) > img",
+  "comment": "remove"
+ },
+ {
+  "selector": "#iterations > div > div:nth-of-type(1) > figure:nth-of-type(2) > img",
+  "comment": "remove"
+ },
+ {
+  "selector": "#iterations > div > div:nth-of-type(1) > figure:nth-of-type(3) > img",
+  "comment": "remove"
+ },
+ {
+  "selector": "#iterations > div > p",
+  "comment": "remove"
+ },
+ {
+  "selector": "#iterations > div > div:nth-of-type(2) > div:nth-of-type(1) > h3",
+  "comment": "remove"
+ },
+ {
+  "selector": "#iterations > div > div:nth-of-type(2) > div:nth-of-type(2) > figure:nth-of-type(1) > img",
+  "comment": "remove"
+ },
+ {
+  "selector": "#usability > div > p",
+  "comment": "add \"and that reviewed"
+ },
+ {
+  "selector": "#usability > div > div:nth-of-type(1) > h2",
+  "comment": "The surprise: Marketers"
+ },
+ {
+  "selector": "#usability > div > div:nth-of-type(2) > h3",
+  "comment": "update it to"
+ },
+ {
+  "selector": "#alignment > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h3",
+  "comment": "remove"
+ },
+ {
+  "selector": "#alignment > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > figure:nth-of-type(1) > img",
+  "comment": "I think you left out a screenshot"
+ },
+ {
+  "selector": "#final-design > div > div:nth-of-type(1) > div:nth-of-type(2) > figure:nth-of-type(1) > img",
+  "comment": "I'd like you to record a GIF"
+ },
+ {
+  "selector": "#final-design > div > div:nth-of-type(2) > figure > img",
+  "comment": "Then I'd like you to record a GIF"
+ },
+ {
+  "selector": "#final-design > div > div:nth-of-type(3) > figure > img",
+  "comment": "For this one, could you start"
+ },
+ {
+  "selector": "#final-design > div > div:nth-of-type(4) > div:nth-of-type(2) > figure:nth-of-type(1) > img",
+  "comment": "And lastly"
+ },
+ {
+  "selector": "#pivot > div > div > div:nth-of-type(2) > figure > img",
+  "comment": "Replace the three screenshots"
+ },
+ {
+  "selector": "#role > div > div:nth-of-type(1)",
+  "comment": "The timeline is too verbose"
+ },
+ {
+  "selector": "#alignment > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2)",
+  "comment": "remove"
+ },
+ {
+  "selector": "#alignment > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p",
+  "comment": "remove"
+ },
+ {
+  "selector": "#alignment > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > h3",
+  "comment": "remove"
+ },
+ {
+  "selector": "#alignment > div > ul > li:nth-of-type(1)",
+  "comment": "use \"1.\""
+ },
+ {
+  "selector": "#alignment > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p",
+  "comment": "add \"1.\""
+ },
+ {
+  "selector": "#alignment > div > div:nth-of-type(2) > h3",
+  "comment": "remove"
+ },
+ {
+  "selector": "#alignment > div > div:nth-of-type(2) > div > div:nth-of-type(1) > p:nth-of-type(1)",
+  "comment": "add \"2.\""
+ },
+ {
+  "selector": "#final-design > div > div:nth-of-type(1) > div > p",
+  "comment": "Adding a destination"
+ },
+ {
+  "selector": "#final-design > div > div:nth-of-type(2) > div > p",
+  "comment": "Users picks the action"
+ },
+ {
+  "selector": "#current > div > div:nth-of-type(2) > div:nth-of-type(2) > figure:nth-of-type(2) > img",
+  "comment": "Can you show a disconnect"
+ },
+ {
+  "selector": "#role > div > div:nth-of-type(1)",
+  "comment": "Why do you use different colors"
+ },
+ {
+  "selector": "#role",
+  "comment": "The alignment of research"
+ },
+ {
+  "selector": "#research > div > p",
+  "comment": "I started off this project"
+ },
+ {
+  "selector": "#metric > div > div > div > p:nth-of-type(1)",
+  "comment": "I led a matric workshop"
+ },
+ {
+  "selector": "#usability > div > div:nth-of-type(1) > p:nth-of-type(2)",
+  "comment": "I made this the same font size"
+ },
+ {
+  "selector": "#results > div > div > div > div:nth-of-type(1) > h4",
+  "comment": "Use the same font size"
+ },
+ {
+  "selector": "#results > div > div > div > div:nth-of-type(2) > h4",
+  "comment": "Use the same font size"
+ },
+ {
+  "selector": "#final-design > div > h2",
+  "comment": "add 40px"
+ },
+ {
+  "selector": "#alignment > div > p",
+  "comment": "Two feedback"
+ },
+ {
+  "selector": "#concept > div > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > figure:nth-of-type(1) > img",
+  "comment": "Put these two images"
+ },
+ {
+  "selector": "#metric > div > div > div > p:nth-of-type(2)",
+  "comment": "Make this the same size"
+ },
+ {
+  "selector": "#alignment > div > div:nth-of-type(2) > div > div:nth-of-type(1) > p:nth-of-type(1)",
+  "comment": "Add situation"
+ },
+ {
+  "selector": "#alignment > div > div:nth-of-type(1) > div > div:nth-of-type(1) > p",
+  "comment": "remove \"1.\""
+ },
+ {
+  "selector": "#alignment > div > div:nth-of-type(2) > div > div:nth-of-type(1) > p:nth-of-type(1)",
+  "comment": "remove \"2.\""
+ },
+ {
+  "selector": "#usability > div > div:nth-of-type(1) > div:nth-of-type(1)",
+  "comment": "don't use 2 Column"
+ },
+ {
+  "selector": "#results > div > ul > li:nth-of-type(3)",
+  "comment": "merge this"
+ },
+ {
+  "selector": "#results > div > ul > li:nth-of-type(4)",
+  "comment": "remove"
+ },
+ {
+  "selector": "#results > div > div > h2",
+  "comment": "Reverse the order"
+ },
+ {
+  "selector": "#role > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div > em > svg",
+  "comment": "too ugly"
+ },
+ {
+  "selector": "#alignment > div > div:nth-of-type(2) > div > div:nth-of-type(1) > p:nth-of-type(1)",
+  "comment": "so just use"
+ },
+ {
+  "selector": "#alignment > div > div:nth-of-type(2) > div > div:nth-of-type(2) > figure:nth-of-type(2) > img",
+  "comment": "I want these pictures to be bigger"
+ },
+ {
+  "selector": "#results > div > ul > li:nth-of-type(2)",
+  "comment": "merge this with bullet point 1"
+ }
+]

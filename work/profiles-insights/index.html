@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profiles Insights — Charlene Yang</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" type="image/png" sizes="96x96">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="description" content="Case study: designing Profiles Insights at Twilio Segment, a 0-to-1 observability tool that helps data engineers find and fix profile data issues themselves.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/fonts/portfolio-fonts.css?v=figtree1">
+  <link rel="stylesheet" href="pi.css?v=1">
+  <link rel="stylesheet" href="../../assets/glass-cursor.css?v=7">
+</head>
+<body>
+  <div class="pi-top"><a class="pi-back" href="../../">← Back to home</a></div>
+
+  <nav class="pi-nav" aria-label="Case study sections">
+    <ol>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#context">Context</a></li>
+      <li><a href="#role">My role</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#users">Problem statement</a></li>
+      <li><a href="#concepts">Concepts</a></li>
+      <li><a href="#iterations">Iterations</a></li>
+      <li><a href="#explorations">Explorations</a></li>
+      <li><a href="#final-design">Walkthrough</a></li>
+      <li><a href="#results">Results</a></li>
+    </ol>
+  </nav>
+  <main>
+    <!-- Hero -->
+    <header class="pi-hero" id="overview"><div class="pi-wrap">
+      <div class="pi-hero__top">
+        <h1>Profiles Insights</h1>
+        <div class="pi-hero__shot"><img src="img/final-overview.png" alt="The Profiles Insights overview page: active profiles, total violations and total errors with trend charts." width="1440" height="1634"></div>
+      </div>
+      <div class="pi-overview">
+        <div>
+          <h2>Overview</h2>
+          <p>I led the design of Profiles Insights to help data engineers diagnose and resolve profile issues in Segment on their own. After launch, Support and Solutions Engineers reported a 30% decrease in the time it takes to complete profile observability tasks.</p>
+        </div>
+        <div>
+          <h2>My team: Profiles</h2>
+          <p>1 PM, 1 PD, 4 ENG</p>
+          <p>Mar – May 2023</p>
+        </div>
+      </div>
+    </div></header>
+
+    <!-- Context -->
+    <section class="pi-section" id="context"><div class="pi-wrap">
+      <h2>Context</h2>
+      <p>Segment is a customer data platform (CDP) that helps businesses collect, unify and activate their data to power personalized experiences. Profiles is Segment's flagship product. It uses an identity resolution system that tracks every interaction across the whole user journey to build unified, real-time customer identities.</p>
+      <p class="pi-statement">The Profiles team's mission is to build and activate rich, trusted profiles everywhere, to power the future of personalized customer engagement.</p>
+
+      <div class="pi-block">
+        <h2>The problem</h2>
+        <ul class="pi-list">
+          <li><strong>75% of Profiles support tickets</strong> related to profile observability and repair.</li>
+          <li>About <strong>12.5%</strong> of Profiles tickets were escalated to the engineering team.</li>
+          <li><strong>46%</strong> of issues were about missing data on profiles.</li>
+          <li>Profile observability was reported as the biggest product gap, affecting customers worth <strong>$17.9M</strong> in annual recurring revenue.</li>
+        </ul>
+      </div>
+    </div></section>
+
+    <!-- Timeline and role -->
+    <section class="pi-section pi-section--muted" id="role"><div class="pi-wrap">
+      <h2>Timeline and my role</h2>
+      <div class="pi-timeline" role="img" aria-label="Project timeline from November 2022 to July 2023. Discovery research ran November to January, then feature prioritization and the PRD. I joined in March 2023 for design ideation, usability studies in April, and design iteration and handoff in May. Implementation ran from May to July, followed by a private beta launch in July 2023.">
+        <div class="pi-timeline__inner">
+          <div class="pi-timeline__months" aria-hidden="true">
+            <span>Nov 2022</span><span>Jan 2023</span><span>Mar 2023</span><span>May 2023</span><span>Jul 2023</span>
+          </div>
+          <div class="pi-timeline__row"><span class="pi-timeline__lane">Research</span>
+            <span class="pi-bar pi-bar--before" style="--from: 0.1; --to: 1.9">Discovery research</span>
+            <span class="pi-bar" style="--from: 5.4; --to: 5.9">Usability studies</span>
+          </div>
+          <div class="pi-timeline__row"><span class="pi-timeline__lane">Design</span>
+            <span class="pi-bar" style="--from: 4.5; --to: 5.4">Ideation</span>
+            <span class="pi-bar" style="--from: 6; --to: 6.8">Iteration, handoff</span>
+          </div>
+          <div class="pi-timeline__row"><span class="pi-timeline__lane">Product</span>
+            <span class="pi-bar pi-bar--before" style="--from: 2; --to: 3.4">Prioritization, PRD</span>
+            <span class="pi-milestone" style="--at: 8">Private beta</span>
+          </div>
+          <div class="pi-timeline__row"><span class="pi-timeline__lane">Development</span>
+            <span class="pi-bar" style="--from: 6.4; --to: 8">Implementation</span>
+          </div>
+          <span class="pi-joined" style="--at: 4.4" aria-hidden="true"><span>I joined</span></span>
+        </div>
+      </div>
+
+      <div class="pi-grid pi-grid--3 pi-plain">
+        <div>
+          <h3>Design</h3>
+          <ul>
+            <li>Created user flows and wireframes</li>
+            <li>Built prototypes for research</li>
+            <li>Delivered high-fidelity mockups</li>
+          </ul>
+        </div>
+        <div>
+          <h3>User research</h3>
+          <ul>
+            <li>Built on existing research</li>
+            <li>Ran usability testing</li>
+            <li>Led research share-outs</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Development</h3>
+          <ul>
+            <li>Delivered pixel-perfect designs</li>
+            <li>Worked through edge cases with engineers</li>
+            <li>Ran design QA on front-end tickets</li>
+          </ul>
+        </div>
+      </div>
+    </div></section>
+
+    <!-- Research -->
+    <section class="pi-section pi-research" id="research"><div class="pi-wrap">
+      <h2>Research insights</h2>
+      <p>Before I joined, a UX researcher ran interviews and focus groups with internal solution engineers and customers to understand customers' awareness of their data quality, their mental models around partially usable profiles, and their pain points around observability and identity resolution strategy.</p>
+
+      <div class="pi-block">
+        <div class="pi-row">
+          <div>
+            <h3>Low awareness of profile health</h3>
+            <p>Customers have low awareness of the quality and health of their profile data. The most aware were those who had already suffered catastrophic data quality problems, and their only workaround was to start over with Segment.</p>
+          </div>
+          <blockquote class="pi-quote">
+            <p>"I was not aware that you can actually break a profile to a point that you cannot do anything with it. So this is like dark knowledge. It's nowhere documented… And I got an answer that <strong>I did a change that basically broke all our profiles and they're now unusable</strong>."</p>
+            <cite>— Systems manager at an enterprise customer</cite>
+          </blockquote>
+        </div>
+
+        <div class="pi-row">
+          <div>
+            <h3>A complicated, rigid system</h3>
+            <p>Segment's identity resolution system is complicated and rigid. It needs careful setup, and any change to it needs safeguards to avoid expensive outcomes that erode customers' trust.</p>
+          </div>
+          <figure class="pi-shot pi-shot--small"><img src="img/insight-2a.png" alt="Table of external ID types, such as user_id, email and android.id, and where each is found in a track or identify call." width="566" height="477" loading="lazy"></figure>
+        </div>
+
+        <div class="pi-row">
+          <div>
+            <h3>Profiles are a black box</h3>
+            <p>Customers don't know how to identify and fix even the most common issues. Unintended or incorrect profile merges usually come from errors upstream, in customers' code or from not following tracking best practices, but customers had no way to tell a Segment bug from a problem in their own data.</p>
+          </div>
+          <blockquote class="pi-quote">
+            <p>"<strong>Data inconsistencies are not exactly the fault of Segment, but the implementation within our web platform, but that's always a little bit hard to pinpoint.</strong> So any issue that does come up, it's hard to pinpoint whether that's the issue in Segment or whether there's an issue in the platform."</p>
+            <cite>— Product manager, martech and media, at an enterprise customer</cite>
+          </blockquote>
+        </div>
+      </div>
+    </div></section>
+
+    <!-- Users and framing -->
+    <section class="pi-section pi-section--muted" id="users"><div class="pi-wrap">
+      <h2>Who we designed for</h2>
+      <div class="pi-grid pi-grid--2 pi-personas">
+        <div>
+          <h4>Primary persona</h4>
+          <p>Data engineers who need to identify data issues and troubleshoot why profiles or the identity resolution system don't behave as expected.</p>
+        </div>
+        <div>
+          <h4>Secondary persona</h4>
+          <p>Business users who want overall profile metrics to justify Segment's ROI.</p>
+        </div>
+      </div>
+
+      <div class="pi-block">
+        <h2>Customer problem statement</h2>
+        <p>As a data operator or admin who governs data performance, when I notice data issues, I want to troubleshoot what went wrong and fix them myself, so that I can trust Segment's data to power my personalized communications.</p>
+        <p>Today I have no visibility into what caused profile data issues or how my identity strategy is performing. All I can do is file support tickets or get my Segment rep on a call to help me troubleshoot.</p>
+        <p class="pi-statement pi-users-hmw">How might we make data operators feel confident identifying and troubleshooting data quality issues on their own?</p>
+      </div>
+    </div></section>
+
+    <!-- Concepts -->
+    <section class="pi-section" id="concepts"><div class="pi-wrap">
+      <h2>Design concepts</h2>
+      <div class="pi-grid pi-grid--2">
+        <div>
+          <svg class="pi-concept" viewBox="0 0 200 140" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <defs>
+              <linearGradient id="cov-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4f9fb"/><stop offset="1" stop-color="#eaf3f6"/></linearGradient>
+              <linearGradient id="cov-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a9d6ee"/><stop offset="1" stop-color="#cfe7f3" stop-opacity=".6"/></linearGradient>
+              <linearGradient id="cov-mint" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#bfe3d6"/><stop offset="1" stop-color="#cfe2f2"/></linearGradient>
+              <filter id="cov-sh" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#5b7f92" flood-opacity=".10"/></filter>
+            </defs>
+            <rect x="0" y="0" width="200" height="140" rx="14" fill="url(#cov-bg)"/>
+            <g filter="url(#cov-sh)" fill="#fff"><rect x="14" y="14" width="52" height="34" rx="7"/><rect x="74" y="14" width="52" height="34" rx="7"/><rect x="134" y="14" width="52" height="34" rx="7"/><rect x="14" y="58" width="112" height="68" rx="8"/><rect x="134" y="58" width="52" height="68" rx="8"/></g>
+            <path d="M22 26h18M82 26h14M142 26h20" stroke="#d3dce1" stroke-width="2.5"/>
+            <path d="M22 40l7-4 7 2 8-6 8 3 6-2M82 40l7-2 7 1 8-5 8 2 6-3M142 40l7-5 7 3 8-2 8 1 6-3" stroke="#8cc5e3" stroke-width="1.25"/>
+            <g fill="url(#cov-fill)"><rect x="26" y="96" width="9" height="20" rx="3"/><rect x="42" y="82" width="9" height="34" rx="3"/><rect x="58" y="90" width="9" height="26" rx="3"/><rect x="74" y="74" width="9" height="42" rx="3"/><rect x="90" y="100" width="9" height="16" rx="3"/><rect x="106" y="86" width="9" height="30" rx="3"/></g>
+            <path d="M142 74h30M142 86h22M142 98h28M142 110h18" stroke="#d3dce1" stroke-width="2.5"/>
+          </svg>
+          <h3>Overview</h3>
+          <p>Summary metrics that show how the profile system is performing and enable proactive monitoring.</p>
+        </div>
+        <div>
+          <svg class="pi-concept" viewBox="0 0 200 140" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <defs>
+              <linearGradient id="clg-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4f9fb"/><stop offset="1" stop-color="#eaf3f6"/></linearGradient>
+              <linearGradient id="clg-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a9d6ee"/><stop offset="1" stop-color="#cfe7f3" stop-opacity=".6"/></linearGradient>
+              <linearGradient id="clg-mint" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#bfe3d6"/><stop offset="1" stop-color="#cfe2f2"/></linearGradient>
+              <filter id="clg-sh" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#5b7f92" flood-opacity=".10"/></filter>
+            </defs>
+            <rect x="0" y="0" width="200" height="140" rx="14" fill="url(#clg-bg)"/>
+            <rect x="14" y="14" width="96" height="16" rx="8" fill="#fff" filter="url(#clg-sh)"/>
+            <circle cx="24" cy="22" r="3" stroke="#a9bcc5" stroke-width="1.25"/>
+            <g filter="url(#clg-sh)" fill="#fff"><rect x="14" y="40" width="172" height="20" rx="6"/><rect x="14" y="66" width="172" height="20" rx="6"/><rect x="14" y="92" width="172" height="20" rx="6"/><rect x="14" y="118" width="172" height="14" rx="6"/></g>
+            <circle cx="26" cy="50" r="3.5" fill="#f2b8a6"/><circle cx="26" cy="76" r="3.5" fill="url(#clg-mint)"/><circle cx="26" cy="102" r="3.5" fill="#a9d6ee"/>
+            <path d="M38 50h64M38 76h50M38 102h72" stroke="#d3dce1" stroke-width="2.5"/>
+            <path d="M146 50h28M146 76h28M146 102h28" stroke="#e3e9ec" stroke-width="2.5"/>
+          </svg>
+          <h3>Logs</h3>
+          <p>Logs that surface errors, violations and successes in the profile system, to make troubleshooting possible.</p>
+        </div>
+      </div>
+    </div></section>
+
+    <!-- Feedback -->
+    <section class="pi-section pi-section--muted" id="iterations"><div class="pi-wrap">
+      <h2>Feedback and iterations</h2>
+      <p>Customers and Support were thrilled about this feature! The errors and violations table and its side sheet gave people what they needed to troubleshoot. The overview page had all the key information, but needed more work to help users connect the data into a full picture.</p>
+
+      <div class="pi-grid pi-grid--3 pi-quotes">
+        <blockquote class="pi-quote">
+          <p>"This Logs section is very useful. We are going from flying blind, no visibility whatsoever and very high cost of actually finding the issues, to having at least some understanding of what's going wrong. <strong>In whatever form you're shipping it, I want to be first in line!</strong>"</p>
+          <cite>— Data engineer at an enterprise customer</cite>
+        </blockquote>
+        <blockquote class="pi-quote">
+          <p>"Observability really is the main pain point we have with Profiles right now with big customers. This will reduce the number of tickets if they learn how to use the tool."</p>
+          <cite>— Customer success lead, Twilio</cite>
+        </blockquote>
+        <blockquote class="pi-quote">
+          <p>"<strong>In my opinion this is gonna have a massive impact on the support team and clients are gonna love it!</strong> For us it's gonna cut the time we spend on this a lot."</p>
+          <cite>— Customer success lead, Twilio</cite>
+        </blockquote>
+      </div>
+
+      <div class="pi-block">
+        <div class="pi-row">
+          <div>
+            <h3>Logs</h3>
+            <ul class="pi-list">
+              <li>Customers might feel <strong>overwhelmed</strong> by the number of violations, reading them as something negative. In fact, violations are the expected behavior of their identity resolution system.</li>
+              <li>Customers need to search logs by message ID, but the design only supported external IDs.</li>
+              <li>The errors and violations table and its side sheet were insightful and matched how users troubleshoot.</li>
+              <li>Success logs are useful but add <strong>noise</strong> during troubleshooting. Customers also wanted an audit trail of identity resolution changes, to correlate with errors and violations.</li>
+            </ul>
+            <h4 style="margin-top: 32px">Design changes</h4>
+            <ul class="pi-list" style="margin-top: 8px">
+              <li>Removed the warning icon from violations and added educational content about errors and violations.</li>
+              <li>Added search by message ID.</li>
+              <li>Moved success logs to their own tab to reduce noise.</li>
+              <li>Added an audit trail for transparency.</li>
+            </ul>
+          </div>
+          <figure class="pi-shot pi-shot--labelled">
+            <img src="img/logs-presented.png" alt="The logs page as first presented: one table mixing errors, violations and success events, with search by external ID only." width="867" height="769" loading="lazy">
+            <figcaption>What was presented</figcaption>
+          </figure>
+        </div>
+
+        <div class="pi-row">
+          <div>
+            <h3>Overview</h3>
+            <p>Overview metrics helped gauge the health of a space, and users liked seeing overall trends to proactively monitor profile health. But the top 5 error and violation types and their causes could be better integrated, and a high violation rate could scare non-technical users. The page lacked a positive spin.</p>
+            <h4 style="margin-top: 32px">Design changes</h4>
+            <ul class="pi-list" style="margin-top: 8px">
+              <li>Combined the top error and violation types and their causes into one chart.</li>
+              <li>Removed the pie chart: non-technical users care about profiles more than raw events, and it put too much emphasis on violations.</li>
+            </ul>
+          </div>
+          <blockquote class="pi-quote pi-quote--low">
+            <p>"If I put on the marketer hat, they would like to see some performing metrics and how well they are hitting their goals. How many complete profiles do I have? How many people can I reach? <strong>The overview page is missing the positive growth data.</strong>"</p>
+            <cite>— Solutions engineering manager, Twilio</cite>
+          </blockquote>
+        </div>
+
+        <div class="pi-grid pi-grid--2 pi-compare">
+          <figure class="pi-shot pi-shot--labelled">
+            <img src="img/overview-before.png" alt="Overview before: an events pie chart and separate tables for top violation and error types." width="818" height="886" loading="lazy">
+            <figcaption>Before</figcaption>
+          </figure>
+          <figure class="pi-shot pi-shot--labelled">
+            <img src="img/overview-after.png" alt="Overview after: profile growth up front and a single combined chart of top error and violation causes." width="787" height="886" loading="lazy">
+            <figcaption>After</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div></section>
+
+    <!-- UI explorations -->
+    <section class="pi-section" id="explorations"><div class="pi-wrap">
+      <h2>The search and filter challenge</h2>
+      <ul class="pi-list">
+        <li><strong>The ask.</strong> As a user, I want to search logs by message ID and by external ID.</li>
+        <li><strong>Technical limitation.</strong> Message IDs can be searched directly, but searching by external ID requires picking an external ID type first. External ID type is also an important filter that has to work on its own, independently of search.</li>
+        <li><strong>UI challenge.</strong> Design one search bar that supports two kinds of search: one that needs a filter and one that doesn't.</li>
+      </ul>
+
+      <div class="pi-block pi-tabs" data-tabs>
+        <div class="pi-tabs__list" role="tablist" aria-label="Search explorations">
+          <button type="button" role="tab" aria-selected="true">Exploration 1</button>
+          <button type="button" role="tab" aria-selected="false">Exploration 2</button>
+          <button type="button" role="tab" aria-selected="false">Final design</button>
+        </div>
+        <div class="pi-row">
+          <div>
+            <div data-panel role="tabpanel">
+              <figure class="pi-shot"><img src="img/search-explore-1.png" alt="Exploration 1: a search bar for message ID next to the type and filter controls." width="1012" height="160" loading="lazy"></figure>
+              <figure class="pi-shot"><img src="img/search-explore-1b.png" alt="Exploration 1 with advanced search open: a second search bar and external ID type filter for searching by external ID." width="1012" height="231" loading="lazy"></figure>
+            </div>
+            <div data-panel role="tabpanel" hidden>
+              <figure class="pi-shot"><img src="img/search-explore-2.png" alt="Exploration 2: one search bar with an external ID type selector built into its left side." width="1030" height="134" loading="lazy"></figure>
+            </div>
+            <div data-panel role="tabpanel" hidden>
+              <figure class="pi-shot"><img src="img/search-final.png" alt="Final design: the errors and violations page with one search bar and an external ID type filter." width="1185" height="827" loading="lazy"></figure>
+            </div>
+          </div>
+          <div>
+            <p data-panel>Two search bars: a regular search for message ID, and an advanced search for external ID with an external ID type filter. Search by external ID is hidden, and it's odd to have two search bars and two external ID filters.</p>
+            <p data-panel hidden>An external ID type selector built into the search bar. It's not an existing component, and it's unclear that no filter is needed when searching by message ID.</p>
+            <p data-panel hidden>One search bar, whose placeholder text changes with the filter selection.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pi-block pi-tabs" data-tabs>
+        <h2>Side sheet exploration</h2>
+        <div class="pi-tabs__list" role="tablist" aria-label="Side sheet explorations">
+          <button type="button" role="tab" aria-selected="true">Exploration 1</button>
+          <button type="button" role="tab" aria-selected="false">Exploration 2</button>
+          <button type="button" role="tab" aria-selected="false">Final design</button>
+        </div>
+        <div class="pi-row">
+          <div class="pi-sheet">
+            <figure class="pi-shot" data-panel role="tabpanel"><img src="img/sheet-explore-1-crop.png" alt="Side sheet exploration 1: event details as a two-column list under the error message." width="365" height="455" loading="lazy"></figure>
+            <figure class="pi-shot" data-panel role="tabpanel" hidden><img src="img/sheet-explore-2-crop.png" alt="Side sheet exploration 2: details grouped under Incoming message, Source and Retry." width="358" height="595" loading="lazy"></figure>
+            <figure class="pi-shot" data-panel role="tabpanel" hidden><img src="img/sheet-final-crop.png" alt="Final side sheet: the error message with a recommended next step, above a scannable table of details." width="390" height="515" loading="lazy"></figure>
+          </div>
+          <ul class="pi-list">
+            <li>A table format is the most scannable.</li>
+            <li>Each error and violation gets a recommended next step.</li>
+            <li>Irrelevant details are removed from the table.</li>
+          </ul>
+        </div>
+      </div>
+    </div></section>
+
+    <!-- Final design -->
+    <section class="pi-section pi-section--muted" id="final-design"><div class="pi-wrap">
+      <h2>Design walkthrough</h2>
+      <div class="pi-row pi-row--wide-visual pi-row--center">
+        <div class="pi-raise">
+          <h3>Overview</h3>
+          <p>Profile growth, violation and error trends, and their top causes, in one view for proactive monitoring.</p>
+        </div>
+        <figure class="pi-shot pi-demo pi-demo--overview" role="img" aria-label="Hovering over a bar in the top causes for violations chart shows a tooltip. Clicking a violation type percentage opens Errors and violations with a filter chip for that violation.">
+          <img src="img/final-overview.png" alt="" width="1440" height="1634" loading="lazy">
+          <span class="pi-demo__next"><img src="img/overview-filtered.png" alt="" width="1440" height="1634" loading="lazy"></span>
+          <span class="pi-tip" aria-hidden="true"><span>android.id</span><strong>Identifier mapping limit exceeded: 312</strong></span>
+          <svg class="pi-demo__cursor" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 2l14 12-6.5 1L16 22l-3 1.3-3.4-7.1L5 20z" fill="#111" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </figure>
+      </div>
+      <div class="pi-row pi-row--wide-visual pi-row--center">
+        <div>
+          <h3>Errors and violations</h3>
+          <p>Find the events that need investigation in a dedicated table, then open a side sheet for details and a recommended next step.</p>
+        </div>
+        <figure class="pi-shot pi-demo pi-demo--errors" role="img" aria-label="Clicking a violation row opens a side sheet with details and a recommended next step. View all lists the external IDs that got dropped, and the Message payload tab shows the raw event. Clicking an error row opens the error side sheet.">
+          <img src="img/final-17.png" alt="" width="1440" height="1131" loading="lazy">
+          <span class="pi-demo__row" style="top: 75.2%"></span>
+          <span class="pi-demo__row pi-demo__row--err" style="top: 37.75%"></span>
+          <span class="pi-demo__dim"></span>
+          <span class="pi-demo__sheet"><img src="img/sheet-details.png" alt="" loading="lazy"><img class="pi-demo__ids" src="img/sheet-ids.png" alt="" loading="lazy"><img class="pi-demo__sheet2" src="img/sheet-code.png" alt="" loading="lazy"></span>
+          <span class="pi-demo__sheet pi-demo__sheet--err"><img src="img/sheet-error.png" alt="" loading="lazy"></span>
+          <svg class="pi-demo__cursor" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 2l14 12-6.5 1L16 22l-3 1.3-3.4-7.1L5 20z" fill="#111" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </figure>
+      </div>
+      <div class="pi-row pi-row--wide-visual pi-row--center">
+        <div>
+          <h3>Success logs</h3>
+          <p>Successful events have their own tab, preserving useful information while keeping the troubleshooting view focused.</p>
+        </div>
+        <figure class="pi-shot pi-demo pi-demo--logs" role="img" aria-label="Clicking a success log opens a side sheet with its details.">
+          <img src="img/final-18.png" alt="" width="1440" height="1131" loading="lazy">
+          <span class="pi-demo__row" style="top: 42.4%"></span>
+          <span class="pi-demo__dim"></span>
+          <span class="pi-demo__sheet"><img src="img/sheet-logs.png" alt="" loading="lazy"></span>
+          <svg class="pi-demo__cursor" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 2l14 12-6.5 1L16 22l-3 1.3-3.4-7.1L5 20z" fill="#111" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </figure>
+      </div>
+      <div class="pi-row pi-row--wide-visual pi-row--center">
+        <div>
+          <h3>Audit trail</h3>
+          <p>Review identity resolution setting changes and who made them, so changes can be correlated with errors and violations.</p>
+        </div>
+        <figure class="pi-shot"><img src="img/final-19.png" alt="Audit trail showing identity resolution changes." loading="lazy"></figure>
+      </div>
+      <div class="pi-row pi-row--wide-visual pi-row--center">
+        <div>
+          <h3>Email digest settings</h3>
+          <p>Subscribe to a digest of profile health to support ongoing monitoring.</p>
+        </div>
+        <figure class="pi-shot"><img src="img/final-settings.png" alt="Email digest subscription settings." loading="lazy"></figure>
+      </div>
+
+    </div></section>
+
+    <!-- Results -->
+    <section class="pi-section pi-result" id="results"><div class="pi-wrap">
+      <h2>Result and impact</h2>
+      <p>With our product, Support and Solutions Engineers reported a 30% decrease in the time it takes to complete profile observability tasks. Profiles Insights is used heavily by Support and Solutions Engineers, and we saw a noticeable drop in escalations to engineers over Slack.</p>
+      <p class="pi-end"><a class="pi-back" href="../../#work">← Back to all work</a></p>
+    </div></section>
+  </main>
+
+  <script>
+    document.querySelectorAll('[data-tabs]').forEach(group => {
+      const tabs = [...group.querySelectorAll('[role="tab"]')];
+      const columns = [...group.querySelectorAll('.pi-row > *')];
+      tabs.forEach((tab, i) => tab.addEventListener('click', () => {
+        tabs.forEach((t, j) => t.setAttribute('aria-selected', String(i === j)));
+        columns.forEach(col => [...col.querySelectorAll(':scope > [data-panel]')].forEach((panel, j) => { panel.hidden = i !== j; }));
+      }));
+    });
+  </script>
+  <dialog class="pi-lightbox" aria-label="Enlarged image"><button type="button" class="pi-lightbox__close" aria-label="Close">×</button><div class="pi-lightbox__body"></div></dialog>
+  <script>
+    // Click any screenshot to see it larger; animated demos keep playing.
+    (() => {
+      const box = document.querySelector('.pi-lightbox');
+      const body = box.querySelector('.pi-lightbox__body');
+      document.querySelectorAll('.pi-shot, .pi-hero__shot').forEach(shot => {
+        shot.classList.add('pi-zoomable');
+        shot.tabIndex = 0;
+        const open = () => {
+          const demo = shot.classList.contains('pi-demo');
+          const node = demo ? shot.cloneNode(true) : (shot.querySelector('img') || shot).cloneNode(true);
+          if (demo) node.classList.remove('pi-zoomable');
+          node.removeAttribute('tabindex');
+          node.querySelectorAll('img').forEach(img => img.loading = 'eager');
+          body.replaceChildren(node);
+          box.showModal();
+        };
+        shot.addEventListener('click', open);
+        shot.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+      });
+      box.addEventListener('click', e => { if (e.target === box || e.target.closest('.pi-lightbox__close')) box.close(); });
+    })();
+  </script>
+  <script>
+    // Side nav: highlight the section in view.
+    (() => {
+      const nav = document.querySelector('.pi-nav');
+      const links = [...nav.querySelectorAll('a')];
+      const targets = links.map(a => document.querySelector(a.getAttribute('href')));
+      const update = () => {
+        const y = innerHeight * 0.35;
+        let i = 0;
+        targets.forEach((t, n) => { if (t.getBoundingClientRect().top <= y) i = n; });
+        links.forEach((a, n) => a.toggleAttribute('aria-current', n === i));
+        nav.classList.toggle('is-shown', scrollY > 200);
+      };
+      addEventListener('scroll', update, { passive: true });
+      update();
+    })();
+  </script>
+  <script src="../../assets/glass-cursor.js?v=3"></script>
+  <script>
+    // Review-only: the comment overlay loads locally and on Vercel branch previews, never on the published site.
+    if (['localhost', '127.0.0.1'].includes(location.hostname) || /-git-.*\.vercel\.app$/.test(location.hostname)) {
+      document.body.appendChild(Object.assign(document.createElement('script'), { src: '/dev/annotate.js?v=resolve1' }));
+    }
+  </script>
+</body>
+</html>
