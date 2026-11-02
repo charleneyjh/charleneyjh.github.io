@@ -4,6 +4,27 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Unified filters — Charlene Yang</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.png" type="image/png" sizes="96x96">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="robots" content="noindex">
+  <script>
+    // Password gate: the homepage sets this flag after the right password; otherwise ask here.
+    try { if (sessionStorage.getItem('uf-unlocked') !== '1') document.documentElement.classList.add('uf-locked'); }
+    catch { document.documentElement.classList.add('uf-locked'); }
+  </script>
+  <style>
+    html.uf-locked body > :not(#uf-gate) { display: none !important; }
+    #uf-gate { display: none; }
+    html.uf-locked #uf-gate { display: grid; place-items: center; min-height: 100vh; padding: 24px; box-sizing: border-box; }
+    #uf-gate form { width: 100%; max-width: 380px; display: grid; gap: 12px; font-family: "Figtree", ui-sans-serif, system-ui, sans-serif; color: #16202e; }
+    #uf-gate h1 { margin: 0; font-size: 28px; }
+    #uf-gate p { margin: 0; color: #4a5462; }
+    #uf-gate input { padding: 12px 14px; border: 1px solid #c9c2b6; border-radius: 10px; font: inherit; font-size: 16px; }
+    #uf-gate button { padding: 12px 20px; border: 0; border-radius: 999px; background: #16202e; color: #fff; font: inherit; font-weight: 600; cursor: pointer; }
+    #uf-gate-error { min-height: 1.4em; color: #b4532a; font-size: 15px; }
+    #uf-gate a { color: #4a5462; font-size: 15px; }
+  </style>
   <meta name="description" content="Case study: leading a platform initiative at HubSpot to turn a fragmented filter experience into one shared model.">
   <link rel="stylesheet" href="../../assets/fonts/portfolio-fonts.css?v=figtree1">
   <link rel="stylesheet" href="filters.css?v=2">
@@ -18,6 +39,17 @@
   </script>
 </head>
 <body class="uf-page">
+  <div id="uf-gate">
+    <form id="uf-gate-form">
+      <h1>Unified Filters</h1>
+      <p>Enter the password to view this case study.</p>
+      <label for="uf-gate-input" class="uf-visually-hidden">Password</label>
+      <input id="uf-gate-input" type="password" autocomplete="off" required placeholder="Password" aria-describedby="uf-gate-error">
+      <p id="uf-gate-error" role="alert"></p>
+      <button type="submit">View case study</button>
+      <a href="../../#work">← Back to all work</a>
+    </form>
+  </div>
   <nav class="uf-topnav" aria-label="Portfolio navigation"><a href="../../">← Back to home</a></nav>
 
   <nav class="case-nav case-nav--filters" aria-label="Case study sections"><ol><li><a href="#overview">Overview</a></li><li><a href="#context">Context</a></li><li><a href="#problem">The problem</a></li><li><a href="#opportunity">The opportunity</a></li><li><a href="#success">Defining success</a></li><li><a href="#role">Timeline and my role</a></li><li><a href="#process">Process</a></li><li><a href="#design">Design decisions</a></li><li><a href="#walkthrough">Design walkthrough</a></li><li><a href="#results">Results</a></li><li><a href="#learnings">What I've learned</a></li><li><a href="#next">If I had more time</a></li></ol></nav>
@@ -618,6 +650,26 @@
     })();
   </script>
   <script src="../../assets/case-nav.js?v=3"></script>
-  <script src="../../dev/annotate.js"></script>
+  <script>
+    (() => {
+      const form = document.getElementById('uf-gate-form');
+      if (!document.documentElement.classList.contains('uf-locked')) return;
+      const input = document.getElementById('uf-gate-input'), error = document.getElementById('uf-gate-error');
+      input.focus();
+      form.addEventListener('submit', async e => {
+        e.preventDefault();
+        const bytes = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(input.value));
+        const hash = Array.from(new Uint8Array(bytes), b => b.toString(16).padStart(2, '0')).join('');
+        if (hash !== '6dea502e53d00cd5f9e702d23d5c005efcf6edea4df968681c9c6404aac91096') { error.textContent = 'Incorrect password. Please try again.'; input.select(); return; }
+        try { sessionStorage.setItem('uf-unlocked', '1'); } catch {}
+        document.documentElement.classList.remove('uf-locked');
+        dispatchEvent(new Event('resize'));
+      });
+    })();
+    // Review-only: the comment overlay loads locally and on Vercel branch previews, never on the published site.
+    if (['localhost', '127.0.0.1'].includes(location.hostname) || /-git-.*\.vercel\.app$/.test(location.hostname)) {
+      document.body.appendChild(Object.assign(document.createElement('script'), { src: '/dev/annotate.js?v=resolve1' }));
+    }
+  </script>
 </body>
 </html>

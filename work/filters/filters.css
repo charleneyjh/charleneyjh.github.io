@@ -596,3 +596,4 @@ strong { font-weight: 600; }
 .uf-context__note p { color: var(--uf-ink-soft); }
 .uf-context [role="tabpanel"].uf-context__row:not([hidden]) { display: grid; grid-template-columns: 70% minmax(0, 1fr); align-items: center; gap: 48px; width: 100%; }
 @media (max-width: 800px) { .uf-context [role="tabpanel"].uf-context__row:not([hidden]) { grid-template-columns: 1fr; gap: 20px; } }
+.uf-visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
