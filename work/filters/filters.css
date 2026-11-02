@@ -588,3 +588,7 @@ strong { font-weight: 600; }
 @media (max-width: 800px) { .uf-feature-row { grid-template-columns: 1fr; gap: 24px; } }
 .uf-gif--sq { width: 60%; }
 @media (max-width: 800px) { .uf-gif--sq { width: 100%; } }
+.uf-feature-row + .uf-feature-row { margin-top: 64px; }
+.uf-feature-row--flip { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); }
+.uf-feature-row--flip img { order: 2; }
+@media (max-width: 800px) { .uf-feature-row--flip { grid-template-columns: 1fr; } .uf-feature-row--flip img { order: 0; } }
