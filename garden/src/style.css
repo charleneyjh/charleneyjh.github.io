@@ -21,3 +21,7 @@ header{top:135px}footer{bottom:82px}
 @media(max-width:550px){header{top:112px}footer{bottom:72px}}
 
 header{top:88px}@media(max-width:550px){header{top:80px}}
+
+/* The embed reserves vertical space for the landscape; controls live above the fades. */
+.embedded-garden header{top:clamp(250px,30vh,370px)}.embedded-garden footer{display:none}
+@media(max-width:550px){.embedded-garden header{top:225px}}

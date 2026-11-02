@@ -18,6 +18,7 @@ import { createMixedBorder } from './models/mixed-border.js';
 import { loadGaussianArch } from './models/gaussian-arch.js';
 
 const host=document.querySelector('#garden');
+if(parent!==window)document.documentElement.classList.add('embedded-garden');
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 let renderer;
 try {renderer=new THREE.WebGLRenderer({antialias:true,alpha:false,powerPreference:'high-performance'});}catch(error){document.querySelector('#loading p').textContent='This garden needs WebGL';document.querySelector('#loading-note').textContent='Try opening this page in a browser with hardware acceleration enabled.';throw error;}
@@ -290,7 +291,7 @@ controls.addEventListener('change',()=>{if(gardenSplatRenderer){const budget=cam
 function resize(){fitGardenView(camera,innerWidth,innerHeight);renderer.setSize(innerWidth,innerHeight);}addEventListener('resize',resize);resize();
 const labelProjection=new THREE.Vector3();let lastLabelUpdate=0;
 let perfStart=performance.now(),perfFrames=0;
-let gardenVisible=true;addEventListener('message',event=>{if(event.origin===location.origin&&event.source===parent&&event.data?.type==='garden-visibility')gardenVisible=!!event.data.visible;});
+let gardenVisible=true;addEventListener('message',event=>{if(event.origin===location.origin&&event.source===parent&&event.data?.type==='garden-visibility')gardenVisible=!!event.data.visible;if(event.origin===location.origin&&event.source===parent&&event.data?.type==='garden-action'&&['zoom-in','zoom-out','reset'].includes(event.data.action))document.getElementById(event.data.action)?.click();});
 function render(){if(!gardenVisible||document.hidden){requestAnimationFrame(render);return;}controls.update();const time=performance.now()/1000;refinedPond.update(time);lawnRill.update(time,reduced);life.update(time);windTime.value=reduced?0:time;if(time-lastLabelUpdate>1/24){lastLabelUpdate=time;for(const l of labels){const p=labelProjection.copy(l.pos).project(camera);l.el.style.left=(p.x*.5+.5)*innerWidth+'px';l.el.style.top=(-p.y*.5+.5)*innerHeight+'px';l.el.style.opacity=p.z>1||p.x>1||p.x<-1||p.y>1||p.y<-1?'0':hoveredPlace===l.key?'.98':'.52';}}renderer.render(scene,camera);perfFrames++;const perfNow=performance.now();if(perfNow-perfStart>2000){document.body.dataset.gardenPerformance=JSON.stringify({fps:Math.round(perfFrames*1000/(perfNow-perfStart)),drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles});perfFrames=0;perfStart=perfNow;}requestAnimationFrame(render);}render();Promise.all([greenhouseReady,archReady]).then(()=>{window.gardenBatchInfo=batchStaticScene(scene,{exclude:[ground]});renderer.shadowMap.needsUpdate=true;requestAnimationFrame(()=>{document.querySelector('#loading').classList.add('done');});}).catch(()=>{});
 // Exposed read-only QA state; no external services or generated-image background.
 window.gardenPrototype={stage:2,sites:Object.keys(sites),paths:Object.keys(paths),renderer:'Three.js',get drawCalls(){return renderer.info.render.calls;},get triangles(){return renderer.info.render.triangles;}};

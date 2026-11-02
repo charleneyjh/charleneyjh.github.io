@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="assets/glass-cursor.css?v=7">
 <link rel="stylesheet" href="assets/theme.css?v=forest-glide1">
 <script>try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){document.documentElement.dataset.theme='light'}document.documentElement.dataset.palette='forest';</script>
-<link rel="stylesheet" href="assets/secret-garden.css">
+<link rel="stylesheet" href="assets/secret-garden.css?v=long-landscape1">
 </head>
 <body>
   <header class="nav" id="nav">
@@ -125,6 +125,11 @@
 
     <section id="secret-garden" class="secret-garden" aria-label="Secret Garden">
       <iframe title="Interactive Secret Garden" data-src="/secret-garden/" loading="lazy" tabindex="0"></iframe>
+      <div class="garden-control-rail"><div class="garden-embedded-controls" role="group" aria-label="Garden view controls">
+        <button type="button" data-garden-action="zoom-out" aria-label="Zoom out">−</button>
+        <button type="button" data-garden-action="reset" aria-label="Reset garden view">⌂</button>
+        <button type="button" data-garden-action="zoom-in" aria-label="Zoom in">+</button>
+      </div></div>
     </section>
 
     <!-- Playground: kept like a junk journal -->
@@ -255,6 +260,6 @@
   <script src="script.js?v=filters-gate2"></script>
 <script src="assets/glass-cursor.js?v=3"></script>
 <script src="assets/theme.js?v=1"></script>
-<script src="assets/secret-garden.js" defer></script>
+<script src="assets/secret-garden.js?v=long-landscape1" defer></script>
 </body>
 </html>
