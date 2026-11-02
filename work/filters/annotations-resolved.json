@@ -354,5 +354,9 @@
  {
   "selector": "#next",
   "comment": "use yellow"
+ },
+ {
+  "selector": "#process > div > h2",
+  "comment": "reduce 40px padding"
  }
 ]

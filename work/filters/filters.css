@@ -388,7 +388,7 @@ strong { font-weight: 600; }
 #overview h2 { margin-bottom: 16px; font-size: 24px; }
 .uf-subhead { margin-bottom: 32px; }
 .uf-feature .uf-subhead { margin-bottom: 12px; }
-#process h2 { margin-bottom: 64px; }
+#process h2 { margin-bottom: 24px; }
 .uf-discovery h2, .uf-principles h2 { margin-bottom: 44px; }
 .uf-discovery .uf-feature > div > p:first-child { margin-bottom: 40px; }
 .uf-discovery .uf-quote { margin-top: 80px; }
