@@ -38,15 +38,20 @@ function beam(parent,a,b,r,color){const av=new THREE.Vector3(...a),bv=new THREE.
 function line(parent,pts,r,color){const curve=new THREE.CatmullRomCurve3(pts.map(p=>new THREE.Vector3(...p)));return mesh(new THREE.TubeGeometry(curve,Math.max(16,pts.length*3),r,4,false),color,parent);}
 let seed=159;function rand(){seed=(seed*16807)%2147483647;return(seed-1)/2147483646;}function range(a,b){return a+(b-a)*rand();}
 const ground=box(scene,0,-.35,0,200,.6,200,colors.grass);ground.castShadow=false;
-for(let i=0;i<9;i++){const hill=ball(scene,-75+i*18,-1,-45-range(0,18),range(12,25),i%2?'#a2af90':'#94a582',[1,.22,1]);hill.castShadow=false;}
-// Overlapping rounded low-poly hills, with bases buried below the ground.
-for(const [depth,height,color,phase] of [[-51,8,'#b0bbb0',1.8],[-38,5.5,'#a4b39c',.8],[-28,2.8,'#99aa88',2.6]]){
- for(let i=0;i<11;i++){
-  const x=-90+i*18,rise=height*(.8+.25*Math.sin(i*1.7+phase));
-  const geometry=new THREE.SphereGeometry(1,10,6);
-  const hill=new THREE.Mesh(geometry,new THREE.MeshStandardMaterial({color,roughness:1,flatShading:true}));
-  hill.position.set(x,-1.6,depth+Math.sin(i*1.3+phase)*3);hill.scale.set(17,rise,10);hill.name='distant-landscape';hill.castShadow=false;scene.add(hill);
+// Preserve the original seeded sequence, without the old overlapping hill domes.
+for(let i=0;i<9;i++){range(0,18);range(12,25);}
+// Quiet, broad mountain silhouettes: the separate leisure chapter's backdrop.
+for(const [depth,height,color,phase] of [[-35,3.6,'#c5cbb5',1.8],[-28,2.4,'#bac4a4',.8],[-22,.9,'#afbd95',2.6]]){
+ const positions=[],indices=[];
+ for(let i=0;i<=24;i++){
+  const x=-60+i*5;
+  const crest=height+3.3*Math.sin(i*.82+phase)+1.1*Math.sin(i*1.43+phase);
+  positions.push(x,-12,depth,x,crest,depth);
+  if(i<24){const k=i*2;indices.push(k,k+2,k+1,k+1,k+2,k+3);}
  }
+ const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(positions,3));geometry.setIndex(indices);geometry.computeVertexNormals();
+ const ridge=new THREE.Mesh(geometry,new THREE.MeshBasicMaterial({color,side:THREE.DoubleSide,fog:true,toneMapped:false}));
+ ridge.name='distant-mountain-silhouette';ridge.castShadow=false;ridge.receiveShadow=false;scene.add(ridge);
 }
 for(let i=0;i<15;i++){
  const x=-30+i*4.3,z=-21-Math.sin(i*2.1)*2.4,h=.45+(Math.sin(i*4.7)+1)*.3;
