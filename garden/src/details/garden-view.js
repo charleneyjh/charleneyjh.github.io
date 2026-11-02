@@ -16,8 +16,8 @@ export function fitGardenView(camera,width,height){
  camera.updateMatrixWorld(true);
  let minX=Infinity,maxX=-Infinity,minY=Infinity,maxY=-Infinity;
  for(const corner of GARDEN_FRAME_POINTS){const p=corner.clone().applyMatrix4(camera.matrixWorldInverse);minX=Math.min(minX,p.x);maxX=Math.max(maxX,p.x);minY=Math.min(minY,p.y);maxY=Math.max(maxY,p.y);}
- const aspect=width/height,viewHeight=Math.max((maxY-minY)/.76,(maxX-minX)/(aspect*.86))*1.12;
- const cx=(minX+maxX)/2+.6,cy=(minY+maxY)/2+viewHeight*.065;
+ const aspect=width/height,viewHeight=Math.max((maxY-minY)/.76,(maxX-minX)/(aspect*.86));
+ const cx=(minX+maxX)/2+.6,cy=(minY+maxY)/2-viewHeight*.005;
  camera.left=cx-viewHeight*aspect/2;camera.right=cx+viewHeight*aspect/2;camera.top=cy+viewHeight/2;camera.bottom=cy-viewHeight/2;camera.updateProjectionMatrix();
  return {viewHeight};
 }
