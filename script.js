@@ -84,7 +84,6 @@ if (['localhost', '127.0.0.1'].includes(location.hostname)) {
   const input = document.getElementById('case-password-input');
   const error = document.getElementById('case-password-error');
   link.addEventListener('click', event => {
-    try { if (sessionStorage.getItem('uf-unlocked') === '1') return; } catch {}
     event.preventDefault();
     input.value = '';
     error.textContent = '';
