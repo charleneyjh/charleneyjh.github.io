@@ -585,3 +585,5 @@ strong { font-weight: 600; }
 .uf-feature-row p { color: var(--uf-ink-soft); }
 .uf-feature-row p + h4 { margin-top: 28px; }
 @media (max-width: 800px) { .uf-feature-row { grid-template-columns: 1fr; gap: 24px; } }
+.uf-gif--sq { width: 60%; }
+@media (max-width: 800px) { .uf-gif--sq { width: 100%; } }
