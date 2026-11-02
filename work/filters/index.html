@@ -407,7 +407,7 @@
       <div class="uf-wrap">
         <header class="uf-walkthrough__head">
           <h2>Design walkthrough</h2>
-          <a class="uf-button" href="https://filter-prototype-zeta.vercel.app/#standalone" target="_blank" rel="noopener">Open the live demo →</a>
+          <a class="uf-button uf-button--sm" href="https://filter-prototype-zeta.vercel.app/#standalone" target="_blank" rel="noopener">Open the live demo →</a>
         </header>
 
         <div class="uf-wt">
@@ -449,6 +449,21 @@
             <p>Filter on data that lives outside HubSpot, like a spreadsheet of webinar attendees. Pick the source, then add conditions on its columns the same way as on any other property.</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Filters in context -->
+    <section class="uf-section uf-section--muted uf-context">
+      <div class="uf-wrap">
+        <h2>Filters in context</h2>
+        <div class="uf-tabs" role="tablist" aria-label="Filter surfaces">
+          <button type="button" role="tab" id="ctx-tab-workflow" aria-controls="ctx-workflow" aria-selected="true">Workflow trigger</button>
+          <button type="button" role="tab" id="ctx-tab-crm" aria-controls="ctx-crm" aria-selected="false" tabindex="-1">CRM</button>
+          <button type="button" role="tab" id="ctx-tab-segment" aria-controls="ctx-segment" aria-selected="false" tabindex="-1">Segment</button>
+        </div>
+        <div role="tabpanel" id="ctx-workflow" aria-labelledby="ctx-tab-workflow"><img src="img/context-workflow.png" alt="Workflow editor with the Triggers panel open. The enrollment filters use the new editor: a form submission channel condition, a group with form type and form name, and a contact owner condition." width="3194" height="1782" loading="lazy"></div>
+        <div role="tabpanel" id="ctx-crm" aria-labelledby="ctx-tab-crm" hidden><img src="img/context-crm.png" alt="Contacts index page with the All filters panel open on the right, showing two filter groups, one with a nested subgroup." width="3196" height="1696" loading="lazy"></div>
+        <div role="tabpanel" id="ctx-segment" aria-labelledby="ctx-tab-segment" hidden><img src="img/context-segment.png" alt="Segment builder with filters for buying role, associated companies and a completed Demo requested event, next to the contacts preview." width="3196" height="1782" loading="lazy"></div>
       </div>
     </section>
 
@@ -588,6 +603,27 @@
       draw();
       addEventListener('resize', draw);
       addEventListener('load', draw);
+    })();
+  </script>
+  <script>
+    // Filters in context tabs
+    (() => {
+      const tabs = [...document.querySelectorAll('.uf-tabs [role="tab"]')];
+      const select = (tab) => tabs.forEach(t => {
+        const on = t === tab;
+        t.setAttribute('aria-selected', on);
+        t.tabIndex = on ? 0 : -1;
+        document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+      });
+      tabs.forEach((t, i) => {
+        t.addEventListener('click', () => select(t));
+        t.addEventListener('keydown', (e) => {
+          const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+          if (!d) return;
+          const n = tabs[(i + d + tabs.length) % tabs.length];
+          select(n); n.focus();
+        });
+      });
     })();
   </script>
   <script src="../../assets/case-nav.js?v=3"></script>

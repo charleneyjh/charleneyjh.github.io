@@ -274,6 +274,7 @@ strong { font-weight: 600; }
 }
 .uf-button:hover { background: #f39d74; }
 .uf-button--light { margin-top: 32px; }
+.uf-button--sm { padding: 10px 20px; font-size: 15px; }
 
 /* ---------- Results ---------- */
 .uf-results { display: grid; gap: 32px; counter-reset: result; }
@@ -561,3 +562,11 @@ strong { font-weight: 600; }
   .uf-wt:nth-of-type(even) img { order: 0; }
   .uf-wt + .uf-wt { margin-top: 56px; }
 }
+
+/* ---------- Filters in context ---------- */
+.uf-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+.uf-tabs button { padding: 8px 18px; border: 1px solid var(--uf-panel); border-radius: 999px; background: var(--uf-bg); color: var(--uf-ink); font: 600 15px/1.3 var(--uf-font); cursor: pointer; }
+.uf-tabs button:hover { border-color: var(--uf-ink-soft); }
+.uf-tabs button[aria-selected="true"] { background: var(--uf-dark); border-color: var(--uf-dark); color: #fff; }
+.uf-context [role="tabpanel"] img { display: block; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 1px 2px rgba(22, 32, 46, .08), 0 8px 24px rgba(22, 32, 46, .08); }
+@media (min-width: 1100px) { .uf-context .uf-wrap { max-width: 1280px; } }
