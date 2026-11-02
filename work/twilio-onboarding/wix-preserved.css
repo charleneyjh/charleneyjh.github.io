@@ -7,13 +7,13 @@ html { scroll-behavior: smooth; }
 #comp-jb89cvv3 { display: none; }
 
 /* Portfolio font families only; original sizes, line heights and layout remain. */
-body, body :is(p, span, a, li, button, input, textarea, label, figcaption) {
+body, body * {
   font-family: "Figtree", ui-sans-serif, system-ui, sans-serif !important;
 }
 body :is(h1, h2, h3, h4, h5, h6),
 body :is(h1, h2, h3, h4, h5, h6) * {
-  font-family: "Newsreader", Georgia, "Times New Roman", serif !important;
+  font-family: "Figtree", ui-sans-serif, system-ui, sans-serif !important;
 }
 body :is(code, pre, kbd, samp), body :is(code, pre, kbd, samp) * {
-  font-family: "DM Mono", ui-monospace, monospace !important;
+  font-family: "Figtree", ui-sans-serif, system-ui, sans-serif !important;
 }

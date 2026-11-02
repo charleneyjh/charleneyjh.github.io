@@ -76,7 +76,7 @@ if (['localhost', '127.0.0.1'].includes(location.hostname)) {
   document.body.appendChild(Object.assign(document.createElement('script'), { src: '/dev/annotate.js?v=resolve1' }));
 }
 
-// Lightweight password gate for the external Unified Filters deck.
+// Lightweight password gate for the Unified Filters case study.
 (() => {
   const link = document.querySelector('.work-filters > a');
   const dialog = document.getElementById('case-password');
@@ -101,6 +101,7 @@ if (['localhost', '127.0.0.1'].includes(location.hostname)) {
       return;
     }
     dialog.close();
+    try { sessionStorage.setItem('uf-unlocked', '1'); } catch {}
     window.location.assign(link.href);
   });
 })();
