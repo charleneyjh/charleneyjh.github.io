@@ -298,5 +298,37 @@
  {
   "selector": "#learnings > div > h2",
   "comment": "add 20px padding below"
+ },
+ {
+  "selector": "#next > div > div:nth-of-type(1)",
+  "comment": "add a border"
+ },
+ {
+  "selector": "#next > div > div:nth-of-type(1) > h3",
+  "comment": "reduce the padding"
+ },
+ {
+  "selector": "#next > div > div:nth-of-type(2) > p",
+  "comment": "remove"
+ },
+ {
+  "selector": "#next > div > div:nth-of-type(2) > a",
+  "comment": "reduce the size"
+ },
+ {
+  "selector": "#next > div > div:nth-of-type(3) > h3",
+  "comment": "remove"
+ },
+ {
+  "selector": "#next > div > div:nth-of-type(3) > div:nth-of-type(1)",
+  "comment": "remove"
+ },
+ {
+  "selector": "#next > div > div:nth-of-type(3) > div:nth-of-type(2)",
+  "comment": "remove"
+ },
+ {
+  "selector": "#next > div > div:nth-of-type(4) > a",
+  "comment": "reduce button size"
  }
 ]
