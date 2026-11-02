@@ -1,0 +1,8 @@
+{
+  "name": "charlene-portfolio",
+  "private": true,
+  "scripts": {
+    "garden:install": "npm --prefix garden ci",
+    "build": "npm --prefix garden run build"
+  }
+}

@@ -1,3 +1,7 @@
 .DS_Store
 .vercel
 .env*.local
+
+# Generated garden build and dependencies
+/secret-garden/
+/garden/node_modules/

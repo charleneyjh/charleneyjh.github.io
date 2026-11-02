@@ -1,0 +1,9 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#737e60"><title>Secret Garden · Charlene Yang</title><link rel="stylesheet" href="/src/style.css"></head><body>
+<div id="garden" aria-label="Interactive three-dimensional botanical garden"></div>
+<header><div class="heading"><p>A SMALL WORLD OF THINGS I LOVE</p></div></header>
+<nav class="building-navigation" aria-label="Explore the garden" id="places"><button data-place="greenhouse">Code greenhouse</button><button data-place="cabin">Living cabin</button><button data-place="florist">Candle atelier</button><button data-place="pergola">The pergola</button></nav>
+<div id="labels" aria-hidden="true"></div><div id="tooltip" hidden></div>
+<footer><div class="controls"><button id="zoom-out" aria-label="Zoom out">−</button><button id="reset" aria-label="Reset garden view">⌂</button><button id="zoom-in" aria-label="Zoom in">+</button></div></footer>
+<dialog id="details" aria-labelledby="detail-title"><button class="close" aria-label="Close details">×</button><h2 id="detail-title"></h2><button class="return-button" aria-label="Return to garden">↗</button></dialog>
+<div id="loading"><span class="loading-flower">✳</span><p class="sr-only" aria-live="polite"></p><small class="sr-only" id="loading-note"></small></div>
+<script type="module" src="/src/main.js"></script></body></html>

@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "buildCommand": null,
+  "buildCommand": "npm run build",
   "outputDirectory": ".",
   "trailingSlash": true,
   "headers": [
@@ -14,5 +14,6 @@
         }
       ]
     }
-  ]
+  ],
+  "installCommand": "npm --prefix garden ci"
 }
