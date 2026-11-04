@@ -64,7 +64,7 @@ header{top:88px}@media(max-width:550px){header{top:80px}}
 }
 .kitchen-copy { padding: clamp(24px, 5vw, 56px); }
 #kitchen h2 { margin: 10px 0 16px; }
-#kitchen .kitchen-copy p { font: 400 20px/1.65 "Newsreader", Georgia, serif; margin: 0 0 24px; }
+#kitchen .kitchen-copy p { font: 400 14px/1.65 "Newsreader", Georgia, serif; margin: 0 0 24px; }
 #kitchen .kitchen-copy p:last-child { margin-bottom: 0; }
 #kitchen h3 { margin: 36px 0 16px; font: 400 36px/1.15 "Newsreader", Georgia, serif; }
 
@@ -80,3 +80,5 @@ header{top:88px}@media(max-width:550px){header{top:80px}}
 }
 
 #kitchen .kitchen-copy .kitchen-eyebrow { margin: 0 0 24px; font: 500 11px/1.5 "DM Sans", sans-serif; letter-spacing: .13em; text-transform: uppercase; }
+
+#kitchen #kitchen-title { font-size: 20px; }
