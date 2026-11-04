@@ -145,3 +145,5 @@ header{top:88px}@media(max-width:550px){header{top:80px}}
 .atelier-masonry img { display: block; width: 100%; height: auto; border-radius: 20px; }
 @media(max-width: 720px) { .atelier-masonry { columns: 2; column-gap: 12px; } .atelier-masonry figure { margin-bottom: 12px; } #atelier { padding: 0 16px 16px; } }
 @media(max-width: 420px) { .atelier-masonry { columns: 1; } #atelier h2 { font-size: 28px; } }
+
+#atelier .atelier-intro { max-width: 720px; margin: 0 0 28px; font: 400 16px/1.5 "Newsreader", Georgia, serif; }
