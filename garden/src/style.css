@@ -80,3 +80,5 @@ header{top:88px}@media(max-width:550px){header{top:80px}}
 @media (max-width: 600px) {
   .kitchen-comparison { grid-template-columns: 1fr; }
 }
+
+#kitchen .kitchen-copy .kitchen-eyebrow { margin: 0 0 20px; font-size: 11px; letter-spacing: .13em; text-transform: uppercase; }
