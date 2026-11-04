@@ -47,10 +47,8 @@ header{top:88px}@media(max-width:550px){header{top:80px}}
 .kitchen-hero img {
   display: block;
   width: 100%;
-  height: clamp(220px, 46vh, 460px);
-  max-height: calc(var(--kitchen-height, 90vh) * .6);
-  object-fit: cover;
-  object-position: center;
+  height: auto;
+  max-height: none;
 }
 #kitchen .kitchen-close {
   position: sticky;
