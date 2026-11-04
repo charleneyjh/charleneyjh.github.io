@@ -332,7 +332,7 @@ for (const button of kitchenPhotoButtons) {
 
 function openPlace(key){if(key==='pergola')return;const d=sites[key];previousFocus=document.activeElement;
 if(key==='cabin'||key==='florist'){const modal=key==='cabin'?kitchen:atelier;positionProjectModal(modal);modal.showModal();if(key==='florist')modal.focus({preventScroll:true});modal.scrollTop=0;return;}
-document.querySelector('#detail-title').textContent=key==='greenhouse'?'Coming soon':d.title;document.querySelector('#detail-body').textContent='';dialog.showModal();}
+document.querySelector('#detail-title').textContent=key==='greenhouse'?'Coming soon':d.title;document.querySelector('#detail-body').textContent='';dialog.showModal();dialog.focus({preventScroll:true});}
 for(const b of document.querySelectorAll('[data-place]'))b.onclick=()=>openPlace(b.dataset.place);
 for(const d of document.querySelectorAll('dialog')){d.querySelector('.close').onclick=()=>d.close();d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();}});}dialog.addEventListener('close',()=>previousFocus?.focus());
 const ray=new THREE.Raycaster(),pointer=new THREE.Vector2();function hit(e){const r=renderer.domElement.getBoundingClientRect();pointer.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);ray.setFromCamera(pointer,camera);const hits=ray.intersectObjects([...targets,...life.targets],true);if(!hits.length)return null;let obj=hits[0].object;while(obj&&!obj.userData.place&&!obj.userData.interaction)obj=obj.parent;return obj||null;}
