@@ -157,3 +157,5 @@ header{top:88px}@media(max-width:550px){header{top:80px}}
 @media (prefers-reduced-motion: reduce) { .loading-petals i { animation: none; opacity: .8; transform: rotate(25deg); } }
 
 #atelier:focus { outline: none; }
+
+#loading .loading-copy { max-width: min(360px, calc(100vw - 48px)); margin: 16px 24px 0; color: #526b4f; text-align: center; font: 400 14px/1.5 "DM Sans", sans-serif; min-height: 42px; }
