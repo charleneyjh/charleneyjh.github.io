@@ -1,9 +1,41 @@
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 
+const flowerTemplates=new Map();
+
 // Reusable, deterministic low-poly botanical forms. Geometry is merged by material.
-export function createMixedBorder({ seed = 26030, specimens = false, plants = null, avoid = null, variety = .3 } = {}) {
+export function createMixedBorder({ seed = 26030, specimens = false, plants = null, avoid = null, variety = .3, instanced = true } = {}) {
   const group = new THREE.Group();group.name = specimens ? 'flower-specimens' : 'central-mixed-border';
+  if(plants&&instanced&&!specimens){
+    let state=seed;const random=()=>{state=state*16807%2147483647;return(state-1)/2147483646;};
+    const batches=new Map(),counts={};let grassCount=0;
+    const extras=['echinacea','hydrangea','pampas','reedGrass','yarrow','geranium','dianthus'];
+    plants.forEach((plant,i)=>{
+      if(avoid?.(plant.x,plant.z))return;
+      let type=plant.type;
+      if(['daisy','cosmos','salvia','groundcover'].includes(type)&&((i*37+seed)%100)<variety*100)type=extras[(Math.floor(i/3)+seed)%extras.length];
+      if(plant.type==='groundcover'&&extras.includes(type))type=['geranium','dianthus','yarrow'][i%3];
+      if(['pampas','reedGrass'].includes(type)&&type!==plant.type){if((plant.y||0)>.1||plant.type!=='salvia'||(plant.height||.5)<.5||grassCount>=2)type='yarrow';else grassCount++;}
+      const variant=(i+seed)%3,key=type+':'+variant;
+      if(!flowerTemplates.has(key))flowerTemplates.set(key,createMixedBorder({seed:7001+variant*113+type.length*31,plants:[{type,x:0,z:0,height:1}],variety:0,instanced:false}));
+      const template=flowerTemplates.get(key);
+      let height=(plant.height||.5)*(.88+random()*.24);
+      if(['pampas','reedGrass'].includes(type))height=Math.max(.95,Math.min(1.2,height*1.4));
+      const matrix=new THREE.Matrix4().compose(new THREE.Vector3(plant.x,plant.y||0,plant.z),new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,1,0),random()*Math.PI*2),new THREE.Vector3((['foliage','grass','groundcover'].includes(type)?height:1)*(.88+random()*.24),height,(['foliage','grass','groundcover'].includes(type)?height:1)*(.88+random()*.24)));
+      template.children.forEach((source,j)=>{const batchKey=key+':'+j;if(!batches.has(batchKey))batches.set(batchKey,{source,matrices:[]});batches.get(batchKey).matrices.push(matrix);});
+      counts[type]=(counts[type]||0)+1;
+    });
+    let triangles=0;
+    for(const {source,matrices} of batches.values()){
+      const mesh=new THREE.InstancedMesh(source.geometry,source.material,matrices.length);
+      mesh.name=source.name+'-instanced';mesh.castShadow=true;mesh.receiveShadow=true;
+      matrices.forEach((matrix,i)=>mesh.setMatrixAt(i,matrix));mesh.instanceMatrix.needsUpdate=true;
+      mesh.computeBoundingSphere();group.add(mesh);triangles+=(source.geometry.index?source.geometry.index.count:source.geometry.attributes.position.count)/3*matrices.length;
+    }
+    group.userData={counts,triangles,drawCalls:batches.size,sharedGeometry:true,variantsPerSpecies:3};
+    return group;
+  }
+
   const batches=new Map();const counts={daisy:0,cosmos:0,salvia:0,allium:0,groundcover:0,grass:0};
   const palette={stem:'#57724c',leaf:'#728957',lightleaf:'#8c9b6c',cream:'#e9e3cb',blush:'#d8a9b1',rose:'#bb899e',lavender:'#a294b9',violet:'#827ba0',gold:'#d3bb75',blue:'#789bbb',deepblue:'#5e82ab',skyblue:'#abc4d3'};
   let state=seed;const random=()=>{state=(state*16807)%2147483647;return(state-1)/2147483646;};const between=(a,b)=>a+(b-a)*random();
