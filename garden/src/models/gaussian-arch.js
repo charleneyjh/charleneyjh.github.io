@@ -1,3 +1,4 @@
+import { loadModelBytes } from './compressed-model.js';
 import { addSplatShadow } from './splat-shadows.js';
 import * as THREE from 'three';
 import { SplatMesh } from '@sparkjsdev/spark';
@@ -6,10 +7,12 @@ import { SplatMesh } from '@sparkjsdev/spark';
 export function loadGaussianArch() {
   const container = new THREE.Group();
   container.name = 'gaussian-floral-arch';
-  const splats = new SplatMesh({url:import.meta.env.BASE_URL + 'models/floral-arch-gaussian-sage.ply',raycastable:false});
-  splats.name = 'imported-floral-arch';
-  container.add(splats);
-  const ready = splats.initialized.then(async () => {
+  const ready = (async () => {
+    const fileBytes=await loadModelBytes('floral-arch-gaussian-sage');
+    const splats=new SplatMesh({fileBytes,raycastable:false});
+    splats.name='imported-floral-arch';
+    container.add(splats);
+    await splats.initialized;
     await splats.createLodSplats();
     // Source uses Y down. A rigid 180-degree X rotation makes the feet point down.
     splats.rotation.x = Math.PI;
@@ -24,6 +27,6 @@ export function loadGaussianArch() {
     const info={format:'Gaussian Splat PLY',splats:splats.numSplats,rotationX:Math.PI,height:2.75,width:size.x*scale,depth:size.z*scale,originalAsset:false,greenRecolored:true,geometryUnchanged:true};
     container.userData.modelInfo=info;
     return info;
-  });
+  })();
   return {container,ready};
 }

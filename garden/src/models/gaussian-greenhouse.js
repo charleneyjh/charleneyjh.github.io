@@ -1,3 +1,4 @@
+import { loadModelBytes } from './compressed-model.js';
 import { addSplatShadow } from './splat-shadows.js';
 import * as THREE from 'three';
 import { SparkRenderer, SplatMesh } from '@sparkjsdev/spark';
@@ -8,13 +9,11 @@ export function loadGaussianGreenhouse(renderer, scene, onProgress) {
   scene.add(spark);
   const container = new THREE.Group();
   container.name = 'gaussian-greenhouse';
-  const splats = new SplatMesh({
-    url: import.meta.env.BASE_URL + 'models/greenhouse-gaussian.ply',
-    raycastable: false,
-    onProgress,
-  });
-  container.add(splats);
-  return { container, ready: splats.initialized.then(async () => {
+  return { container, spark, ready: (async () => {
+    const fileBytes=await loadModelBytes('greenhouse-gaussian',onProgress);
+    const splats=new SplatMesh({fileBytes,raycastable:false});
+    container.add(splats);
+    await splats.initialized;
     await splats.createLodSplats();
     // Lux3D's long building axis is Z in this export; orient it across the garden.
     splats.rotation.set(Math.PI, Math.PI / 2, 0);
@@ -30,5 +29,5 @@ export function loadGaussianGreenhouse(renderer, scene, onProgress) {
     hit.position.copy(center).multiplyScalar(scale).add(splats.position);
     hit.name = 'greenhouse-click-target';container.add(hit);
     return {format:'Gaussian Splat PLY',asymmetric:false,originalAsset:false,entrancePillarsRemoved:true,splats:splats.numSplats,scale,bounds:{min:bounds.min.toArray(),max:bounds.max.toArray()}};
-  }), spark };
+  })() };
 }
