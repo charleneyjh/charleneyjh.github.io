@@ -314,7 +314,7 @@ for (const button of kitchenPhotoButtons) {
 }
 
 function openPlace(key){if(key==='pergola')return;const d=sites[key];previousFocus=document.activeElement;
-if(key==='cabin'||key==='florist'){const modal=key==='cabin'?kitchen:atelier;positionProjectModal(modal);modal.showModal();modal.scrollTop=0;return;}
+if(key==='cabin'||key==='florist'){const modal=key==='cabin'?kitchen:atelier;positionProjectModal(modal);modal.showModal();if(key==='florist')modal.focus({preventScroll:true});modal.scrollTop=0;return;}
 document.querySelector('#detail-title').textContent=key==='greenhouse'?'Coming soon':d.title;document.querySelector('#detail-body').textContent='';dialog.showModal();}
 for(const b of document.querySelectorAll('[data-place]'))b.onclick=()=>openPlace(b.dataset.place);
 for(const d of document.querySelectorAll('dialog')){d.querySelector('.close').onclick=()=>d.close();d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();}});}dialog.addEventListener('close',()=>previousFocus?.focus());
