@@ -19,14 +19,14 @@ import { loadGaussianArch } from './models/gaussian-arch.js';
 
 const host=document.querySelector('#garden');
 const loadingLines=[
- 'Watering a few pixels.',
- 'Convincing the flowers to face the camera.',
- 'Asking the trees to act natural.',
- 'A small garden. An unreasonable number of petals.',
- 'Putting the pond on its best behavior.',
- 'The greenhouse is collecting its thoughts.',
- 'Making sure the weeds look intentional.',
- 'Good things take thyme. Sorry. Had to.'
+ 'Watering a few pixels....',
+ 'Convincing the flowers to face the camera....',
+ 'Asking the trees to act natural....',
+ 'A small garden. An unreasonable number of petals....',
+ 'Putting the pond on its best behavior....',
+ 'The greenhouse is collecting its thoughts....',
+ 'Making sure the weeds look intentional....',
+ 'Good things take thyme. Sorry. Had to...'
 ];
 let loadingLine=0;
 const loadingCopyTimer=setInterval(()=>{
