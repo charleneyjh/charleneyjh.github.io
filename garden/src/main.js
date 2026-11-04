@@ -55,7 +55,7 @@ for(let i=0;i<15;i++){
 }
 const sites={greenhouse:{x:0,z:-3,title:'Code greenhouse',short:'CODE GREENHOUSE',number:'01 / EXPERIMENTS',subtitle:'Small ideas, made tangible.',body:'这里将展示我的 vibe coding projects、交互实验与小工具。当前是空间原型，作品尚未加入。',height:5},cabin:{x:-10,z:.8,title:'Living cabin',short:'LIVING CABIN',number:'02 / SPACES',subtitle:'A home is always becoming.',body:'这间木屋是空间设计与 home remodeling 的入口。之后会放入材质探索、空间方案与改造记录。',height:3.8},florist:{x:10,z:-1,title:'Candle atelier',short:'CANDLE ATELIER',number:'03 / OBJECTS & SCENT',subtitle:'Making room for a slower ritual.',body:'这间花店是蜡烛、器皿、香气与材料实验的创作空间。之后会加入真实作品、过程照片和设计故事。',height:3.6},pergola:{x:-8,z:-9.5,title:'The pergola',short:'THE PERGOLA',number:'04 / PAUSE',subtitle:'Nothing to finish. A moment to stay.',body:'一个可以停留的角落。第一阶段先确认开放式圆穹顶、路径和周围留白。',height:4.5}};
 const targets=[];const labels=[];let gardenSplatRenderer=null;
-function siteGroup(key){const data=sites[key],g=new THREE.Group();g.position.set(data.x,0,data.z);g.userData.place=key;scene.add(g);targets.push(g);const el=document.createElement('div');el.className='map-label';el.textContent=data.short;document.querySelector('#labels').append(el);labels.push({el,key,pos:new THREE.Vector3(data.x,data.height,data.z)});return g;}
+function siteGroup(key){const data=sites[key],g=new THREE.Group();g.position.set(data.x,0,data.z);if(key!=='pergola')g.userData.place=key;scene.add(g);if(key!=='pergola')targets.push(g);const el=document.createElement('div');el.className='map-label';el.textContent=data.short;document.querySelector('#labels').append(el);labels.push({el,key,pos:new THREE.Vector3(data.x,data.height,data.z)});return g;}
 const glass=mat('#c1d5c4',{transparent:true,opacity:.16,roughness:.2,side:THREE.DoubleSide,depthWrite:false});
 function greenhouse(){
  const g=siteGroup('greenhouse');
@@ -313,9 +313,9 @@ for (const button of kitchenPhotoButtons) {
   });
 }
 
-function openPlace(key){const d=sites[key];previousFocus=document.activeElement;
+function openPlace(key){if(key==='pergola')return;const d=sites[key];previousFocus=document.activeElement;
 if(key==='cabin'||key==='florist'){const modal=key==='cabin'?kitchen:atelier;positionProjectModal(modal);modal.showModal();modal.scrollTop=0;return;}
-document.querySelector('#detail-title').textContent=d.title;dialog.showModal();}
+document.querySelector('#detail-title').textContent=d.title;document.querySelector('#detail-body').textContent=key==='greenhouse'?'Coming soon':'';dialog.showModal();}
 for(const b of document.querySelectorAll('[data-place]'))b.onclick=()=>openPlace(b.dataset.place);
 for(const d of document.querySelectorAll('dialog')){d.querySelector('.close').onclick=()=>d.close();d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();}});}dialog.addEventListener('close',()=>previousFocus?.focus());document.querySelector('.return-button').onclick=()=>dialog.close();
 const ray=new THREE.Raycaster(),pointer=new THREE.Vector2();function hit(e){const r=renderer.domElement.getBoundingClientRect();pointer.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);ray.setFromCamera(pointer,camera);const hits=ray.intersectObjects([...targets,...life.targets],true);if(!hits.length)return null;let obj=hits[0].object;while(obj&&!obj.userData.place&&!obj.userData.interaction)obj=obj.parent;return obj||null;}
