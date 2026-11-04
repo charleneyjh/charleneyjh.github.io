@@ -321,18 +321,20 @@ for(const d of document.querySelectorAll('dialog')){d.querySelector('.close').on
 const ray=new THREE.Raycaster(),pointer=new THREE.Vector2();function hit(e){const r=renderer.domElement.getBoundingClientRect();pointer.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);ray.setFromCamera(pointer,camera);const hits=ray.intersectObjects([...targets,...life.targets],true);if(!hits.length)return null;let obj=hits[0].object;while(obj&&!obj.userData.place&&!obj.userData.interaction)obj=obj.parent;return obj||null;}
 let hoveredPlace=null;renderer.domElement.addEventListener('pointerleave',()=>{life.hover(null);hoveredPlace=null;});let down=null;renderer.domElement.addEventListener('pointerdown',e=>{down={x:e.clientX,y:e.clientY};});renderer.domElement.addEventListener('pointerup',e=>{if(down&&Math.hypot(e.clientX-down.x,e.clientY-down.y)<5){const k=hit(e);if(k?.userData.place)openPlace(k.userData.place);else if(k)life.interact(k);}down=null;});let lastHoverHit=0;renderer.domElement.addEventListener('pointermove',e=>{const now=performance.now();if(now-lastHoverHit<40||down)return;lastHoverHit=now;const k=hit(e);life.hover(k);hoveredPlace=k?.userData.place||null;renderer.domElement.style.cursor=k?'pointer':'grab';});
 function reset(){resetGardenView(camera,controls,innerWidth,innerHeight);}document.querySelector('#reset').onclick=reset;function zoom(f){camera.zoom=THREE.MathUtils.clamp(camera.zoom*f,.65,2.5);camera.updateProjectionMatrix();}document.querySelector('#zoom-in').onclick=()=>zoom(1.16);document.querySelector('#zoom-out').onclick=()=>zoom(1/1.16);
-let cameraMovingUntil=0;
+let cameraMovingUntil=0,splatUpdateUntil=0,splatUpdating=false,splatsPrepared=false;
 function setSplatBudget(budget){if(gardenSplatRenderer&&gardenSplatRenderer.lodSplatCount!==budget){gardenSplatRenderer.lodSplatCount=budget;gardenSplatRenderer.lodDirty=true;}}
 controls.addEventListener('start',()=>{cameraMovingUntil=performance.now()+250;});
-controls.addEventListener('change',()=>{cameraMovingUntil=performance.now()+200;if(gardenSplatRenderer)gardenSplatRenderer.enableDriveLod=true;});
+controls.addEventListener('change',()=>{cameraMovingUntil=performance.now()+200;splatUpdateUntil=performance.now()+700;if(gardenSplatRenderer)gardenSplatRenderer.enableDriveLod=true;});
 
 function resize(){fitGardenView(camera,innerWidth,innerHeight);renderer.setSize(innerWidth,innerHeight);}addEventListener('resize',resize);resize();
 const labelProjection=new THREE.Vector3();let lastLabelUpdate=0;
 let perfStart=performance.now(),perfFrames=0;
-let lastGardenFrame=0;
+let lastGardenFrame=0,splatCheckFrames=0,splatMinimum=Infinity;
 let gardenVisible=parent===window;addEventListener('message',event=>{if(event.origin===location.origin&&event.source===parent&&event.data?.type==='garden-visibility')gardenVisible=!!event.data.visible;if(event.origin===location.origin&&event.source===parent&&event.data?.type==='garden-action'&&['zoom-in','zoom-out','reset'].includes(event.data.action))document.getElementById(event.data.action)?.click();});
 if(parent!==window)parent.postMessage({type:'garden-ready'},location.origin);
-function render(){const frameTime=performance.now();if(!gardenVisible||document.hidden||frameTime-lastGardenFrame<(frameTime<cameraMovingUntil?1000/60:1000/30)-1){requestAnimationFrame(render);return;}lastGardenFrame=frameTime;controls.update();const time=performance.now()/1000;refinedPond.update(time);lawnRill.update(time,reduced);life.update(time);windTime.value=reduced?0:time;if(time-lastLabelUpdate>1/24){lastLabelUpdate=time;for(const l of labels){const p=labelProjection.copy(l.pos).project(camera);l.el.style.left=(p.x*.5+.5)*innerWidth+'px';l.el.style.top=(-p.y*.5+.5)*innerHeight+'px';l.el.style.opacity=p.z>1||p.x>1||p.x<-1||p.y>1||p.y<-1?'0':hoveredPlace===l.key?'.98':'.52';}}renderer.render(scene,camera);perfFrames++;const perfNow=performance.now();if(perfNow-perfStart>2000){document.body.dataset.gardenPerformance=JSON.stringify({fps:Math.round(perfFrames*1000/(perfNow-perfStart)),drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles});perfFrames=0;perfStart=perfNow;}requestAnimationFrame(render);}Promise.all([greenhouseReady,archReady]).then(async()=>{
+function render(){const frameTime=performance.now();if(!gardenVisible||document.hidden||frameTime-lastGardenFrame<(frameTime<cameraMovingUntil?1000/60:1000/30)-1){requestAnimationFrame(render);return;}lastGardenFrame=frameTime;controls.update();
+if(splatsPrepared&&!splatUpdating&&frameTime<splatUpdateUntil){splatUpdating=true;gardenSplatRenderer.update({scene,camera}).catch(console.error).finally(()=>{splatUpdating=false;});}
+const time=performance.now()/1000;refinedPond.update(time);lawnRill.update(time,reduced);life.update(time);windTime.value=reduced?0:time;if(time-lastLabelUpdate>1/24){lastLabelUpdate=time;for(const l of labels){const p=labelProjection.copy(l.pos).project(camera);l.el.style.left=(p.x*.5+.5)*innerWidth+'px';l.el.style.top=(-p.y*.5+.5)*innerHeight+'px';l.el.style.opacity=p.z>1||p.x>1||p.x<-1||p.y>1||p.y<-1?'0':hoveredPlace===l.key?'.98':'.52';}}renderer.render(scene,camera);if(splatsPrepared&&splatCheckFrames<120){splatCheckFrames++;splatMinimum=Math.min(splatMinimum,gardenSplatRenderer.activeSplats);document.body.dataset.gardenInitialSplats=JSON.stringify({frames:splatCheckFrames,minimum:splatMinimum});}perfFrames++;const perfNow=performance.now();if(perfNow-perfStart>2000){document.body.dataset.gardenPerformance=JSON.stringify({fps:Math.round(perfFrames*1000/(perfNow-perfStart)),drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles});perfFrames=0;perfStart=perfNow;}requestAnimationFrame(render);}Promise.all([greenhouseReady,archReady]).then(async()=>{
  window.gardenBatchInfo=batchStaticScene(scene,{exclude:[ground]});
  renderer.shadowMap.needsUpdate=true;
  // Model decoding is not the same as a sorted, renderable splat frame.
@@ -350,10 +352,10 @@ function render(){const frameTime=performance.now();if(!gardenVisible||document.
    lastMapping=mapping;
    await new Promise(requestAnimationFrame);
   }
- }finally{spark.autoUpdate=true;}
+ }finally{spark.autoUpdate=false;}
  if(stable<3)throw new Error('Splat first frame did not become stable');
  // Preserve the warmed-up selection until a real camera change requests a new one.
- spark.enableDriveLod=false;
+ spark.enableDriveLod=false;splatsPrepared=true;
  document.body.dataset.gardenSplatReady='stable';
  renderer.render(scene,camera);
  await new Promise(requestAnimationFrame);
