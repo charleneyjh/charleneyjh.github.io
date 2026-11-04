@@ -298,6 +298,19 @@ if (parent !== window) {
   parent.addEventListener('resize', () => { if (kitchen.open) positionKitchen(); });
 }
 kitchen.addEventListener('close', () => previousFocus?.focus({preventScroll:true}));
+const kitchenPhotoButtons = kitchen.querySelectorAll('[data-kitchen-photo]');
+const kitchenMainPhoto = kitchen.querySelector('#kitchen-after-main');
+for (const button of kitchenPhotoButtons) {
+  button.addEventListener('click', () => {
+    const thumbnail = button.querySelector('img');
+    kitchenMainPhoto.src = thumbnail.src;
+    kitchenMainPhoto.alt = thumbnail.alt;
+    for (const option of kitchenPhotoButtons) {
+      option.setAttribute('aria-pressed', String(option === button));
+    }
+  });
+}
+
 function openPlace(key){const d=sites[key];previousFocus=document.activeElement;
 if(key==='cabin'){positionKitchen();kitchen.showModal();kitchen.scrollTop=0;return;}
 document.querySelector('#detail-title').textContent=d.title;dialog.showModal();}

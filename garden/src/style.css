@@ -64,7 +64,7 @@ header{top:88px}@media(max-width:550px){header{top:80px}}
 }
 .kitchen-copy { padding: clamp(24px, 5vw, 56px); }
 #kitchen h2 { margin: 10px 0 16px; }
-#kitchen .kitchen-copy p { font: 400 16px/1.65 "Newsreader", Georgia, serif; margin: 0 0 24px; }
+#kitchen .kitchen-copy p { font: 400 16px/1.5 "Newsreader", Georgia, serif; margin: 0 0 24px; }
 #kitchen .kitchen-copy p:last-child { margin-bottom: 0; }
 #kitchen h3 { margin: 36px 0 16px; font: 400 36px/1.15 "Newsreader", Georgia, serif; }
 
@@ -85,3 +85,40 @@ header{top:88px}@media(max-width:550px){header{top:80px}}
 #kitchen #kitchen-title { font-size: 20px; }
 
 .kitchen-before { margin-top: 36px; }
+
+#kitchen .project-photo-label {
+  margin: 0 0 20px;
+  font: 500 11px/1.5 "DM Sans", sans-serif;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+.kitchen-after { margin-top: 40px; }
+.kitchen-after-gallery {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 80px;
+  align-items: start;
+  gap: 16px;
+}
+#kitchen-after-main { display: block; width: 100%; height: auto; }
+.kitchen-after-thumbnails { display: flex; flex-direction: column; gap: 12px; }
+.kitchen-after-thumbnails button {
+  display: block;
+  width: 100%;
+  padding: 3px;
+  border: 1px solid transparent;
+  background: transparent;
+  opacity: .65;
+}
+.kitchen-after-thumbnails button[aria-pressed="true"] { border-color: #42583d; opacity: 1; }
+.kitchen-after-thumbnails button:hover { opacity: 1; }
+.kitchen-after-thumbnails img { display: block; width: 100%; height: auto; }
+#kitchen #side-yard-title { margin-top: 56px; font-size: 20px; }
+.side-yard-comparison { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.side-yard-comparison figure { margin: 0; }
+.side-yard-comparison img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; object-position: center; }
+@media (max-width: 600px) {
+  .kitchen-after-gallery { grid-template-columns: minmax(0, 1fr) 58px; gap: 10px; }
+  .side-yard-comparison { grid-template-columns: 1fr; }
+}
+
+#kitchen .kitchen-copy .renovation-ending { margin: 48px 0 0; }
