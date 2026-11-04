@@ -281,7 +281,26 @@ for(const planting of [gardenBotanicals,centralBorder,shopBorder,fullBorders.gre
   `);
  };
 });
-const dialog=document.querySelector('#details');let previousFocus=null;function openPlace(key){const d=sites[key];previousFocus=document.activeElement;document.querySelector('#detail-title').textContent=d.title;dialog.showModal();}
+const dialog=document.querySelector('#details');
+const kitchen=document.querySelector('#kitchen');
+let previousFocus=null;
+function positionKitchen() {
+  if (parent === window) return;
+  const frame = window.frameElement?.getBoundingClientRect();
+  if (!frame) return;
+  const top = Math.max(0, 64 - frame.top);
+  const bottom = Math.min(innerHeight, parent.innerHeight - frame.top);
+  kitchen.style.setProperty('--kitchen-top', `${top + 12}px`);
+  kitchen.style.setProperty('--kitchen-height', `${Math.max(0, bottom - top - 24)}px`);
+}
+if (parent !== window) {
+  parent.addEventListener('scroll', () => { if (kitchen.open) positionKitchen(); }, {passive:true});
+  parent.addEventListener('resize', () => { if (kitchen.open) positionKitchen(); });
+}
+kitchen.addEventListener('close', () => previousFocus?.focus({preventScroll:true}));
+function openPlace(key){const d=sites[key];previousFocus=document.activeElement;
+if(key==='cabin'){positionKitchen();kitchen.showModal();kitchen.scrollTop=0;return;}
+document.querySelector('#detail-title').textContent=d.title;dialog.showModal();}
 for(const b of document.querySelectorAll('[data-place]'))b.onclick=()=>openPlace(b.dataset.place);
 for(const d of document.querySelectorAll('dialog')){d.querySelector('.close').onclick=()=>d.close();d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();}});}dialog.addEventListener('close',()=>previousFocus?.focus());document.querySelector('.return-button').onclick=()=>dialog.close();
 const ray=new THREE.Raycaster(),pointer=new THREE.Vector2();function hit(e){const r=renderer.domElement.getBoundingClientRect();pointer.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);ray.setFromCamera(pointer,camera);const hits=ray.intersectObjects([...targets,...life.targets],true);if(!hits.length)return null;let obj=hits[0].object;while(obj&&!obj.userData.place&&!obj.userData.interaction)obj=obj.parent;return obj||null;}

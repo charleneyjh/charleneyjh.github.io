@@ -25,3 +25,51 @@ header{top:88px}@media(max-width:550px){header{top:80px}}
 /* The embed reserves vertical space for the landscape; controls live above the fades. */
 .embedded-garden header{top:clamp(250px,30vh,370px)}.embedded-garden footer{display:none}
 @media(max-width:550px){.embedded-garden header{top:225px}}
+
+#kitchen {
+  position: fixed;
+  inset: var(--kitchen-top, 5vh) 0 auto;
+  width: min(900px, calc(100% - 32px));
+  max-width: none;
+  max-height: var(--kitchen-height, 90vh);
+  margin: 0 auto;
+  padding: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  background: #f7f6f1;
+  color: #29352d;
+}
+#kitchen .kitchen-hero {
+  position: static;
+  display: block;
+  inset: auto;
+}
+.kitchen-hero img {
+  display: block;
+  width: 100%;
+  height: clamp(220px, 46vh, 460px);
+  max-height: calc(var(--kitchen-height, 90vh) * .6);
+  object-fit: cover;
+  object-position: center;
+}
+#kitchen .kitchen-close {
+  position: sticky;
+  top: 12px;
+  float: right;
+  z-index: 1;
+  width: 38px;
+  height: 38px;
+  margin: 12px 12px -50px 0;
+  border-radius: 50%;
+  background: #f7f6f1;
+  color: #29352d;
+}
+.kitchen-copy { padding: clamp(24px, 5vw, 56px); }
+#kitchen .kitchen-eyebrow {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+#kitchen h2 { margin: 10px 0 16px; }
+#kitchen .kitchen-copy p:last-child { max-width: 60ch; font-size: 16px; margin: 0; }
