@@ -332,6 +332,27 @@ let perfStart=performance.now(),perfFrames=0;
 let lastGardenFrame=0;
 let gardenVisible=parent===window;addEventListener('message',event=>{if(event.origin===location.origin&&event.source===parent&&event.data?.type==='garden-visibility')gardenVisible=!!event.data.visible;if(event.origin===location.origin&&event.source===parent&&event.data?.type==='garden-action'&&['zoom-in','zoom-out','reset'].includes(event.data.action))document.getElementById(event.data.action)?.click();});
 if(parent!==window)parent.postMessage({type:'garden-ready'},location.origin);
-function render(){const frameTime=performance.now();if(!gardenVisible||document.hidden||frameTime-lastGardenFrame<(frameTime<cameraMovingUntil?1000/60:1000/30)-1){requestAnimationFrame(render);return;}lastGardenFrame=frameTime;controls.update();if(frameTime>=cameraMovingUntil)setSplatBudget(camera.zoom>1.6?550000:350000);const time=performance.now()/1000;refinedPond.update(time);lawnRill.update(time,reduced);life.update(time);windTime.value=reduced?0:time;if(time-lastLabelUpdate>1/24){lastLabelUpdate=time;for(const l of labels){const p=labelProjection.copy(l.pos).project(camera);l.el.style.left=(p.x*.5+.5)*innerWidth+'px';l.el.style.top=(-p.y*.5+.5)*innerHeight+'px';l.el.style.opacity=p.z>1||p.x>1||p.x<-1||p.y>1||p.y<-1?'0':hoveredPlace===l.key?'.98':'.52';}}renderer.render(scene,camera);perfFrames++;const perfNow=performance.now();if(perfNow-perfStart>2000){document.body.dataset.gardenPerformance=JSON.stringify({fps:Math.round(perfFrames*1000/(perfNow-perfStart)),drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles});perfFrames=0;perfStart=perfNow;}requestAnimationFrame(render);}Promise.all([greenhouseReady,archReady]).then(()=>{window.gardenBatchInfo=batchStaticScene(scene,{exclude:[ground]});renderer.shadowMap.needsUpdate=true;render();requestAnimationFrame(()=>{document.querySelector('#loading').classList.add('done');});}).catch(()=>{});
+function render(){const frameTime=performance.now();if(!gardenVisible||document.hidden||frameTime-lastGardenFrame<(frameTime<cameraMovingUntil?1000/60:1000/30)-1){requestAnimationFrame(render);return;}lastGardenFrame=frameTime;controls.update();if(frameTime>=cameraMovingUntil)setSplatBudget(camera.zoom>1.6?550000:350000);const time=performance.now()/1000;refinedPond.update(time);lawnRill.update(time,reduced);life.update(time);windTime.value=reduced?0:time;if(time-lastLabelUpdate>1/24){lastLabelUpdate=time;for(const l of labels){const p=labelProjection.copy(l.pos).project(camera);l.el.style.left=(p.x*.5+.5)*innerWidth+'px';l.el.style.top=(-p.y*.5+.5)*innerHeight+'px';l.el.style.opacity=p.z>1||p.x>1||p.x<-1||p.y>1||p.y<-1?'0':hoveredPlace===l.key?'.98':'.52';}}renderer.render(scene,camera);perfFrames++;const perfNow=performance.now();if(perfNow-perfStart>2000){document.body.dataset.gardenPerformance=JSON.stringify({fps:Math.round(perfFrames*1000/(perfNow-perfStart)),drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles});perfFrames=0;perfStart=perfNow;}requestAnimationFrame(render);}Promise.all([greenhouseReady,archReady]).then(async()=>{
+ window.gardenBatchInfo=batchStaticScene(scene,{exclude:[ground]});
+ renderer.shadowMap.needsUpdate=true;
+ // Model decoding is not the same as a sorted, renderable splat frame.
+ // Keep the loading cover up until both models have stable LoD instances.
+ controls.update();cameraMovingUntil=0;setSplatBudget(camera.zoom>1.6?550000:350000);
+ const spark=gardenSplatRenderer;spark.autoUpdate=false;
+ let stable=0;
+ try{
+  for(let frame=0;frame<240&&stable<3;frame++){
+   await spark.update({scene,camera});renderer.render(scene,camera);
+   const ready=spark.lodInstances.size>=2&&spark.display.numSplats>0&&!spark.sorting&&!spark.sortDirty;
+   stable=ready?stable+1:0;
+   await new Promise(requestAnimationFrame);
+  }
+ }finally{spark.autoUpdate=true;}
+ if(stable<3)throw new Error('Splat first frame did not become stable');
+ renderer.render(scene,camera);
+ await new Promise(requestAnimationFrame);
+ document.querySelector('#loading').classList.add('done');
+ render();
+}).catch(error=>{console.error('Garden initialization failed',error);document.querySelector('#loading p').textContent='The garden could not finish loading. Please refresh.';});
 // Exposed read-only QA state; no external services or generated-image background.
 window.gardenPrototype={stage:2,sites:Object.keys(sites),paths:Object.keys(paths),renderer:'Three.js',get drawCalls(){return renderer.info.render.calls;},get triangles(){return renderer.info.render.triangles;}};
