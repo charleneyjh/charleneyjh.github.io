@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="assets/glass-cursor.css?v=7">
 <link rel="stylesheet" href="assets/theme.css?v=forest-glide1">
 <script>document.documentElement.dataset.theme='light';document.documentElement.dataset.palette='forest';</script>
-<link rel="stylesheet" href="assets/secret-garden.css?v=long-landscape1">
+<link rel="stylesheet" href="assets/secret-garden.css?v=compact-garden2">
 </head>
 <body>
   <header class="nav" id="nav">
@@ -127,6 +127,7 @@
     <div class="garden-scroll-transition"><a class="garden-scroll-cue" href="#secret-garden" aria-label="Scroll down to the garden"><span aria-hidden="true"></span></a></div>
 
     <section id="secret-garden" class="secret-garden" aria-label="Secret Garden">
+      <p class="garden-copyright">© <span id="year">2026</span> Charlene Yang</p>
       <iframe title="Interactive Secret Garden" data-src="/secret-garden/" loading="lazy" tabindex="0"></iframe>
       <div class="garden-control-rail"><div class="garden-embedded-controls" role="group" aria-label="Garden view controls">
         <button type="button" data-garden-action="zoom-out" aria-label="Zoom out">−</button>
@@ -245,10 +246,7 @@
     </section>
   </main>
 
-  <footer class="footer wrap">
-    <p class="label">© <span id="year"></span> Charlene Yang</p>
-    <p class="label"><a href="mailto:charleneyjh@gmail.com">Say hello</a></p>
-  </footer>
+
 
   <dialog id="case-password" aria-labelledby="case-password-title">
     <form id="case-password-form">
@@ -263,6 +261,6 @@
   <script src="script.js?v=filters-gate2"></script>
 <script src="assets/glass-cursor.js?v=3"></script>
 
-<script src="assets/secret-garden.js?v=long-landscape1" defer></script>
+<script src="assets/secret-garden.js?v=compact-garden2" defer></script>
 </body>
 </html>
