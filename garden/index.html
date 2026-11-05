@@ -86,4 +86,12 @@
   </div>
 </dialog>
 <div id="loading"><span class="loading-petals" aria-hidden="true"><i></i><i></i><i></i></span><p class="loading-copy" aria-live="off">Watering a few pixels...</p><small class="sr-only" id="loading-note"></small></div>
+<script>
+if(parent!==window){
+ const releaseParentCursor=()=>parent.postMessage({type:'garden-pointer-enter'},location.origin);
+ document.documentElement.addEventListener('pointerenter',releaseParentCursor,{passive:true});
+ document.addEventListener('pointerdown',releaseParentCursor,{passive:true});
+ document.addEventListener('pointermove',releaseParentCursor,{passive:true});
+}
+</script>
 <script type="module" src="/src/main.js"></script></body></html>

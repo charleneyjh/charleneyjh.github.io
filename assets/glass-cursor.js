@@ -14,5 +14,9 @@
  document.addEventListener('pointerover',event=>{if(event.target.closest?.('iframe,#secret-garden'))hide();},{passive:true});
  document.addEventListener('pointerout',event=>{if(!event.relatedTarget||event.relatedTarget.closest?.('iframe,#secret-garden'))hide();},{passive:true});
  window.addEventListener('scroll',hide,{passive:true,capture:true});
+ window.addEventListener('message',event=>{
+  const frame=document.querySelector('#secret-garden iframe');
+  if(event.origin===location.origin&&event.source===frame?.contentWindow&&event.data?.type==='garden-pointer-enter')hide();
+ });
  document.documentElement.addEventListener('pointerleave',hide);window.addEventListener('blur',hide);
 })();
