@@ -48,3 +48,7 @@
  .glass-cursor::before { content:none; }
  .glass-cursor::after { content:'';position:absolute;inset:1px;border-radius:50%;border-top:1px solid #fff;border-left:.7px solid #ffffffb3;transform:rotate(-25deg); }
 }
+
+/* An iframe owns its pointer events. Hide the parent cursor even if no leave event fires. */
+body:has(#secret-garden:hover) > .glass-cursor,
+body:has(iframe:hover) > .glass-cursor { opacity:0!important; visibility:hidden!important; }
