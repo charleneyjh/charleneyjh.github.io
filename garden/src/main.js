@@ -353,24 +353,31 @@ let perfStart=performance.now(),perfFrames=0;
 let lastGardenFrame=0,splatCheckFrames=0,splatMinimum=Infinity;
 let gardenVisible=parent===window;addEventListener('message',event=>{if(event.origin===location.origin&&event.source===parent&&event.data?.type==='garden-visibility')gardenVisible=!!event.data.visible;if(event.origin===location.origin&&event.source===parent&&event.data?.type==='garden-action'&&['zoom-in','zoom-out','reset'].includes(event.data.action))document.getElementById(event.data.action)?.click();});
 if(parent!==window)parent.postMessage({type:'garden-ready'},location.origin);
+let stableSplatFrames=0;
+function revealAfterSplatFrame(){
+ const spark=gardenSplatRenderer;
+ // A nonzero total can come from a provisional buffer before both LoDs are drawn.
+ const mapping=spark.display.mapping;
+ const ready=spark.activeSplats>0&&mapping.length===2&&mapping.every(({node,count,mappingVersion})=>{
+  const lod=spark.lodInstances.get(node);
+  return lod?.numSplats>0&&count===lod.numSplats&&mappingVersion===node.mappingVersion;
+ });
+ stableSplatFrames=ready?stableSplatFrames+1:0;
+ if(stableSplatFrames<4)return;
+ document.body.dataset.gardenSplatReady='ready';
+ clearInterval(loadingCopyTimer);
+ document.querySelector('#loading').classList.add('done');
+}
 function render(){const frameTime=performance.now();if(!gardenVisible||document.hidden||frameTime-lastGardenFrame<(frameTime<cameraMovingUntil?1000/60:1000/30)-1){requestAnimationFrame(render);return;}lastGardenFrame=frameTime;controls.update();
 
-const time=performance.now()/1000;refinedPond.update(time);lawnRill.update(time,reduced);life.update(time);windTime.value=reduced?0:time;if(time-lastLabelUpdate>1/24){lastLabelUpdate=time;for(const l of labels){const p=labelProjection.copy(l.pos).project(camera);l.el.style.left=(p.x*.5+.5)*innerWidth+'px';l.el.style.top=(-p.y*.5+.5)*innerHeight+'px';l.el.style.opacity=p.z>1||p.x>1||p.x<-1||p.y>1||p.y<-1?'0':hoveredPlace===l.key?'.98':'.52';}}renderer.render(scene,camera);if(splatsPrepared&&splatCheckFrames<120){splatCheckFrames++;splatMinimum=Math.min(splatMinimum,gardenSplatRenderer.activeSplats);document.body.dataset.gardenInitialSplats=JSON.stringify({frames:splatCheckFrames,minimum:splatMinimum});}perfFrames++;const perfNow=performance.now();if(perfNow-perfStart>2000){document.body.dataset.gardenPerformance=JSON.stringify({fps:Math.round(perfFrames*1000/(perfNow-perfStart)),drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles});perfFrames=0;perfStart=perfNow;}requestAnimationFrame(render);}Promise.all([greenhouseReady,archReady]).then(()=>{
+const time=performance.now()/1000;refinedPond.update(time);lawnRill.update(time,reduced);life.update(time);windTime.value=reduced?0:time;if(time-lastLabelUpdate>1/24){lastLabelUpdate=time;for(const l of labels){const p=labelProjection.copy(l.pos).project(camera);l.el.style.left=(p.x*.5+.5)*innerWidth+'px';l.el.style.top=(-p.y*.5+.5)*innerHeight+'px';l.el.style.opacity=p.z>1||p.x>1||p.x<-1||p.y>1||p.y<-1?'0':hoveredPlace===l.key?'.98':'.52';}}renderer.render(scene,camera);if(stableSplatFrames<4)revealAfterSplatFrame();if(splatsPrepared&&splatCheckFrames<120){splatCheckFrames++;splatMinimum=Math.min(splatMinimum,gardenSplatRenderer.activeSplats);document.body.dataset.gardenInitialSplats=JSON.stringify({frames:splatCheckFrames,minimum:splatMinimum});}perfFrames++;const perfNow=performance.now();if(perfNow-perfStart>2000){document.body.dataset.gardenPerformance=JSON.stringify({fps:Math.round(perfFrames*1000/(perfNow-perfStart)),drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles});perfFrames=0;perfStart=perfNow;}requestAnimationFrame(render);}Promise.all([greenhouseReady,archReady]).then(()=>{
  window.gardenBatchInfo=batchStaticScene(scene,{exclude:[ground]});
  renderer.shadowMap.needsUpdate=true;
- // Let Spark manage its own asynchronous buffers. Readiness must not block startup.
+ // Render under the loading overlay while Spark prepares its first display buffers.
  gardenSplatRenderer.autoUpdate=true;gardenSplatRenderer.enableDriveLod=true;
  splatsPrepared=true;
  render();
- const started=performance.now();let populatedFrames=0;
- function revealWhenReady(){
-  populatedFrames=gardenSplatRenderer.activeSplats>0?populatedFrames+1:0;
-  if((populatedFrames>=4&&performance.now()-started>300)||performance.now()-started>2000){
-   document.body.dataset.gardenSplatReady='ready';clearInterval(loadingCopyTimer);
-   document.querySelector('#loading').classList.add('done');
-  }else requestAnimationFrame(revealWhenReady);
- }
- requestAnimationFrame(revealWhenReady);
+
 }).catch(error=>{
  clearInterval(loadingCopyTimer);console.error('Garden initialization failed',error);
  const message=document.querySelector('#loading p');message.classList.remove('sr-only');
