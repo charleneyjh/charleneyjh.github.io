@@ -166,15 +166,22 @@ header{top:88px}@media(max-width:550px){header{top:80px}}
 
 @supports (background-clip: text) {
   #loading:not(.done) .loading-copy {
-    background-image: linear-gradient(105deg, #42563f 25%, #758565 46%, #81906e 50%, #758565 54%, #42563f 75%);
+    background-image: linear-gradient(
+      105deg,
+      #603653 20%,
+      #9c426a 43%,
+      #b783a5 50%,
+      #78507d 56%,
+      #603653 80%
+    );
     background-size: 230% 100%;
     background-clip: text;
     color: transparent;
-    animation: loading-text-sheen 2.8s ease-in-out infinite;
+    animation: loading-text-sheen 3.4s ease-in-out infinite;
   }
   @keyframes loading-text-sheen {
     from { background-position: 100% 0; }
-    to { background-position: 0 0; }
+    78%, to { background-position: 0 0; }
   }
   @media (prefers-reduced-motion: reduce), (forced-colors: active) {
     #loading:not(.done) .loading-copy {
