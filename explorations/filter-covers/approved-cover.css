@@ -174,17 +174,3 @@ body[data-connector="elastic"] .connections--original { stroke: #b8a08d; stroke-
  }
  #work.stacked-folio .work-filters .card.cover { min-height: 0; }
 }
-
-#work.stacked-folio .work-filters .cover-lock {
-  position: absolute;
-  z-index: 3;
-  inset: 12px 12px auto auto;
-  display: grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  background: var(--paper-raised);
-  color: var(--ink);
-}
