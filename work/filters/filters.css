@@ -598,3 +598,15 @@ strong { font-weight: 600; }
 @media (max-width: 800px) { .uf-context [role="tabpanel"].uf-context__row:not([hidden]) { grid-template-columns: 1fr; gap: 20px; } }
 .uf-visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
+
+@media (max-width: 760px) {
+  .uf-flow, .uf-timeline, .uf-ia { display: none; }
+}
+
+@media (max-width: 979px) {
+  .uf-hero { padding-bottom: 24px; }
+  .uf-hero__grid { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .uf-hero h1 { font-size: clamp(30px, 6vw, 48px); white-space: normal; }
+  .uf-cover { padding: 0 8px; }
+  .uf-cover img { height: auto; }
+}

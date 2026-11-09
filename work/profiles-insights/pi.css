@@ -275,3 +275,10 @@ html { scroll-behavior: smooth; }
 .pi-nav:hover a, .pi-nav a:focus-visible { color: #8a9ba3; }
 .pi-nav a[aria-current], .pi-nav a:hover { color: var(--pi-ink); }
 @media (max-width: 1279px) { .pi-nav { display: none; } }
+
+@media (max-width: 979px) {
+  .pi-hero__top { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .pi-hero h1 { font-size: clamp(30px, 6vw, 48px); line-height: 1.12; }
+  .pi-hero .pi-hero__shot { max-height: none; overflow: visible; }
+  .pi-hero .pi-hero__shot img { display: block; width: 100%; height: auto; max-height: none; object-fit: contain; }
+}

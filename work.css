@@ -21,7 +21,7 @@
 #work.stacked-folio .card__body h3+p { font-size: 17px; }
 #work.stacked-folio .card:focus-visible { outline: 3px solid var(--accent); }
 @media(max-width:760px) {
-  #work.stacked-folio .card { grid-template-columns: 1fr; gap: 24px; padding: 48px 24px 28px !important; min-height: 0; }
+  #work.stacked-folio .card { grid-template-columns: minmax(0, 1fr); gap: 24px; padding: 48px 24px 28px !important; min-height: 0; }
 }
 
 /* Restore the original folio stacking interaction. */
@@ -138,14 +138,13 @@
 
 /* Scroll-linked editorial years. */
 .work-year { position:fixed;left:30px;top:48%;z-index:20;width:155px;color:#2c5146;pointer-events:none;opacity:0;transform:rotate(-90deg);transform-origin:center;transition:opacity .2s; }
-.work-year__label {display:block;font:400 10px 'DM Mono',monospace;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px;}
-.work-year__value {display:block;font:500 56px/1 Newsreader,serif;letter-spacing:-.04em;}
-.work-year__track {display:block;width:100%;height:1px;background:#c7d1c6;margin-top:20px;}
+.work-year__label {display:block;font:500 9px/1.2 Figtree, sans-serif;letter-spacing:.24em;text-transform:uppercase;margin-bottom:9px;}
+.work-year__value {display:block;font:400 60px/.94 Newsreader, Georgia, serif;letter-spacing:-.055em;}
+.work-year__track {display:block;width:100%;height:1px;background:#c7d1c6;margin-top:12px;}
 .work-year__track:after {content:'';display:block;width:var(--year-progress,16%);height:1px;background:#2c5146;transition:width .4s;}
 .work-year__value.is-changing {animation:work-year-in .35s ease both;}
 @keyframes work-year-in {from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
 @media(min-width:761px) {#work.stacked-folio {width:calc(100% - 250px);max-width:1060px;margin-left:auto;margin-right:42px;}}
-@media(max-width:760px) {.work-year{left:3px;width:60px;top:48%;}.work-year__value{font-size:24px}.work-year__label{font-size:8px;margin-bottom:8px}.work-year__track{margin-top:10px}#work.stacked-folio{width:calc(100% - 76px);margin-left:auto;margin-right:12px;}}
 @media(prefers-reduced-motion:reduce) {.work-year,.work-year__track:after{transition:none}.work-year__value.is-changing{animation:none}}
 
 #work .case-study-logo--chi { width:44px;height:26px;object-fit:contain; }
@@ -165,7 +164,9 @@
  .work-year {left:max(-12px,calc((100vw - var(--wrap)) / 2 - 145px));}
 }
 @media(max-width:760px) {
- .work-year {left:-18px;width:55px;}.work-year__label {display:none;}.work-year__track {display:none;}
+ .work-year {display:none;}
+ #work.stacked-folio .cards {grid-template-columns:minmax(0,1fr);}
+ #work.stacked-folio .cards > li {min-width:0;}
 }
 
 #work.stacked-folio .cards > li.work-profiles .card { background:#e3eadd!important;border-color:#bdcbbb!important; }

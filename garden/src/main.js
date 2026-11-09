@@ -341,6 +341,33 @@ for(const b of document.querySelectorAll('[data-place]'))b.onclick=()=>openPlace
 for(const d of document.querySelectorAll('dialog')){d.querySelector('.close').onclick=()=>d.close();d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();}});}dialog.addEventListener('close',()=>previousFocus?.focus());
 const ray=new THREE.Raycaster(),pointer=new THREE.Vector2();function hit(e){const r=renderer.domElement.getBoundingClientRect();pointer.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);ray.setFromCamera(pointer,camera);const hits=ray.intersectObjects([...targets,...life.targets],true);if(!hits.length)return null;let obj=hits[0].object;while(obj&&!obj.userData.place&&!obj.userData.interaction)obj=obj.parent;return obj||null;}
 let hoveredPlace=null;renderer.domElement.addEventListener('pointerleave',()=>{life.hover(null);hoveredPlace=null;});let down=null;renderer.domElement.addEventListener('pointerdown',e=>{down={x:e.clientX,y:e.clientY};});renderer.domElement.addEventListener('pointerup',e=>{if(down&&Math.hypot(e.clientX-down.x,e.clientY-down.y)<5){const k=hit(e);if(k?.userData.place)openPlace(k.userData.place);else if(k)life.interact(k);}down=null;});let lastHoverHit=0;renderer.domElement.addEventListener('pointermove',e=>{const now=performance.now();if(now-lastHoverHit<40||down)return;lastHoverHit=now;const k=hit(e);life.hover(k);hoveredPlace=k?.userData.place||null;renderer.domElement.style.cursor=k?'pointer':'grab';});
+// A vertical touch drag belongs to the portfolio, even inside its iframe.
+if(parent!==window){
+ const canvas=renderer.domElement;
+ let drag=null;
+ canvas.addEventListener('pointerdown',event=>{
+  if(event.pointerType==='touch'&&event.isPrimary){
+   drag={id:event.pointerId,x:event.screenX,y:event.screenY,axis:null};
+  }
+ });
+ canvas.addEventListener('pointermove',event=>{
+  if(event.pointerId!==drag?.id)return;
+  const dx=event.screenX-drag.x,dy=event.screenY-drag.y;
+  if(!drag.axis){
+   if(Math.max(Math.abs(dx),Math.abs(dy))<8){event.stopImmediatePropagation();return;}
+   drag.axis=Math.abs(dy)>Math.abs(dx)?'vertical':'horizontal';
+  }
+  if(drag.axis!=='vertical')return;
+  event.stopImmediatePropagation();
+  down=null;
+  drag.y=event.screenY;
+  parent.postMessage({type:'garden-scroll',delta:-dy},location.origin);
+ },{capture:true});
+ const endDrag=event=>{if(event.pointerId===drag?.id)drag=null;};
+ canvas.addEventListener('pointerup',endDrag);
+ canvas.addEventListener('pointercancel',endDrag);
+ canvas.addEventListener('lostpointercapture',endDrag);
+}
 function reset(){resetGardenView(camera,controls,innerWidth,innerHeight);}document.querySelector('#reset').onclick=reset;function zoom(f){camera.zoom=THREE.MathUtils.clamp(camera.zoom*f,.65,2.5);camera.updateProjectionMatrix();}document.querySelector('#zoom-in').onclick=()=>zoom(1.16);document.querySelector('#zoom-out').onclick=()=>zoom(1/1.16);
 let cameraMovingUntil=0,splatUpdateUntil=0,splatUpdating=false,splatsPrepared=false;
 function setSplatBudget(budget){if(gardenSplatRenderer&&gardenSplatRenderer.lodSplatCount!==budget){gardenSplatRenderer.lodSplatCount=budget;gardenSplatRenderer.lodDirty=true;}}

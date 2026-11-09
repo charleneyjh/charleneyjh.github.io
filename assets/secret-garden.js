@@ -14,7 +14,13 @@
   loader.observe(section);
   new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;notify();},{threshold:0}).observe(section);
   frame.addEventListener('load',notify);
-  window.addEventListener('message',event=>{if(event.origin===location.origin&&event.source===frame.contentWindow&&event.data?.type==='garden-ready')notify();});
+  window.addEventListener('message',event=>{
+    if(event.origin!==location.origin||event.source!==frame.contentWindow)return;
+    if(event.data?.type==='garden-ready')notify();
+    if(event.data?.type==='garden-scroll'&&Number.isFinite(event.data.delta)){
+      window.scrollBy({top:event.data.delta,behavior:'instant'});
+    }
+  });
   window.addEventListener('scroll',()=>{if(!scrolling){scrolling=true;notify();}clearTimeout(scrollTimer);scrollTimer=setTimeout(()=>{scrolling=false;notify();},160);},{passive:true});
   document.addEventListener('visibilitychange',notify);
   section.querySelectorAll('[data-garden-action]').forEach(button=>button.addEventListener('click',()=>frame.contentWindow?.postMessage({type:'garden-action',action:button.dataset.gardenAction},location.origin))); 

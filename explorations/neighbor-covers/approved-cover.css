@@ -31,6 +31,6 @@
 #work.stacked-folio .work-neighborcircle .work-number { z-index: 5; }
 #work.stacked-folio .work-neighborcircle .work-arrow { z-index: 5; }
 @media(max-width:850px) {
- #work.stacked-folio .work-neighborcircle .card { grid-template-columns: 1fr; }
+ #work.stacked-folio .work-neighborcircle .card { grid-template-columns: minmax(0, 1fr); }
  #work.stacked-folio .work-neighborcircle .card__body { padding: 24px 32px 36px; }
 }

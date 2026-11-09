@@ -1,0 +1,105 @@
+/* Reflow the original Wix components in document order below their desktop width. */
+@media (max-width: 979px) {
+  body, #SITE_CONTAINER, #main_MF, #site-root, #masterPage, #PAGES_CONTAINER,
+  #SITE_PAGES, #SITE_PAGES_TRANSITION_GROUP, [id^="pageBackground_"] {
+    --site-width: 100vw;
+    min-width: 0 !important;
+    max-width: 100%;
+  }
+
+  #PAGES_CONTAINER :is([data-mesh-id$="gridContainer"], .wixui-column-strip > .Ak0vpt) {
+    display: flex !important;
+    flex-direction: column;
+    gap: 16px;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  #PAGES_CONTAINER :is([data-mesh-id$="gridContainer"], .wixui-column-strip > .Ak0vpt) > * {
+    margin: 0 !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    align-self: stretch;
+  }
+
+  #PAGES_CONTAINER [data-mesh-id$="gridContainer"] > [id^="comp-"] {
+    width: auto !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+    left: auto !important;
+    top: auto !important;
+    overflow-wrap: anywhere;
+  }
+
+  #PAGES_CONTAINER .wixui-column-strip > .Ak0vpt {
+    box-sizing: border-box;
+    padding: 32px clamp(16px, 5vw, 40px);
+  }
+
+  #PAGES_CONTAINER :is(wix-image, img, video, iframe) {
+    max-width: 100% !important;
+  }
+
+  #PAGES_CONTAINER :is(img, video) {
+    height: auto !important;
+    object-fit: contain;
+  }
+
+  #PAGES_CONTAINER :is(.nc-overview-grid, .event-direction-copy) {
+    box-sizing: border-box;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 24px;
+    padding-inline: clamp(16px, 5vw, 40px);
+  }
+}
+
+@media (max-width: 979px) {
+  #PAGES_CONTAINER :is([data-mesh-id], interact-element, .wixui-rich-text__text) {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  #PAGES_CONTAINER .wixui-rich-text__text { overflow-wrap: anywhere; }
+  #PAGES_CONTAINER .pro-gallery-parent-container { max-width: 100%; overflow-x: auto; }
+  #PAGES_CONTAINER .wixui-vector-image svg { max-width: 100%; }
+}
+
+@media (max-width: 979px) {
+  /* Put the legacy title and artwork back into normal flow above the overview. */
+  #PAGES_CONTAINER [data-mesh-id$="gridContainer"] > :is(
+    #comp-kzvnjlkb, #comp-kzvno74q, #comp-kzvni7bh,
+    #comp-jsb7gnfl, #comp-jsb2gkkd, #comp-jsb7g2vy
+  ) {
+    position: relative !important;
+    inset: auto !important;
+    transform: none !important;
+    box-sizing: border-box;
+    overflow: visible;
+    padding-inline: clamp(16px, 5vw, 40px);
+  }
+
+  #PAGES_CONTAINER :is(#comp-kzvnjlkb, #comp-jsb7gnfl) {
+    order: -4;
+    padding-top: 32px;
+  }
+
+  #PAGES_CONTAINER :is(#comp-kzvnjlkb, #comp-jsb7gnfl) :is(h4, p, span) {
+    font-size: clamp(30px, 6vw, 48px) !important;
+    transform: none;
+    line-height: 1.12 !important;
+    margin: 0;
+    text-align: left;
+  }
+
+  #PAGES_CONTAINER #comp-kzvno74q { order: -3; }
+  #PAGES_CONTAINER :is(#comp-kzvni7bh, #comp-jsb2gkkd) { order: -2; }
+  #PAGES_CONTAINER #comp-jsb7g2vy { order: -1; }
+
+  #PAGES_CONTAINER :is(#comp-kzvni7bh, #comp-jsb2gkkd, #comp-jsb7g2vy) img {
+    display: block;
+    width: 100%;
+  }
+
+  #PAGES_CONTAINER .event-cover-crop { aspect-ratio: auto; }
+}

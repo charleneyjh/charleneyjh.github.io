@@ -783,3 +783,7 @@ textarea,
 #about {margin-top:-80px;}
 #about .about {grid-template-columns:minmax(0,1fr);}
 #about .about__body,#about .about__body p {width:100%;max-width:none;}
+
+@media (max-width: 600px) {
+  #work.stacked-folio .card { min-width: 0; }
+}

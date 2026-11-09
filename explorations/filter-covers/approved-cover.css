@@ -162,3 +162,29 @@ body[data-connector="elastic"] .connections--original { stroke: #b8a08d; stroke-
 }
 
 #work.stacked-folio .work-filters .cover-copy h3 { font-size: 40px; }
+
+@media (max-width: 760px) {
+ #work.stacked-folio .work-filters .art-clarity :is(.connections, .old) { display: none; }
+ #work.stacked-folio .work-filters .art-clarity { height: auto; padding: 24px 20px 0; }
+ #work.stacked-folio .work-filters .editor {
+   position: relative;
+   inset: auto;
+   width: min(100%, 226px);
+   margin-inline: auto;
+ }
+ #work.stacked-folio .work-filters .card.cover { min-height: 0; }
+}
+
+#work.stacked-folio .work-filters .cover-lock {
+  position: absolute;
+  z-index: 3;
+  inset: 12px 12px auto auto;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--paper-raised);
+  color: var(--ink);
+}
