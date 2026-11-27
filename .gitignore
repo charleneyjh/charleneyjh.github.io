@@ -5,3 +5,9 @@
 # Generated garden build and dependencies
 /secret-garden/
 /garden/node_modules/
+
+# Local bundles for Claude Artifact review
+/.artifact-build/
+
+# Plaintext sources for password-protected case studies (only the encrypted locked.json ships)
+/private/

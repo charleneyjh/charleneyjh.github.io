@@ -91,17 +91,23 @@ if (['localhost', '127.0.0.1'].includes(location.hostname)) {
     input.focus();
   });
   document.getElementById('case-password-cancel').addEventListener('click', () => dialog.close());
+  const submit = dialog.querySelector('button[type="submit"]');
   document.getElementById('case-password-form').addEventListener('submit', async event => {
     event.preventDefault();
-    const bytes = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(input.value));
-    const hash = Array.from(new Uint8Array(bytes), b => b.toString(16).padStart(2, '0')).join('');
-    if (hash !== '6dea502e53d00cd5f9e702d23d5c005efcf6edea4df968681c9c6404aac91096') {
-      error.textContent = 'Incorrect password. Please try again.';
-      input.select();
+    error.textContent = '';
+    submit.disabled = true;
+    try {
+      // The case study ships encrypted; a correct password is one that decrypts it (assets/case-lock.js).
+      if (!await CaseLock.unlock('filters', 'work/filters/locked.json', input.value)) {
+        error.textContent = 'Incorrect password. Please try again.';
+        input.select();
+        return;
+      }
+    } catch {
+      error.textContent = 'Could not load the case study. Please try again.';
       return;
-    }
+    } finally { submit.disabled = false; }
     dialog.close();
-    try { sessionStorage.setItem('uf-unlocked', '1'); } catch {}
     window.location.assign(link.href);
   });
 })();
